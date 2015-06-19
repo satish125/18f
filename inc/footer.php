@@ -36,7 +36,8 @@
 									<h3>Contact Us</h3>
 									
 									<p>Next Tier Concepts, Inc.<br/>
-										1945 Old Gallows Road, Suite 400, Vienna, VA 22182<br/>
+										1945 Old Gallows Road, Suite 400<br/>
+										Vienna, VA 22182<br/>
 										703.288.0010<br/>
 										<a href="mailto:info@ntconcepts.com">info@ntconcepts.com</a></p>
 									
