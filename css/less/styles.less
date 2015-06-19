@@ -33,6 +33,7 @@
 				i. Footer Logo
 			   ii. Footer Top Info
 			  iii. Footer Bottom Info
+			   iv. Media Queries
 
    *************************************************************************************************** */
 
@@ -54,7 +55,7 @@ html, body {
 		font-weight: 400;
 		line-height: 1;
 		overflow-x: hidden;
-		background-color: #1a1a1a;
+		background-color: #2c2c2c;
 		}
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4,
@@ -78,7 +79,6 @@ html, html a {
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
 	}
 
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
@@ -311,25 +311,29 @@ div.sectionwrapper {}
 			div.sectioninside {
 				padding: 0 0 15px;
 				}
-		}
 			
 			/* Homepage Info */
-			div.sectionwrapper.pagecontent.homepageinfo {
+			&.homepageinfo {
 				div.sectioninside {
 					padding: 45px 0;
 					}
 			}
+		}
 
 
 
 /* ******************************************************** */
 /* ii. Content Section Background/Border Colors *********** */
 /* ******************************************************** */
-div.sectionwrapper.bkggray {
-	border: 1px solid #e0e0e0;
-	border-width: 1px 0;
-	background-color: #ebebeb;
-	}
+div.sectionwrapper {
+	
+	/* Gray Background */
+	&.bkggray {
+		border: 1px solid #e0e0e0;
+		border-width: 1px 0;
+		background-color: #ebebeb;
+		}
+}
 
 
 
@@ -359,10 +363,11 @@ div.sectionwrapper {
 		font-weight: normal;
 		font-weight: 400;
 		line-height: 1.15em;
-		}
-		h2.sectitle {
+		
+		&.sectitle {
 			padding: 30px 0;
 			}
+	}
 	h3 {
 		padding: 10px 0;
 		font-size: 1.35em;
@@ -385,11 +390,10 @@ div.sectionwrapper {
 
 div.slideitemcontent a,
 div.pagecontent a {
-	color: #ffaa32;
-	text-decoration: underline;
+	color: #4eaaf3;
 	
 	&:hover {
-		color: #ff8c00;
+		color: #005395;
 		}
 }
 
@@ -428,6 +432,7 @@ div.sectionwrapper {
 		}
 	}
 	
+	/* List Element */
 	li {
 		font-size: 0.90em;
 		line-height: 1.15em;
@@ -460,7 +465,7 @@ div.headerlogo {
 		overflow: hidden;
 		
 		&:hover {
-			color: #ffaa32;
+			color: #005395;
 			}
 		
 		img {
@@ -482,14 +487,14 @@ ul.headerlinkslist {
 	padding: 0 0 0 150px;
 	float: right;
 	list-style-type: none;
-	}
-	ul.headerlinkslist > li {
+	
+	li {
 		position: relative;
 		margin: 0;
 		display: block;
 		float: left;
-		}
-		ul.headerlinkslist > li > a {
+		
+		a {
 			margin: 0 0 0 1px;
 			padding: 20px 15px 17px;
 			display: block;
@@ -512,15 +517,16 @@ ul.headerlinkslist {
 			transition: 		color 0.2s ease-in-out,
 								border-color 0.2s ease-in-out,
 								background-color 0.2s ease-in-out;
-								
-								
 			}
-			ul.headerlinkslist > li.active > a,
-			ul.headerlinkslist > li:hover > a {
-				padding-bottom: 17px;
-				color: #ffaa32;
-				border-color: #ffaa32;
-				}
+		
+		&.active a,
+		&:hover a {
+			padding-bottom: 17px;
+			color: #005395;
+			border-color: #005395;
+			}
+	}
+}
 
 
 
@@ -544,15 +550,15 @@ div.mnavwrapper.headerlinksnav {
 		overflow: hidden;
 		cursor: pointer;
 		background-color: #303030;
-		}
-		div.mnavhandle div.mhandleinner {
+		
+		div.mhandleinner {
 			position: absolute;
 			top: 20px;
 			right: 15px;
 			width: 25px;
 			cursor: pointer;
-			}
-			div.mnavhandle div.mhandleinner span {
+			
+			span {
 				margin: 0 0 3px;
 				display: block;
 				height: 4px;
@@ -564,20 +570,23 @@ div.mnavwrapper.headerlinksnav {
 				-o-transition: 		background-color 0.2s ease-in-out;
 				transition: 		background-color 0.2s ease-in-out;
 				}
-				div.mnavwrapper.active div.mhandleinner span {
-					background-color: #ffaa32;
-					}
+		}
+		
+		&.active div.mhandleinner span {
+			background-color: #005395;
+			}
+	}
 	
 	/* Mobile Navigation List */
 	ul.mobileheaderlinkslist {
 		margin-bottom: 2px;
 		margin-left: -150px;
 		display: none;
-		}
-		ul.mobileheaderlinkslist li {
+	
+		li {
 			display: block;
-			}
-			ul.mobileheaderlinkslist li a {
+		
+			a {
 				padding: 10px 15px;
 				display: block;
 				color: #fafafa;
@@ -591,19 +600,22 @@ div.mnavwrapper.headerlinksnav {
 				-o-transition: 		background-color 0.2s ease-in-out;
 				transition: 		background-color 0.2s ease-in-out;
 				}
-				ul.mobileheaderlinkslist > li:last-child a {
-					border-bottom: 0 none;
-					
-					&:hover {
-						background-color: #353535;
-						}
-				}
 			
-			ul.mobileheaderlinkslist ul li a {
-				padding-left: 35px;
-				font-size: 1.15em;
-				background-color: #2b2b2b;
-				}
+			&:last-child a {
+				border-bottom: 0 none;
+				
+				&:hover {
+					background-color: #353535;
+					}
+			}
+		}
+		
+		ul li a {
+			padding-left: 35px;
+			font-size: 1.15em;
+			background-color: #2b2b2b;
+			}
+	}
 
 
 
@@ -614,9 +626,7 @@ div.mnavwrapper.headerlinksnav {
 /*850px*/
 @media screen and (min-width: 0) and (max-width: 850px){
 	
-	div.sectionwrapper.pageheader {
-		padding: 0;
-		}
+	div.sectionwrapper.pageheader {}
 		
 		/* Non-mobile Navigation */
 		ul.headerlinkslist { display: none; }
@@ -763,30 +773,18 @@ div.footerlogo {
 	a {
 		margin: 0 auto 15px;
 		display: block;
-		width: 165px;
-		color: #fff;
+		width: 100%;
+		max-width: 165px;
 		
-		&:hover {
-			color: #ffaa32;
-			}
-	}
-	
-	span.footerlogotxt {
-		position: relative;
-		padding: 35px 0 35px 105px;
-		display: block;
-		font-size: 1.75em;
-		line-height: 1.55em;
-	
-		&:after {
-			position: absolute;
-			top: 50%;
-			left: 0;
-			margin: -18px 0 0;
-			font-family: '18flogo';
-			font-size: 3.75em;
-			content: '\e600';
-			}
+		span.footerlogoicon {
+			display: block;
+			
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+				}
+		}
 	}
 }
 
@@ -796,37 +794,40 @@ div.footerlogo {
 /* ii. Footer Top Info ************************************ */
 /* ******************************************************** */
 div.ftrinfotop {
-	padding: 0 0 15px;
+	margin: 0 -15px;
+	padding: 10px 0 15px;
+	color: #d5d5d5;
 	overflow: hidden;
 	
-	ul.ftrsitelinks {
-		margin: 0;
+	/* Top Footer Typography */
+	h3 {
 		padding: 0;
-		list-style-type: none;
-		text-align: center;
+		color: #b5b5b5;
+		font-weight: 600;
 		}
-		ul.ftrsitelinks > li {
-			display: inline-block;
-			font-size: 1.05em;
-			}
-			ul.ftrsitelinks > li > a {
-				padding: 3px 0;
-				display: block;
-				color: #fafafa;
-			
-				&:hover {
-					color: #ffaa32;
-					}
-			}
-			
-		ul.ftrsitelinks li.sep {
-			
-			span {
-				padding: 3px 6px;
-				padding: 3px 6px;
-				display: block;
-				}
+	
+	p {
+		color: #5a6167;
+		line-height: 1.45em;
 		}
+	
+	a {
+		color: #428dc8;
+		
+		&:hover {
+			color: #005395;
+			}
+	}
+	
+	/* Top Footer Columns */
+	div.ftrcol {
+		float: left;
+		width: 33.33%;
+		
+		div.ftrcol_inner {
+			padding: 0 15px;
+			}
+	}
 }
 
 
@@ -835,8 +836,55 @@ div.ftrinfotop {
 /* iii. Footer Bottom Info ******************************** */
 /* ******************************************************** */
 div.ftrinfobottom {
-	text-align: center;
+	padding: 20px 0 0;
+	color: #a1a1a1;
+	font-size: 0.80em;
+	line-height: 1.45em;
+	text-transform: uppercase;
+	border-top: 1px solid #353535;
+	
+	a {
+		color: #428dc8;
+		
+		&:hover {
+			color: #005395;
+			}
 	}
+}
 
 
 
+/* ******************************************************** */
+/* iv. Media Queries ************************************** */
+/* ******************************************************** */
+
+/*750px*/
+@media screen and (min-width: 0) and (max-width: 750px){
+	
+	/* Top Footer Columns */
+	div.ftrinfotop {
+		margin: -15px 0;
+		
+		div.ftrcol {
+			float: none;
+			width: 100%;
+			
+			div.ftrcol_inner {
+				padding: 15px 0;
+				}
+		}
+	}
+}
+
+/*550px*/
+@media screen and (min-width: 0) and (max-width: 550px){
+	
+	/* Bottom Footer */
+	div.ftrinfobottom {
+		text-align: center;
+		
+		a {
+			display: block;
+			}
+	}
+}

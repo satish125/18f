@@ -7,8 +7,9 @@
 						<?php /* Footer Logo: Start */ ?>
 						<div class="footerlogo">
 							<a href="<?php echo BASE_URL; ?>">
-								<span class="footerlogoicon"></span>
-								<span class="footerlogotxt">Next Tier Concepts</span>
+								<span class="footerlogoicon">
+									<img src="<?php echo BASE_URL; ?>images/logo_ntc.png" alt="Next Tier Concepts" />
+								</span>
 							</a>
 							
 							<div class="clear"></div>
