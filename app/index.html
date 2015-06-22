@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+     <title>OpenFDA Dashboard</title>
+     <link rel="stylesheet" href="css/bootstrap.css">
+     <link rel="stylesheet" href="css/minerva.css">
+     <link rel="stylesheet" href="css/app.css">
+
+     <!-- dependencies -->
+     <script type="text/javascript" src="libs/angular.min.js"></script>
+     <script type="text/javascript" src="libs/minerva.min.js"></script>
+     <script type="text/javascript" src="libs/d3.min.js"></script>
+     <script type="text/javascript" src="libs/d3.tip.v0.6.3.js"></script>
+     <script type="text/javascript" src="libs/jquery-1.10.2.min.js"></script>
+     <script type="text/javascript" src="libs/ui-bootstrap-tpls-0.13.0.min.js"></script>
+     <script type="text/javascript" src="libs/underscore-min.js"></script>
+     <script type="text/javascript" src="libs/topojson.v1.min.js"></script>
+     
+     <!-- Application JS Files -->
+     <script type="text/javascript" src="app.js"></script>
+     <script type="text/javascript" src="services/openFDA.factory.js"></script>
+     <script type="text/javascript" src="features/enforcement/openFDA.enforcement.js"></script>
+     <script type="text/javascript" src="features/enforcement/openFDA.enforcement.factory.js"></script>
+  </head>
+  <body ng-app="openFDAApp"> 
+    <div ng-controller="mainCtrl">
+      <mv-header mv-title="{{title}}"></mv-header>
+      <div ng-controller="enforcementCtrl">
+        <mv-body mv-cols="6">
+          <mv-id-box mv-size="3x4" mv-title="{{mapLabel}}">
+            <mv-chart mv-data="mapData" mv-options="mapOptions"></mv-chart>
+          </mv-id-box>
+          <mv-id-box mv-size="2x2" mv-title="{{chartLabel}}">
+            <mv-chart mv-data="chartData" mv-options="chartOptions"></mv-chart>
+          </mv-id-box>
+          <mv-any-num mv-size="1x2" mv-title="{{statusLabel}}" mv-data="statusData"></mv-any-num>
+
+          <div class="buttonContainer pull-right">
+            <span>Drug Classification: </span>
+            <button class="btn btn-primary" ng-click="selectClass('Class I')">Class I</button>
+            <button class="btn btn-primary" ng-click="selectClass('Class II')">Class II</button>
+            <button class="btn btn-primary" ng-click="selectClass('Class III')">Class III</button>
+          </div>
+        </mv-body>
+      </div>
+    </div>
+  </body>
+</html>
