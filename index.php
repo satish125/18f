@@ -16,6 +16,8 @@ include_once 'inc/header.php';
 			
 			<h2>18F Prototype Homepage</h2>
 			
+			<div id="fdabarchart"></div>
+			
 			<p><a href="#">Donec ut leo odio</a>. Quisque eget tempor ante, eu porta diam. Nulla in tellus egestas arcu gravida porttitor consequat et ligula. Suspendisse vitae dictum velit, nec volutpat lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam tristique fermentum mauris pellentesque ullamcorper. Quisque pharetra sit amet quam vitae finibus.</p>
 			
 			<p>Etiam sed congue nisi, sit amet consequat mi. Proin non urna et mi pretium tincidunt vitae at enim.</p>

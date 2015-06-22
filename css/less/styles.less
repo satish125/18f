@@ -34,6 +34,7 @@
 			   ii. Footer Top Info
 			  iii. Footer Bottom Info
 			   iv. Media Queries
+		   IX. Homepage Bar Chart
 
    *************************************************************************************************** */
 
@@ -888,3 +889,80 @@ div.ftrinfobottom {
 			}
 	}
 }
+
+
+
+/* *************************************************************************************************** */
+/* IX. Homepage Bar Chart **************************************************************************** */
+/* *************************************************************************************************** */
+div.fdareactiongraph {
+	padding: 13px 0 20px 45px;
+	float: right;
+	max-width: 600px;
+	}
+	div.fdareactiongraph_inner {
+		padding: 0 10px 0 20px;
+		}
+		
+		div.fdareactiongraph h3 {
+			padding-top: 0;
+			font-size: 1.25em;
+			font-weight: normal;
+			line-height: 1.20em;
+			}
+		
+		div.patientdrugrow {
+			position: relative;
+			}
+			div.patientdrug_lbl {
+				position: relative;
+				padding: 10px 10px 10px 0;
+				width: 120px;
+				font-size: 13px;
+				line-height: 1;
+				border: 1px solid #777;
+				border-width: 0 1px 0 0;
+				
+				-webkit-user-select: 	none;
+				-moz-user-select: 		none;
+				user-select: 			none;
+				}
+				div.patientdrug_lbl:after {
+					position: absolute;
+					top: 50%;
+					right: 0;
+					width: 5px;
+					height: 1px;
+					content: '';
+					border-bottom: 1px solid #777;
+					}
+			div.patientdrug_data {
+				position: absolute;
+				top: 50%;
+				left: 119px;
+				z-index: 5;
+				margin-top: -10px;
+				width: 100%;
+				}
+				div.patientdrug_counter {
+					padding: 0 10px;
+					height: 20px;
+					color: #f1f1f1;
+					font-size: 0.80em;
+					line-height: 1.50em;
+					text-align: right;
+					background-color: #d23939;
+					
+					-webkit-user-select: 	none;
+					-moz-user-select: 		none;
+					user-select: 			none;
+					}
+
+
+
+
+
+
+
+
+
