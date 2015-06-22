@@ -316,7 +316,7 @@ div.sectionwrapper {}
 			/* Homepage Info */
 			&.homepageinfo {
 				div.sectioninside {
-					padding: 45px 0;
+					padding: 15px 0 45px;
 					}
 			}
 		}
@@ -544,13 +544,12 @@ div.mnavwrapper.headerlinksnav {
 	/* Mobile Nav Handle */
 	div.mnavhandle {
 		position: relative;
-		margin: 0 0 2px;
+		margin: 0 0 5px;
 		padding: 0;
 		width: 100%;
 		height: 57px;
 		overflow: hidden;
 		cursor: pointer;
-		background-color: #303030;
 		
 		div.mhandleinner {
 			position: absolute;
@@ -581,7 +580,8 @@ div.mnavwrapper.headerlinksnav {
 	/* Mobile Navigation List */
 	ul.mobileheaderlinkslist {
 		margin-bottom: 2px;
-		margin-left: -150px;
+		margin-right: -15px;
+		margin-left: -165px;
 		display: none;
 	
 		li {
@@ -604,11 +604,15 @@ div.mnavwrapper.headerlinksnav {
 			
 			&:last-child a {
 				border-bottom: 0 none;
-				
-				&:hover {
-					background-color: #353535;
-					}
 			}
+			
+			&:hover a {
+				background-color: #454545;
+				}
+			
+			&.active a {
+				background-color: #2f3945;
+				}
 		}
 		
 		ul li a {
@@ -898,22 +902,24 @@ div.ftrinfobottom {
 div.fdareactiongraph {
 	padding: 13px 0 20px 45px;
 	float: right;
+	width: 100%;
 	max-width: 600px;
-	}
+	
+	h3 {
+		padding-top: 0;
+		font-size: 1.25em;
+		font-weight: normal;
+		line-height: 1.20em;
+		}
+}
 	div.fdareactiongraph_inner {
 		padding: 0 10px 0 20px;
+		min-height: 223px;
 		}
-		
-		div.fdareactiongraph h3 {
-			padding-top: 0;
-			font-size: 1.25em;
-			font-weight: normal;
-			line-height: 1.20em;
-			}
 		
 		div.patientdrugrow {
 			position: relative;
-			}
+		
 			div.patientdrug_lbl {
 				position: relative;
 				padding: 10px 10px 10px 0;
@@ -926,8 +932,8 @@ div.fdareactiongraph {
 				-webkit-user-select: 	none;
 				-moz-user-select: 		none;
 				user-select: 			none;
-				}
-				div.patientdrug_lbl:after {
+				
+				&:after {
 					position: absolute;
 					top: 50%;
 					right: 0;
@@ -936,6 +942,8 @@ div.fdareactiongraph {
 					content: '';
 					border-bottom: 1px solid #777;
 					}
+			}
+
 			div.patientdrug_data {
 				position: absolute;
 				top: 50%;
@@ -943,7 +951,7 @@ div.fdareactiongraph {
 				z-index: 5;
 				margin-top: -10px;
 				width: 100%;
-				}
+				
 				div.patientdrug_counter {
 					padding: 0 10px;
 					height: 20px;
@@ -956,12 +964,38 @@ div.fdareactiongraph {
 					-webkit-user-select: 	none;
 					-moz-user-select: 		none;
 					user-select: 			none;
-					}
+					-webkit-transition: background-color 0.2s ease-in-out;
+					-moz-transition: 	background-color 0.2s ease-in-out;
+					-ms-transition: 	background-color 0.2s ease-in-out;
+					-o-transition: 		background-color 0.2s ease-in-out;
+					transition: 		background-color 0.2s ease-in-out;
+					
+					&:hover {
+						background-color: #b10505;
+						}
+				}
+			}
+		}
 
 
 
+/* ******************************************************** */
+/* i. Media Queries *************************************** */
+/* ******************************************************** */
 
-
+/*900px*/
+@media screen and (min-width: 0) and (max-width: 900px){
+	div.fdareactiongraph {
+		margin-bottom: 10px;
+		padding: 13px 0 20px;
+		float: none;
+		max-width: 900px;
+		border-bottom: 1px solid #b0b0b0;
+		}
+		div.fdareactiongraph_inner {
+			padding: 0;
+			}
+}
 
 
 
