@@ -3,7 +3,7 @@
 include_once 'inc/functions.php';
 
 // Page Title
-$pageTitle = 'Welcome to the 18F Prototype Homepage';
+$pageTitle = 'Open FDA Dashboard';
 
 // Include Header
 include_once 'inc/header.php';
@@ -14,6 +14,7 @@ include_once 'inc/header.php';
 	<div class="sectionwrapper pagecontent homepageinfo">
 		<div class="sectioninside">
 			
+			<?php /*
 			<h2>18F Prototype Homepage</h2>
 			
 			<div id="fdabarchart"></div>
@@ -27,6 +28,29 @@ include_once 'inc/header.php';
 			<p>Phasellus pharetra posuere libero quis imperdiet. Donec gravida vulputate justo, condimentum tristique turpis.</p>
 			
 			<p>Donec ut leo odio. Quisque eget tempor ante, eu porta diam. Nulla in tellus egestas arcu gravida porttitor consequat et ligula. Suspendisse vitae dictum velit, nec volutpat lacus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam tristique fermentum mauris pellentesque ullamcorper. Quisque pharetra sit amet quam vitae finibus.</p>
+			*/ ?>
+			
+			<div ng-controller="mainCtrl">
+				<mv-header mv-title="{{title}}"></mv-header>
+				<div ng-controller="enforcementCtrl">
+					<mv-body mv-cols="6">
+						<mv-id-box mv-size="3x4" mv-title="{{mapLabel}}">
+							<mv-chart mv-data="mapData" mv-options="mapOptions"></mv-chart>
+						</mv-id-box>
+						<mv-id-box mv-size="2x2" mv-title="{{chartLabel}}">
+							<mv-chart mv-data="chartData" mv-options="chartOptions"></mv-chart>
+						</mv-id-box>
+						<mv-any-num mv-size="1x2" mv-title="{{statusLabel}}" mv-data="statusData"></mv-any-num>
+
+						<div class="buttonContainer pull-right">
+							<span>Drug Classification: </span>
+							<button class="btn btn-primary" ng-click="selectClass('Class I')">Class I</button>
+							<button class="btn btn-primary" ng-click="selectClass('Class II')">Class II</button>
+							<button class="btn btn-primary" ng-click="selectClass('Class III')">Class III</button>
+						</div>
+					</mv-body>
+				</div>
+			</div>
 			
 			<div class="clear"></div>
 		</div>

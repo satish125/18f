@@ -15,14 +15,30 @@
 	
 	<link href="<?php echo BASE_URL; ?>favicon.ico" rel="shortcut icon" />
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,600italic' rel='stylesheet' />
+	<link href="<?php echo BASE_URL; ?>css/bootstrap.css" rel="stylesheet" media="all" />
+	<link href="<?php echo BASE_URL; ?>css/minerva.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/styles.css" rel="stylesheet" media="all" />
 	
+	<?php /* Dependencies */ ?>
 	<script src="<?php echo BASE_URL; ?>js/jquery-2.1.3.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/angular.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/minerva.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/d3.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/d3.tip.v0.6.3.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/underscore-min.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/topojson.v1.min.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/18f.js"></script>
+	
+	<?php /* Application JS Files */ ?>
+	<script src="<?php echo BASE_URL; ?>app.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/services/openFDA.factory.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/features/enforcement/openFDA.enforcement.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/features/enforcement/openFDA.enforcement.factory.js"></script>
 	
 	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
-<body>
+<body ng-app="openFDAApp">
 
 <div class="wrapper">
 	<div class="wrapperouter">

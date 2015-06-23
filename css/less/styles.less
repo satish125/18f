@@ -34,7 +34,7 @@
 			   ii. Footer Top Info
 			  iii. Footer Bottom Info
 			   iv. Media Queries
-		   IX. Homepage Bar Chart
+		   IX. Homepage FDA Dashboard
 
    *************************************************************************************************** */
 
@@ -897,105 +897,15 @@ div.ftrinfobottom {
 
 
 /* *************************************************************************************************** */
-/* IX. Homepage Bar Chart **************************************************************************** */
+/* IX. Homepage FDA Dashboard ************************************************************************ */
 /* *************************************************************************************************** */
-div.fdareactiongraph {
-	padding: 13px 0 20px 45px;
-	float: right;
-	width: 100%;
-	max-width: 600px;
-	
-	h3 {
-		padding-top: 0;
-		font-size: 1.25em;
-		font-weight: normal;
-		line-height: 1.20em;
-		}
-}
-	div.fdareactiongraph_inner {
-		padding: 0 10px 0 20px;
-		min-height: 223px;
-		}
-		
-		div.patientdrugrow {
-			position: relative;
-		
-			div.patientdrug_lbl {
-				position: relative;
-				padding: 10px 10px 10px 0;
-				width: 120px;
-				font-size: 13px;
-				line-height: 1;
-				border: 1px solid #777;
-				border-width: 0 1px 0 0;
-				
-				-webkit-user-select: 	none;
-				-moz-user-select: 		none;
-				user-select: 			none;
-				
-				&:after {
-					position: absolute;
-					top: 50%;
-					right: 0;
-					width: 5px;
-					height: 1px;
-					content: '';
-					border-bottom: 1px solid #777;
-					}
-			}
-
-			div.patientdrug_data {
-				position: absolute;
-				top: 50%;
-				left: 119px;
-				z-index: 5;
-				margin-top: -10px;
-				width: 100%;
-				
-				div.patientdrug_counter {
-					padding: 0 10px;
-					height: 20px;
-					color: #f1f1f1;
-					font-size: 0.80em;
-					line-height: 1.50em;
-					text-align: right;
-					background-color: #d23939;
-					
-					-webkit-user-select: 	none;
-					-moz-user-select: 		none;
-					user-select: 			none;
-					-webkit-transition: background-color 0.2s ease-in-out;
-					-moz-transition: 	background-color 0.2s ease-in-out;
-					-ms-transition: 	background-color 0.2s ease-in-out;
-					-o-transition: 		background-color 0.2s ease-in-out;
-					transition: 		background-color 0.2s ease-in-out;
-					
-					&:hover {
-						background-color: #b10505;
-						}
-				}
-			}
-		}
-
-
-
-/* ******************************************************** */
-/* i. Media Queries *************************************** */
-/* ******************************************************** */
-
-/*900px*/
-@media screen and (min-width: 0) and (max-width: 900px){
-	div.fdareactiongraph {
-		margin-bottom: 10px;
-		padding: 13px 0 20px;
-		float: none;
-		max-width: 900px;
-		border-bottom: 1px solid #b0b0b0;
-		}
-		div.fdareactiongraph_inner {
-			padding: 0;
-			}
-}
+.us-states {
+	fill: #a6a6a6;
+	}
+.buttonContainer {
+	padding-top: 0.9em;
+	padding-right: 1.75em;
+	}
 
 
 
