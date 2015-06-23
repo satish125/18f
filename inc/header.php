@@ -15,14 +15,36 @@
 	
 	<link href="<?php echo BASE_URL; ?>favicon.ico" rel="shortcut icon" />
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,600italic' rel='stylesheet' />
+	<link href="<?php echo BASE_URL; ?>css/bootstrap.css" rel="stylesheet" media="all" />
+	<link href="<?php echo BASE_URL; ?>css/minerva.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/styles.css" rel="stylesheet" media="all" />
 	
+	<?php /* Dependencies */ ?>
 	<script src="<?php echo BASE_URL; ?>js/jquery-2.1.3.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/angular.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/minerva.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/d3.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/d3.tip.v0.6.3.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/ui-bootstrap-tpls-0.13.0.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/underscore-min.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/topojson.v1.min.js"></script>
+	
+	<?php if (login_check($mysqli) == false) : ?>
+	<script src="<?php echo BASE_URL; ?>js/form.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/sha512.js"></script>
+	<?php endif; ?>
+	
 	<script src="<?php echo BASE_URL; ?>js/18f.js"></script>
+	
+	<?php /* Application JS Files */ ?>
+	<script src="<?php echo BASE_URL; ?>app.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/services/openFDA.factory.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/features/enforcement/openFDA.enforcement.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/features/enforcement/openFDA.enforcement.factory.js"></script>
 	
 	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
-<body>
+<body ng-app="openFDAApp">
 
 <div class="wrapper">
 	<div class="wrapperouter">
@@ -64,6 +86,92 @@
 								<li <?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'about' ) ? 'class="active"' : ''); ?>>
 									<a href="<?php echo BASE_URL; ?>about">About</a>
 								</li>
+								
+								<?php /* Login/Logout: Start */ ?>
+								<li>
+									
+									<?php if (login_check($mysqli) == true) : ?>
+									
+									<a href="<?php echo BASE_URL; ?>inc/logout">Logout</a>
+									
+									<?php else : ?>
+									
+									<span>Login</span>
+									
+									<div class="logindropdown">
+
+										<h3>Homepage Login Form</h3>
+										
+										<?php
+											if (isset($_GET['error'])) {
+												echo '
+													<div class="notice error">
+														<div class="notice_inner">
+															Error Logging In!
+														</div>
+													</div>';
+											}
+										?> 
+										
+										<?php /* Login Form: Start */ ?>
+										<div class="formholder">
+											<div class="formholder_inner">
+												
+												<form action="<?php echo BASE_URL; ?>inc/process_login" method="POST" name="login_form">
+													
+													<?php /* Username/Email: Start */ ?>
+													<div class="formrow">
+														<label for="email" class="hploginlbl">Email Address/Username</label>
+														<div class="formfld icon email">
+															<input type="text" name="email" id="email" class="text" value="" placeholder="Email Address/Username" />
+															
+															<div class="clear"></div>
+														</div>
+														
+														<div class="clear"></div>
+													</div>
+													<?php /* Username/Email: End */ ?>
+													
+													<?php /* Password: Start */ ?>
+													<div class="formrow passwordrow">
+														<label for="Password" class="hploginlbl">Password</label>
+														<div class="formfld">
+															<input type="password" name="password" id="Password" class="text password" value="" placeholder="Enter your password" />
+															
+															<div class="clear"></div>
+														</div>
+														
+														<div class="clear"></div>
+													</div>
+													<?php /* Password: End */ ?>
+													
+													<?php /* Sign In: Start */ ?>
+													<div class="formrow buttonrow">
+														<div class="formfld">
+															<button id="loginbutton" class="button" onclick="formhash(this.form, this.form.password);">
+																<span>Log In</span>
+															</button>
+														</div>
+														
+														<div class="clear"></div>
+													</div>
+													<?php /* Sign In: End */ ?>
+													
+												</form>
+												
+												<div class="clear"></div>
+											</div>
+											
+											<div class="clear"></div>
+										</div>
+										<?php /* Login Form: End */ ?>
+										
+									</div>
+									
+									<?php endif; ?>
+									
+								</li>
+								<?php /* Login/Logout: End */ ?>
 								
 							</ul>
 						</nav>

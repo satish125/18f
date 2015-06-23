@@ -1,7 +1,7 @@
 (function () {    
 
    //Application Main Controller
-   var mainCtrl = function($scope, enforcementData)
+   var mainCtrl = function($scope, drugData)
    {
       $scope.version = 'Version 0.1.0 - 06.19.2015';
       $scope.title = 'Open FDA Dashboard';

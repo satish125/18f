@@ -2,10 +2,10 @@
    var enforcementFactory = function($q, enforcementData) {
       var self = this;
       
-      self.getMapData = function(query) {
+      self.getMapData = function(type, query) {
          var deferred = $q.defer();
 
-         enforcementData.getEnforcementCount(query, 'state').then(function(data){
+         enforcementData.getEnforcementCount(type, query, 'state').then(function(data){
             var results = data.results;
 
             var mapData = {
@@ -23,26 +23,26 @@
          return deferred.promise;
       }
 
-      self.getChartData = function(query) {
+      self.getChartData = function(type, query) {
          var deferred = $q.defer();
 
-         enforcementData.getEnforcementCount('status:"ongoing"+AND+' + query, 'city.exact').then(function(data){
+         enforcementData.getEnforcementCount(type, 'status:"ongoing"+AND+' + query, 'city.exact').then(function(data){
             var results = data.results;
 
             var chartData = [];
 
             angular.forEach(results, function(result) {
-               chartData.push({ x: result.term, Ongoing: result.count });
-               /*chartData.push({
+               //chartData.push({ x: result.term, Ongoing: result.count });
+               chartData.push({
                   key: result.term,
                   keyID: result.term,
                   label1: 'Ongoing', 
                   value1: result.count, 
                   color1: '#A6A6A6'
-               });*/
+               });
             });
 
-            chartData = chartData.slice(0, 3);
+            chartData = chartData.slice(0, 10); //slice to top 10
 
             deferred.resolve(chartData);
          });
@@ -50,10 +50,10 @@
          return deferred.promise;
       }
 
-      self.getStatusData = function(query) {
+      self.getStatusData = function(type, query) {
          var deferred = $q.defer();
 
-         enforcementData.getEnforcementCount(query, 'status').then(function(data){
+         enforcementData.getEnforcementCount(type, query, 'status').then(function(data){
             var results = data.results;
 
             var anynumData = {

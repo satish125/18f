@@ -1,5 +1,14 @@
 <?php
 
+// Database Login Details
+define("HOST", "localhost");
+define("USER", "root");
+define("PASSWORD", "");
+define("DATABASE", "openfda");
+
+define("CAN_REGISTER", "any");
+define("DEFAULT_ROLE", "member");
+
 // Set to true for site to use https
 define("SECURE", false);
 

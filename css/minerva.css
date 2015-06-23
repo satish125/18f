@@ -15,7 +15,7 @@ html, body
 }
 .mv-container 
 {
-   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+   /* font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
    font-size: 1.2em;
    height: 100%;
    width: 100%;
@@ -758,9 +758,10 @@ html, body
 .q6 { fill:#F29A3F; }
 .q7 { fill:#DB5B2E; }
 .q8 { fill:#DB5957; }
+
 /*chart tooltips*/
 .mvTip {
-   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+   /* font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif; */
    line-height: 1;
    font-weight: bold;
    padding: 12px;
