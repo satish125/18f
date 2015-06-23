@@ -1,0 +1,62 @@
+<!DOCYTPE html>
+<html language="en">
+<head>
+	<title>Open.FDA.Gov Press Release Feed</title>
+	
+	<!--
+	http://www.fda.gov/AboutFDA/ContactFDA/StayInformed/RSSFeeds/PressReleases/rss.xml
+	http://www.fda.gov/AboutFDA/ContactFDA/StayInformed/RSSFeeds/FoodSafety/rss.xml
+	-->
+	
+	<script src="jquery-2.1.4.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			
+			$.ajax({
+				headers: { 
+					Accept : 
+						"text/plain; charset=utf-8",
+						"Content-Type": "text/plain; charset=utf-8"
+				},
+				url: 'open_fda_press_feed.json',
+				type: 'GET',
+				dataType: 'json',
+				crossDomain: true,
+				success: function(feed){
+					
+					// Title
+					$('#dataoutput').append('<h3>Open FDA Press Releases</h3>');
+					
+					// Parse Data
+					var html = '<div class="fdarssfeed">';
+					for(var i=0;i<feed.rss.channel.item.length;i++){
+						html += 
+							'<div class="feeditem feeditem_' + i + '">' + 
+								'<a href="' + feed.rss.channel.item[i].link + '">' + 
+									'<span>' + feed.rss.channel.item[i].title + '</span>' + 
+								'</a>' + 
+								'<div class="feeditemdate">' + 
+									'<span>' + feed.rss.channel.item[i].pubDate + '</span>' + 
+								'</div>' + 
+							'</div>';
+					}
+					html += '</div>';
+					
+					// Output
+					$('.rssfeedoutput').append(html);
+					
+				},
+				error: function(error){
+					console.log('ERROR', error);
+				}
+			});
+			
+		});
+	</script>
+</head>
+<body>
+
+<div class="rssfeedoutput"></div>
+
+</body>
+</html>
