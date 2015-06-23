@@ -495,6 +495,7 @@ ul.headerlinkslist {
 		display: block;
 		float: left;
 		
+		> span.loginparent,
 		> a {
 			margin: 0 0 0 1px;
 			padding: 20px 15px 17px;
@@ -519,13 +520,37 @@ ul.headerlinkslist {
 								border-color 0.2s ease-in-out,
 								background-color 0.2s ease-in-out;
 			}
+		> span.loginparent {
+			cursor: pointer;
+			}
 		
 		&.active a,
-		&:hover a {
+		&:hover a,
+		&:hover span.loginparent {
 			padding-bottom: 17px;
 			color: #005395;
+			text-decoration: none;
 			border-color: #005395;
 			}
+		
+		&.loginlogout {
+			
+			div.logindropdown {
+				position: absolute;
+				top: 100%;
+				right: 0;
+				z-index: 999;
+				margin: 0;
+				padding: 10px 15px;
+				display: none;
+				background-color: #f1f1f1;
+				}
+		
+			&:hover > div.logindropdown {
+				display: block;
+				}
+		}
+		
 	}
 }
 

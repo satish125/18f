@@ -17,6 +17,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,600italic' rel='stylesheet' />
 	<link href="<?php echo BASE_URL; ?>css/bootstrap.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/minerva.css" rel="stylesheet" media="all" />
+	<link href="<?php echo BASE_URL; ?>css/font-awesome.min.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/styles.css" rel="stylesheet" media="all" />
 	
 	<?php /* Dependencies */ ?>
@@ -83,12 +84,9 @@
 								<li <?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? 'class="active"' : ''); ?>>
 									<a href="<?php echo BASE_URL; ?>">Home</a>
 								</li>
-								<li <?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'about' ) ? 'class="active"' : ''); ?>>
-									<a href="<?php echo BASE_URL; ?>about">About</a>
-								</li>
 								
 								<?php /* Login/Logout: Start */ ?>
-								<li>
+								<li class="loginlogout">
 									
 									<?php if (login_check($mysqli) == true) : ?>
 									
@@ -96,11 +94,11 @@
 									
 									<?php else : ?>
 									
-									<span>Login</span>
+									<span class="loginparent">Login</span>
 									
 									<div class="logindropdown">
 
-										<h3>Homepage Login Form</h3>
+										<h3>Login Form</h3>
 										
 										<?php
 											if (isset($_GET['error'])) {
@@ -121,9 +119,9 @@
 													
 													<?php /* Username/Email: Start */ ?>
 													<div class="formrow">
-														<label for="email" class="hploginlbl">Email Address/Username</label>
+														<label for="email" class="hploginlbl">Email Address</label>
 														<div class="formfld icon email">
-															<input type="text" name="email" id="email" class="text" value="" placeholder="Email Address/Username" />
+															<input type="text" name="email" id="email" class="text" value="" placeholder="Email Address" />
 															
 															<div class="clear"></div>
 														</div>
