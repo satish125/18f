@@ -1,9 +1,16 @@
 <?php
 
+include_once 'inc/db_connect.php';
 include_once 'inc/functions.php';
 
+// Start Session
+sec_session_start();
+
+// Session Status
+(login_check($mysqli) == true) ? $logged = 'in' : $logged = 'out';
+
 // Page Title
-$pageTitle = 'Open FDA Dashboard';
+$pageTitle = 'Welcome to the Open FDA Dashboard';
 
 // Include Header
 include_once 'inc/header.php';

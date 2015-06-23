@@ -172,3 +172,87 @@ function mobilePriNav(appendSelector,itemClone,appendCloneTo,mobileNavClassSel,f
 	});
 }
 
+
+/**
+  * Notice Popup Function
+  */
+function noticePopup(messagetype,message){
+	
+	// Append Backdrop to Body
+	$('body').append('<div class="noticepopupbackdrop"></div>');
+	
+	// Append Popup to Body
+	$('body').append(
+		'<div class="noticepopup ' + messagetype + '">' + 
+			'<div class="noticepopup_outer">' + 
+				'<div class="noticepopup_inner">' + 
+					'<div class="noticepopup_header">' + 
+						'<span>Attention</span>' + 
+						'<div class="noticeclosebttn"></div>' + 
+					'</div>' + 
+					'<div class="noticepopup_content">' + 
+						'<div class="noticepopupcontent_inner">' + 
+							
+							message + 
+							
+							'<div class="clear"></div>' + 
+						'</div>' + 
+						
+						'<div class="clear"></div>' + 
+					'</div>' + 
+					
+					'<div class="clear"></div>' + 
+				'</div>' + 
+				
+				'<div class="clear"></div>' + 
+			'</div>' + 
+			
+			'<div class="clear"></div>' + 
+		'</div>'
+	);
+	
+	// Initial Open
+	$('div.noticepopupbackdrop').fadeIn(150);
+	$('div.noticepopup').css({display: 'block'}).animate({top: '50%', opacity: '1.00'}, 300);
+	
+	// Grab Width and Height and Center Popup on Page Load
+	popupWidthHeight();
+	
+	// On Resize
+	$(window).on('resize', function(){
+		
+		// Grab Width and Height and Center Popup on Resize
+		popupWidthHeight();
+	});
+	
+	// On Click Close
+	$('div.noticepopupbackdrop,div.noticeclosebttn').on('click', function(){
+		$('div.noticepopup').fadeOut(150);
+		$('div.noticepopupbackdrop').fadeOut(175);
+		
+		setTimeout(function(){
+			$('div.noticepopupbackdrop,div.noticepopup').remove();
+		}, 350);
+	});
+}
+
+
+/**
+  * Get Notice Popup Width and Height Function
+  */
+function popupWidthHeight(){
+	
+	var noticeWidth = $('div.noticepopup').width();
+	var noticeHeight = $('div.noticepopup').height();
+	
+	$('div.noticepopup').css({marginTop: -(noticeHeight / 2), marginLeft: -(noticeWidth / 2) });
+}
+
+
+
+
+
+
+
+
+
