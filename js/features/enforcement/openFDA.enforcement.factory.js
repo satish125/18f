@@ -3,15 +3,21 @@
       var self = this;
       
 <<<<<<< HEAD
+<<<<<<< HEAD
       self.getMapData = function(query) {
          var deferred = $q.defer();
 
          enforcementData.getEnforcementCount(query, 'state').then(function(data){
 =======
+=======
+>>>>>>> origin/dashboard
       self.getMapData = function(type, query) {
          var deferred = $q.defer();
 
          enforcementData.getEnforcementCount(type, query, 'state').then(function(data){
+<<<<<<< HEAD
+>>>>>>> origin/dashboard
+=======
 >>>>>>> origin/dashboard
             var results = data.results;
 
@@ -31,15 +37,21 @@
       }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       self.getChartData = function(query) {
          var deferred = $q.defer();
 
          enforcementData.getEnforcementCount('status:"ongoing"+AND+' + query, 'city.exact').then(function(data){
 =======
+=======
+>>>>>>> origin/dashboard
       self.getChartData = function(type, query) {
          var deferred = $q.defer();
 
          enforcementData.getEnforcementCount(type, 'status:"ongoing"+AND+' + query, 'city.exact').then(function(data){
+<<<<<<< HEAD
+>>>>>>> origin/dashboard
+=======
 >>>>>>> origin/dashboard
             var results = data.results;
 
@@ -47,8 +59,13 @@
 
             angular.forEach(results, function(result) {
 <<<<<<< HEAD
+<<<<<<< HEAD
                chartData.push({ x: result.term, Ongoing: result.count });
                /*chartData.push({
+=======
+               //chartData.push({ x: result.term, Ongoing: result.count });
+               chartData.push({
+>>>>>>> origin/dashboard
 =======
                //chartData.push({ x: result.term, Ongoing: result.count });
                chartData.push({
@@ -59,15 +76,21 @@
                   value1: result.count, 
                   color1: '#A6A6A6'
 <<<<<<< HEAD
+<<<<<<< HEAD
                });*/
             });
 
             chartData = chartData.slice(0, 3);
 =======
+=======
+>>>>>>> origin/dashboard
                });
             });
 
             chartData = chartData.slice(0, 10); //slice to top 10
+<<<<<<< HEAD
+>>>>>>> origin/dashboard
+=======
 >>>>>>> origin/dashboard
 
             deferred.resolve(chartData);
@@ -77,15 +100,21 @@
       }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       self.getStatusData = function(query) {
          var deferred = $q.defer();
 
          enforcementData.getEnforcementCount(query, 'status').then(function(data){
 =======
+=======
+>>>>>>> origin/dashboard
       self.getStatusData = function(type, query) {
          var deferred = $q.defer();
 
          enforcementData.getEnforcementCount(type, query, 'status').then(function(data){
+<<<<<<< HEAD
+>>>>>>> origin/dashboard
+=======
 >>>>>>> origin/dashboard
             var results = data.results;
 

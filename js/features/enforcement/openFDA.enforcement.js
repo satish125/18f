@@ -4,9 +4,15 @@
       //retrieve the map data
       $scope.getMap = function(status, classification){
 <<<<<<< HEAD
+<<<<<<< HEAD
          enforcementFactory.getMapData('status:"' + status + '"+AND+classification:"' + classification + '"').then(function(mapData){
             $scope.mapData = mapData;
             $scope.mapLabel = 'Map - ' + classification + ' Ongoing Drug Recalls';
+=======
+         enforcementFactory.getMapData($scope.type, 'status:"' + status + '"+AND+classification:"' + classification + '"').then(function(mapData){
+            $scope.mapData = mapData;
+            $scope.mapLabel = 'Map - ' + classification + ' Ongoing ' + toTitleCase($scope.type) + ' Recalls';
+>>>>>>> origin/dashboard
 =======
          enforcementFactory.getMapData($scope.type, 'status:"' + status + '"+AND+classification:"' + classification + '"').then(function(mapData){
             $scope.mapData = mapData;
@@ -18,9 +24,15 @@
       //retrieve the status
       $scope.getChart = function(classification){
 <<<<<<< HEAD
+<<<<<<< HEAD
          enforcementFactory.getChartData('classification:"' + classification + '"').then(function(chartData){
             $scope.chartData = chartData;
             $scope.chartLabel = 'Top 3 Cities - ' + classification + ' Drug Recalls';
+=======
+         enforcementFactory.getChartData($scope.type, 'classification:"' + classification + '"').then(function(chartData){
+            $scope.chartData = chartData;
+            $scope.chartLabel = 'Top 10 Cities - ' + classification + ' ' + toTitleCase($scope.type) + ' Recalls';
+>>>>>>> origin/dashboard
 =======
          enforcementFactory.getChartData($scope.type, 'classification:"' + classification + '"').then(function(chartData){
             $scope.chartData = chartData;
@@ -32,9 +44,15 @@
       //retrieve the status
       $scope.getStatus = function(classification){
 <<<<<<< HEAD
+<<<<<<< HEAD
          enforcementFactory.getStatusData('classification:"' + classification + '"').then(function(statusData){
             $scope.statusData = statusData;
             $scope.statusLabel = 'Status - ' + classification + ' Drug Recalls';
+=======
+         enforcementFactory.getStatusData($scope.type, 'classification:"' + classification + '"').then(function(statusData){
+            $scope.statusData = statusData;
+            $scope.statusLabel = 'Status - ' + classification + ' ' + toTitleCase($scope.type) + ' Recalls';
+>>>>>>> origin/dashboard
 =======
          enforcementFactory.getStatusData($scope.type, 'classification:"' + classification + '"').then(function(statusData){
             $scope.statusData = statusData;
@@ -46,6 +64,7 @@
       //function to get the data for each drug classification
       $scope.selectClass = function(classification){
 <<<<<<< HEAD
+<<<<<<< HEAD
          $scope.getMap('ongoing', classification);
          $scope.getChart(classification);
          $scope.getStatus(classification);
@@ -55,6 +74,8 @@
       function init() {
          $scope.selectClass('Class I');
 =======
+=======
+>>>>>>> origin/dashboard
          $scope.class = classification;
          $scope.getMap('ongoing', classification);
          $scope.getChart(classification);
@@ -93,6 +114,9 @@
          $scope.type = 'drug';
          $scope.class = 'Class I';
          $scope.selectClass($scope.class);
+<<<<<<< HEAD
+>>>>>>> origin/dashboard
+=======
 >>>>>>> origin/dashboard
       }
       init();
@@ -101,8 +125,13 @@
       $scope.mapOptions = {
          chart: {
 <<<<<<< HEAD
+<<<<<<< HEAD
             height: 700,
             width: 900,
+=======
+            height: 485,
+            width: 660,
+>>>>>>> origin/dashboard
 =======
             height: 485,
             width: 660,
@@ -118,7 +147,11 @@
          },
          tooltip: {
 <<<<<<< HEAD
+<<<<<<< HEAD
             suffix: ' Drug Recall(s)'
+=======
+            suffix: ' Recall(s)'
+>>>>>>> origin/dashboard
 =======
             suffix: ' Recall(s)'
 >>>>>>> origin/dashboard
@@ -136,6 +169,7 @@
       $scope.chartOptions = {
          chart: {
 <<<<<<< HEAD
+<<<<<<< HEAD
             height: 460,
             width: 460,
             type: 'bar',
@@ -148,6 +182,8 @@
             spacing: 0.25
          },
 =======
+=======
+>>>>>>> origin/dashboard
             height: 490,
             width: 310,
             margin: {
@@ -176,6 +212,9 @@
             },
             ticks: 5
          },
+<<<<<<< HEAD
+>>>>>>> origin/dashboard
+=======
 >>>>>>> origin/dashboard
          types: {
             bar: {
@@ -184,12 +223,18 @@
          }
       };
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/dashboard
 
       function toTitleCase(str)
       {
          return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
       }
+<<<<<<< HEAD
+>>>>>>> origin/dashboard
+=======
 >>>>>>> origin/dashboard
    };
 

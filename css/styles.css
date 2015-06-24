@@ -4,14 +4,20 @@
 
 	TABLE OF CONTENTS:
 	------------------
+<<<<<<< HEAD
 		    I. LESS Variables and Mixins
 		   II. Browser Resets
 		  III. Global Options
+=======
+		    I. Browser Resets
+		   II. Global Options
+>>>>>>> origin/dashboard
 				i. Font Color
 		       ii. Text Align
 			  iii. Font Size
 		       iv. Text Transform
 			    v. Floats
+<<<<<<< HEAD
 		   IV. Import Fonts
 		    V. Template Frame
 				i. Content Sections
@@ -22,19 +28,40 @@
 					1. Global Typography
 					2. Lists
 		  VII. Header
+=======
+		  III. Import Fonts
+		   IV. Template Frame
+				i. Content Sections
+			   ii. Content Section Background/Border Colors
+			  iii. Media Queries
+		    V. Content and Typography
+				i. Global Content
+					1. Global Typography
+					2. Lists
+		   VI. Header
+>>>>>>> origin/dashboard
 				i. Header Logo
 			   ii. Header Navigation
 			  iii. Mobile Navigation
 			   iv. Media Queries
+<<<<<<< HEAD
 		 VIII. Content Region
 				i. Content Images
 			   ii. Content Columns
 			  iii. Media Queries
 		   IX. Footer
+=======
+		  VII. Content Region
+				i. Content Images
+			   ii. Content Columns
+			  iii. Media Queries
+		 VIII. Footer
+>>>>>>> origin/dashboard
 				i. Footer Logo
 			   ii. Footer Top Info
 			  iii. Footer Bottom Info
 			   iv. Media Queries
+<<<<<<< HEAD
 			X. Forms
 		   XI. Bootstrap Overrides
 		  XII. Homepage FDA Dashboard
@@ -47,6 +74,13 @@
 /* Mixins */
 /* *************************************************************************************************** */
 /* II. Browser Resets ******************************************************************************** */
+=======
+		   IX. Homepage FDA Dashboard
+
+   *************************************************************************************************** */
+/* *************************************************************************************************** */
+/* I. Browser Resets ********************************************************************************* */
+>>>>>>> origin/dashboard
 /* *************************************************************************************************** */
 html,
 body {
@@ -238,7 +272,11 @@ input::-moz-focus-inner {
   border: 0 none;
 }
 /* *************************************************************************************************** */
+<<<<<<< HEAD
 /* III. Global Options ******************************************************************************* */
+=======
+/* II. Global Options ******************************************************************************** */
+>>>>>>> origin/dashboard
 /* *************************************************************************************************** */
 /* ******************************************************** */
 /* i. Font Color ****************************************** */
@@ -409,7 +447,11 @@ small,
   float: none !important;
 }
 /* *************************************************************************************************** */
+<<<<<<< HEAD
 /* IV. Import Fonts ********************************************************************************** */
+=======
+/* III. Import Fonts ********************************************************************************* */
+>>>>>>> origin/dashboard
 /* *************************************************************************************************** */
 /* 18F Logo */
 @font-face {
@@ -420,7 +462,11 @@ small,
   font-style: normal;
 }
 /* *************************************************************************************************** */
+<<<<<<< HEAD
 /* V. Template Frame ********************************************************************************* */
+=======
+/* IV. Template Frame ******************************************************************************** */
+>>>>>>> origin/dashboard
 /* *************************************************************************************************** */
 div.wrapper,
 div.wrapperouter,
@@ -480,7 +526,11 @@ div.sectionwrapper.bkggray {
 /* iii. Media Queries ************************************* */
 /* ******************************************************** */
 /* *************************************************************************************************** */
+<<<<<<< HEAD
 /* VI. Content and Typography ************************************************************************ */
+=======
+/* V. Content and Typography ************************************************************************* */
+>>>>>>> origin/dashboard
 /* *************************************************************************************************** */
 /* ******************************************************** */
 /* i. Global Content ************************************** */
@@ -539,7 +589,11 @@ div.sectionwrapper li {
   line-height: 1.15em;
 }
 /* *************************************************************************************************** */
+<<<<<<< HEAD
 /* VII. Header *************************************************************************************** */
+=======
+/* VI. Header **************************************************************************************** */
+>>>>>>> origin/dashboard
 /* *************************************************************************************************** */
 /* ******************************************************** */
 /* i. Header Logo ***************************************** */
@@ -584,7 +638,10 @@ ul.headerlinkslist li {
   display: block;
   float: left;
 }
+<<<<<<< HEAD
 ul.headerlinkslist li > span.loginparent,
+=======
+>>>>>>> origin/dashboard
 ul.headerlinkslist li > a {
   margin: 0 0 0 1px;
   padding: 20px 15px 17px;
@@ -592,6 +649,7 @@ ul.headerlinkslist li > a {
   color: #303030;
   border-bottom: 3px solid transparent;
   text-transform: uppercase;
+<<<<<<< HEAD
   -webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.3s ease-in-out;
   -moz-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.3s ease-in-out;
   -ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.3s ease-in-out;
@@ -629,6 +687,20 @@ ul.headerlinkslist li.loginlogout div.logindropdown {
 ul.headerlinkslist li.loginlogout:hover > div.logindropdown {
   display: block;
 }
+=======
+  -webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  -ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  -o-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+ul.headerlinkslist li.active a,
+ul.headerlinkslist li:hover a {
+  padding-bottom: 17px;
+  color: #005395;
+  border-color: #005395;
+}
+>>>>>>> origin/dashboard
 /* ******************************************************** */
 /* iii. Mobile Navigation ********************************* */
 /* ******************************************************** */
@@ -723,7 +795,11 @@ ul.mobileheaderlinkslist ul li a {
   }
 }
 /* *************************************************************************************************** */
+<<<<<<< HEAD
 /* VIII. Content Region ****************************************************************************** */
+=======
+/* VII. Content Region ******************************************************************************* */
+>>>>>>> origin/dashboard
 /* *************************************************************************************************** */
 /* ******************************************************** */
 /* i. Content Images ************************************** */
@@ -818,7 +894,11 @@ div.contentcol.colright.contentpane {
   }
 }
 /* *************************************************************************************************** */
+<<<<<<< HEAD
 /* IX. Footer **************************************************************************************** */
+=======
+/* VIII. Footer ************************************************************************************** */
+>>>>>>> origin/dashboard
 /* *************************************************************************************************** */
 div.pagefooter {
   color: #777;
@@ -923,6 +1003,7 @@ div.ftrinfobottom a:hover {
   }
 }
 /* *************************************************************************************************** */
+<<<<<<< HEAD
 /* X. Forms ****************************************************************************************** */
 /* *************************************************************************************************** */
 /* ******************************************************** */
@@ -1397,6 +1478,10 @@ div.sectioninside.container > .row > .col-lg-12 {
 div.dashboardmain {
   padding: 25px 0;
 }
+=======
+/* IX. Homepage FDA Dashboard ************************************************************************ */
+/* *************************************************************************************************** */
+>>>>>>> origin/dashboard
 #infoBox {
   padding: 3.5em 1em 1em 1em;
 }

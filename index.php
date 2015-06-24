@@ -20,9 +20,11 @@ include_once 'inc/header.php';
 <section class="secpagecontent">
 	<div class="sectionwrapper pagecontent homepageinfo">
 		<div class="sectioninside container">
+			
 			<?php /* Dashboard: Start */ ?>
 			<div class="row dashboardmain">
 				<div class="col-md-12">
+					
 					<div ng-controller="mainCtrl">
 						<div ng-controller="enforcementCtrl">
 							<mv-header mv-title="{{title}}">
@@ -46,8 +48,11 @@ include_once 'inc/header.php';
 								</mv-id-box>
 							</mv-body>
 						</div>
-						<div class="clear"></div>
 					</div>
+					
+					<div class="clear"></div>
+				</div>
+					
 				<div class="clear"></div>
 			</div>
 			<?php /* Dashboard: End */ ?>
