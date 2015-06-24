@@ -15,6 +15,9 @@ jQuery(document).ready(function($){
 	if ($fldIconsExist.length > 0){
 		fieldIcons();
 	}
+	
+	/* Data Grid */
+	$('#datagridinfo').DataTable();
 });
 
 

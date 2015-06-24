@@ -35,6 +35,7 @@
 	<script src="<?php echo BASE_URL; ?>js/sha512.js"></script>
 	<?php endif; ?>
 	
+	<script src="<?php echo BASE_URL; ?>js/jquery.dataTables.min.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/18f.js"></script>
 	
 	<?php /* Application JS Files */ ?>
