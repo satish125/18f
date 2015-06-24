@@ -2,10 +2,17 @@
    var enforcementFactory = function($q, enforcementData) {
       var self = this;
       
+<<<<<<< HEAD
       self.getMapData = function(query) {
          var deferred = $q.defer();
 
          enforcementData.getEnforcementCount(query, 'state').then(function(data){
+=======
+      self.getMapData = function(type, query) {
+         var deferred = $q.defer();
+
+         enforcementData.getEnforcementCount(type, query, 'state').then(function(data){
+>>>>>>> origin/dashboard
             var results = data.results;
 
             var mapData = {
@@ -23,26 +30,45 @@
          return deferred.promise;
       }
 
+<<<<<<< HEAD
       self.getChartData = function(query) {
          var deferred = $q.defer();
 
          enforcementData.getEnforcementCount('status:"ongoing"+AND+' + query, 'city.exact').then(function(data){
+=======
+      self.getChartData = function(type, query) {
+         var deferred = $q.defer();
+
+         enforcementData.getEnforcementCount(type, 'status:"ongoing"+AND+' + query, 'city.exact').then(function(data){
+>>>>>>> origin/dashboard
             var results = data.results;
 
             var chartData = [];
 
             angular.forEach(results, function(result) {
+<<<<<<< HEAD
                chartData.push({ x: result.term, Ongoing: result.count });
                /*chartData.push({
+=======
+               //chartData.push({ x: result.term, Ongoing: result.count });
+               chartData.push({
+>>>>>>> origin/dashboard
                   key: result.term,
                   keyID: result.term,
                   label1: 'Ongoing', 
                   value1: result.count, 
                   color1: '#A6A6A6'
+<<<<<<< HEAD
                });*/
             });
 
             chartData = chartData.slice(0, 3);
+=======
+               });
+            });
+
+            chartData = chartData.slice(0, 10); //slice to top 10
+>>>>>>> origin/dashboard
 
             deferred.resolve(chartData);
          });
@@ -50,10 +76,17 @@
          return deferred.promise;
       }
 
+<<<<<<< HEAD
       self.getStatusData = function(query) {
          var deferred = $q.defer();
 
          enforcementData.getEnforcementCount(query, 'status').then(function(data){
+=======
+      self.getStatusData = function(type, query) {
+         var deferred = $q.defer();
+
+         enforcementData.getEnforcementCount(type, query, 'status').then(function(data){
+>>>>>>> origin/dashboard
             var results = data.results;
 
             var anynumData = {

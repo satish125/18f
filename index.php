@@ -38,6 +38,7 @@ include_once 'inc/header.php';
 			*/ ?>
 			
 			<div ng-controller="mainCtrl">
+<<<<<<< HEAD
 				<mv-header mv-title="{{title}}"></mv-header>
 				<div ng-controller="enforcementCtrl">
 					<mv-body mv-cols="6">
@@ -55,6 +56,28 @@ include_once 'inc/header.php';
 							<button class="btn btn-primary" ng-click="selectClass('Class II')">Class II</button>
 							<button class="btn btn-primary" ng-click="selectClass('Class III')">Class III</button>
 						</div>
+=======
+				<div ng-controller="enforcementCtrl">
+					<mv-header mv-title="{{title}}">
+						<button class="btn btn-default btn-sm" ng-click="selectType('drug')">Drugs</button>
+						<button class="btn btn-default btn-sm" ng-click="selectType('device')">Devices</button>
+						<button class="btn btn-default btn-sm" ng-click="selectType('food')">Foods</button>
+					</mv-header>
+					<mv-body mv-cols="6">
+						<div class="classButtons">
+							<button class="btn btn-primary" ng-click="selectClass('Class I')">Class I</button>
+							<button class="btn btn-primary" ng-click="selectClass('Class II')">Class II</button>
+							<button class="btn btn-primary" ng-click="selectClass('Class III')">Class III</button>
+						</div>
+						<mv-any-num mv-size="1x3" mv-title="{{statusLabel}}" mv-data="statusData" mv-style="{'font-size':'1.1em'}"></mv-any-num>
+						<mv-id-box mv-size="1x3" mv-title="Classification Description" mv-body-id="infoBox">{{classInfo}}</mv-id-box>
+						<mv-id-box mv-size="3x4" mv-title="{{mapLabel}}">
+							<mv-chart mv-data="mapData" mv-options="mapOptions"></mv-chart>
+						</mv-id-box>
+						<mv-id-box mv-size="3x2" mv-title="{{chartLabel}}">
+							<mv-chart mv-data="chartData" mv-options="chartOptions"></mv-chart>
+						</mv-id-box>
+>>>>>>> origin/dashboard
 					</mv-body>
 				</div>
 			</div>
