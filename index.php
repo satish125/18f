@@ -20,7 +20,7 @@ include_once 'inc/header.php';
 <section class="secpagecontent">
 	<div class="sectionwrapper pagecontent homepageinfo">
 		<div class="sectioninside container">
-			<div class="row">
+			<div class="row dashboardmain">
 				<div class="col-md-12">
 					
 					<div ng-controller="mainCtrl">

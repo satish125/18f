@@ -135,7 +135,7 @@
 															<?php /* Password: Start */ ?>
 															<div class="formrow passwordrow">
 																<label for="Password" class="hploginlbl">Password</label>
-																<div class="formfld">
+																<div class="formfld icon password">
 																	<input type="password" name="password" id="Password" class="text password" value="" placeholder="Enter your password" />
 																	
 																	<div class="clear"></div>
