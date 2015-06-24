@@ -1,0 +1,51 @@
+﻿Merge remote-tracking branch 'origin/master'
+
+Conflicts:
+	css/less/styles.less
+	css/styles.css
+	css/styles.css.map
+	index.php
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 2 and 11 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	new file:   .gitignore
+#	new file:   ASSETS/PROTOTYPE/OpenFDA_sketch.jpg
+#	new file:   ASSETS/PROTOTYPE/OpenFDA_wireframe.pptx
+#	new file:   ASSETS/SCRIPTS/DataTables-1.10.7.zip
+#	new file:   ASSETS/SCRIPTS/rssfeed/open_fda_press_feed.html
+#	new file:   ASSETS/SCRIPTS/rssfeed/open_fda_press_feed.json
+#	new file:   ASSETS/SCRIPTS/rssfeed/open_fda_press_feed.xml
+#	deleted:    about.php
+#	modified:   css/css/styles.css
+#	new file:   css/font-awesome.css
+#	new file:   css/font-awesome.min.css
+#	modified:   css/less/styles.less
+#	modified:   css/styles.css
+#	modified:   css/styles.css.map
+#	new file:   fonts/FontAwesome.otf
+#	new file:   fonts/fontawesome-webfont.eot
+#	new file:   fonts/fontawesome-webfont.svg
+#	new file:   fonts/fontawesome-webfont.ttf
+#	new file:   fonts/fontawesome-webfont.woff
+#	new file:   fonts/fontawesome-webfont.woff2
+#	modified:   inc/footer.php
+#	modified:   inc/header.php
+#	modified:   index.php
+#	modified:   js/18f.js
+#	new file:   js/jquery.dataTables.min.js
+#
+

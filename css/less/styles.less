@@ -4,42 +4,69 @@
 
 	TABLE OF CONTENTS:
 	------------------
-		    I. Browser Resets
-		   II. Global Options
+		    I. LESS Variables and Mixins
+		   II. Browser Resets
+		  III. Global Options
 				i. Font Color
 		       ii. Text Align
 			  iii. Font Size
 		       iv. Text Transform
 			    v. Floats
-		  III. Import Fonts
-		   IV. Template Frame
+		   IV. Import Fonts
+		    V. Template Frame
 				i. Content Sections
 			   ii. Content Section Background/Border Colors
 			  iii. Media Queries
-		    V. Content and Typography
+		   VI. Content and Typography
 				i. Global Content
 					1. Global Typography
 					2. Lists
-		   VI. Header
+		  VII. Header
 				i. Header Logo
 			   ii. Header Navigation
 			  iii. Mobile Navigation
 			   iv. Media Queries
-		  VII. Content Region
+		 VIII. Content Region
 				i. Content Images
 			   ii. Content Columns
 			  iii. Media Queries
-		 VIII. Footer
+		   IX. Footer
 				i. Footer Logo
 			   ii. Footer Top Info
 			  iii. Footer Bottom Info
 			   iv. Media Queries
-		   IX. Homepage FDA Dashboard
+			X. Forms
+		   XI. Bootstrap Overrides
+		  XII. Homepage FDA Dashboard
 
    *************************************************************************************************** */
 
 /* *************************************************************************************************** */
-/* I. Browser Resets ********************************************************************************* */
+/* I. LESS Variables and Mixins ********************************************************************** */
+/* *************************************************************************************************** */
+
+/* Variables */
+@pri-font: 'Open Sans', Arial, Helvetica, sans-serif;
+@pri-font-size: 12px;
+@pri-font-color: #393939;
+@page-bkg: #2c2c2c;
+@page-content-maxwidth: 1100px;
+
+/* Mixins */
+.transition (@value1,@value2:X,...){
+    @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+
+    -webkit-transition: @value;
+    -moz-transition: 	@value;
+    -ms-transition: 	@value;
+    -o-transition: 		@value;
+    transition: 		@value;
+}
+
+
+
+/* *************************************************************************************************** */
+/* II. Browser Resets ******************************************************************************** */
 /* *************************************************************************************************** */
 html, body {
 	width: 100%;
@@ -50,13 +77,13 @@ html, body {
 	}
 	body {
 		display: block;
-		color: #393939;
-		font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-		font-size: 12px;
+		color: @pri-font-color;
+		font-family: @pri-font;
+		font-size: @pri-font-size;
 		font-weight: 400;
 		line-height: 1;
 		overflow-x: hidden;
-		background-color: #2c2c2c;
+		background-color: @page-bkg;
 		}
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4,
@@ -77,7 +104,7 @@ audio, video {
 
 html, html a {
 	-webkit-font-smoothing: antialiased;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 	}
 
 article, aside, details, figcaption, figure,
@@ -107,11 +134,7 @@ table {
 a {
 	text-decoration: none;
 	
-	-webkit-transition: color 0.3s ease-in-out;
-	-moz-transition: 	color 0.3s ease-in-out;
-	-ms-transition: 	color 0.3s ease-in-out;
-	-o-transition: 		color 0.3s ease-in-out;
-	transition: 		color 0.3s ease-in-out;
+	.transition(color 0.3s ease-in-out);
 	
 	&:hover {
 		
@@ -167,7 +190,7 @@ input::-moz-focus-inner {
 
 
 /* *************************************************************************************************** */
-/* II. Global Options ******************************************************************************** */
+/* III. Global Options ******************************************************************************* */
 /* *************************************************************************************************** */
 
 /* ******************************************************** */
@@ -179,7 +202,7 @@ input::-moz-focus-inner {
 .darkgrey 		{ color: #1e1e1e; }
 .darkgreen 		{}
 .gray,
-.grey 			{ color: #393939; }
+.grey 			{ color: @pri-font-color; }
 .green 			{ color: #739600; }
 .lightgray,
 .lightgray 		{ color: #f5f5f5; }
@@ -253,7 +276,7 @@ small, .small {
 
 
 /* *************************************************************************************************** */
-/* III. Import Fonts ********************************************************************************* */
+/* IV. Import Fonts ********************************************************************************** */
 /* *************************************************************************************************** */
 
 /* 18F Logo */
@@ -271,7 +294,7 @@ small, .small {
 
 
 /* *************************************************************************************************** */
-/* IV. Template Frame ******************************************************************************** */
+/* V. Template Frame ********************************************************************************* */
 /* *************************************************************************************************** */
 div.wrapper,
 	div.wrapperouter,
@@ -301,7 +324,7 @@ div.sectionwrapper {}
 	div.sectioninside {
 		margin: 0 auto;
 		width: 100%;
-		max-width: 1100px;
+		max-width: @page-content-maxwidth;
 		}
 		div.sectionwrapper.pageheader {
 			div.sectioninside {
@@ -346,7 +369,7 @@ div.sectionwrapper {
 
 
 /* *************************************************************************************************** */
-/* V. Content and Typography ************************************************************************* */
+/* VI. Content and Typography ************************************************************************ */
 /* *************************************************************************************************** */
 
 /* ******************************************************** */
@@ -412,10 +435,10 @@ div.admincontainer a {
 div.sectionwrapper {
 	
 	/* Unordered List */
-	ol {
-		ol {
-			ol {
-				ol {
+	ul {
+		ul {
+			ul {
+				ul {
 					
 					}
 			}
@@ -443,7 +466,7 @@ div.sectionwrapper {
 
 
 /* *************************************************************************************************** */
-/* VI. Header **************************************************************************************** */
+/* VII. Header *************************************************************************************** */
 /* *************************************************************************************************** */
 
 /* ******************************************************** */
@@ -495,6 +518,7 @@ ul.headerlinkslist {
 		display: block;
 		float: left;
 		
+		> span.loginparent,
 		> a {
 			margin: 0 0 0 1px;
 			padding: 20px 15px 17px;
@@ -503,29 +527,47 @@ ul.headerlinkslist {
 			border-bottom: 3px solid transparent;
 			text-transform: uppercase;
 			
-			-webkit-transition: color 0.2s ease-in-out,
-								border-color 0.2s ease-in-out,
-								background-color 0.2s ease-in-out;
-			-moz-transition: 	color 0.2s ease-in-out,
-								border-color 0.2s ease-in-out,
-								background-color 0.2s ease-in-out;
-			-ms-transition: 	color 0.2s ease-in-out,
-								border-color 0.2s ease-in-out,
-								background-color 0.2s ease-in-out;
-			-o-transition: 		color 0.2s ease-in-out,
-								border-color 0.2s ease-in-out,
-								background-color 0.2s ease-in-out;
-			transition: 		color 0.2s ease-in-out,
-								border-color 0.2s ease-in-out,
-								background-color 0.2s ease-in-out;
+			.transition(color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.3s ease-in-out);
+			}
+		> span.loginparent {
+			cursor: pointer;
 			}
 		
 		&.active a,
-		&:hover a {
+		&:hover a,
+		&:hover span.loginparent {
 			padding-bottom: 17px;
 			color: #005395;
+			text-decoration: none;
 			border-color: #005395;
 			}
+		
+		&.loginlogout {
+			
+			div.logindropdown {
+				position: absolute;
+				top: 100%;
+				right: 0;
+				z-index: 999;
+				margin: 0;
+				padding: 10px 15px;
+				display: none;
+				width: 350px;
+				background-color: #f1f1f1;
+				
+				-webkit-border-radius: 	0 0 0 3px;
+				-moz-border-radius: 	0 0 0 3px;
+				border-radius: 			0 0 0 3px;
+				-webkit-box-shadow: -4px 4px 5px rgba(0, 0, 0, 0.15);
+				-moz-box-shadow: 	-4px 4px 5px rgba(0, 0, 0, 0.15);
+				box-shadow: 		-4px 4px 5px rgba(0, 0, 0, 0.15);
+				}
+		
+			&:hover > div.logindropdown {
+				display: block;
+				}
+		}
+		
 	}
 }
 
@@ -564,11 +606,7 @@ div.mnavwrapper.headerlinksnav {
 				height: 4px;
 				background-color: #656565;
 				
-				-webkit-transition: background-color 0.2s ease-in-out;
-				-moz-transition: 	background-color 0.2s ease-in-out;
-				-ms-transition: 	background-color 0.2s ease-in-out;
-				-o-transition: 		background-color 0.2s ease-in-out;
-				transition: 		background-color 0.2s ease-in-out;
+				.transition(background-color 0.2s ease-in-out);
 				}
 		}
 		
@@ -595,11 +633,7 @@ div.mnavwrapper.headerlinksnav {
 				border-bottom: 1px dashed #454545;
 				background-color: #303030;
 				
-				-webkit-transition: background-color 0.2s ease-in-out;
-				-moz-transition: 	background-color 0.2s ease-in-out;
-				-ms-transition: 	background-color 0.2s ease-in-out;
-				-o-transition: 		background-color 0.2s ease-in-out;
-				transition: 		background-color 0.2s ease-in-out;
+				.transition(background-color 0.2s ease-in-out);
 				}
 			
 			&:last-child a {
@@ -643,7 +677,7 @@ div.mnavwrapper.headerlinksnav {
 
 
 /* *************************************************************************************************** */
-/* VII. Content Region ******************************************************************************* */
+/* VIII. Content Region ****************************************************************************** */
 /* *************************************************************************************************** */
 
 /* ******************************************************** */
@@ -757,7 +791,7 @@ div.contentcolholder {
 
 
 /* *************************************************************************************************** */
-/* VIII. Footer ************************************************************************************** */
+/* IX. Footer **************************************************************************************** */
 /* *************************************************************************************************** */
 div.pagefooter {
 	color: #777;
@@ -897,17 +931,546 @@ div.ftrinfobottom {
 
 
 /* *************************************************************************************************** */
-/* IX. Homepage FDA Dashboard ************************************************************************ */
+/* X. Forms ****************************************************************************************** */
 /* *************************************************************************************************** */
-<<<<<<< HEAD
-.us-states {
-	fill: #a6a6a6;
+
+
+/* ******************************************************** */
+/* i. General Form Styling ******************************** */
+/* ******************************************************** */
+
+/* Form */
+div.formholder {}
+	div.formholder_inner {}
+		div.formholder_inner form {}
+			
+			/* Notice */
+			div.notice {
+				margin: 0 0 15px;
+				}
+				div.notice_inner {
+					padding: 10px 15px;
+					color: #fff;
+					font-size: 0.90em;
+					line-height: 1.05em;
+					text-align: center;
+					
+					-webkit-border-radius: 	3px;
+					-moz-border-radius: 	3px;
+					border-radius: 			3px;
+					}
+					
+					/* Error */
+					div.notice.error div.notice_inner 		{ background-color: #c10000; }
+					
+					/* Warning */
+					div.notice.warning div.notice_inner 	{ background-color: #e2be3f; }
+			
+			/* Required */
+			span.req {
+				position: relative;
+				color: #bf0000;
+				overflow: hidden;
+				}
+				
+				/* For Screen Readers */
+				span.req span.screentxt {
+					position: absolute;
+					top: -50px;
+					height: 0;
+					overflow: hidden;
+					}
+			
+			/* Form Title */
+			div.formholder_inner h3.formtitle {
+				margin: 0 0 15px;
+				padding: 15px 0;
+				font-size: 1.85em;
+				border-bottom: 1px solid #e0e0e0;
+				}
+			
+			/* Form Section Subtext */
+			div.formholder_inner div.formsectioninfo {
+				padding: 0 0 15px;
+				font-size: 0.80em;
+				}
+			
+			/* Form Row */
+			div.formholder_inner div.formrow {
+				padding: 5px 0 15px;
+				}
+				div.formholder_inner div.formrow label {
+					padding: 0 0 8px;
+					display: block;
+					font-size: 0.95em;
+					cursor: pointer;
+					}
+					
+					/* Secondary Field */
+					div.formholder_inner div.fieldsec label {
+						padding-top: 15px;
+						}
+				div.formholder_inner div.formrow div.formfld {}
+					
+					/* Row Columns (default is single column, which requires no class) */
+					div.formrow div.formcol {}
+						
+						div.formrow.twocol,
+						div.formrow.threecol,
+						div.formrow.fourcol {
+							margin: 0 -10px;
+							}
+							div.formrow.twocol {}
+							div.formrow.threecol {}
+							div.formrow.fourcol {}
+							
+							/* Two Column */
+							div.formrow.twocol div.formcol.colleft {
+								padding: 0 5px 0 10px;
+								float: left;
+								width: 50%;
+								}
+							div.formrow.twocol div.formcol.colright {
+								padding: 0 10px 0 5px;
+								float: right;
+								width: 50%;
+								}
+							
+							/* Three Column */
+							div.formrow.threecol div.formcol.colleft {
+								padding: 0 5px 0 10px;
+								float: left;
+								width: 33.3%;
+								}
+							div.formrow.threecol div.formcol.colcenter {
+								padding: 0 5px;
+								float: left;
+								width: 33.3%;
+								}
+							div.formrow.threecol div.formcol.colright {
+								padding: 0 10px 0 5px;
+								float: right;
+								width: 33.3%;
+								}
+							
+							/* Four Column */
+							div.formrow.fourcol div.formcol.colleft {
+								padding: 0 5px 0 10px;
+								float: left;
+								width: 25%;
+								}
+							div.formrow.fourcol div.formcol.colcenter {
+								padding: 0 5px;
+								float: left;
+								width: 25%;
+								}
+							div.formrow.fourcol div.formcol.colright {
+								padding: 0 10px 0 5px;
+								float: right;
+								width: 25%;
+								}
+					
+					/* Fields */
+					div.formholder input.text,
+					div.formholder select.select {
+						margin: 0;
+						padding: 5px 10px;
+						width: 100%;
+						height: 40px;
+						line-height: 40px;
+						border: 1px solid #e0e0e0;
+						border-color: #cbcbcb #e0e0e0 #e0e0e0 #cbcbcb;
+						background-color: #fff;
+						
+						/*
+						-webkit-box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.10) inset;
+						-moz-box-shadow: 	1px 1px 0 rgba(0, 0, 0, 0.10) inset;
+						box-shadow: 		1px 1px 0 rgba(0, 0, 0, 0.10) inset;
+						*/
+						
+						-webkit-transition: color 0.2s ease-in-out,
+											border-color 0.2s ease-in-out,
+											background-color 0.2s ease-in-out;
+						-moz-transition: 	color 0.2s ease-in-out,
+											border-color 0.2s ease-in-out,
+											background-color 0.2s ease-in-out;
+						-ms-transition: 	color 0.2s ease-in-out,
+											border-color 0.2s ease-in-out,
+											background-color 0.2s ease-in-out;
+						-o-transition: 		color 0.2s ease-in-out,
+											border-color 0.2s ease-in-out,
+											background-color 0.2s ease-in-out;
+						transition: 		color 0.2s ease-in-out,
+											border-color 0.2s ease-in-out,
+											background-color 0.2s ease-in-out;
+						}
+						
+						/* Read Only */
+						div.formholder input.text.readonly,
+						div.formholder select.select.readonly {
+							background-color: #ffebcd;
+							}
+						
+						/* Hover */
+						div.formholder input.text:hover,
+						div.formholder select.select:hover {
+							border-color: #cbcbcb;
+							}
+						
+						/* Focus */
+						div.formholder input.text:focus,
+						div.formholder select.select:focus {
+							border-color: #777;
+							
+							-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15) inset;
+							-moz-box-shadow: 	0 0 3px rgba(0, 0, 0, 0.15) inset;
+							box-shadow: 		0 0 3px rgba(0, 0, 0, 0.15) inset;
+							}
+						
+						/* Placeholder Text */
+					div.formholder input.text::-webkit-input-placeholder,
+					div.formholder select.select::-webkit-input-placeholder {
+						color: #999;
+						font-family: 'Georgia', 'Times New Roman', Serif;
+						}
+					
+					div.formholder input.text:-moz-placeholder,
+					div.formholder select.select:-moz-placeholder {
+						color: #999;
+						font-family: 'Georgia', 'Times New Roman', Serif;
+						}
+					
+					div.formholder input.text::-moz-placeholder,
+					div.formholder select.select::-moz-placeholder {
+						color: #999;
+						font-family: 'Georgia', 'Times New Roman', Serif;
+						}
+					
+					div.formholder input.text:-ms-input-placeholder,
+					div.formholder select.select:-ms-input-placeholder {
+						color: #999;
+						font-family: 'Georgia', 'Times New Roman', Serif;
+						line-height: 30px;
+						}
+
+			/* Button Row */
+			div.formrow.buttonrow {
+				position: relative;
+				}
+			
+			/* Field Errors */
+			div.formholder input.text.error {
+				border-color: #ed0000;
+				background-color: #ffd9d9;
+				
+				-webkit-transition: color 0.2s ease-in-out,
+									border-color 0.2s ease-in-out,
+									background-color 0.2s ease-in-out;
+				-moz-transition: 	color 0.2s ease-in-out,
+									border-color 0.2s ease-in-out,
+									background-color 0.2s ease-in-out;
+				-ms-transition: 	color 0.2s ease-in-out,
+									border-color 0.2s ease-in-out,
+									background-color 0.2s ease-in-out;
+				-o-transition: 		color 0.2s ease-in-out,
+									border-color 0.2s ease-in-out,
+									background-color 0.2s ease-in-out;
+				transition: 		color 0.2s ease-in-out,
+									border-color 0.2s ease-in-out,
+									background-color 0.2s ease-in-out;
+				}
+				div.formholder input.text.error:hover,
+				div.formholder input.text.error:focus {
+					border-color: #ff0b0b;
+					background-color: #ffd3d3;
+					}
+
+
+
+/* ******************************************************** */
+/* ii. Form Field Icons *********************************** */
+/* ******************************************************** */
+div.formfld.icon {
+	position: relative;
+
 	}
-.buttonContainer {
-	padding-top: 0.9em;
-	padding-right: 1.75em;
+	.icon.email div.fldicon,
+	.icon.password div.fldicon {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 40px;
+		height: 40px; /*100%;*/
+		color: #a6a6a6;
+		font-size: 1.15em;
+		text-align: center;
+		line-height: 2.05em;
+		border: 1px solid #dfdfdf;
+		border-color: #cbcbcb #e0e0e0 #e0e0e0 #dfdfdf;
+		background-color: #fafafa;
+		
+		background: rgb(229, 229, 229);
+		background: -moz-linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
+		background: -webkit-gradient(linear, right bottom, right top, color-stop(0%, #f0f0f0), color-stop(100%, #fafafa));
+		background: -webkit-linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
+		background: -o-linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
+		background: -ms-linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
+		background: linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#fafafa',GradientType=1 );
+		-webkit-transition: border-color 0.2s ease-in-out;
+		-moz-transition: 	border-color 0.2s ease-in-out;
+		-ms-transition: 	border-color 0.2s ease-in-out;
+		-o-transition: 		border-color 0.2s ease-in-out;
+		transition: 		border-color 0.2s ease-in-out;
+		}
+		
+		/* Borders */
+		div.formfld.icon.focused div.fldicon {
+			border-color: #777;
+			}
+		
+		/* Icons */
+		.icon.email div.fldicon:after,
+		.icon.password div.fldicon:after {
+			font-family: 'FontAwesome';
+			text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.90);
+			}
+			.icon.email div.fldicon:after 	{ content: '\f0e0'; }
+			.icon.password div.fldicon:after 	{ content: '\f023'; }
+		
+		/* Field Error */
+		div.fldicon.error {
+			border-color: #ed0000 !important;
+			}
+
+
+
+/* ******************************************************** */
+/* iii. General Button Styling **************************** */
+/* ******************************************************** */
+
+/* Button Styling */
+.button {
+	position: relative;
+	z-index: 1;
+	margin: 0 0 0 10px;
+	padding: 0 25px;
+	display: block;
+	float: right;
+	height: 42px;
+	color: #fafafa;
+	font-size: 0.95em;
+	line-height: 42px;
+	text-align: center;
+	text-transform: uppercase;
+	cursor: pointer;
+	border: 1px solid #337ab7;
+	background-color: #337ab7;
+	
+	-webkit-border-radius: 	3px;
+	-moz-border-radius: 	3px;
+	border-radius: 			3px;
+	-webkit-transition: color 0.2s ease-in-out,
+						border-color 0.2s ease-in-out,
+						background-color 0.2s ease-in-out;
+	-moz-transition: 	color 0.2s ease-in-out,
+						border-color 0.2s ease-in-out,
+						background-color 0.2s ease-in-out;
+	-ms-transition: 	color 0.2s ease-in-out,
+						border-color 0.2s ease-in-out,
+						background-color 0.2s ease-in-out;
+	-o-transition: 		color 0.2s ease-in-out,
+						border-color 0.2s ease-in-out,
+						background-color 0.2s ease-in-out;
+	transition: 		color 0.2s ease-in-out,
+						border-color 0.2s ease-in-out,
+						background-color 0.2s ease-in-out;
 	}
-=======
+	div.slideitemcontent a.button,
+	div.pagecontent a.button {
+		color: #fafafa;
+		text-decoration: none;
+		}
+	
+	.button:hover {
+		border-color: #0e5ea2;
+		background-color: #0e5ea2;
+		}
+
+/* Optional Button Holder */
+div.buttonholder {
+	padding: 20px 0;
+	overflow: hidden;
+	}
+	
+	/* Button Positioning */
+	div.buttonholder.bttnleft .button 	{ float: left; }
+	div.buttonholder.bttncenter .button 	{ margin: 0 auto; float: none; }
+	div.buttonholder.bttnright .button 	{ float: right; }
+	
+	/* Button Width */
+	.button.bttnw150 { width: 100%; max-width: 150px; }
+	.button.bttnw200 { width: 100%; max-width: 200px; }
+	.button.bttnw250 { width: 100%; max-width: 250px; }
+	.button.bttnw300 { width: 100%; max-width: 300px; }
+	.button.bttnw350 { width: 100%; max-width: 350px; }
+	.button.bttnw400 { width: 100%; max-width: 400px; }
+	.button.bttnw450 { width: 100%; max-width: 450px; }
+	.button.bttnw500 { width: 100%; max-width: 500px; }
+
+
+
+/* ******************************************************** */
+/* iv. Notice Popup *************************************** */
+/* ******************************************************** */
+
+/* Backdrop */
+div.noticepopupbackdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 190;
+	display: none;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.60);
+	}
+
+/* Notice Popup */
+div.noticepopup {
+	position: fixed;
+	top: 15%;
+	left: 50%;
+	z-index: 195;
+	margin: 0;
+	padding: 0;
+	display: none;
+	width: 100%;
+	max-width: 530px;
+	height: auto;
+	
+	opacity: 0.00;
+	}
+	div.noticepopup_outer {
+		padding: 0 15px;
+		}
+		div.noticepopup_inner {
+			width: 100%;
+			height: 100%;
+			
+			-webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
+			-moz-box-shadow: 	0 0 25px rgba(0, 0, 0, 0.20);
+			box-shadow: 		0 0 25px rgba(0, 0, 0, 0.20);
+			}
+			/* Notice Header */
+			div.noticepopup_header {
+				position: relative;
+				padding: 10px;
+				color: #fafafa;
+				border: 1px solid #565656;
+				border-width: 0;
+				background-color: #131313;
+				
+				-webkit-border-radius: 	4px 4px 0 0;
+				-moz-border-radius: 	4px 4px 0 0;
+				border-radius: 			4px 4px 0 0;
+				}
+				
+				/* Close Button */
+				div.noticeclosebttn {
+					position: absolute;
+					top: 50%;
+					right: 6px;
+					margin: -12px 0 0 -12px;
+					width: 24px;
+					height: 24px;
+					cursor: pointer;
+					background-color: #454545;
+					
+					-webkit-border-radius: 	2px;
+					-moz-border-radius: 	2px;
+					border-radius: 			2px;
+					-webkit-transition: background-color 0.2s ease-in-out;
+					-moz-transition: 	background-color 0.2s ease-in-out;
+					-ms-transition: 	background-color 0.2s ease-in-out;
+					-o-transition: 		background-color 0.2s ease-in-out;
+					transition: 		background-color 0.2s ease-in-out;
+					}
+					div.noticeclosebttn:hover {
+						background-color: #909090;
+						}
+					div.noticeclosebttn:after {
+						padding-left: 5px;
+						color: #131313;
+						font-family: 'FontAwesome';
+						font-size: 1.25em;
+						line-height: 23px;
+						text-align: center;
+						content: '\f00d';
+						}
+			
+			/* Notice Content */
+			div.noticepopup_content {
+				padding: 15px;
+				color: #131313;
+				font-size: 0.95em;
+				line-height: 1.25em;
+				text-align: left;
+				border: 1px solid #565656;
+				border-width: 0;
+				background-color: #fafafa;
+				
+				-webkit-border-radius: 	0 0 4px 4px;
+				-moz-border-radius: 	0 0 4px 4px;
+				border-radius: 			0 0 4px 4px;
+				}
+				div.noticepopupcontent_inner {
+					position: relative;
+					padding: 15px 15px 15px 65px;
+					border: 1px solid #dfdfdf;
+					}
+					
+					/* Notice Icon */
+					div.noticepopupcontent_inner:after {
+						position: absolute;
+						top: 50%;
+						left: 15px;
+						margin: -8px 0 0;
+						color: #eda83c;
+						font-family: 'FontAwesome';
+						font-size: 2.50em;
+						content: '\f071';
+						}
+
+
+
+/* *************************************************************************************************** */
+/* XI. Bootstrap Overrides *************************************************************************** */
+/* *************************************************************************************************** */
+div.sectioninside.container {
+	padding-right: 0;
+	padding-left: 0;
+	}
+	div.sectioninside.container > .row {
+		margin-right: 0;
+		margin-left: 0;
+		}
+		div.sectioninside.container > .row > .col-sm-12,
+		div.sectioninside.container > .row > .col-md-12,
+		div.sectioninside.container > .row > .col-lg-12 {
+			padding-right: 0;
+			padding-left: 0;
+			}
+
+
+
+/* *************************************************************************************************** */
+/* XII. Homepage FDA Dashboard *********************************************************************** */
+/* *************************************************************************************************** */
+div.dashboardmain {
+	padding: 25px 0;
+}
 #infoBox {
 	padding: 3.5em 1em 1em 1em;
 }
@@ -922,10 +1485,7 @@ div.ftrinfobottom {
 	padding-left: 1em;
 	width: 100%;
 }
-.typeButtons {
-	
-}
->>>>>>> origin/dashboard
+
 
 
 

@@ -17,6 +17,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,600italic' rel='stylesheet' />
 	<link href="<?php echo BASE_URL; ?>css/bootstrap.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/minerva.css" rel="stylesheet" media="all" />
+	<link href="<?php echo BASE_URL; ?>css/font-awesome.min.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/styles.css" rel="stylesheet" media="all" />
 	
 	<?php /* Dependencies */ ?>
@@ -34,6 +35,7 @@
 	<script src="<?php echo BASE_URL; ?>js/sha512.js"></script>
 	<?php endif; ?>
 	
+	<script src="<?php echo BASE_URL; ?>js/jquery.dataTables.min.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/18f.js"></script>
 	
 	<?php /* Application JS Files */ ?>
@@ -66,116 +68,121 @@
 			<header class="secpageheader">
 				<div class="sectionwrapper pageheader">
 					
-					<div class="sectioninside">
+					<div class="sectioninside container">
+						<div class="row">
+							<div class="col-md-12">
 						
-						<?php /* Header Logo: Start */ ?>
-						<div class="headerlogo">
-							<a href="<?php echo BASE_URL; ?>">
-								<img src="<?php echo BASE_URL; ?>images/logo_ntc.png" alt="Next Tier Concepts" />
-							</a>
-						</div>
-						<?php /* Header Logo: End */ ?>
-						
-						<?php /* Header User Links: Start */ ?>
-						<nav class="prinavigation">
-							<ul class="headerlinkslist">
+								<?php /* Header Logo: Start */ ?>
+								<div class="headerlogo">
+									<a href="<?php echo BASE_URL; ?>">
+										<img src="<?php echo BASE_URL; ?>images/logo_ntc.png" alt="Next Tier Concepts" />
+									</a>
+								</div>
+								<?php /* Header Logo: End */ ?>
 								
-								<li <?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? 'class="active"' : ''); ?>>
-									<a href="<?php echo BASE_URL; ?>">Home</a>
-								</li>
-								<li <?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'about' ) ? 'class="active"' : ''); ?>>
-									<a href="<?php echo BASE_URL; ?>about">About</a>
-								</li>
-								
-								<?php /* Login/Logout: Start */ ?>
-								<li>
-									
-									<?php if (login_check($mysqli) == true) : ?>
-									
-									<a href="<?php echo BASE_URL; ?>inc/logout">Logout</a>
-									
-									<?php else : ?>
-									
-									<span>Login</span>
-									
-									<div class="logindropdown">
+								<?php /* Header User Links: Start */ ?>
+								<nav class="prinavigation">
+									<ul class="headerlinkslist">
+										
+										<li <?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? 'class="active"' : ''); ?>>
+											<a href="<?php echo BASE_URL; ?>">Home</a>
+										</li>
+										
+										<?php /* Login/Logout: Start */ ?>
+										<li class="loginlogout">
+											
+											<?php if (login_check($mysqli) == true) : ?>
+											
+											<a href="<?php echo BASE_URL; ?>inc/logout">Logout</a>
+											
+											<?php else : ?>
+											
+											<span class="loginparent">Login</span>
+											
+											<div class="logindropdown">
 
-										<h3>Homepage Login Form</h3>
-										
-										<?php
-											if (isset($_GET['error'])) {
-												echo '
-													<div class="notice error">
-														<div class="notice_inner">
-															Error Logging In!
-														</div>
-													</div>';
-											}
-										?> 
-										
-										<?php /* Login Form: Start */ ?>
-										<div class="formholder">
-											<div class="formholder_inner">
+												<h3>Login Form</h3>
 												
-												<form action="<?php echo BASE_URL; ?>inc/process_login" method="POST" name="login_form">
-													
-													<?php /* Username/Email: Start */ ?>
-													<div class="formrow">
-														<label for="email" class="hploginlbl">Email Address/Username</label>
-														<div class="formfld icon email">
-															<input type="text" name="email" id="email" class="text" value="" placeholder="Email Address/Username" />
-															
-															<div class="clear"></div>
-														</div>
-														
-														<div class="clear"></div>
-													</div>
-													<?php /* Username/Email: End */ ?>
-													
-													<?php /* Password: Start */ ?>
-													<div class="formrow passwordrow">
-														<label for="Password" class="hploginlbl">Password</label>
-														<div class="formfld">
-															<input type="password" name="password" id="Password" class="text password" value="" placeholder="Enter your password" />
-															
-															<div class="clear"></div>
-														</div>
-														
-														<div class="clear"></div>
-													</div>
-													<?php /* Password: End */ ?>
-													
-													<?php /* Sign In: Start */ ?>
-													<div class="formrow buttonrow">
-														<div class="formfld">
-															<button id="loginbutton" class="button" onclick="formhash(this.form, this.form.password);">
-																<span>Log In</span>
-															</button>
-														</div>
-														
-														<div class="clear"></div>
-													</div>
-													<?php /* Sign In: End */ ?>
-													
-												</form>
+												<?php
+													if (isset($_GET['error'])) {
+														echo '
+															<div class="notice error">
+																<div class="notice_inner">
+																	Error Logging In!
+																</div>
+															</div>';
+													}
+												?> 
 												
-												<div class="clear"></div>
+												<?php /* Login Form: Start */ ?>
+												<div class="formholder">
+													<div class="formholder_inner">
+														
+														<form action="<?php echo BASE_URL; ?>inc/process_login" method="POST" name="login_form">
+															
+															<?php /* Username/Email: Start */ ?>
+															<div class="formrow">
+																<label for="email" class="hploginlbl">Email Address</label>
+																<div class="formfld icon email">
+																	<input type="text" name="email" id="email" class="text" value="" placeholder="Email Address" />
+																	
+																	<div class="clear"></div>
+																</div>
+																
+																<div class="clear"></div>
+															</div>
+															<?php /* Username/Email: End */ ?>
+															
+															<?php /* Password: Start */ ?>
+															<div class="formrow passwordrow">
+																<label for="Password" class="hploginlbl">Password</label>
+																<div class="formfld icon password">
+																	<input type="password" name="password" id="Password" class="text password" value="" placeholder="Enter your password" />
+																	
+																	<div class="clear"></div>
+																</div>
+																
+																<div class="clear"></div>
+															</div>
+															<?php /* Password: End */ ?>
+															
+															<?php /* Sign In: Start */ ?>
+															<div class="formrow buttonrow">
+																<div class="formfld">
+																	<button id="loginbutton" class="button" onclick="formhash(this.form, this.form.password);">
+																		<span>Log In</span>
+																	</button>
+																</div>
+																
+																<div class="clear"></div>
+															</div>
+															<?php /* Sign In: End */ ?>
+															
+														</form>
+														
+														<div class="clear"></div>
+													</div>
+													
+													<div class="clear"></div>
+												</div>
+												<?php /* Login Form: End */ ?>
+												
 											</div>
 											
-											<div class="clear"></div>
-										</div>
-										<?php /* Login Form: End */ ?>
+											<?php endif; ?>
+											
+										</li>
+										<?php /* Login/Logout: End */ ?>
 										
-									</div>
-									
-									<?php endif; ?>
-									
-								</li>
-								<?php /* Login/Logout: End */ ?>
+									</ul>
+								</nav>
+								<?php /* Header User Links: End */ ?>
 								
-							</ul>
-						</nav>
-						<?php /* Header User Links: End */ ?>
+								<div class="clear"></div>
+							</div>
+							
+							<div class="clear"></div>
+						</div>
 						
 						<div class="clear"></div>
 					</div>

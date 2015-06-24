@@ -9,6 +9,15 @@ jQuery(document).ready(function($){
 	
 	// Main Navigation Mobile
 	mobilePriNav('div.sectionwrapper.pageheader div.sectioninside','ul.headerlinkslist','ul.mobileheaderlinkslist','headerlinksnav','mobileheaderlinkslist');
+	
+	// Field Icons
+	var $fldIconsExist = $('div.formfld.icon');
+	if ($fldIconsExist.length > 0){
+		fieldIcons();
+	}
+	
+	/* Data Grid */
+	$('#datagridinfo').DataTable();
 });
 
 
@@ -169,6 +178,24 @@ function mobilePriNav(appendSelector,itemClone,appendCloneTo,mobileNavClassSel,f
 			$(this).parent().removeClass('active');
 			$(this).parent().find('ul.' + finalListSel).stop(true, true).slideUp();
 		}
+	});
+}
+
+
+/**
+  * Field Icons Function
+  */
+function fieldIcons(){
+	$('div.formfld.icon').append('<div class="fldicon"></div>');
+	
+	// On Focus
+	$('input.text,select.select').on('focus', function(){
+		$(this).closest('div.formfld').addClass('focused');
+	});
+	
+	// On Blur
+	$('input.text,select.select').on('blur', function(){
+		$(this).closest('div.formfld').removeClass('focused');
 	});
 }
 
