@@ -18,6 +18,7 @@
 	<link href="<?php echo BASE_URL; ?>css/bootstrap.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/minerva.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/font-awesome.min.css" rel="stylesheet" media="all" />
+	<link href="<?php echo BASE_URL; ?>css/dataTables.responsive.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/styles.css" rel="stylesheet" media="all" />
 	
 	<?php /* Dependencies */ ?>
@@ -36,6 +37,7 @@
 	<?php endif; ?>
 	
 	<script src="<?php echo BASE_URL; ?>js/jquery.dataTables.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/dataTables.responsive.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/18f.js"></script>
 	
 	<?php /* Application JS Files */ ?>

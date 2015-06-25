@@ -17,7 +17,9 @@ jQuery(document).ready(function($){
 	}
 	
 	/* Data Grid */
-	$('#datagridinfo').DataTable();
+	$('#datagridinfo').DataTable({
+		responsive: true
+	});
 });
 
 
