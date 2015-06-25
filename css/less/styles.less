@@ -36,8 +36,10 @@
 			  iii. Footer Bottom Info
 			   iv. Media Queries
 			X. Forms
-		   XI. Bootstrap Overrides
-		  XII. Homepage FDA Dashboard
+		   XI. Data Grids
+		  XII. Bootstrap Overrides
+		 XIII. Homepage FDA Dashboard
+
    *************************************************************************************************** */
 
 /* *************************************************************************************************** */
@@ -52,6 +54,18 @@
 @page-content-maxwidth: 1100px;
 
 /* Mixins */
+.borderradius (@value){
+    -webkit-border-radius: 	@value;
+    -moz-border-radius: 	@value;
+    border-radius: 			@value;
+}
+.boxshadow (@value1,@value2:X,...){
+    @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+	
+	-webkit-box-shadow: @value;
+    -moz-box-shadow: 	@value;
+    box-shadow: 		@value;
+}
 .transition (@value1,@value2:X,...){
     @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
 
@@ -60,6 +74,11 @@
     -ms-transition: 	@value;
     -o-transition: 		@value;
     transition: 		@value;
+}
+.userselect(@value){
+    -webkit-user-select: 	@value;
+    -moz-user-select: 		@value;
+    user-select: 			@value;
 }
 
 
@@ -554,12 +573,8 @@ ul.headerlinkslist {
 				width: 350px;
 				background-color: #f1f1f1;
 				
-				-webkit-border-radius: 	0 0 0 3px;
-				-moz-border-radius: 	0 0 0 3px;
-				border-radius: 			0 0 0 3px;
-				-webkit-box-shadow: -4px 4px 5px rgba(0, 0, 0, 0.15);
-				-moz-box-shadow: 	-4px 4px 5px rgba(0, 0, 0, 0.15);
-				box-shadow: 		-4px 4px 5px rgba(0, 0, 0, 0.15);
+				.borderradius(0 0 0 3px);
+				.boxshadow(-4px 4px 5px rgba(0, 0, 0, 0.15));
 				}
 		
 			&:hover > div.logindropdown {
@@ -954,9 +969,7 @@ div.formholder {}
 					line-height: 1.05em;
 					text-align: center;
 					
-					-webkit-border-radius: 	3px;
-					-moz-border-radius: 	3px;
-					border-radius: 			3px;
+					.borderradius(3px);
 					}
 					
 					/* Error */
@@ -1081,27 +1094,7 @@ div.formholder {}
 						border-color: #cbcbcb #e0e0e0 #e0e0e0 #cbcbcb;
 						background-color: #fff;
 						
-						/*
-						-webkit-box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.10) inset;
-						-moz-box-shadow: 	1px 1px 0 rgba(0, 0, 0, 0.10) inset;
-						box-shadow: 		1px 1px 0 rgba(0, 0, 0, 0.10) inset;
-						*/
-						
-						-webkit-transition: color 0.2s ease-in-out,
-											border-color 0.2s ease-in-out,
-											background-color 0.2s ease-in-out;
-						-moz-transition: 	color 0.2s ease-in-out,
-											border-color 0.2s ease-in-out,
-											background-color 0.2s ease-in-out;
-						-ms-transition: 	color 0.2s ease-in-out,
-											border-color 0.2s ease-in-out,
-											background-color 0.2s ease-in-out;
-						-o-transition: 		color 0.2s ease-in-out,
-											border-color 0.2s ease-in-out,
-											background-color 0.2s ease-in-out;
-						transition: 		color 0.2s ease-in-out,
-											border-color 0.2s ease-in-out,
-											background-color 0.2s ease-in-out;
+						.transition(color 0.2s ease-in-out,border-color 0.2s ease-in-out,background-color 0.2s ease-in-out);
 						}
 						
 						/* Read Only */
@@ -1121,9 +1114,7 @@ div.formholder {}
 						div.formholder select.select:focus {
 							border-color: #777;
 							
-							-webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.15) inset;
-							-moz-box-shadow: 	0 0 3px rgba(0, 0, 0, 0.15) inset;
-							box-shadow: 		0 0 3px rgba(0, 0, 0, 0.15) inset;
+							.boxshadow(0 0 3px rgba(0, 0, 0, 0.15) inset);
 							}
 						
 						/* Placeholder Text */
@@ -1162,21 +1153,7 @@ div.formholder {}
 				border-color: #ed0000;
 				background-color: #ffd9d9;
 				
-				-webkit-transition: color 0.2s ease-in-out,
-									border-color 0.2s ease-in-out,
-									background-color 0.2s ease-in-out;
-				-moz-transition: 	color 0.2s ease-in-out,
-									border-color 0.2s ease-in-out,
-									background-color 0.2s ease-in-out;
-				-ms-transition: 	color 0.2s ease-in-out,
-									border-color 0.2s ease-in-out,
-									background-color 0.2s ease-in-out;
-				-o-transition: 		color 0.2s ease-in-out,
-									border-color 0.2s ease-in-out,
-									background-color 0.2s ease-in-out;
-				transition: 		color 0.2s ease-in-out,
-									border-color 0.2s ease-in-out,
-									background-color 0.2s ease-in-out;
+				.transition(color 0.2s ease-in-out,border-color 0.2s ease-in-out,background-color 0.2s ease-in-out);
 				}
 				div.formholder input.text.error:hover,
 				div.formholder input.text.error:focus {
@@ -1215,12 +1192,9 @@ div.formfld.icon {
 		background: -o-linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
 		background: -ms-linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
 		background: linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#fafafa',GradientType=1 );
-		-webkit-transition: border-color 0.2s ease-in-out;
-		-moz-transition: 	border-color 0.2s ease-in-out;
-		-ms-transition: 	border-color 0.2s ease-in-out;
-		-o-transition: 		border-color 0.2s ease-in-out;
-		transition: 		border-color 0.2s ease-in-out;
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#fafafa',GradientType=1);
+		
+		.transition(border-color 0.2s ease-in-out);
 		}
 		
 		/* Borders */
@@ -1266,24 +1240,8 @@ div.formfld.icon {
 	border: 1px solid #337ab7;
 	background-color: #337ab7;
 	
-	-webkit-border-radius: 	3px;
-	-moz-border-radius: 	3px;
-	border-radius: 			3px;
-	-webkit-transition: color 0.2s ease-in-out,
-						border-color 0.2s ease-in-out,
-						background-color 0.2s ease-in-out;
-	-moz-transition: 	color 0.2s ease-in-out,
-						border-color 0.2s ease-in-out,
-						background-color 0.2s ease-in-out;
-	-ms-transition: 	color 0.2s ease-in-out,
-						border-color 0.2s ease-in-out,
-						background-color 0.2s ease-in-out;
-	-o-transition: 		color 0.2s ease-in-out,
-						border-color 0.2s ease-in-out,
-						background-color 0.2s ease-in-out;
-	transition: 		color 0.2s ease-in-out,
-						border-color 0.2s ease-in-out,
-						background-color 0.2s ease-in-out;
+	.borderradius(3px);
+	.transition(color 0.2s ease-in-out,border-color 0.2s ease-in-out,background-color 0.2s ease-in-out);
 	}
 	div.slideitemcontent a.button,
 	div.pagecontent a.button {
@@ -1358,9 +1316,7 @@ div.noticepopup {
 			width: 100%;
 			height: 100%;
 			
-			-webkit-box-shadow: 0 0 25px rgba(0, 0, 0, 0.20);
-			-moz-box-shadow: 	0 0 25px rgba(0, 0, 0, 0.20);
-			box-shadow: 		0 0 25px rgba(0, 0, 0, 0.20);
+			.boxshadow(0 0 25px rgba(0, 0, 0, 0.20));
 			}
 			/* Notice Header */
 			div.noticepopup_header {
@@ -1371,9 +1327,7 @@ div.noticepopup {
 				border-width: 0;
 				background-color: #131313;
 				
-				-webkit-border-radius: 	4px 4px 0 0;
-				-moz-border-radius: 	4px 4px 0 0;
-				border-radius: 			4px 4px 0 0;
+				.borderradius(4px 4px 0 0);
 				}
 				
 				/* Close Button */
@@ -1387,19 +1341,13 @@ div.noticepopup {
 					cursor: pointer;
 					background-color: #454545;
 					
-					-webkit-border-radius: 	2px;
-					-moz-border-radius: 	2px;
-					border-radius: 			2px;
-					-webkit-transition: background-color 0.2s ease-in-out;
-					-moz-transition: 	background-color 0.2s ease-in-out;
-					-ms-transition: 	background-color 0.2s ease-in-out;
-					-o-transition: 		background-color 0.2s ease-in-out;
-					transition: 		background-color 0.2s ease-in-out;
-					}
-					div.noticeclosebttn:hover {
+					.borderradius(2px);
+					.transition(background-color 0.2s ease-in-out);
+				
+					&:hover {
 						background-color: #909090;
 						}
-					div.noticeclosebttn:after {
+					&:after {
 						padding-left: 5px;
 						color: #131313;
 						font-family: 'FontAwesome';
@@ -1408,6 +1356,8 @@ div.noticepopup {
 						text-align: center;
 						content: '\f00d';
 						}
+				}
+
 			
 			/* Notice Content */
 			div.noticepopup_content {
@@ -1420,18 +1370,15 @@ div.noticepopup {
 				border-width: 0;
 				background-color: #fafafa;
 				
-				-webkit-border-radius: 	0 0 4px 4px;
-				-moz-border-radius: 	0 0 4px 4px;
-				border-radius: 			0 0 4px 4px;
+				.borderradius(0 0 4px 4px);
 				}
 				div.noticepopupcontent_inner {
 					position: relative;
 					padding: 15px 15px 15px 65px;
 					border: 1px solid #dfdfdf;
-					}
 					
 					/* Notice Icon */
-					div.noticepopupcontent_inner:after {
+					&:after {
 						position: absolute;
 						top: 50%;
 						left: 15px;
@@ -1441,11 +1388,200 @@ div.noticepopup {
 						font-size: 2.50em;
 						content: '\f071';
 						}
+				}
 
 
 
 /* *************************************************************************************************** */
-/* XI. Bootstrap Overrides *************************************************************************** */
+/* XI. Data Grids ************************************************************************************ */
+/* *************************************************************************************************** */
+
+div.dataTables_wrapper {
+	position: relative;
+	padding: 50px 0 0;
+	}
+
+/* Table Styling */
+table.datagrid {
+	width: 100%;
+	font-size: 0.90em;
+	border-collapse: collapse;
+	border: 0 none;
+
+	thead {}
+	tfoot {}
+	tbody {}
+	
+		tr {}
+			th,
+			td {
+				padding: 12px 10px;
+				font-weight: 300;
+				}
+				th {
+					position: relative;
+					background-color: #eaeaea;
+					
+					.userselect(none);
+					
+					&.sorting_asc:after {
+						padding-left: 5px;
+						font-family: 'FontAwesome';
+						content: '\f0d7';
+						}
+					&.sorting_desc:after {
+						padding-left: 5px;
+						font-family: 'FontAwesome';
+						content: '\f0d8';
+						}
+				}
+				td {
+					border-bottom: 1px solid #eaeaea;
+					}
+}
+
+/* Limiter */
+div.dataTables_length {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 45%;
+	
+	label {
+		width: 100%;
+		color: #454545;
+		font-size: 0.90em;
+		font-weight: 300;
+		
+		select {
+			margin: 0 5px;
+			padding: 5px 10px;
+			width: 100%;
+			max-width: 65px;
+			height: 40px;
+			line-height: 40px;
+			border: 1px solid #e0e0e0;
+			border-color: #cbcbcb #e0e0e0 #e0e0e0 #cbcbcb;
+			background-color: #fff;
+			
+			.transition(color 0.2s ease-in-out,border-color 0.2s ease-in-out,background-color 0.2s ease-in-out);
+			
+			&:hover {
+				border-color: #cbcbcb;
+				}
+			&:focus {
+				border-color: #777;
+				}
+			}
+	}
+}
+
+/* Search */
+div.dataTables_filter {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 45%;
+	
+	label {
+		width: 100%;
+		color: #454545;
+		font-size: 0.90em;
+		font-weight: 300;
+		line-height: 40px;
+		text-align: right;
+		
+		input {
+			margin: 0 0 0 5px;
+			padding: 5px 10px;
+			float: right;
+			width: 100%;
+			max-width: 300px;
+			height: 40px;
+			line-height: 40px;
+			border: 1px solid #e0e0e0;
+			border-color: #cbcbcb #e0e0e0 #e0e0e0 #cbcbcb;
+			background-color: #fff;
+			
+			.transition(color 0.2s ease-in-out,border-color 0.2s ease-in-out,background-color 0.2s ease-in-out);
+			
+			&:hover {
+				border-color: #cbcbcb;
+				}
+			&:focus {
+				border-color: #777;
+				}
+			}
+	}
+}
+
+/* Status */
+div.dataTables_info {
+	float: left;
+	color: #a3a3a3;
+	font-size: 0.80em;
+	line-height: 50px;
+	}
+
+/* Pagination */
+div.dataTables_paginate {
+	float: right;
+	padding: 10px 0;
+	
+	.userselect(none);
+	
+	> a,
+	> span {
+		display: block;
+		float: left;
+		}
+		
+		a {
+			position: relative;
+			z-index: 1;
+			margin: 0 0 0 5px;
+			padding: 0 20px;
+			display: block;
+			float: left;
+			height: 34px;
+			color: #fafafa;
+			font-size: 0.95em;
+			line-height: 32px;
+			text-align: center;
+			text-decoration: none;
+			text-transform: uppercase;
+			cursor: pointer;
+			border: 1px solid #337ab7;
+			background-color: #337ab7;
+			
+			.borderradius(3px);
+			.transition(color 0.2s ease-in-out,border-color 0.2s ease-in-out,background-color 0.2s ease-in-out);
+			
+			&.current,
+			&:hover {
+				color: #fafafa;
+				border-color: #0e5ea2;
+				background-color: #0e5ea2;
+				}
+			&.disabled,
+			&.disabled:hover {
+				color: #fafafa;
+				cursor: default;
+				border-color: #778fa4;
+				background-color: #778fa4;
+				}
+		}
+		
+		> a:first-child {
+			margin-left: 0;
+			}
+
+}
+
+
+
+/* *************************************************************************************************** */
+/* XII. Bootstrap Overrides ************************************************************************** */
 /* *************************************************************************************************** */
 div.sectioninside.container {
 	padding-right: 0;
@@ -1465,28 +1601,26 @@ div.sectioninside.container {
 
 
 /* *************************************************************************************************** */
-/* XII. Homepage FDA Dashboard *********************************************************************** */
+/* XIII. Homepage FDA Dashboard ********************************************************************** */
 /* *************************************************************************************************** */
 div.dashboardmain {
 	padding: 25px 0;
-}
-#infoBox {
-	padding: 3.5em 1em 1em 1em;
-}
-#infoBox span {
-	font-size: 1.3em;
-}
-.us-states {
-	fill: #a6a6a6;
-}
-.classButtons {
-	padding-top: 0.9em;
-	padding-left: 1em;
-	width: 100%;
-}
-.typeButtons {
-	
-}
+	}
+	#infoBox {
+		padding: 3.5em 1em 1em 1em;
+		}
+		#infoBox span {
+			font-size: 1.3em;
+			}
+	.us-states {
+		fill: #a6a6a6;
+		}
+	.classButtons {
+		padding-top: 0.9em;
+		padding-left: 1em;
+		width: 100%;
+		}
+	.typeButtons {}
 
 
 
