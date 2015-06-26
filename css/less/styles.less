@@ -1436,6 +1436,7 @@ table.datagrid {
 						}
 				}
 				td {
+					line-height: 1.25em;
 					border-bottom: 1px solid #eaeaea;
 					}
 }
@@ -1530,8 +1531,8 @@ div.dataTables_paginate {
 	
 	.userselect(none);
 	
-	> a,
-	> span {
+	a,
+	span {
 		display: block;
 		float: left;
 		}
@@ -1574,6 +1575,27 @@ div.dataTables_paginate {
 		
 		> a:first-child {
 			margin-left: 0;
+			}
+		
+		span.ellipsis {
+			position: relative;
+			z-index: 1;
+			margin: 0 0 0 5px;
+			padding: 0 20px;
+			display: block;
+			float: left;
+			height: 34px;
+			color: #fafafa;
+			font-size: 0.95em;
+			line-height: 32px;
+			text-align: center;
+			text-decoration: none;
+			text-transform: uppercase;
+			cursor: default;
+			border: 1px solid #337ab7;
+			background-color: #337ab7;
+			
+			.borderradius(3px);
 			}
 
 }

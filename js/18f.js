@@ -16,10 +16,15 @@ jQuery(document).ready(function($){
 		fieldIcons();
 	}
 	
-	/* Data Grid */
-	$('#datagridinfo').DataTable({
-		responsive: true
-	});
+	// Load Data into Table
+	gridFdaData('drug','Class I','100');
+	
+	// Data Grid
+	setTimeout(function(){
+		$('#datagridinfo').DataTable({
+			responsive: true
+		});
+	}, 450);
 });
 
 
@@ -144,8 +149,57 @@ function jsonFdaProcessing(jsonString,dataCounter){
 		dataDisplay += '<div class="clear"></div>';
 	dataDisplay += '</div>';
 	
-	document.getElementById('fdabarchart').innerHTML = dataDisplay;
+	//document.getElementById('fdabarchart').innerHTML = dataDisplay;
 }
+
+
+/**
+  *
+  */
+function gridFdaData(type,query,limit){
+	var request = $.ajax({
+		url: 'https://api.fda.gov/' + type + '/enforcement.json?search=' + query + '&limit=' + limit + '&api_key=mHWQoZTaPhujOVrDtzs8rCEvToN1n6xCDSIVdZbw',
+		method: 'GET',
+		dataType: 'json',
+		success: function(data){
+			gridFdaDataProcess(data);
+		}
+	});
+	
+	request.done(function(msg){
+		$('#log').html(msg);
+	});
+	
+	request.fail(function( jqXHR, textStatus ) {
+		$('#log').html("Request failed: " + textStatus);
+	});
+}
+
+function gridFdaDataProcess(dataString){
+	var obj = dataString;
+	console.log(obj);
+	
+	var dataOutputBody = '';
+	
+	for(var i=0;i<100;i++){
+		
+		dataOutputBody += 
+			
+			'<tr>' + 
+				'<td>' + obj.results[i].recall_number + '</td>' + 
+				'<td>' + obj.results[i].reason_for_recall + '</td>' + 
+				'<td>' + obj.results[i].status + '</td>' + 
+				'<td>' + obj.results[i].product_quantity + '</td>' + 
+				'<td>' + obj.results[i].recall_initiation_date + '</td>' + 
+				'<td>' + obj.results[i].state + '</td>' + 
+			'</tr>';
+		
+	}
+	
+	$('table.datagrid.drugs.state tbody').html(dataOutputBody);
+}
+
+
 
 // To Capital Case
 function toCapitalCase(str){
