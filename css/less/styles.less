@@ -328,13 +328,12 @@ div.sectionwrapper {}
 	/* Individual Parent Sections */
 	div.sectionwrapper.pageheader,
 	div.sectionwrapper.bannersliderholder,
-	div.sectionwrapper.newsbarholder,
 	div.sectionwrapper.pagecontent,
 	div.sectionwrapper.pagefooter {
 		padding: 0 15px;
 		}
 		div.sectionwrapper.pageheader 	{ background-color: #fff; }
-		div.sectionwrapper.newsbarholder 	{ background: #131313 url("../images/patterns/pattern_headerbar.png") top left; }
+		div.sectionwrapper.classselect	{ background-color: #fff; }
 		div.sectionwrapper.pagecontent 	{ background-color: #fff; }
 		div.sectionwrapper.pagefooter 	{}
 	
@@ -347,17 +346,24 @@ div.sectionwrapper {}
 		div.sectionwrapper.pageheader {
 			div.sectioninside {
 				position: relative;
+				background-color: #2e3236;
+				}
+		}
+		div.sectionwrapper.classselect {
+			div.sectioninside {
+				background-color: #4b5056;
 				}
 		}
 		div.sectionwrapper.pagecontent {
 			div.sectioninside {
 				padding: 0 0 15px;
+				background-color: #fff;
 				}
 			
 			/* Homepage Info */
 			&.homepageinfo {
 				div.sectioninside {
-					padding: 15px 0 45px;
+					padding: 0 0 45px;
 					}
 			}
 		}
@@ -1626,7 +1632,7 @@ div.sectioninside.container {
 /* XIII. Homepage FDA Dashboard ********************************************************************** */
 /* *************************************************************************************************** */
 div.dashboardmain {
-	padding: 25px 0;
+	padding: 0 0 25px;
 	}
 	#infoBox {
 		padding: 3.5em 1em 1em 1em;

@@ -68,6 +68,8 @@
 			
 			<?php /* Page Header: Start */ ?>
 			<header class="secpageheader">
+				
+				<?php /* Header Top: Start */ ?>
 				<div class="sectionwrapper pageheader">
 					
 					<div class="sectioninside container">
@@ -86,9 +88,11 @@
 								<nav class="prinavigation">
 									<ul class="headerlinkslist">
 										
+										<?php /*
 										<li <?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? 'class="active"' : ''); ?>>
 											<a href="<?php echo BASE_URL; ?>">Home</a>
 										</li>
+										*/ ?>
 										
 										<?php /* Login/Logout: Start */ ?>
 										<li class="loginlogout">
@@ -191,5 +195,33 @@
 					
 					<div class="clear"></div>
 				</div>
+				<?php /* Header Top: End */ ?>
+				
+				<?php /* Header Bottom: Start */ ?>
+				<div class="sectionwrapper classselect">
+					
+					<div class="sectioninside container">
+						<div class="row">
+							<div class="col-md-12">
+								
+								<ul>
+									<li><a href="#" class="button">Class I</a></li>
+									<li><a href="#" class="button">Class II</a></li>
+									<li><a href="#" class="button">Class III</a></li>
+								</ul>
+								
+								<div class="clear"></div>
+							</div>
+							
+							<div class="clear"></div>
+						</div>
+						
+						<div class="clear"></div>
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+				<?php /* Header Bottom: End */ ?>
+				
 			</header>
 			<?php /* Page Header: Start */ ?>

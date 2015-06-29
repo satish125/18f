@@ -24,7 +24,7 @@ jQuery(document).ready(function($){
 		$('#datagridinfo').DataTable({
 			responsive: true
 		});
-	}, 450);
+	}, 500);
 });
 
 
@@ -81,6 +81,7 @@ function viewportWidthHeight(val){
 	}
 }
 
+/*
 // AJAX FDA Load
 function ajaxFdaLoad(infoCounter){
 	var ajaxhttp = '';
@@ -122,8 +123,8 @@ function jsonFdaProcessing(jsonString,dataCounter){
 			dataDisplay += '<h3>Top ' + dataCounter + ' most frequently reported patient reactions for nonsteroidal anti-inflammatory drugs</h3>';
 			
 			// Loop Through Data
-			// for(var i=0;i<obj.results.length;i++){ /* Grab all 100 records from API */
-			for(var i=0;i<dataCounter;i++){ /* Grab top X results from API */
+			// for(var i=0;i<obj.results.length;i++){ / * Grab all 100 records from API * /
+			for(var i=0;i<dataCounter;i++){ / * Grab top X results from API * /
 				dataDisplay += 
 					'<div class="patientdrugrow patientdrug_' + i + '">' + 
 						'<div class="patientdrug_lbl">' + 
@@ -149,12 +150,13 @@ function jsonFdaProcessing(jsonString,dataCounter){
 		dataDisplay += '<div class="clear"></div>';
 	dataDisplay += '</div>';
 	
-	//document.getElementById('fdabarchart').innerHTML = dataDisplay;
+	document.getElementById('fdabarchart').innerHTML = dataDisplay;
 }
+*/
 
 
 /**
-  *
+  * Open FDA API Data Function
   */
 function gridFdaData(type,query,limit){
 	var request = $.ajax({
@@ -170,7 +172,7 @@ function gridFdaData(type,query,limit){
 		$('#log').html(msg);
 	});
 	
-	request.fail(function( jqXHR, textStatus ) {
+	request.fail(function(jqXHR, textStatus) {
 		$('#log').html("Request failed: " + textStatus);
 	});
 }
