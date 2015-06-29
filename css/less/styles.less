@@ -328,13 +328,12 @@ div.sectionwrapper {}
 	/* Individual Parent Sections */
 	div.sectionwrapper.pageheader,
 	div.sectionwrapper.bannersliderholder,
-	div.sectionwrapper.newsbarholder,
 	div.sectionwrapper.pagecontent,
 	div.sectionwrapper.pagefooter {
-		padding: 0 15px;
+		padding: 0;
 		}
 		div.sectionwrapper.pageheader 	{ background-color: #fff; }
-		div.sectionwrapper.newsbarholder 	{ background: #131313 url("../images/patterns/pattern_headerbar.png") top left; }
+		div.sectionwrapper.classselect	{ background-color: #fff; }
 		div.sectionwrapper.pagecontent 	{ background-color: #fff; }
 		div.sectionwrapper.pagefooter 	{}
 	
@@ -347,20 +346,31 @@ div.sectionwrapper {}
 		div.sectionwrapper.pageheader {
 			div.sectioninside {
 				position: relative;
+				background-color: #2e3236;
+				}
+		}
+		div.sectionwrapper.classselect {
+			div.sectioninside {
+				background-color: #4b5056;
 				}
 		}
 		div.sectionwrapper.pagecontent {
 			div.sectioninside {
 				padding: 0 0 15px;
+				background-color: #fff;
 				}
 			
 			/* Homepage Info */
 			&.homepageinfo {
 				div.sectioninside {
-					padding: 15px 0 45px;
+					padding: 0 0 45px;
 					}
 			}
 		}
+		
+		div.sectioninside.container {
+			padding: 0 15px !important;
+			}
 
 
 
@@ -492,8 +502,8 @@ div.sectionwrapper {
 /* ******************************************************** */
 div.headerlogo {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 20px;
+	left: 20px;
 	z-index: 10;
 	float: left;
 	overflow: hidden;
@@ -538,11 +548,10 @@ ul.headerlinkslist {
 		
 		> span.loginparent,
 		> a {
-			margin: 0 0 0 1px;
-			padding: 20px 15px 17px;
+			margin: 0;
+			padding: 15px 15px 10px;
 			display: block;
-			color: #303030;
-			border-bottom: 3px solid transparent;
+			color: #fff;
 			text-transform: uppercase;
 			
 			.transition(color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.3s ease-in-out);
@@ -551,13 +560,42 @@ ul.headerlinkslist {
 			cursor: pointer;
 			}
 		
+		&.bttndatasel {
+			a {
+				
+				&:hover {
+					
+					}
+			}
+			
+			img.bttnicon {
+				margin: 0 15px 5px;
+				display: block;
+				width: 30px;
+				height: 30px;
+				}
+			
+			span.bttnlbl {
+				display: block;
+				text-align: center;
+				}
+			
+			&.bttnfoods a {
+				background-color: #dd5320;
+				}
+			&.bttndrugs a {
+				background-color: #f6a831;
+				}
+			&.bttndevices a {
+				background-color: #187fac;
+				}
+		}
+		
 		&.active a,
 		&:hover a,
 		&:hover span.loginparent {
-			padding-bottom: 17px;
 			color: #005395;
 			text-decoration: none;
-			border-color: #005395;
 			}
 		
 		&.loginlogout {
@@ -584,6 +622,39 @@ ul.headerlinkslist {
 		
 	}
 }
+
+
+/* Class Select Navigation */
+ul.classbttnlist {
+	float: right;
+	
+	li {
+		&.classlist {
+			margin: 15px 0 15px 5px;
+			float: left;
+			
+			a {
+				text-decoration: none;
+				
+				&.button {
+					padding: 0 14px;
+					height: 25px;
+					line-height: 25px;
+					border: 1px solid transparent;
+					background-color: transparent;
+					
+					&:hover {
+						color: #fff;
+						text-decoration: none;
+						border-color: #2e3236;
+						background-color: #2e3236;
+						}
+				}
+			}
+		}
+	}
+}
+
 
 
 
@@ -1436,6 +1507,7 @@ table.datagrid {
 						}
 				}
 				td {
+					line-height: 1.25em;
 					border-bottom: 1px solid #eaeaea;
 					}
 }
@@ -1530,8 +1602,8 @@ div.dataTables_paginate {
 	
 	.userselect(none);
 	
-	> a,
-	> span {
+	a,
+	span {
 		display: block;
 		float: left;
 		}
@@ -1575,6 +1647,27 @@ div.dataTables_paginate {
 		> a:first-child {
 			margin-left: 0;
 			}
+		
+		span.ellipsis {
+			position: relative;
+			z-index: 1;
+			margin: 0 0 0 5px;
+			padding: 0 20px;
+			display: block;
+			float: left;
+			height: 34px;
+			color: #fafafa;
+			font-size: 0.95em;
+			line-height: 32px;
+			text-align: center;
+			text-decoration: none;
+			text-transform: uppercase;
+			cursor: default;
+			border: 1px solid #337ab7;
+			background-color: #337ab7;
+			
+			.borderradius(3px);
+			}
 
 }
 
@@ -1604,7 +1697,7 @@ div.sectioninside.container {
 /* XIII. Homepage FDA Dashboard ********************************************************************** */
 /* *************************************************************************************************** */
 div.dashboardmain {
-	padding: 25px 0;
+	padding: 0 0 25px;
 	}
 	#infoBox {
 		padding: 3.5em 1em 1em 1em;

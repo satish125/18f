@@ -68,6 +68,8 @@
 			
 			<?php /* Page Header: Start */ ?>
 			<header class="secpageheader">
+				
+				<?php /* Header Top: Start */ ?>
 				<div class="sectionwrapper pageheader">
 					
 					<div class="sectioninside container">
@@ -77,7 +79,7 @@
 								<?php /* Header Logo: Start */ ?>
 								<div class="headerlogo">
 									<a href="<?php echo BASE_URL; ?>">
-										<img src="<?php echo BASE_URL; ?>images/logo_ntc.png" alt="Next Tier Concepts" />
+										<img src="<?php echo BASE_URL; ?>images/logo_recallit.png" alt="RECALL.IT" />
 									</a>
 								</div>
 								<?php /* Header Logo: End */ ?>
@@ -86,9 +88,32 @@
 								<nav class="prinavigation">
 									<ul class="headerlinkslist">
 										
+										<?php /*
 										<li <?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? 'class="active"' : ''); ?>>
 											<a href="<?php echo BASE_URL; ?>">Home</a>
 										</li>
+										*/ ?>
+										
+										<?php /* Data Type: Start */ ?>
+										<li class="bttndatasel bttnfoods">
+											<a href="#">
+												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_fork_lg.png" alt="Open FDA Foods" />
+												<span class="bttnlbl">Foods</span>
+											</a>
+										</li>
+										<li class="bttndatasel bttndrugs">
+											<a href="#">
+												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_pill_lg.png" alt="Open FDA Drugs" />
+												<span class="bttnlbl">Drugs</span>
+											</a>
+										</li>
+										<li class="bttndatasel bttndevices">
+											<a href="#">
+												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_device_lg.png" alt="Open FDA Devices" />
+												<span class="bttnlbl">Devices</span>
+											</a>
+										</li>
+										<?php /* Data Type: End */ ?>
 										
 										<?php /* Login/Logout: Start */ ?>
 										<li class="loginlogout">
@@ -191,5 +216,33 @@
 					
 					<div class="clear"></div>
 				</div>
+				<?php /* Header Top: End */ ?>
+				
+				<?php /* Header Bottom: Start */ ?>
+				<div class="sectionwrapper classselect">
+					
+					<div class="sectioninside container">
+						<div class="row">
+							<div class="col-md-12">
+								
+								<ul class="classbttnlist">
+									<li class="classlist class1"><a href="#" class="button bttnclass1">Class I</a></li>
+									<li class="classlist class2"><a href="#" class="button bttnclass2">Class II</a></li>
+									<li class="classlist class3"><a href="#" class="button bttnclass3">Class III</a></li>
+								</ul>
+								
+								<div class="clear"></div>
+							</div>
+							
+							<div class="clear"></div>
+						</div>
+						
+						<div class="clear"></div>
+					</div>
+					
+					<div class="clear"></div>
+				</div>
+				<?php /* Header Bottom: End */ ?>
+				
 			</header>
 			<?php /* Page Header: Start */ ?>
