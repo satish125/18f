@@ -79,7 +79,7 @@
 								<?php /* Header Logo: Start */ ?>
 								<div class="headerlogo">
 									<a href="<?php echo BASE_URL; ?>">
-										<img src="<?php echo BASE_URL; ?>images/logo_ntc.png" alt="Next Tier Concepts" />
+										<img src="<?php echo BASE_URL; ?>images/logo_recallit.png" alt="RECALL.IT" />
 									</a>
 								</div>
 								<?php /* Header Logo: End */ ?>
@@ -93,6 +93,25 @@
 											<a href="<?php echo BASE_URL; ?>">Home</a>
 										</li>
 										*/ ?>
+										
+										<li class="bttndatasel bttnfoods">
+											<a href="#">
+												<img class="bttnicon" src="" alt="" />
+												<span class="bttnlbl">Foods</span>
+											</a>
+										</li>
+										<li class="bttndatasel bttndrugs">
+											<a href="#">
+												<img class="bttnicon" src="" alt="" />
+												<span class="bttnlbl">Drugs</span>
+											</a>
+										</li>
+										<li class="bttndatasel bttndevices">
+											<a href="#">
+												<img class="bttnicon" src="" alt="" />
+												<span class="bttnlbl">Devices</span>
+											</a>
+										</li>
 										
 										<?php /* Login/Logout: Start */ ?>
 										<li class="loginlogout">

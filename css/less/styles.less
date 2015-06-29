@@ -498,8 +498,8 @@ div.sectionwrapper {
 /* ******************************************************** */
 div.headerlogo {
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 10px;
+	left: 33px;
 	z-index: 10;
 	float: left;
 	overflow: hidden;
@@ -544,11 +544,10 @@ ul.headerlinkslist {
 		
 		> span.loginparent,
 		> a {
-			margin: 0 0 0 1px;
+			margin: 0;
 			padding: 20px 15px 17px;
 			display: block;
-			color: #303030;
-			border-bottom: 3px solid transparent;
+			color: #fff;
 			text-transform: uppercase;
 			
 			.transition(color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.3s ease-in-out);
@@ -557,13 +556,24 @@ ul.headerlinkslist {
 			cursor: pointer;
 			}
 		
+		&.bttndatasel {
+			&.bttnfoods a {
+				background-color: #dd5320;
+				}
+			&.bttndrugs a {
+				background-color: #f6a831;
+				}
+			&.bttndevices a {
+				background-color: #187fac;
+				}
+		}
+		
 		&.active a,
 		&:hover a,
 		&:hover span.loginparent {
 			padding-bottom: 17px;
 			color: #005395;
 			text-decoration: none;
-			border-color: #005395;
 			}
 		
 		&.loginlogout {
