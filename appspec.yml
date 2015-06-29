@@ -2,4 +2,4 @@ version: 0.0
 os: windows
 files:
    - source: /
-     destination: /inetpub/wwwroot/agile18f
+     destination: C:\inetpub\wwwroot\agile18f
