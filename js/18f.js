@@ -15,6 +15,9 @@ jQuery(document).ready(function($){
 	if ($fldIconsExist.length > 0){
 		fieldIcons();
 	}
+	//https://api.fda.gov/drug/enforcement.json?search=status:%22ongoing%22+AND+classification:%22Class%20I%22&count=state&api_key=mHWQoZTaPhujOVrDtzs8rCEvToN1n6xCDSIVdZbw
+	//gridDate(type,query,limit);
+	gridDate('drug','nonsteroidal+anti-inflammatory+drug','100');
 	
 	/* Data Grid */
 	$('#datagridinfo').DataTable({
@@ -28,7 +31,7 @@ jQuery(document).ready(function($){
 /* Window Load **************************************************** */
 /* **************************************************************** */
 window.onload = function(){
-	ajaxFdaLoad(10);
+	//ajaxFdaLoad(10);
 }
 
 
@@ -76,6 +79,7 @@ function viewportWidthHeight(val){
 	}
 }
 
+/*
 // AJAX FDA Load
 function ajaxFdaLoad(infoCounter){
 	var ajaxhttp = '';
@@ -117,8 +121,8 @@ function jsonFdaProcessing(jsonString,dataCounter){
 			dataDisplay += '<h3>Top ' + dataCounter + ' most frequently reported patient reactions for nonsteroidal anti-inflammatory drugs</h3>';
 			
 			// Loop Through Data
-			// for(var i=0;i<obj.results.length;i++){ /* Grab all 100 records from API */
-			for(var i=0;i<dataCounter;i++){ /* Grab top X results from API */
+			// for(var i=0;i<obj.results.length;i++){ / * Grab all 100 records from API * /
+			for(var i=0;i<dataCounter;i++){ / * Grab top X results from API * /
 				dataDisplay += 
 					'<div class="patientdrugrow patientdrug_' + i + '">' + 
 						'<div class="patientdrug_lbl">' + 
@@ -146,6 +150,7 @@ function jsonFdaProcessing(jsonString,dataCounter){
 	
 	document.getElementById('fdabarchart').innerHTML = dataDisplay;
 }
+*/
 
 // To Capital Case
 function toCapitalCase(str){
@@ -278,8 +283,39 @@ function popupWidthHeight(){
 }
 
 
+/**
+  * Get Grid Date
+  */
+function gridDate(type,query,limit){
+	$.ajax({
+		url: 'https://api.fda.gov/' + type + '/enforcement.json?search=' + query + '&limit=' + limit + '&api_key=mHWQoZTaPhujOVrDtzs8rCEvToN1n6xCDSIVdZbw',
+		method: 'get',
 
+		dataType: 'json',
+		success: function(data){
+			processGridDrugData(data);
+		}
+	});
+}
 
+function processGridDrugData(jsonString){
+	var obj = JSON.parse(jsonString);
+	
+	
+	/*
+	for(var i=0;i<100;i++){
+		apiData += 
+			'<tr>' + 
+				'<td>' + data.results[i].recall_number + '</td>' + 
+				'<td>' + data.results[i].reason_for_recall + '</td>' + 
+				'<td>' + data.results[i].status + '</td>' + 
+				'<td>' + data.results[i].distribution_pattern + '</td>' + 
+			'<tr>';
+	}
+	*/
+	
+	$('table.testtable').append(apiData);
+}
 
 
 
