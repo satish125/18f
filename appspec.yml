@@ -1,5 +1,5 @@
 version: 0.0
 os: windows
 files:
-   - source: /
-     destination: C:\inetpub\wwwroot\agile18f
+   - source: /app.js
+     destination: C:\temp
