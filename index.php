@@ -61,46 +61,21 @@ include_once 'inc/header.php';
 			<div class="row datagridmain">
 				<div class="col-md-12">
 					
-					
-					<table class="testtable">
-					</table>
-					
-					
-					<table id="datagridinfo" class="datagrid" cellspacing="0" width="100%">
+					<table id="datagridinfo" class="datagrid drugs state" cellspacing="0" width="100%">
 						<thead>
 							<tr>
-								<th>Name</th>
-								<th>Position</th>
-								<th>Office</th>
-								<th>Age</th>
-								<th>Start date</th>
-								<th>Salary</th>
+								<th>Substance Name</th>
+								<th>Reason for Recall</th>
+								<th>Status</th>
+								<th>Quantity</th>
+								<th>Initiation Date</th>
+								<th>State</th>
 							</tr>
 						</thead>
-
-						<tfoot>
-							<tr>
-								<th>Name</th>
-								<th>Position</th>
-								<th>Office</th>
-								<th>Age</th>
-								<th>Start date</th>
-								<th>Salary</th>
-							</tr>
-						</tfoot>
-
-						<tbody>
-							<tr>
-								<td>Tiger Nixon</td>
-								<td>System Architect</td>
-								<td>Edinburgh</td>
-								<td>61</td>
-								<td>2011/04/25</td>
-								<td>$320,800</td>
-							</tr>
-						</tbody>
+						
+						<tbody></tbody>
 					</table>
-
+					
 				</div>
 			</div>
 			<?php /* Data Grid: End */ ?>

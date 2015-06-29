@@ -95,23 +95,26 @@
 										*/ ?>
 										
 										<?php /* Data Type: Start */ ?>
-										<li class="bttndatasel bttnfoods">
+										<li class="bttndatasel bttnfoods active">
 											<a href="#">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_fork_lg.png" alt="Open FDA Foods" />
 												<span class="bttnlbl">Foods</span>
 											</a>
+											<div class="navarrow arrowfoods"></div>
 										</li>
 										<li class="bttndatasel bttndrugs">
 											<a href="#">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_pill_lg.png" alt="Open FDA Drugs" />
 												<span class="bttnlbl">Drugs</span>
 											</a>
+											<div class="navarrow arrowdrugs"></div>
 										</li>
 										<li class="bttndatasel bttndevices">
 											<a href="#">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_device_lg.png" alt="Open FDA Devices" />
 												<span class="bttnlbl">Devices</span>
 											</a>
+											<div class="navarrow arrowdevices"></div>
 										</li>
 										<?php /* Data Type: End */ ?>
 										

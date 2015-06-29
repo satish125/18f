@@ -5,7 +5,7 @@
 jQuery(document).ready(function($){
 	
 	// Viewport Width
-	viewportWidthHeight(false);
+	viewportWidthHeight(true);
 	
 	// Main Navigation Mobile
 	mobilePriNav('div.sectionwrapper.pageheader div.sectioninside','ul.headerlinkslist','ul.mobileheaderlinkslist','headerlinksnav','mobileheaderlinkslist');
@@ -15,13 +15,26 @@ jQuery(document).ready(function($){
 	if ($fldIconsExist.length > 0){
 		fieldIcons();
 	}
-	//https://api.fda.gov/drug/enforcement.json?search=status:%22ongoing%22+AND+classification:%22Class%20I%22&count=state&api_key=mHWQoZTaPhujOVrDtzs8rCEvToN1n6xCDSIVdZbw
-	//gridDate(type,query,limit);
-	gridDate('drug','nonsteroidal+anti-inflammatory+drug','100');
 	
-	/* Data Grid */
-	$('#datagridinfo').DataTable({
-		responsive: true
+	// Load Data into Table
+	gridFdaData('drug','Class I','100');
+	
+	// Data Grid
+	setTimeout(function(){
+		$('#datagridinfo').DataTable({
+			responsive: true
+		});
+	}, 500);
+	
+	// Mobile Login Click Event
+	$('ul.mobileheaderlinkslist span.loginparent').on('click', function(){
+		if(!$(this).closest('li.loginlogout').hasClass('active')) {
+			$(this).closest('li.loginlogout').addClass('active');
+			$(this).closest('li.loginlogout').find('div.logindropdown').slideDown();
+		} else {
+			$(this).closest('li.loginlogout').removeClass('active');
+			$(this).closest('li.loginlogout').find('div.logindropdown').slideUp();
+		}
 	});
 });
 
@@ -31,7 +44,7 @@ jQuery(document).ready(function($){
 /* Window Load **************************************************** */
 /* **************************************************************** */
 window.onload = function(){
-	//ajaxFdaLoad(10);
+	// ajaxFdaLoad(10);
 }
 
 
@@ -151,6 +164,55 @@ function jsonFdaProcessing(jsonString,dataCounter){
 	document.getElementById('fdabarchart').innerHTML = dataDisplay;
 }
 */
+
+
+/**
+  * Open FDA API Data Function
+  */
+function gridFdaData(type,query,limit){
+	var request = $.ajax({
+		url: 'https://api.fda.gov/' + type + '/enforcement.json?search=' + query + '&limit=' + limit + '&api_key=mHWQoZTaPhujOVrDtzs8rCEvToN1n6xCDSIVdZbw',
+		method: 'GET',
+		dataType: 'json',
+		success: function(data){
+			gridFdaDataProcess(data);
+		}
+	});
+	
+	request.done(function(msg){
+		$('#log').html(msg);
+	});
+	
+	request.fail(function(jqXHR, textStatus) {
+		$('#log').html("Request failed: " + textStatus);
+	});
+}
+
+function gridFdaDataProcess(dataString){
+	var obj = dataString;
+	console.log(obj);
+	
+	var dataOutputBody = '';
+	
+	for(var i=0;i<100;i++){
+		
+		dataOutputBody += 
+			
+			'<tr>' + 
+				'<td>' + obj.results[i].recall_number + '</td>' + 
+				'<td>' + obj.results[i].reason_for_recall + '</td>' + 
+				'<td>' + obj.results[i].status + '</td>' + 
+				'<td>' + obj.results[i].product_quantity + '</td>' + 
+				'<td>' + obj.results[i].recall_initiation_date + '</td>' + 
+				'<td>' + obj.results[i].state + '</td>' + 
+			'</tr>';
+		
+	}
+	
+	$('table.datagrid.drugs.state tbody').html(dataOutputBody);
+}
+
+
 
 // To Capital Case
 function toCapitalCase(str){
@@ -283,39 +345,8 @@ function popupWidthHeight(){
 }
 
 
-/**
-  * Get Grid Date
-  */
-function gridDate(type,query,limit){
-	$.ajax({
-		url: 'https://api.fda.gov/' + type + '/enforcement.json?search=' + query + '&limit=' + limit + '&api_key=mHWQoZTaPhujOVrDtzs8rCEvToN1n6xCDSIVdZbw',
-		method: 'get',
 
-		dataType: 'json',
-		success: function(data){
-			processGridDrugData(data);
-		}
-	});
-}
 
-function processGridDrugData(jsonString){
-	var obj = JSON.parse(jsonString);
-	
-	
-	/*
-	for(var i=0;i<100;i++){
-		apiData += 
-			'<tr>' + 
-				'<td>' + data.results[i].recall_number + '</td>' + 
-				'<td>' + data.results[i].reason_for_recall + '</td>' + 
-				'<td>' + data.results[i].status + '</td>' + 
-				'<td>' + data.results[i].distribution_pattern + '</td>' + 
-			'<tr>';
-	}
-	*/
-	
-	$('table.testtable').append(apiData);
-}
 
 
 

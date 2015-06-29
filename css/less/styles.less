@@ -50,7 +50,8 @@
 @pri-font: 'Open Sans', Arial, Helvetica, sans-serif;
 @pri-font-size: 12px;
 @pri-font-color: #393939;
-@page-bkg: #2c2c2c;
+@page-bkg: #f7f7f7 url("../images/bkg_pattern.png") 0 0 repeat;
+@footer-bkg: #2c2c2c;
 @page-content-maxwidth: 1100px;
 
 /* Mixins */
@@ -101,7 +102,7 @@ html, body {
 		font-weight: 400;
 		line-height: 1;
 		overflow-x: hidden;
-		background-color: @page-bkg;
+		background: @page-bkg;
 		}
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4,
@@ -332,9 +333,9 @@ div.sectionwrapper {}
 	div.sectionwrapper.pagefooter {
 		padding: 0;
 		}
-		div.sectionwrapper.pageheader 	{ background-color: #fff; }
-		div.sectionwrapper.classselect	{ background-color: #fff; }
-		div.sectionwrapper.pagecontent 	{ background-color: #fff; }
+		div.sectionwrapper.pageheader 	{}
+		div.sectionwrapper.classselect	{}
+		div.sectionwrapper.pagecontent 	{}
 		div.sectionwrapper.pagefooter 	{}
 	
 	/* Sections Inside Container */
@@ -343,20 +344,29 @@ div.sectionwrapper {}
 		width: 100%;
 		max-width: @page-content-maxwidth;
 		}
+		div.sectioninside.container {
+			padding: 0 15px !important;
+			border: 1px solid #d3d3d3;
+			border-width: 0 1px;
+			}
+		
 		div.sectionwrapper.pageheader {
 			div.sectioninside {
 				position: relative;
+				border-color: #2e3236;
 				background-color: #2e3236;
 				}
 		}
+		
 		div.sectionwrapper.classselect {
 			div.sectioninside {
+				border-color: #4b5056;
 				background-color: #4b5056;
 				}
 		}
 		div.sectionwrapper.pagecontent {
 			div.sectioninside {
-				padding: 0 0 15px;
+				padding: 0 15px 15px !important;
 				background-color: #fff;
 				}
 			
@@ -367,10 +377,11 @@ div.sectionwrapper {}
 					}
 			}
 		}
-		
-		div.sectioninside.container {
-			padding: 0 15px !important;
-			}
+		div.sectionwrapper.pagefooter {
+			div.sectioninside {
+				background-color: @footer-bkg;
+				}
+		}
 
 
 
@@ -503,7 +514,7 @@ div.sectionwrapper {
 div.headerlogo {
 	position: absolute;
 	top: 20px;
-	left: 20px;
+	left: 15px;
 	z-index: 10;
 	float: left;
 	overflow: hidden;
@@ -546,6 +557,27 @@ ul.headerlinkslist {
 		display: block;
 		float: left;
 		
+		> div.navarrow {
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			margin-left: -9px;
+			display: none;
+			width: 18px;
+			height: 9px;
+			background-image: url("../images/sprite_nav_arrows.png");
+			background-repeat: no-repeat;
+			
+			&.arrowfoods 	{ background-position:   0   0; }
+			&.arrowdrugs 	{ background-position: -19px 0; }
+			&.arrowdevices 	{ background-position: -37px 0; }
+		}
+		
+		&:hover,
+		&.active {
+			div.navarrow { display: block; }
+		}
+		
 		> span.loginparent,
 		> a {
 			margin: 0;
@@ -554,13 +586,28 @@ ul.headerlinkslist {
 			color: #fff;
 			text-transform: uppercase;
 			
-			.transition(color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.3s ease-in-out);
+			.transition(color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out);
 			}
 		> span.loginparent {
+			margin: 22px 20px 23px 35px;
+			padding: 0 20px;
+			height: 29px;
+			font-size: 0.75em;
+			line-height: 29px;
 			cursor: pointer;
+			background-color: #4b5056;
+			
+			.borderradius(4px);
+			.transition(color 0.2s ease-in-out, background-color 0.2s ease-in-out);
+			}
+		
+		&:hover > span.loginparent {
+			color: #fff !important;
 			}
 		
 		&.bttndatasel {
+			font-size: 0.75em;
+			
 			a {
 				
 				&:hover {
@@ -594,7 +641,7 @@ ul.headerlinkslist {
 		&.active a,
 		&:hover a,
 		&:hover span.loginparent {
-			color: #005395;
+			color: #fff;
 			text-decoration: none;
 			}
 		
@@ -603,7 +650,7 @@ ul.headerlinkslist {
 			div.logindropdown {
 				position: absolute;
 				top: 100%;
-				right: 0;
+				right: -16px;
 				z-index: 999;
 				margin: 0;
 				padding: 10px 15px;
@@ -624,11 +671,14 @@ ul.headerlinkslist {
 }
 
 
+
 /* Class Select Navigation */
 ul.classbttnlist {
 	float: right;
 	
 	li {
+		font-size: 0.80em;
+		
 		&.classlist {
 			margin: 15px 0 15px 5px;
 			float: left;
@@ -637,6 +687,7 @@ ul.classbttnlist {
 				text-decoration: none;
 				
 				&.button {
+					margin-left: 0;
 					padding: 0 14px;
 					height: 25px;
 					line-height: 25px;
@@ -696,42 +747,65 @@ div.mnavwrapper.headerlinksnav {
 		}
 		
 		&.active div.mhandleinner span {
-			background-color: #005395;
+			background-color: #337ab7;
 			}
 	}
 	
 	/* Mobile Navigation List */
 	ul.mobileheaderlinkslist {
-		margin-bottom: 2px;
+		margin-bottom: 1px;
 		margin-right: -15px;
 		margin-left: -165px;
 		display: none;
 	
 		li {
 			display: block;
-		
-			a {
+			
+			&.bttndatasel a {
 				padding: 10px 15px;
 				display: block;
 				color: #fafafa;
 				font-size: 1.10em;
-				border-bottom: 1px dashed #454545;
-				background-color: #303030;
+				overflow: hidden;
+				border-bottom: 1px solid #454545;
 				
 				.transition(background-color 0.2s ease-in-out);
-				}
+				
+				img.bttnicon,
+				span.bttnlbl {
+					display: block;
+					float: left;
+					}
+					span.bttnlbl {
+						padding-top: 8px;
+						padding-left: 10px;
+						}
+			}
 			
 			&:last-child a {
 				border-bottom: 0 none;
 			}
 			
+			&.bttndatasel.bttnfoods {
+				background-color: #dd5320;
+				}
+			&.bttndatasel.bttndrugs {
+				background-color: #f6a831;
+				}
+			&.bttndatasel.bttndevices {
+				background-color: #187fac;
+				}
+			
+			/*
 			&:hover a {
 				background-color: #454545;
+				text-decoration: none;
 				}
 			
 			&.active a {
 				background-color: #2f3945;
 				}
+			*/
 		}
 		
 		ul li a {
@@ -743,6 +817,73 @@ div.mnavwrapper.headerlinksnav {
 
 
 
+/* Mobile Login */
+ul.mobileheaderlinkslist {
+	li.loginlogout {
+		span.loginparent {
+			position: relative;
+			margin: 0;
+			padding: 0 20px 0 55px;
+			display: block;
+			width: auto;
+			height: 50px;
+			color: #fff;
+			font-size: 1.15em;
+			line-height: 50px;
+			cursor: pointer;
+			border-top: 1px solid #454545;
+			background-color: #4b5056;
+			
+			.transition(color 0.2s ease-in-out, background-color 0.2s ease-in-out);
+		
+			&:after {
+				position: absolute;
+				top: 50%;
+				right: 15px;
+				margin-top: -25px;
+				font-family: 'FontAwesome';
+				font-size: 0.90em;
+				content: '\f0d7';
+				}
+		}
+		
+		&:hover {
+			span.loginparent:after {
+				color: #337ab7;
+				}
+		}
+		&.active {
+			span.loginparent:after {
+				content: '\f0d8';
+				}
+		}
+		
+		div.logindropdown {
+			display: none;
+			
+			h3 {
+				padding: 15px 15px 10px 15px;
+				color: #f1f1f1;
+				}
+			
+			div.formholder_inner div.formrow {
+				padding: 0 15px 15px;
+				
+				label {
+					color: #f1f1f1;
+					font-weight: 400;
+					}
+			}
+		}
+		
+		&:hover div.logindropdown {
+			/* display: block; */ /* Controlled by JavaScript */
+			}
+	}
+}
+
+
+
 /* ******************************************************** */
 /* v. Media Queries *************************************** */
 /* ******************************************************** */
@@ -751,6 +892,16 @@ div.mnavwrapper.headerlinksnav {
 @media screen and (min-width: 0) and (max-width: 850px){
 	
 	div.sectionwrapper.pageheader {}
+		
+		/* Logo */
+		div.headerlogo {
+			top: 10px;
+			left: 5px;
+			
+			a {
+				max-width: 145px;
+				}
+		}
 		
 		/* Non-mobile Navigation */
 		ul.headerlinkslist { display: none; }
@@ -960,7 +1111,7 @@ div.ftrinfotop {
 /* iii. Footer Bottom Info ******************************** */
 /* ******************************************************** */
 div.ftrinfobottom {
-	padding: 20px 0 0;
+	padding: 20px 0;
 	color: #a1a1a1;
 	font-size: 0.80em;
 	line-height: 1.45em;
