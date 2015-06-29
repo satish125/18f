@@ -64,12 +64,12 @@ include_once 'inc/header.php';
 					<table id="datagridinfo" class="datagrid drugs state" cellspacing="0" width="100%">
 						<thead>
 							<tr>
-								<th>Substance Name</th>
-								<th>Reason for Recall</th>
-								<th>Status</th>
-								<th>Quantity</th>
-								<th>Initiation Date</th>
 								<th>State</th>
+								<th>City</th>
+								<th>Initiation Date</th>
+								<th>Product Type</th>
+								<th>Recalling Firm</th>
+								<th>Product Description</th>
 							</tr>
 						</thead>
 						

@@ -199,12 +199,12 @@ function gridFdaDataProcess(dataString){
 		dataOutputBody += 
 			
 			'<tr>' + 
-				'<td>' + obj.results[i].recall_number + '</td>' + 
-				'<td>' + obj.results[i].reason_for_recall + '</td>' + 
-				'<td>' + obj.results[i].status + '</td>' + 
-				'<td>' + obj.results[i].product_quantity + '</td>' + 
-				'<td>' + obj.results[i].recall_initiation_date + '</td>' + 
 				'<td>' + obj.results[i].state + '</td>' + 
+				'<td>' + obj.results[i].city + '</td>' + 
+				'<td>' + addDashes(obj.results[i].recall_initiation_date) + '</td>' + 
+				'<td>' + obj.results[i].product_type + '</td>' + 
+				'<td>' + obj.results[i].recalling_firm + '</td>' + 
+				'<td>' + obj.results[i].product_description + '</td>' + 
 			'</tr>';
 		
 	}
@@ -214,12 +214,37 @@ function gridFdaDataProcess(dataString){
 
 
 
-// To Capital Case
+/**
+  * To Capital Case
+  */
 function toCapitalCase(str){
 	return str.replace(/\w\S*/g, function(text){
 		return text.charAt(0).toUpperCase() + text.substring(1).toLowerCase();
 	});
 }
+
+
+
+/**
+  * Add dashes to date with format yyyy-mm-dd
+  */
+function addDashes(num){
+	var numArr = num.toString().split('');
+	
+    var len = numArr.length;
+    var final = [];
+    for (var i = 0; i < len; i++){
+        final.push(numArr[i]);
+		if (i == 3) {
+			final.push("-")
+		} else if(i == 5) {
+			final.push("-")
+		}
+    }  
+	return final.join("");
+}
+
+
 
 /**
   * Mobile Navigation Function
