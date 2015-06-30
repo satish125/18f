@@ -557,6 +557,17 @@ ul.headerlinkslist {
 		display: block;
 		float: left;
 		
+		/* Username when Authenticated */
+		&.husername {
+			color: #f1f1f1;
+			font-size: 0.80em;
+			
+			span {
+				padding: 29px 5px 0 0;
+				display: block;
+				}
+		}
+		
 		> div.navarrow {
 			position: absolute;
 			top: 100%;
@@ -578,7 +589,7 @@ ul.headerlinkslist {
 			div.navarrow { display: block; }
 		}
 		
-		> span.loginparent,
+		> .loginparent,
 		> a {
 			margin: 0;
 			padding: 15px 15px 10px;
@@ -588,7 +599,7 @@ ul.headerlinkslist {
 			
 			.transition(color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out);
 			}
-		> span.loginparent {
+		> .loginparent {
 			margin: 22px 20px 23px 35px;
 			padding: 0 20px;
 			height: 29px;
@@ -601,8 +612,9 @@ ul.headerlinkslist {
 			.transition(color 0.2s ease-in-out, background-color 0.2s ease-in-out);
 			}
 		
-		&:hover > span.loginparent {
+		&:hover > .loginparent {
 			color: #fff !important;
+			background-color: #5a6067;
 			}
 		
 		&.bttndatasel {
@@ -640,7 +652,7 @@ ul.headerlinkslist {
 		
 		&.active a,
 		&:hover a,
-		&:hover span.loginparent {
+		&:hover .loginparent {
 			color: #fff;
 			text-decoration: none;
 			}
@@ -686,11 +698,13 @@ ul.classbttnlist {
 			a {
 				text-decoration: none;
 				
+				.borderradius(3px);
+				
 				&.button {
 					margin-left: 0;
 					padding: 0 14px;
 					height: 25px;
-					line-height: 25px;
+					line-height: 23px;
 					border: 1px solid transparent;
 					background-color: transparent;
 					
@@ -702,6 +716,13 @@ ul.classbttnlist {
 						}
 				}
 			}
+			
+			&.active a {
+				color: #fff;
+				text-decoration: none;
+				border-color: #2e3236;
+				background-color: #2e3236;
+				}
 		}
 	}
 }
@@ -718,6 +739,17 @@ div.mnavwrapper.headerlinksnav {
 	padding: 0 0 0 150px;
 	width: 100%;
 	}
+	
+	/* Mobile Username when Authenticated */
+	div.mobileheaderusername {
+		position: absolute;
+		top: 25px;
+		left: 175px;
+		z-index: 5;
+		display: none;
+		color: #f1f1f1;
+		font-size: 0.80em;
+		}
 	
 	/* Mobile Nav Handle */
 	div.mnavhandle {
@@ -757,9 +789,23 @@ div.mnavwrapper.headerlinksnav {
 		margin-right: -15px;
 		margin-left: -165px;
 		display: none;
-	
+		
 		li {
 			display: block;
+			
+			&.husername {
+				display: none;
+				
+				span {
+					padding: 17px 10px 17px 55px;
+					display: block;
+					color: #f1f1f1;
+					font-size: 0.95em;
+					border-top: 1px solid #393939;
+					border-bottom: 1px solid #393939;
+					background-color: #4b5056;
+					}
+			}
 			
 			&.bttndatasel a {
 				padding: 10px 15px;
@@ -820,7 +866,24 @@ div.mnavwrapper.headerlinksnav {
 /* Mobile Login */
 ul.mobileheaderlinkslist {
 	li.loginlogout {
-		span.loginparent {
+		> a {
+			position: relative;
+			margin: 0;
+			padding: 0 20px 0 55px;
+			display: block;
+			width: auto;
+			height: 50px;
+			color: #fff;
+			font-size: 1.15em;
+			line-height: 50px;
+			cursor: pointer;
+			border-top: 1px solid #454545;
+			background-color: #4b5056;
+			
+			.transition(color 0.2s ease-in-out, background-color 0.2s ease-in-out);
+			}
+		
+		.loginparent {
 			position: relative;
 			margin: 0;
 			padding: 0 20px 0 55px;
@@ -848,12 +911,12 @@ ul.mobileheaderlinkslist {
 		}
 		
 		&:hover {
-			span.loginparent:after {
+			.loginparent:after {
 				color: #337ab7;
 				}
 		}
 		&.active {
-			span.loginparent:after {
+			.loginparent.login:after {
 				content: '\f0d8';
 				}
 		}
@@ -908,6 +971,17 @@ ul.mobileheaderlinkslist {
 		
 		/* Mobile Navigation */
 		div.mnavwrapper.headerlinksnav { display: block; }
+			
+			/* Show Username for Mobile */
+			div.mobileheaderusername { display: block; }
+}
+
+/*425px*/
+@media screen and (min-width: 0) and (max-width: 425px){
+	
+	/* Mobile Username */
+	div.mobileheaderusername { display: none; }
+	ul.mobileheaderlinkslist li.husername { display: block; }
 }
 
 

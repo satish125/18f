@@ -38,6 +38,7 @@
 	
 	<script src="<?php echo BASE_URL; ?>js/jquery.dataTables.min.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/dataTables.responsive.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/dataTables.tableTools.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/18f.js"></script>
 	
 	<?php /* Application JS Files */ ?>
@@ -87,12 +88,14 @@
 								<?php /* Header User Links: Start */ ?>
 								<nav class="prinavigation">
 									<ul class="headerlinkslist">
-										
-										<?php /*
-										<li <?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? 'class="active"' : ''); ?>>
-											<a href="<?php echo BASE_URL; ?>">Home</a>
+
+										<?php /* Authenticated: Start */ ?>
+										<?php if (login_check($mysqli) == true) : ?>
+										<li class="husername">
+											<span>Logged in as <?php echo htmlentities($_SESSION['username']); ?></span>
 										</li>
-										*/ ?>
+										<?php endif; ?>
+										<?php /* Authenticated: End */ ?>
 										
 										<?php /* Data Type: Start */ ?>
 										<li class="bttndatasel bttnfoods active">
@@ -123,11 +126,11 @@
 											
 											<?php if (login_check($mysqli) == true) : ?>
 											
-											<a href="<?php echo BASE_URL; ?>inc/logout">Logout</a>
+											<a href="<?php echo BASE_URL; ?>inc/logout" class="loginparent logout">Logout</a>
 											
 											<?php else : ?>
 											
-											<span class="loginparent">Login</span>
+											<span class="loginparent login">Login</span>
 											
 											<div class="logindropdown">
 
@@ -229,7 +232,7 @@
 							<div class="col-md-12">
 								
 								<ul class="classbttnlist">
-									<li class="classlist class1"><a href="#" class="button bttnclass1">Class I</a></li>
+									<li class="classlist class1 active"><a href="#" class="button bttnclass1">Class I</a></li>
 									<li class="classlist class2"><a href="#" class="button bttnclass2">Class II</a></li>
 									<li class="classlist class3"><a href="#" class="button bttnclass3">Class III</a></li>
 								</ul>

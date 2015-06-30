@@ -61,6 +61,8 @@ include_once 'inc/header.php';
 			<div class="row datagridmain">
 				<div class="col-md-12">
 					
+					<div class="datagridtools"></div>
+					
 					<table id="datagridinfo" class="datagrid drugs state" cellspacing="0" width="100%">
 						<thead>
 							<tr>

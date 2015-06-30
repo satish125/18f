@@ -5,7 +5,7 @@
 jQuery(document).ready(function($){
 	
 	// Viewport Width
-	viewportWidthHeight(true);
+	viewportWidthHeight(false);
 	
 	// Main Navigation Mobile
 	mobilePriNav('div.sectionwrapper.pageheader div.sectioninside','ul.headerlinkslist','ul.mobileheaderlinkslist','headerlinksnav','mobileheaderlinkslist');
@@ -21,10 +21,35 @@ jQuery(document).ready(function($){
 	
 	// Data Grid
 	setTimeout(function(){
-		$('#datagridinfo').DataTable({
+		var dataGrid = $('#datagridinfo').DataTable({
 			responsive: true
 		});
 	}, 500);
+	
+	setTimeout(function(){
+		var tableTools = new $.fn.dataTable.TableTools(dataGrid, {
+			sRowSelect: 'single',
+			dom: 'T<"clear">lfrtip',
+			tableTools: {
+				"aButtons": [
+					{
+						"sExtends": "copy",
+						"sButtonText": "Copy"
+					},
+					{
+						"sExtends": "csv",
+						"sButtonText": "Save CSV"
+					},
+					{
+						"sExtends": "xls",
+						"oSelectorOpts": {
+							page: 'current'
+						}
+					}
+				]
+			}
+		});
+	}, 650);
 	
 	// Mobile Login Click Event
 	$('ul.mobileheaderlinkslist span.loginparent').on('click', function(){
@@ -36,6 +61,7 @@ jQuery(document).ready(function($){
 			$(this).closest('li.loginlogout').find('div.logindropdown').slideUp();
 		}
 	});
+
 });
 
 
@@ -273,6 +299,14 @@ function mobilePriNav(appendSelector,itemClone,appendCloneTo,mobileNavClassSel,f
 			$(this).parent().find('ul.' + finalListSel).stop(true, true).slideUp();
 		}
 	});
+	
+	// If Username is Present in <li> List
+	var $usernameExists = $('ul.' + finalListSel + ' li.husername');
+	if ($usernameExists.length > 0) {
+		var usernameValue = $usernameExists.find('span').html();
+		//console.log(usernameValue);
+		$('div.' + mobileNavClassSel).append('<div class="mobileheaderusername">' + usernameValue + '</div>');
+	}
 }
 
 
