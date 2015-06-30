@@ -1,5 +1,5 @@
 (function () {
-   var enforcementCtrl = function($scope, $timeout, $http, enforcementFactory)
+   var enforcementCtrl = function($scope, $timeout, enforcementFactory)
    {
       //retrieve the map data
       $scope.getMap = function(status, classification){
@@ -94,10 +94,8 @@
                responsive: true
             });
          }, 500)
-
-         //Fill the table with datagridinfo
-         //gridFdaData($scope.type, $scope.class,'100');
       }
+
       init();
 
       //map options
@@ -110,7 +108,7 @@
                left: 90
             },
             type: 'map',
-            colors: ['#00C700', '#21C700', '#42C700', '#64C700', '#85C700', '#A6C700', '#C7C700', '#C7A600', '#C78500', '#C76400', '#C74200', '#C72100', '#C70000']
+            colors: ['#2C82C0', '#4C89A7', '#6D918F', '#8D9976', '#AEA15E', '#CEA945', '#EFB12D', '#EA9D28', '#E58923', '#E0751E', '#DB6119', '#D64D14', '#D23A0F']
          },
          tooltip: {
             suffix: ' Recall(s)'
@@ -188,40 +186,6 @@
          $('table.datagrid.drugs.state tbody').html(tableBody);
       }
 
-      /**
-      * Open FDA API Data Function
-      */
-
-      /*
-      function gridFdaData(type,query){
-         //Clear the data table
-         $('table.datagrid.drugs.state tbody').html('');
-
-         //Get the data and build the data table
-         $http.get('https://api.fda.gov/' + type + '/enforcement.json?search=' + query + '&limit=' + limit + '&api_key=mHWQoZTaPhujOVrDtzs8rCEvToN1n6xCDSIVdZbw')
-            .success(function(data, status, headers, config) {
-               var obj = data;
-               var tableBody = '';
-
-               for(var i=0; i<obj.results.length ;i++){
-                  tableBody += 
-                     
-                     '<tr>' + 
-                        '<td>' + obj.results[i].state + '</td>' + 
-                        '<td>' + obj.results[i].city + '</td>' + 
-                        '<td>' + addDashes(obj.results[i].recall_initiation_date) + '</td>' + 
-                        '<td>' + obj.results[i].product_type + '</td>' + 
-                        '<td>' + obj.results[i].recalling_firm + '</td>' + 
-                        '<td>' + obj.results[i].product_description + '</td>' + 
-                     '</tr>';
-               }
-
-               $('table.datagrid.drugs.state tbody').html(tableBody);
-            });
-      }
-      */
-
-
       function toTitleCase(str)
       {
          return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
@@ -229,5 +193,5 @@
    };
 
    angular.module('openFDA.enforcement', ['openFDA.enforcement.factory'])
-      .controller('enforcementCtrl', ['$scope', '$timeout', '$http', 'enforcementFactory', enforcementCtrl]);
+      .controller('enforcementCtrl', ['$scope', '$timeout', 'enforcementFactory', enforcementCtrl]);
 }());

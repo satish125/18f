@@ -37,43 +37,43 @@
                switch (true)
                {
                   case result.count <= 7:
-                     color = '#00C700';
+                     color = '#2C82C0';
                      break;
                   case result.count <= 15:
-                     color = '#21C700';
+                     color = '#4C89A7';
                      break;
                   case result.count <= 23:
-                     color = '#42C700';
+                     color = '#6D918F';
                      break;
                   case result.count <= 30:
-                     color = '#64C700';
+                     color = '#8D9976';
                      break;
                   case result.count <= 38:
-                     color = '#85C700';
+                     color = '#AEA15E';
                      break;
                   case result.count <= 46:
-                     color = '#A6C700';
+                     color = '#CEA945';
                      break;
                   case result.count <= 53:
-                     color = '#C7C700';
+                     color = '#EFB12D';
                      break;
                   case result.count <= 61:
-                     color = '#C7A600';
+                     color = '#EA9D28';
                      break;
                   case result.count <= 69:
-                     color = '#C78500';
+                     color = '#E58923';
                      break;
                   case result.count <= 76:
-                     color = '#C76400';
+                     color = '#E0751E';
                      break;
                   case result.count <= 84:
-                     color = '#C74200';
+                     color = '#DB6119';
                      break;
                   case result.count <= 92:
-                     color = '#C72100';
+                     color = '#D64D14';
                      break;
                   case result.count > 92:
-                     color = '#C70000';
+                     color = '#D23A0F';
                      break;
                }
 

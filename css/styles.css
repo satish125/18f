@@ -1627,14 +1627,23 @@ div.dashboardmain {
 .css3gradient {
   width: 300px;
   height: 100px;
-  background-color: #00c700;
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1, startColorstr=#00c700, endColorstr=#c7c700);
-  background-image: -moz-linear-gradient(left, #00c700 0%, #c7c700 50%, #c70000 100%);
-  background-image: linear-gradient(left, #00c700 0%, #c7c700 50%, #c70000 100%);
-  background-image: -webkit-linear-gradient(left, #00c700 0%, #c7c700 50%, #c70000 100%);
-  background-image: -o-linear-gradient(left, #00c700 0%, #c7c700 50%, #c70000 100%);
-  background-image: -ms-linear-gradient(left, #00c700 0%, #c7c700 50%, #c70000 100%);
-  background-image: -webkit-gradient(linear, left bottom, right bottom, color-stop(0%, #00c700), color-stop(50%, #c7c700), color-stop(100%, #c70000));
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2c82c0+0,efb12d+50,d23a0f+100 */
+  background: #2c82c0;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #2c82c0 0%, #efb12d 50%, #d23a0f 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #2c82c0), color-stop(50%, #efb12d), color-stop(100%, #d23a0f));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, #2c82c0 0%, #efb12d 50%, #d23a0f 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, #2c82c0 0%, #efb12d 50%, #d23a0f 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, #2c82c0 0%, #efb12d 50%, #d23a0f 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, #2c82c0 0%, #efb12d 50%, #d23a0f 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2c82c0', endColorstr='#d23a0f', GradientType=1);
+  /* IE6-9 */
 }
 .legendbar {
   float: left;
