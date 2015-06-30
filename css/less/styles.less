@@ -50,8 +50,7 @@
 @pri-font: 'Open Sans', Arial, Helvetica, sans-serif;
 @pri-font-size: 12px;
 @pri-font-color: #393939;
-@page-bkg: #f7f7f7 url("../images/bkg_pattern.png") 0 0 repeat;
-@footer-bkg: #2c2c2c;
+@page-bkg: #2c2c2c;
 @page-content-maxwidth: 1100px;
 
 /* Mixins */
@@ -102,7 +101,7 @@ html, body {
 		font-weight: 400;
 		line-height: 1;
 		overflow-x: hidden;
-		background: @page-bkg;
+		background-color: @page-bkg;
 		}
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4,
@@ -331,11 +330,11 @@ div.sectionwrapper {}
 	div.sectionwrapper.bannersliderholder,
 	div.sectionwrapper.pagecontent,
 	div.sectionwrapper.pagefooter {
-		padding: 0;
+		padding: 0 15px;
 		}
-		div.sectionwrapper.pageheader 	{}
-		div.sectionwrapper.classselect	{}
-		div.sectionwrapper.pagecontent 	{}
+		div.sectionwrapper.pageheader 	{ background-color: #fff; }
+		div.sectionwrapper.classselect	{ background-color: #fff; }
+		div.sectionwrapper.pagecontent 	{ background-color: #fff; }
 		div.sectionwrapper.pagefooter 	{}
 	
 	/* Sections Inside Container */
@@ -344,29 +343,20 @@ div.sectionwrapper {}
 		width: 100%;
 		max-width: @page-content-maxwidth;
 		}
-		div.sectioninside.container {
-			padding: 0 15px !important;
-			border: 1px solid #d3d3d3;
-			border-width: 0 1px;
-			}
-		
 		div.sectionwrapper.pageheader {
 			div.sectioninside {
 				position: relative;
-				border-color: #2e3236;
 				background-color: #2e3236;
 				}
 		}
-		
 		div.sectionwrapper.classselect {
 			div.sectioninside {
-				border-color: #4b5056;
 				background-color: #4b5056;
 				}
 		}
 		div.sectionwrapper.pagecontent {
 			div.sectioninside {
-				padding: 0 15px 15px !important;
+				padding: 0 0 15px;
 				background-color: #fff;
 				}
 			
@@ -376,11 +366,6 @@ div.sectionwrapper {}
 					padding: 0 0 45px;
 					}
 			}
-		}
-		div.sectionwrapper.pagefooter {
-			div.sectioninside {
-				background-color: @footer-bkg;
-				}
 		}
 
 
@@ -513,8 +498,8 @@ div.sectionwrapper {
 /* ******************************************************** */
 div.headerlogo {
 	position: absolute;
-	top: 20px;
-	left: 15px;
+	top: 10px;
+	left: 33px;
 	z-index: 10;
 	float: left;
 	overflow: hidden;
@@ -557,88 +542,21 @@ ul.headerlinkslist {
 		display: block;
 		float: left;
 		
-		/* Username when Authenticated */
-		&.husername {
-			color: #f1f1f1;
-			font-size: 0.80em;
-			
-			span {
-				padding: 29px 5px 0 0;
-				display: block;
-				}
-		}
-		
-		> div.navarrow {
-			position: absolute;
-			top: 100%;
-			left: 50%;
-			margin-left: -9px;
-			display: none;
-			width: 18px;
-			height: 9px;
-			background-image: url("../images/sprite_nav_arrows.png");
-			background-repeat: no-repeat;
-			
-			&.arrowfoods 	{ background-position:   0   0; }
-			&.arrowdrugs 	{ background-position: -19px 0; }
-			&.arrowdevices 	{ background-position: -37px 0; }
-		}
-		
-		&:hover,
-		&.active {
-			div.navarrow { display: block; }
-		}
-		
-		> .loginparent,
+		> span.loginparent,
 		> a {
 			margin: 0;
-			padding: 15px 15px 10px;
+			padding: 20px 15px 17px;
 			display: block;
 			color: #fff;
 			text-transform: uppercase;
 			
-			.transition(color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out);
+			.transition(color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.3s ease-in-out);
 			}
-		> .loginparent {
-			margin: 22px 20px 23px 35px;
-			padding: 0 20px;
-			height: 29px;
-			font-size: 0.75em;
-			line-height: 29px;
+		> span.loginparent {
 			cursor: pointer;
-			background-color: #4b5056;
-			
-			.borderradius(4px);
-			.transition(color 0.2s ease-in-out, background-color 0.2s ease-in-out);
-			}
-		
-		&:hover > .loginparent {
-			color: #fff !important;
-			background-color: #5a6067;
 			}
 		
 		&.bttndatasel {
-			font-size: 0.75em;
-			
-			a {
-				
-				&:hover {
-					
-					}
-			}
-			
-			img.bttnicon {
-				margin: 0 15px 5px;
-				display: block;
-				width: 30px;
-				height: 30px;
-				}
-			
-			span.bttnlbl {
-				display: block;
-				text-align: center;
-				}
-			
 			&.bttnfoods a {
 				background-color: #dd5320;
 				}
@@ -652,8 +570,9 @@ ul.headerlinkslist {
 		
 		&.active a,
 		&:hover a,
-		&:hover .loginparent {
-			color: #fff;
+		&:hover span.loginparent {
+			padding-bottom: 17px;
+			color: #005395;
 			text-decoration: none;
 			}
 		
@@ -662,7 +581,7 @@ ul.headerlinkslist {
 			div.logindropdown {
 				position: absolute;
 				top: 100%;
-				right: -16px;
+				right: 0;
 				z-index: 999;
 				margin: 0;
 				padding: 10px 15px;
@@ -684,52 +603,6 @@ ul.headerlinkslist {
 
 
 
-/* Class Select Navigation */
-ul.classbttnlist {
-	float: right;
-	
-	li {
-		font-size: 0.80em;
-		
-		&.classlist {
-			margin: 15px 0 15px 5px;
-			float: left;
-			
-			a {
-				text-decoration: none;
-				
-				.borderradius(3px);
-				
-				&.button {
-					margin-left: 0;
-					padding: 0 14px;
-					height: 25px;
-					line-height: 23px;
-					border: 1px solid transparent;
-					background-color: transparent;
-					
-					&:hover {
-						color: #fff;
-						text-decoration: none;
-						border-color: #2e3236;
-						background-color: #2e3236;
-						}
-				}
-			}
-			
-			&.active a {
-				color: #fff;
-				text-decoration: none;
-				border-color: #2e3236;
-				background-color: #2e3236;
-				}
-		}
-	}
-}
-
-
-
-
 /* ******************************************************** */
 /* iii. Mobile Navigation ********************************* */
 /* ******************************************************** */
@@ -739,17 +612,6 @@ div.mnavwrapper.headerlinksnav {
 	padding: 0 0 0 150px;
 	width: 100%;
 	}
-	
-	/* Mobile Username when Authenticated */
-	div.mobileheaderusername {
-		position: absolute;
-		top: 25px;
-		left: 175px;
-		z-index: 5;
-		display: none;
-		color: #f1f1f1;
-		font-size: 0.80em;
-		}
 	
 	/* Mobile Nav Handle */
 	div.mnavhandle {
@@ -779,79 +641,42 @@ div.mnavwrapper.headerlinksnav {
 		}
 		
 		&.active div.mhandleinner span {
-			background-color: #337ab7;
+			background-color: #005395;
 			}
 	}
 	
 	/* Mobile Navigation List */
 	ul.mobileheaderlinkslist {
-		margin-bottom: 1px;
+		margin-bottom: 2px;
 		margin-right: -15px;
 		margin-left: -165px;
 		display: none;
-		
+	
 		li {
 			display: block;
-			
-			&.husername {
-				display: none;
-				
-				span {
-					padding: 17px 10px 17px 55px;
-					display: block;
-					color: #f1f1f1;
-					font-size: 0.95em;
-					border-top: 1px solid #393939;
-					border-bottom: 1px solid #393939;
-					background-color: #4b5056;
-					}
-			}
-			
-			&.bttndatasel a {
+		
+			a {
 				padding: 10px 15px;
 				display: block;
 				color: #fafafa;
 				font-size: 1.10em;
-				overflow: hidden;
-				border-bottom: 1px solid #454545;
+				border-bottom: 1px dashed #454545;
+				background-color: #303030;
 				
 				.transition(background-color 0.2s ease-in-out);
-				
-				img.bttnicon,
-				span.bttnlbl {
-					display: block;
-					float: left;
-					}
-					span.bttnlbl {
-						padding-top: 8px;
-						padding-left: 10px;
-						}
-			}
+				}
 			
 			&:last-child a {
 				border-bottom: 0 none;
 			}
 			
-			&.bttndatasel.bttnfoods {
-				background-color: #dd5320;
-				}
-			&.bttndatasel.bttndrugs {
-				background-color: #f6a831;
-				}
-			&.bttndatasel.bttndevices {
-				background-color: #187fac;
-				}
-			
-			/*
 			&:hover a {
 				background-color: #454545;
-				text-decoration: none;
 				}
 			
 			&.active a {
 				background-color: #2f3945;
 				}
-			*/
 		}
 		
 		ul li a {
@@ -860,90 +685,6 @@ div.mnavwrapper.headerlinksnav {
 			background-color: #2b2b2b;
 			}
 	}
-
-
-
-/* Mobile Login */
-ul.mobileheaderlinkslist {
-	li.loginlogout {
-		> a {
-			position: relative;
-			margin: 0;
-			padding: 0 20px 0 55px;
-			display: block;
-			width: auto;
-			height: 50px;
-			color: #fff;
-			font-size: 1.15em;
-			line-height: 50px;
-			cursor: pointer;
-			border-top: 1px solid #454545;
-			background-color: #4b5056;
-			
-			.transition(color 0.2s ease-in-out, background-color 0.2s ease-in-out);
-			}
-		
-		.loginparent {
-			position: relative;
-			margin: 0;
-			padding: 0 20px 0 55px;
-			display: block;
-			width: auto;
-			height: 50px;
-			color: #fff;
-			font-size: 1.15em;
-			line-height: 50px;
-			cursor: pointer;
-			border-top: 1px solid #454545;
-			background-color: #4b5056;
-			
-			.transition(color 0.2s ease-in-out, background-color 0.2s ease-in-out);
-		
-			&:after {
-				position: absolute;
-				top: 50%;
-				right: 15px;
-				margin-top: -25px;
-				font-family: 'FontAwesome';
-				font-size: 0.90em;
-				content: '\f0d7';
-				}
-		}
-		
-		&:hover {
-			.loginparent:after {
-				color: #337ab7;
-				}
-		}
-		&.active {
-			.loginparent.login:after {
-				content: '\f0d8';
-				}
-		}
-		
-		div.logindropdown {
-			display: none;
-			
-			h3 {
-				padding: 15px 15px 10px 15px;
-				color: #f1f1f1;
-				}
-			
-			div.formholder_inner div.formrow {
-				padding: 0 15px 15px;
-				
-				label {
-					color: #f1f1f1;
-					font-weight: 400;
-					}
-			}
-		}
-		
-		&:hover div.logindropdown {
-			/* display: block; */ /* Controlled by JavaScript */
-			}
-	}
-}
 
 
 
@@ -956,32 +697,11 @@ ul.mobileheaderlinkslist {
 	
 	div.sectionwrapper.pageheader {}
 		
-		/* Logo */
-		div.headerlogo {
-			top: 10px;
-			left: 5px;
-			
-			a {
-				max-width: 145px;
-				}
-		}
-		
 		/* Non-mobile Navigation */
 		ul.headerlinkslist { display: none; }
 		
 		/* Mobile Navigation */
 		div.mnavwrapper.headerlinksnav { display: block; }
-			
-			/* Show Username for Mobile */
-			div.mobileheaderusername { display: block; }
-}
-
-/*425px*/
-@media screen and (min-width: 0) and (max-width: 425px){
-	
-	/* Mobile Username */
-	div.mobileheaderusername { display: none; }
-	ul.mobileheaderlinkslist li.husername { display: block; }
 }
 
 
@@ -1185,7 +905,7 @@ div.ftrinfotop {
 /* iii. Footer Bottom Info ******************************** */
 /* ******************************************************** */
 div.ftrinfobottom {
-	padding: 20px 0;
+	padding: 20px 0 0;
 	color: #a1a1a1;
 	font-size: 0.80em;
 	line-height: 1.45em;
@@ -1923,22 +1643,59 @@ div.sectioninside.container {
 /* *************************************************************************************************** */
 div.dashboardmain {
 	padding: 0 0 25px;
-	}
-	#infoBox {
-		padding: 3.5em 1em 1em 1em;
-		}
-		#infoBox span {
-			font-size: 1.3em;
-			}
-	.us-states {
-		fill: #a6a6a6;
-		}
-	.classButtons {
-		padding-top: 0.9em;
-		padding-left: 1em;
-		width: 100%;
-		}
-	.typeButtons {}
+}
+#infoBox {
+	padding: 3.5em 1em 1em 1em;
+}
+#infoBox span {
+	font-size: 1.3em;
+}
+#recallBox {
+	padding: 2.5em 0.75em 0.75em 0.75em;
+}
+#recallBox pre {
+	font: inherit;
+	background-color: inherit;
+	height: 100%;
+	line-height: 1.75em;
+	color: inherit;
+}
+.us-states {
+	fill: #a6a6a6;
+}
+.classButtons {
+	padding-top: 0.9em;
+	padding-left: 1em;
+	width: 100%;
+}
+.css3gradient {
+	width:300px;height:100px;
+	background-color:#00c700;
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#00c700, endColorstr= #c7c700);
+	background-image:-moz-linear-gradient(left, #00c700 0%,  #c7c700 50%,#c70000 100%);
+	background-image:linear-gradient(left, #00c700 0%,  #c7c700 50%,#c70000 100%);
+	background-image:-webkit-linear-gradient(left, #00c700 0%,  #c7c700 50%,#c70000 100%);
+	background-image:-o-linear-gradient(left, #00c700 0%,  #c7c700 50%,#c70000 100%);
+	background-image:-ms-linear-gradient(left, #00c700 0%,  #c7c700 50%,#c70000 100%);
+	background-image:-webkit-gradient(linear, left bottom, right bottom, color-stop(0%,#00c700), color-stop(50%, #c7c700),color-stop(100%,#c70000));
+}
+.legendbar {
+  	float: left;
+  	margin-top: 0.9em;
+  	margin-left: 0.9em;
+  	height: 2em;
+  	width: 62.8em;
+}
+.legendnumber {
+	color: #000000;
+	line-height: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.nav {
+	background-color: #E2E2E2;
+	border-bottom: 0px;
+}
 
 
 

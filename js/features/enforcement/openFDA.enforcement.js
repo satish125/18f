@@ -25,6 +25,9 @@
          });
       };
 
+      //REPLACE with real data
+      $scope.recallInfo = 'Drug 1 \nDrug 2 \nDrug 3 \nDrug 4 \nDrug 5';
+
       //function to get the data for each drug classification
       $scope.selectClass = function(classification){
          $scope.class = classification;

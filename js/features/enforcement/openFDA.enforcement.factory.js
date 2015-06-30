@@ -28,17 +28,61 @@
 
          enforcementData.getEnforcementCount(type, 'status:"ongoing"+AND+' + query, 'city.exact').then(function(data){
             var results = data.results;
-
             var chartData = [];
+            var color = '#A6A6A6';
 
             angular.forEach(results, function(result) {
                //chartData.push({ x: result.term, Ongoing: result.count });
+
+               switch (true)
+               {
+                  case result.count <= 7:
+                     color = '#00C700';
+                     break;
+                  case result.count <= 15:
+                     color = '#21C700';
+                     break;
+                  case result.count <= 23:
+                     color = '#42C700';
+                     break;
+                  case result.count <= 30:
+                     color = '#64C700';
+                     break;
+                  case result.count <= 38:
+                     color = '#85C700';
+                     break;
+                  case result.count <= 46:
+                     color = '#A6C700';
+                     break;
+                  case result.count <= 53:
+                     color = '#C7C700';
+                     break;
+                  case result.count <= 61:
+                     color = '#C7A600';
+                     break;
+                  case result.count <= 69:
+                     color = '#C78500';
+                     break;
+                  case result.count <= 76:
+                     color = '#C76400';
+                     break;
+                  case result.count <= 84:
+                     color = '#C74200';
+                     break;
+                  case result.count <= 92:
+                     color = '#C72100';
+                     break;
+                  case result.count > 92:
+                     color = '#C70000';
+                     break;
+               }
+
                chartData.push({
                   key: result.term,
                   keyID: result.term,
                   label1: 'Ongoing', 
                   value1: result.count, 
-                  color1: '#A6A6A6'
+                  color1: color
                });
             });
 

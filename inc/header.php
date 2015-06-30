@@ -38,7 +38,6 @@
 	
 	<script src="<?php echo BASE_URL; ?>js/jquery.dataTables.min.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/dataTables.responsive.js"></script>
-	<script src="<?php echo BASE_URL; ?>js/dataTables.tableTools.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/18f.js"></script>
 	
 	<?php /* Application JS Files */ ?>
@@ -88,49 +87,42 @@
 								<?php /* Header User Links: Start */ ?>
 								<nav class="prinavigation">
 									<ul class="headerlinkslist">
-
-										<?php /* Authenticated: Start */ ?>
-										<?php if (login_check($mysqli) == true) : ?>
-										<li class="husername">
-											<span>Logged in as <?php echo htmlentities($_SESSION['username']); ?></span>
-										</li>
-										<?php endif; ?>
-										<?php /* Authenticated: End */ ?>
 										
-										<?php /* Data Type: Start */ ?>
-										<li class="bttndatasel bttnfoods active">
-											<a href="#">
-												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_fork_lg.png" alt="Open FDA Foods" />
+										<?php /*
+										<li <?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? 'class="active"' : ''); ?>>
+											<a href="<?php echo BASE_URL; ?>">Home</a>
+										</li>
+										*/ ?>
+										
+										<li class="bttndatasel bttnfoods">
+											<a ng-click="selectType('food')">
+												<img class="bttnicon" src="" alt="" />
 												<span class="bttnlbl">Foods</span>
 											</a>
-											<div class="navarrow arrowfoods"></div>
 										</li>
 										<li class="bttndatasel bttndrugs">
-											<a href="#">
-												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_pill_lg.png" alt="Open FDA Drugs" />
+											<a ng-click="selectType('drug')">
+												<img class="bttnicon" src="" alt="" />
 												<span class="bttnlbl">Drugs</span>
 											</a>
-											<div class="navarrow arrowdrugs"></div>
 										</li>
 										<li class="bttndatasel bttndevices">
-											<a href="#">
-												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_device_lg.png" alt="Open FDA Devices" />
+											<a ng-click="selectType('device')">
+												<img class="bttnicon" src="" alt="" />
 												<span class="bttnlbl">Devices</span>
 											</a>
-											<div class="navarrow arrowdevices"></div>
 										</li>
-										<?php /* Data Type: End */ ?>
 										
 										<?php /* Login/Logout: Start */ ?>
 										<li class="loginlogout">
 											
 											<?php if (login_check($mysqli) == true) : ?>
 											
-											<a href="<?php echo BASE_URL; ?>inc/logout" class="loginparent logout">Logout</a>
+											<a href="<?php echo BASE_URL; ?>inc/logout">Logout</a>
 											
 											<?php else : ?>
 											
-											<span class="loginparent login">Login</span>
+											<span class="loginparent">Login</span>
 											
 											<div class="logindropdown">
 
@@ -231,10 +223,10 @@
 						<div class="row">
 							<div class="col-md-12">
 								
-								<ul class="classbttnlist">
-									<li class="classlist class1 active"><a href="#" class="button bttnclass1">Class I</a></li>
-									<li class="classlist class2"><a href="#" class="button bttnclass2">Class II</a></li>
-									<li class="classlist class3"><a href="#" class="button bttnclass3">Class III</a></li>
+								<ul>
+									<li><a ng-click="selectClass('Class III')" class="button">Class III</a></li>
+									<li><a ng-click="selectClass('Class II')" class="button">Class II</a></li>
+									<li><a ng-click="selectClass('Class I')" class="button">Class I</a></li>
 								</ul>
 								
 								<div class="clear"></div>
