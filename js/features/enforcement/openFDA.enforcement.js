@@ -67,6 +67,12 @@
       $scope.$on("mapChart:click", function(event, data){
          console.log(data);
          console.log(event);
+         
+         $('#datagridinfo').DataTable().column(0).search(
+            data.di,
+            false,
+            true
+         ).draw();
       });
 
       //initialization function
