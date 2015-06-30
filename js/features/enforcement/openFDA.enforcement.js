@@ -41,6 +41,7 @@
       $scope.selectType = function(type){
          $scope.type = type;
          $scope.selectClass($scope.class);
+         $scope.titleLabel = type.toUpperCase() + ' RECALLS';
       };
 
       //function to change the description of the 
@@ -67,7 +68,7 @@
       function init() {
          $scope.type = 'drug';
          $scope.class = 'Class I';
-         $scope.selectClass($scope.class);
+         $scope.selectType($scope.type);
       }
       init();
 
@@ -101,7 +102,7 @@
       $scope.chartOptions = {
          chart: {
             height: 490,
-            width: 310,
+            width: 660,
             margin: {
                left: 110,
                right: 10,

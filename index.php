@@ -24,22 +24,34 @@
 		<section class="secpagecontent">
 			<div class="sectionwrapper pagecontent homepageinfo">
 				<div class="sectioninside container">
-					<tabset>
-						<tab heading="Dashboard">
+					<!--tabset>
+						<tab heading="Dashboard"-->
 							<?php /* Dashboard: Start */ ?>
 							<div class="row dashboardmain">
 								<div class="col-md-12">
-									<!--mv-header mv-title="{{title}}"></mv-header-->
-									<mv-body mv-cols="6">
-										<mv-any-num mv-size="1x2" mv-title="{{statusLabel}}" mv-data="statusData" mv-style="{'font-size':'1.1em'}"></mv-any-num>
-										<mv-id-box mv-size="1x3" mv-title="Classification Description" mv-body-id="infoBox">{{classInfo}}</mv-id-box>
-										<mv-id-box mv-size="1x1" mv-title="Today's Critical Recalls" mv-body-id="recallBox"><pre>{{recallInfo}}</pre></mv-id-box>
-										<mv-id-box mv-size="3x4" mv-title="{{mapLabel}}">
-											<mv-chart mv-data="mapData" mv-options="mapOptions"></mv-chart>
-										</mv-id-box>
-										<mv-id-box mv-size="3x2" mv-title="{{chartLabel}}">
-											<mv-chart mv-data="chartData" mv-options="chartOptions"></mv-chart>
-										</mv-id-box>
+									<mv-body mv-cols="4">
+										<div class="titleLabel">{{titleLabel}}</div>
+										<div>
+											<button type="button" class="btn btn-default" ng-click="selectClass('Class I')">Class I</button>
+											<button type="button" class="btn btn-default" ng-click="selectClass('Class II')">Class II</button>
+											<button type="button" class="btn btn-default" ng-click="selectClass('Class III')">Class III</button>
+										</div>
+										<mv-group mv-size="1x2"></mv-group>
+										<mv-any-num mv-size="1x2" mv-data="statusData" mv-style="{'font-size':'1.1em'}"></mv-any-num>
+										<!--mv-id-box mv-size="1x3" mv-title="Classification Description" mv-body-id="infoBox">{{classInfo}}</mv-id-box>
+										<mv-id-box mv-size="1x1" mv-title="Today's Critical Recalls" mv-body-id="recallBox"><pre>{{recallInfo}}</pre></mv-id-box-->
+										<tabset>
+											<tab heading="US Map">
+												<mv-id-box mv-size="3x4" mv-title="{{mapLabel}}">
+													<mv-chart mv-data="mapData" mv-options="mapOptions"></mv-chart>
+												</mv-id-box>
+											</tab>
+											<tab heading="Bar Chart">
+												<mv-id-box mv-size="3x4" mv-title="{{chartLabel}}">
+													<mv-chart mv-data="chartData" mv-options="chartOptions"></mv-chart>
+												</mv-id-box>
+											</tab>
+										</tabset>
 										<div class="css3gradient legendbar"><span class="legendnumber">0</span><span class="pull-right legendnumber">100</span></div>
 									</mv-body>
 									
@@ -49,7 +61,7 @@
 								<div class="clear"></div>
 							</div>
 							<?php /* Dashboard: End */ ?>
-						</tab>	
+						<!--/tab>	
 						<tab heading="Table">
 							<?php /* Data Grid: Start */ ?>
 							<div class="row datagridmain">
@@ -74,7 +86,7 @@
 							</div>
 							<?php /* Data Grid: End */ ?>
 						</tab>
-					</tabset>
+					</tabset-->
 					<div class="clear"></div>	
 				</div>
 				
