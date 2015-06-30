@@ -64,6 +64,11 @@
          return info;
       }
 
+      $scope.$on("mapChart:click", function(event, data){
+         console.log(data);
+         console.log(event);
+      });
+
       //initialization function
       function init() {
          $scope.type = 'drug';
@@ -85,8 +90,6 @@
       //map options
       $scope.mapOptions = {
          chart: {
-            height: 485,
-            width: 660,
             margin: {
                top: 0,
                right: 35,
@@ -111,8 +114,6 @@
       //bar chart options
       $scope.chartOptions = {
          chart: {
-            height: 490,
-            width: 660,
             margin: {
                left: 110,
                right: 10,
