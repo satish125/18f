@@ -115,6 +115,10 @@
          return deferred.promise;
       }
 
+      self.getAllEnforcementData = function(type, query){
+        return enforcementData.getEnforcementData(type, query, '100'); 
+      }
+
       //map the acronym to the id
       function acronymToID(acronym) {
          var statesList = [

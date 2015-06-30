@@ -25,6 +25,16 @@
          });
       };
 
+      $scope.setDataTable = function(classification, stateQuery){
+         var stateQueryString = stateQuery || '';
+         enforcementFactory.getAllEnforcementData($scope.type, 'classification:"' + classification + '"' + stateQueryString)
+            .then(function(data){
+               buildTable(data);
+            });
+      };
+
+      //+AND+state:"TX"
+
       //REPLACE with real data
       $scope.recallInfo = 'Drug 1 \nDrug 2 \nDrug 3 \nDrug 4 \nDrug 5';
 
@@ -35,6 +45,7 @@
          $scope.getChart(classification);
          $scope.getStatus(classification);
          $scope.classInfo = changeDescription(classification);
+         $scope.setDataTable(classification);
       };
 
       //sets the type to use for the queries
@@ -65,14 +76,10 @@
       }
 
       $scope.$on("mapChart:click", function(event, data){
-         console.log(data);
-         console.log(event);
-         
-         $('#datagridinfo').DataTable().column(0).search(
-            data.di,
-            false,
-            true
-         ).draw();
+         //console.log(data);
+         //console.log(event);
+
+         $scope.setDataTable($scope.class, '+AND+state:"'+ data.di +'"');
       });
 
       //initialization function
@@ -83,13 +90,13 @@
 
          //Instantiate the jQuery DataTables
          $timeout(function(){
-            var dataGrid = $('#datagridinfo').DataTable({
+            $scope.dataTable = $('#datagridinfo').DataTable({
                responsive: true
             });
          }, 500)
 
          //Fill the table with datagridinfo
-         gridFdaData($scope.type, $scope.class,'100');
+         //gridFdaData($scope.type, $scope.class,'100');
       }
       init();
 
@@ -153,11 +160,44 @@
          }
       };
 
+      /*
+         Builds the data table rows based on some data that was passed in
+      */
+      function buildTable(data){
+         //Clear the data table
+         $('table.datagrid.drugs.state tbody').html('');
+
+         //Build the data table from the body
+         var obj = data;
+         var tableBody = '';
+
+         for(var i=0; i<obj.results.length ;i++){
+            tableBody += 
+               
+               '<tr>' + 
+                  '<td>' + obj.results[i].state + '</td>' + 
+                  '<td>' + obj.results[i].city + '</td>' + 
+                  '<td>' + addDashes(obj.results[i].recall_initiation_date) + '</td>' + 
+                  '<td>' + obj.results[i].product_type + '</td>' + 
+                  '<td>' + obj.results[i].recalling_firm + '</td>' + 
+                  '<td>' + obj.results[i].product_description + '</td>' + 
+               '</tr>';
+         }
+
+         //Append the new html to the data table element
+         $('table.datagrid.drugs.state tbody').html(tableBody);
+      }
 
       /**
       * Open FDA API Data Function
       */
-      function gridFdaData(type,query,limit){
+
+      /*
+      function gridFdaData(type,query){
+         //Clear the data table
+         $('table.datagrid.drugs.state tbody').html('');
+
+         //Get the data and build the data table
          $http.get('https://api.fda.gov/' + type + '/enforcement.json?search=' + query + '&limit=' + limit + '&api_key=mHWQoZTaPhujOVrDtzs8rCEvToN1n6xCDSIVdZbw')
             .success(function(data, status, headers, config) {
                var obj = data;
@@ -179,6 +219,7 @@
                $('table.datagrid.drugs.state tbody').html(tableBody);
             });
       }
+      */
 
 
       function toTitleCase(str)
