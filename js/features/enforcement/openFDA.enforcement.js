@@ -1,5 +1,5 @@
 (function () {
-   var enforcementCtrl = function($scope, enforcementFactory)
+   var enforcementCtrl = function($scope, $timeout, $http, enforcementFactory)
    {
       //retrieve the map data
       $scope.getMap = function(status, classification){
@@ -69,6 +69,16 @@
          $scope.type = 'drug';
          $scope.class = 'Class I';
          $scope.selectType($scope.type);
+
+         //Instantiate the jQuery DataTables
+         $timeout(function(){
+            var dataGrid = $('#datagridinfo').DataTable({
+               responsive: true
+            });
+         }, 500)
+
+         //Fill the table with datagridinfo
+         gridFdaData($scope.type, $scope.class,'100');
       }
       init();
 
@@ -136,6 +146,34 @@
          }
       };
 
+
+      /**
+      * Open FDA API Data Function
+      */
+      function gridFdaData(type,query,limit){
+         $http.get('https://api.fda.gov/' + type + '/enforcement.json?search=' + query + '&limit=' + limit + '&api_key=mHWQoZTaPhujOVrDtzs8rCEvToN1n6xCDSIVdZbw')
+            .success(function(data, status, headers, config) {
+               var obj = data;
+               var tableBody = '';
+
+               for(var i=0; i<obj.results.length ;i++){
+                  tableBody += 
+                     
+                     '<tr>' + 
+                        '<td>' + obj.results[i].state + '</td>' + 
+                        '<td>' + obj.results[i].city + '</td>' + 
+                        '<td>' + addDashes(obj.results[i].recall_initiation_date) + '</td>' + 
+                        '<td>' + obj.results[i].product_type + '</td>' + 
+                        '<td>' + obj.results[i].recalling_firm + '</td>' + 
+                        '<td>' + obj.results[i].product_description + '</td>' + 
+                     '</tr>';
+               }
+
+               $('table.datagrid.drugs.state tbody').html(tableBody);
+            });
+      }
+
+
       function toTitleCase(str)
       {
          return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
@@ -143,5 +181,5 @@
    };
 
    angular.module('openFDA.enforcement', ['openFDA.enforcement.factory'])
-      .controller('enforcementCtrl', ['$scope', 'enforcementFactory', enforcementCtrl]);
+      .controller('enforcementCtrl', ['$scope', '$timeout', '$http', 'enforcementFactory', enforcementCtrl]);
 }());

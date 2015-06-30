@@ -63,7 +63,7 @@
 							<?php /* Dashboard: End */ ?>
 						<!--/tab>	
 						<tab heading="Table">
-							<?php /* Data Grid: Start */ ?>
+							<?php /* Data Grid: Start */ ?>-->
 							<div class="row datagridmain">
 								<div class="col-md-12">
 									
@@ -85,7 +85,7 @@
 								</div>
 							</div>
 							<?php /* Data Grid: End */ ?>
-						</tab>
+						<!--/tab>
 					</tabset-->
 					<div class="clear"></div>	
 				</div>

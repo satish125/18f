@@ -20,6 +20,7 @@ jQuery(document).ready(function($){
 	gridFdaData('drug','Class I','100');
 	
 	// Data Grid
+	/*
 	setTimeout(function(){
 		var dataGrid = $('#datagridinfo').DataTable({
 			responsive: true
@@ -50,7 +51,8 @@ jQuery(document).ready(function($){
 			}
 		});
 	}, 650);
-	
+	*/
+
 	// Mobile Login Click Event
 	$('ul.mobileheaderlinkslist span.loginparent').on('click', function(){
 		if(!$(this).closest('li.loginlogout').hasClass('active')) {
@@ -195,6 +197,8 @@ function jsonFdaProcessing(jsonString,dataCounter){
 /**
   * Open FDA API Data Function
   */
+
+/*
 function gridFdaData(type,query,limit){
 	var request = $.ajax({
 		url: 'https://api.fda.gov/' + type + '/enforcement.json?search=' + query + '&limit=' + limit + '&api_key=mHWQoZTaPhujOVrDtzs8rCEvToN1n6xCDSIVdZbw',
@@ -237,7 +241,7 @@ function gridFdaDataProcess(dataString){
 	
 	$('table.datagrid.drugs.state tbody').html(dataOutputBody);
 }
-
+*/
 
 
 /**
