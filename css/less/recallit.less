@@ -292,6 +292,8 @@ small, .small {
 		.wrapper {
 			height: 100%;
 			}
+			.wrapper.collapsed { background-color: #f00; }
+			
 			.wrapperouter {
 				margin: 0 auto;
 				width: 100%;
@@ -396,6 +398,7 @@ small, .small {
 										cursor: pointer;
 										
 										.transition(color 0.2s ease-in-out);
+										.userselect(none);
 										
 										img {
 											display: block;
@@ -493,6 +496,15 @@ small, .small {
 										
 										&.expanded {
 											
+											}
+										
+										h2 {
+											padding: 25px 0;
+											color: #2e3236;
+											font-size: 1.35em;
+											font-weight: 600;
+											text-align:  center;
+											text-transform: uppercase;
 											}
 									}
 										
