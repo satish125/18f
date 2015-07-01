@@ -24,7 +24,7 @@ include_once 'inc/header.php';
 				
 				<?php /* Main Info: Start */ ?>
 				<section class="maininforegion" aria-labelledby="main-content-data">
-					<div class="container-fluid dataregion_main">
+					<div class="container-fluid dataregion_main pagecopy">
 						<div class="row">
 							<div class="col-sm-12">
 								
