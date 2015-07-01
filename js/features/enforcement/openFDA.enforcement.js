@@ -95,14 +95,8 @@
          $timeout(function(){
 
             dataTable = $('#datagridinfo').DataTable({
-               order: [[ 1, "desc" ]],
+               order: [[ 0, "desc" ]],
                columns: [
-                  {
-                     className:      'details-control',
-                     orderable:      false,
-                     data:           null,
-                     defaultContent: ''
-                  },
                   { data: 'recall_initiation_date' },
                   { data: 'city' },
                   { data: 'state' },
@@ -111,26 +105,11 @@
                      data: 'product_quantity',
                      defaultContent: 'Unknown'
                   },
-                  { data: 'status' }
+                  { data: 'status' },
+                  { data: 'product_description'},
+                  { data: 'reason_for_recall'}
                ],
                responsive: true
-            });
-
-            // Add event listener for opening and closing details
-            $('#datagridinfo tbody').on('click', 'td.details-control', function () {
-               var tr = $(this).closest('tr');
-               var row = dataTable.row( tr );
-
-               if ( row.child.isShown() ) {
-                  // This row is already open - close it
-                  row.child.hide();
-                  tr.removeClass('shown');
-               }
-               else {
-                  // Open this row
-                  row.child( format(row.data()) ).show();
-                  tr.addClass('shown');
-               }
             });
 
             //Wait until the table is initialized then call data
@@ -225,24 +204,6 @@
 
          //Add rows to the table then redraw the table
          dataTable.rows.add(tableData).draw();
-      }
-
-
-      /*
-         Format for the show extra columns data
-      */
-      function format ( d ) {
-          // `d` is the original data object for the row
-          return '<table cellpadding="5" cellspacing="0" border="0" style="">'+
-              '<tr>'+
-                  '<td style="padding-left:35px;">Product Description:</td>'+
-                  '<td>'+d.product_description+'</td>'+
-              '</tr>'+
-              '<tr>'+
-                  '<td style="padding-left:35px;">Recall Reason:</td>'+
-                  '<td>'+d.reason_for_recall+'</td>'+
-              '</tr>'+
-          '</table>';
       }
 
       function toTitleCase(str)

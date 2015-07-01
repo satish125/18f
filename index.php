@@ -141,13 +141,14 @@ include_once 'inc/header.php';
 														<table id="datagridinfo" class="datagrid dataTable drugs state" cellspacing="0" width="100%">
 															<thead>
 																<tr>
-																	<th></th>
 																	<th>Recall Date</th>
 					                                    <th>City</th>
 																	<th>State</th>
 					                                    <th>Recalling Firm</th>
 					                                    <th># of Products Recalled</th>
 					                                    <th>Status</th>
+					                                    <th>Product Description</th>
+					                                    <th>Reason for Recall</th>
 																</tr>
 															</thead>
 														</table>
