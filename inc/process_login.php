@@ -14,11 +14,11 @@ if (isset($_POST['email'], $_POST['p'])) {
     if (login($email, $password, $mysqli) == true) {
         
 		// Login success 
-        header('Location: ../index');
+        header('Location: ../index?success=Logged in');
     } else {
         
 		// Login failed 
-        header('Location: ../index?err=Login attempt failed');
+        header('Location: ../login?err=Login attempt failed');
     }
 } else {
     

@@ -1,0 +1,1094 @@
+/* ***************************************************************************************************
+
+	Description:	18F Prototype: core styles
+
+	TABLE OF CONTENTS:
+	------------------
+		    I. LESS Variables and Mixins
+		   II. Browser Resets
+		  III. Global Options
+				i. Font Color
+		       ii. Text Align
+			  iii. Font Size
+		       iv. Text Transform
+			    v. Floats
+		   IV. Template
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+			X. Forms
+		   XI. Data Grids
+		  XII. Bootstrap Overrides
+		 XIII. Homepage FDA Dashboard
+
+   *************************************************************************************************** */
+
+/* *************************************************************************************************** */
+/* I. LESS Variables and Mixins ********************************************************************** */
+/* *************************************************************************************************** */
+
+/* Variables */
+@pri-font: 'Open Sans', Arial, Helvetica, sans-serif;
+@pri-font-size: 12px;
+@pri-font-color: #393939;
+@page-bkg: #2c2c2c;
+@page-content-maxwidth: 1100px;
+
+/* Mixins */
+.borderradius (@value){
+    -webkit-border-radius: 	@value;
+    -moz-border-radius: 	@value;
+    border-radius: 			@value;
+}
+.boxshadow (@value1,@value2:X,...){
+    @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+	
+	-webkit-box-shadow: 	@value;
+    -moz-box-shadow: 		@value;
+    box-shadow: 			@value;
+}
+.transition (@value1,@value2:X,...){
+    @value: ~`"@{arguments}".replace(/[\[\]]|\,\sX/g, '')`;
+	
+    -webkit-transition: 	@value;
+    -moz-transition: 		@value;
+    -ms-transition: 		@value;
+    -o-transition: 			@value;
+    transition: 			@value;
+}
+.userselect(@value){
+    -webkit-user-select: 	@value;
+    -moz-user-select: 		@value;
+    user-select: 			@value;
+}
+
+
+
+/* *************************************************************************************************** */
+/* II. Browser Resets ******************************************************************************** */
+/* *************************************************************************************************** */
+html, body {
+	width: 100%;
+	height: 100%;
+	-webkit-font-smoothing: antialiased !important;
+	-webkit-text-stroke: 0.0px;
+	text-rendering: optimizeLegibility !important;
+	}
+	body {
+		display: block;
+		color: @pri-font-color;
+		font-family: @pri-font;
+		font-size: @pri-font-size;
+		font-weight: 400;
+		line-height: 1;
+		overflow-x: hidden;
+		background-color: @page-bkg;
+		}
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4,
+h5, h6, p, blockquote, pre, a, abbr, acronym, address, big,
+cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small,
+strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt,
+dd, ol, ul, li, fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+details, embed, figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary, time, mark,
+audio, video {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	border: 0;
+	}
+
+html, html a {
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+	}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+    }
+
+ul, ol {
+	list-style: none;
+	}
+
+blockquote, q {
+	quotes: none;
+	
+	&:before,
+	&:after {
+		content: '';
+		content: none;
+		}
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	}
+
+a {
+	text-decoration: none;
+	
+	.transition(color 0.3s ease-in-out);
+	
+	&:hover {
+		
+		}
+}
+
+img {
+	border: 0 none;
+	}
+
+sup,
+sub {
+	margin: 0;
+	padding: 0;
+	font-size: 10px;
+	line-height: 0;
+	}
+
+button, input, optgroup, select, textarea {}
+
+/* Mozilla Fix */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+	padding: 0;
+	border: 0 none;
+	}
+
+/* Global Box Sizing */
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: 	border-box;
+	box-sizing: 		border-box;
+	}
+
+/* .clearfix, */
+.clear {
+	clear: both;
+	*zoom: 1;
+	margin: 0;
+	padding: 0;
+	display: block;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	overflow: hidden;
+	outline: 0 none;
+	border: 0 none;
+	}
+
+
+
+/* *************************************************************************************************** */
+/* III. Global Options ******************************************************************************* */
+/* *************************************************************************************************** */
+
+/* ******************************************************** */
+/* i. Font Color ****************************************** */
+/* ******************************************************** */
+.black 			{ color: #000; }
+.blue 			{}
+.darkgray,
+.darkgrey 		{ color: #1e1e1e; }
+.darkgreen 		{}
+.gray,
+.grey 			{ color: @pri-font-color; }
+.green 			{ color: #739600; }
+.lightgray,
+.lightgray 		{ color: #f5f5f5; }
+.lightgreen 		{ color: #cdcca0; }
+.lighttan		{ color: #f5f5ec; }
+.mediumgray,
+.mediumgrey 		{ color: #777; }
+.palegray,
+.palegrey		{ color: #faf9f9; }
+.white 			{ color: #fff; }
+
+
+
+/* ******************************************************** */
+/* ii. Text Align ***************************************** */
+/* ******************************************************** */
+.alignleft 		{ text-align: left !important; }
+.aligncenter 	{ text-align: center !important; }
+.alignright 		{ text-align: right !important; }
+
+
+
+/* ******************************************************** */
+/* iii. Font Size ***************************************** */
+/* ******************************************************** */
+small, .small {
+	font-size: 10px;
+	}
+
+.font8  	{ font-size:  8px; line-height: 10px; }
+.font9  	{ font-size:  9px; line-height: 11px; }
+.font10 	{ font-size: 10px; line-height: 12px; }
+.font11 	{ font-size: 11px; line-height: 13px; }
+.font12 	{ font-size: 12px; line-height: 14px; }
+.font13 	{ font-size: 13px; line-height: 15px; }
+.font14 	{ font-size: 14px; line-height: 16px; }
+.font15 	{ font-size: 15px; line-height: 17px; }
+.font16 	{ font-size: 16px; line-height: 18px; }
+.font17 	{ font-size: 17px; line-height: 19px; }
+.font18 	{ font-size: 18px; line-height: 20px; }
+.font20 	{ font-size: 20px; line-height: 22px; }
+.font22 	{ font-size: 22px; line-height: 24px; }
+.font24 	{ font-size: 24px; line-height: 26px; }
+.font25 	{ font-size: 25px; line-height: 27px; }
+.font26 	{ font-size: 26px; line-height: 28px; }
+.font28 	{ font-size: 28px; line-height: 30px; }
+.font30 	{ font-size: 30px; line-height: 32px; }
+.font40 	{ font-size: 40px; line-height: 42px; }
+.font50 	{ font-size: 50px; line-height: 52px; }
+.font60 	{ font-size: 60px; line-height: 62px; }
+
+
+
+/* ******************************************************** */
+/* iv. Text Transform ************************************* */
+/* ******************************************************** */
+.notxttransform 	{ text-transform: none; }
+.lowercase 		{ text-transform: lowercase; }
+.uppercase 		{ text-transform: uppercase; }
+.capitalize 		{ text-transform: capitalize; }
+
+
+
+/* ******************************************************** */
+/* v. Floats ********************************************** */
+/* ******************************************************** */
+.floatleft 		{ float: left !important; }
+.floatright 		{ float: right !important; }
+.nofloat 		{ float: none !important; }
+
+
+
+/* *************************************************************************************************** */
+/* IV. Template ************************************************************************************** */
+/* *************************************************************************************************** */
+
+.wrapper {}
+	.wrapperouter {}
+		.wrapperinner {}
+			
+			/* NoScript */
+			.noscriptnotice {}
+			
+			/* Sidebar Navigation */
+			.sidebarnavigation {}
+				.navsidebar {
+					
+					/* Handle */
+					div.mobilehandle {
+						cursor: pointer;
+					
+						div.mobilehandler_inner {
+						
+							span {}
+						}
+					}
+					
+					/* Primary Navigation List*/
+					ul.prinavlist {
+						marginn: 0;
+						padding: 0;
+						
+						li {
+							display: block;
+							
+							&.navitem  {}
+							
+							a {
+								display: block;
+								
+								img {}
+								span {}
+							}
+							
+							&:hover a {}
+							&.active a {}
+						}
+					}
+				
+				}
+			
+			/* Main Content Body Header */
+			.headerregion {}
+				.headerlogo {
+					
+					a {}
+					h5 {}
+				}
+			
+			/* Main Content Body Data Region */
+			.contentregion {}
+				.contentmain {}
+					
+					/* Top Info */
+					.topinforegion {}
+						.dataregion_top {}
+							
+							/* Top 5 Info */
+							.top5info {}
+							
+							/* Twitter Feed */
+							.twitterfeed {}
+					
+					/* Main Info Region */
+					.maininforegion {}
+						.dataregion_main {
+							
+							h1 {
+								
+								}
+						}
+						
+						/* Class Navigation */
+						.classnavregion {}
+							.classelection {}
+								ul.classselectlist {
+									li {
+										
+										&.classitem {}
+										
+										a {}
+										
+										&:hover a {}
+										&.active a {}
+									}
+								}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* *************************************************************************************************** */
+/* X. Forms ****************************************************************************************** */
+/* *************************************************************************************************** */
+
+
+/* ******************************************************** */
+/* i. General Form Styling ******************************** */
+/* ******************************************************** */
+
+/* Form */
+div.formholder {}
+	div.formholder_inner {}
+		div.formholder_inner form {}
+			
+			/* Notice */
+			div.notice {
+				margin: 0 0 15px;
+				}
+				div.notice_inner {
+					padding: 10px 15px;
+					color: #fff;
+					font-size: 0.90em;
+					line-height: 1.05em;
+					text-align: center;
+					
+					.borderradius(3px);
+					}
+					
+					/* Error */
+					div.notice.error div.notice_inner 		{ background-color: #c10000; }
+					
+					/* Warning */
+					div.notice.warning div.notice_inner 	{ background-color: #e2be3f; }
+			
+			/* Required */
+			span.req {
+				position: relative;
+				color: #bf0000;
+				overflow: hidden;
+				}
+				
+				/* For Screen Readers */
+				span.req span.screentxt {
+					position: absolute;
+					top: -50px;
+					height: 0;
+					overflow: hidden;
+					}
+			
+			/* Form Title */
+			div.formholder_inner h3.formtitle {
+				margin: 0 0 15px;
+				padding: 15px 0;
+				font-size: 1.85em;
+				border-bottom: 1px solid #e0e0e0;
+				}
+			
+			/* Form Section Subtext */
+			div.formholder_inner div.formsectioninfo {
+				padding: 0 0 15px;
+				font-size: 0.80em;
+				}
+			
+			/* Form Row */
+			div.formholder_inner div.formrow {
+				padding: 5px 0 15px;
+				}
+				div.formholder_inner div.formrow label {
+					padding: 0 0 8px;
+					display: block;
+					font-size: 0.95em;
+					cursor: pointer;
+					}
+					
+					/* Secondary Field */
+					div.formholder_inner div.fieldsec label {
+						padding-top: 15px;
+						}
+				div.formholder_inner div.formrow div.formfld {}
+					
+					/* Row Columns (default is single column, which requires no class) */
+					div.formrow div.formcol {}
+						
+						div.formrow.twocol,
+						div.formrow.threecol,
+						div.formrow.fourcol {
+							margin: 0 -10px;
+							}
+							div.formrow.twocol {}
+							div.formrow.threecol {}
+							div.formrow.fourcol {}
+							
+							/* Two Column */
+							div.formrow.twocol div.formcol.colleft {
+								padding: 0 5px 0 10px;
+								float: left;
+								width: 50%;
+								}
+							div.formrow.twocol div.formcol.colright {
+								padding: 0 10px 0 5px;
+								float: right;
+								width: 50%;
+								}
+							
+							/* Three Column */
+							div.formrow.threecol div.formcol.colleft {
+								padding: 0 5px 0 10px;
+								float: left;
+								width: 33.3%;
+								}
+							div.formrow.threecol div.formcol.colcenter {
+								padding: 0 5px;
+								float: left;
+								width: 33.3%;
+								}
+							div.formrow.threecol div.formcol.colright {
+								padding: 0 10px 0 5px;
+								float: right;
+								width: 33.3%;
+								}
+							
+							/* Four Column */
+							div.formrow.fourcol div.formcol.colleft {
+								padding: 0 5px 0 10px;
+								float: left;
+								width: 25%;
+								}
+							div.formrow.fourcol div.formcol.colcenter {
+								padding: 0 5px;
+								float: left;
+								width: 25%;
+								}
+							div.formrow.fourcol div.formcol.colright {
+								padding: 0 10px 0 5px;
+								float: right;
+								width: 25%;
+								}
+					
+					/* Fields */
+					div.formholder input.text,
+					div.formholder select.select {
+						margin: 0;
+						padding: 5px 10px;
+						width: 100%;
+						height: 40px;
+						line-height: 40px;
+						border: 1px solid #e0e0e0;
+						border-color: #cbcbcb #e0e0e0 #e0e0e0 #cbcbcb;
+						background-color: #fff;
+						
+						.transition(color 0.2s ease-in-out,border-color 0.2s ease-in-out,background-color 0.2s ease-in-out);
+						}
+						
+						/* Read Only */
+						div.formholder input.text.readonly,
+						div.formholder select.select.readonly {
+							background-color: #ffebcd;
+							}
+						
+						/* Hover */
+						div.formholder input.text:hover,
+						div.formholder select.select:hover {
+							border-color: #cbcbcb;
+							}
+						
+						/* Focus */
+						div.formholder input.text:focus,
+						div.formholder select.select:focus {
+							border-color: #777;
+							
+							.boxshadow(0 0 3px rgba(0, 0, 0, 0.15) inset);
+							}
+						
+						/* Placeholder Text */
+					div.formholder input.text::-webkit-input-placeholder,
+					div.formholder select.select::-webkit-input-placeholder {
+						color: #999;
+						font-family: 'Georgia', 'Times New Roman', Serif;
+						}
+					
+					div.formholder input.text:-moz-placeholder,
+					div.formholder select.select:-moz-placeholder {
+						color: #999;
+						font-family: 'Georgia', 'Times New Roman', Serif;
+						}
+					
+					div.formholder input.text::-moz-placeholder,
+					div.formholder select.select::-moz-placeholder {
+						color: #999;
+						font-family: 'Georgia', 'Times New Roman', Serif;
+						}
+					
+					div.formholder input.text:-ms-input-placeholder,
+					div.formholder select.select:-ms-input-placeholder {
+						color: #999;
+						font-family: 'Georgia', 'Times New Roman', Serif;
+						line-height: 30px;
+						}
+
+			/* Button Row */
+			div.formrow.buttonrow {
+				position: relative;
+				}
+			
+			/* Field Errors */
+			div.formholder input.text.error {
+				border-color: #ed0000;
+				background-color: #ffd9d9;
+				
+				.transition(color 0.2s ease-in-out,border-color 0.2s ease-in-out,background-color 0.2s ease-in-out);
+				}
+				div.formholder input.text.error:hover,
+				div.formholder input.text.error:focus {
+					border-color: #ff0b0b;
+					background-color: #ffd3d3;
+					}
+
+
+
+/* ******************************************************** */
+/* ii. Form Field Icons *********************************** */
+/* ******************************************************** */
+div.formfld.icon {
+	position: relative;
+
+	}
+	.icon.email div.fldicon,
+	.icon.password div.fldicon {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 40px;
+		height: 40px; /*100%;*/
+		color: #a6a6a6;
+		font-size: 1.15em;
+		text-align: center;
+		line-height: 2.05em;
+		border: 1px solid #dfdfdf;
+		border-color: #cbcbcb #e0e0e0 #e0e0e0 #dfdfdf;
+		background-color: #fafafa;
+		
+		background: rgb(229, 229, 229);
+		background: -moz-linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
+		background: -webkit-gradient(linear, right bottom, right top, color-stop(0%, #f0f0f0), color-stop(100%, #fafafa));
+		background: -webkit-linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
+		background: -o-linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
+		background: -ms-linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
+		background: linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#fafafa',GradientType=1);
+		
+		.transition(border-color 0.2s ease-in-out);
+		}
+		
+		/* Borders */
+		div.formfld.icon.focused div.fldicon {
+			border-color: #777;
+			}
+		
+		/* Icons */
+		.icon.email div.fldicon:after,
+		.icon.password div.fldicon:after {
+			font-family: 'FontAwesome';
+			text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.90);
+			}
+			.icon.email div.fldicon:after 	{ content: '\f0e0'; }
+			.icon.password div.fldicon:after 	{ content: '\f023'; }
+		
+		/* Field Error */
+		div.fldicon.error {
+			border-color: #ed0000 !important;
+			}
+
+
+
+/* ******************************************************** */
+/* iii. General Button Styling **************************** */
+/* ******************************************************** */
+
+/* Button Styling */
+.button {
+	position: relative;
+	z-index: 1;
+	margin: 0 0 0 10px;
+	padding: 0 25px;
+	display: block;
+	float: right;
+	height: 42px;
+	color: #fafafa;
+	font-size: 0.95em;
+	line-height: 42px;
+	text-align: center;
+	text-transform: uppercase;
+	cursor: pointer;
+	border: 1px solid #337ab7;
+	background-color: #337ab7;
+	
+	.borderradius(3px);
+	.transition(color 0.2s ease-in-out,border-color 0.2s ease-in-out,background-color 0.2s ease-in-out);
+	}
+	.button:hover {
+		border-color: #0e5ea2;
+		background-color: #0e5ea2;
+		}
+
+/* Optional Button Holder */
+div.buttonholder {
+	padding: 20px 0;
+	overflow: hidden;
+	}
+
+
+
+/* ******************************************************** */
+/* iv. Notice Popup *************************************** */
+/* ******************************************************** */
+
+/* Backdrop */
+div.noticepopupbackdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 190;
+	display: none;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.60);
+	}
+
+/* Notice Popup */
+div.noticepopup {
+	position: fixed;
+	top: 15%;
+	left: 50%;
+	z-index: 195;
+	margin: 0;
+	padding: 0;
+	display: none;
+	width: 100%;
+	max-width: 530px;
+	height: auto;
+	
+	opacity: 0.00;
+	}
+	div.noticepopup_outer {
+		padding: 0 15px;
+		}
+		div.noticepopup_inner {
+			width: 100%;
+			height: 100%;
+			
+			.boxshadow(0 0 25px rgba(0, 0, 0, 0.20));
+			}
+			/* Notice Header */
+			div.noticepopup_header {
+				position: relative;
+				padding: 10px;
+				color: #fafafa;
+				border: 1px solid #565656;
+				border-width: 0;
+				background-color: #131313;
+				
+				.borderradius(4px 4px 0 0);
+				}
+				
+				/* Close Button */
+				div.noticeclosebttn {
+					position: absolute;
+					top: 50%;
+					right: 6px;
+					margin: -12px 0 0 -12px;
+					width: 24px;
+					height: 24px;
+					cursor: pointer;
+					background-color: #454545;
+					
+					.borderradius(2px);
+					.transition(background-color 0.2s ease-in-out);
+				
+					&:hover {
+						background-color: #909090;
+						}
+					&:after {
+						padding-left: 5px;
+						color: #131313;
+						font-family: 'FontAwesome';
+						font-size: 1.25em;
+						line-height: 23px;
+						text-align: center;
+						content: '\f00d';
+						}
+				}
+
+			
+			/* Notice Content */
+			div.noticepopup_content {
+				padding: 15px;
+				color: #131313;
+				font-size: 0.95em;
+				line-height: 1.25em;
+				text-align: left;
+				border: 1px solid #565656;
+				border-width: 0;
+				background-color: #fafafa;
+				
+				.borderradius(0 0 4px 4px);
+				}
+				div.noticepopupcontent_inner {
+					position: relative;
+					padding: 15px 15px 15px 65px;
+					border: 1px solid #dfdfdf;
+					
+					/* Notice Icon */
+					&:after {
+						position: absolute;
+						top: 50%;
+						left: 15px;
+						margin: -8px 0 0;
+						color: #eda83c;
+						font-family: 'FontAwesome';
+						font-size: 2.50em;
+						content: '\f071';
+						}
+				}
+
+
+
+/* *************************************************************************************************** */
+/* XI. Data Grids ************************************************************************************ */
+/* *************************************************************************************************** */
+
+div.dataTables_wrapper {
+	position: relative;
+	padding: 50px 0 0;
+	}
+
+/* Table Styling */
+table.datagrid {
+	width: 100%;
+	font-size: 0.90em;
+	border-collapse: collapse;
+	border: 0 none;
+
+	thead {}
+	tfoot {}
+	tbody {}
+	
+		tr {}
+			th,
+			td {
+				padding: 12px 10px;
+				font-weight: 300;
+				}
+				th {
+					position: relative;
+					background-color: #eaeaea;
+					
+					.userselect(none);
+					
+					&.sorting_asc:after {
+						padding-left: 5px;
+						font-family: 'FontAwesome';
+						content: '\f0d7';
+						}
+					&.sorting_desc:after {
+						padding-left: 5px;
+						font-family: 'FontAwesome';
+						content: '\f0d8';
+						}
+				}
+				td {
+					line-height: 1.25em;
+					border-bottom: 1px solid #eaeaea;
+					}
+}
+
+/* Limiter */
+div.dataTables_length {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 45%;
+	
+	label {
+		width: 100%;
+		color: #454545;
+		font-size: 0.90em;
+		font-weight: 300;
+		
+		select {
+			margin: 0 5px;
+			padding: 5px 10px;
+			width: 100%;
+			max-width: 65px;
+			height: 40px;
+			line-height: 40px;
+			border: 1px solid #e0e0e0;
+			border-color: #cbcbcb #e0e0e0 #e0e0e0 #cbcbcb;
+			background-color: #fff;
+			
+			.transition(color 0.2s ease-in-out,border-color 0.2s ease-in-out,background-color 0.2s ease-in-out);
+			
+			&:hover {
+				border-color: #cbcbcb;
+				}
+			&:focus {
+				border-color: #777;
+				}
+			}
+	}
+}
+
+/* Search */
+div.dataTables_filter {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 45%;
+	
+	label {
+		width: 100%;
+		color: #454545;
+		font-size: 0.90em;
+		font-weight: 300;
+		line-height: 40px;
+		text-align: right;
+		
+		input {
+			margin: 0 0 0 5px;
+			padding: 5px 10px;
+			float: right;
+			width: 100%;
+			max-width: 300px;
+			height: 40px;
+			line-height: 40px;
+			border: 1px solid #e0e0e0;
+			border-color: #cbcbcb #e0e0e0 #e0e0e0 #cbcbcb;
+			background-color: #fff;
+			
+			.transition(color 0.2s ease-in-out,border-color 0.2s ease-in-out,background-color 0.2s ease-in-out);
+			
+			&:hover {
+				border-color: #cbcbcb;
+				}
+			&:focus {
+				border-color: #777;
+				}
+			}
+	}
+}
+
+/* Status */
+div.dataTables_info {
+	float: left;
+	color: #a3a3a3;
+	font-size: 0.80em;
+	line-height: 50px;
+	}
+
+/* Pagination */
+div.dataTables_paginate {
+	float: right;
+	padding: 10px 0;
+	
+	.userselect(none);
+	
+	a,
+	span {
+		display: block;
+		float: left;
+		}
+		
+		a {
+			position: relative;
+			z-index: 1;
+			margin: 0 0 0 5px;
+			padding: 0 20px;
+			display: block;
+			float: left;
+			height: 34px;
+			color: #fafafa;
+			font-size: 0.95em;
+			line-height: 32px;
+			text-align: center;
+			text-decoration: none;
+			text-transform: uppercase;
+			cursor: pointer;
+			border: 1px solid #337ab7;
+			background-color: #337ab7;
+			
+			.borderradius(3px);
+			.transition(color 0.2s ease-in-out,border-color 0.2s ease-in-out,background-color 0.2s ease-in-out);
+			
+			&.current,
+			&:hover {
+				color: #fafafa;
+				border-color: #0e5ea2;
+				background-color: #0e5ea2;
+				}
+			&.disabled,
+			&.disabled:hover {
+				color: #fafafa;
+				cursor: default;
+				border-color: #778fa4;
+				background-color: #778fa4;
+				}
+		}
+		
+		> a:first-child {
+			margin-left: 0;
+			}
+		
+		span.ellipsis {
+			position: relative;
+			z-index: 1;
+			margin: 0 0 0 5px;
+			padding: 0 20px;
+			display: block;
+			float: left;
+			height: 34px;
+			color: #fafafa;
+			font-size: 0.95em;
+			line-height: 32px;
+			text-align: center;
+			text-decoration: none;
+			text-transform: uppercase;
+			cursor: default;
+			border: 1px solid #337ab7;
+			background-color: #337ab7;
+			
+			.borderradius(3px);
+			}
+
+}
+
+
+
+/* *************************************************************************************************** */
+/* XIII. Homepage FDA Dashboard ********************************************************************** */
+/* *************************************************************************************************** */
+div.dashboardmain {
+	padding: 0 0 25px;
+}
+#infoBox {
+	padding: 3.5em 1em 1em 1em;
+}
+#infoBox span {
+	font-size: 1.3em;
+}
+#recallBox {
+	padding: 2.5em 0.75em 0.75em 0.75em;
+}
+#recallBox pre {
+	font: inherit;
+	background-color: inherit;
+	height: 100%;
+	line-height: 1.75em;
+	color: inherit;
+}
+.us-states {
+	fill: #a6a6a6;
+}
+.classButtons {
+	padding-top: 0.9em;
+	padding-left: 1em;
+	width: 100%;
+}
+.css3gradient {
+	width:300px;height:100px;
+	background-color:#00c700;
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#00c700, endColorstr= #c7c700);
+	background-image:-moz-linear-gradient(left, #00c700 0%,  #c7c700 50%,#c70000 100%);
+	background-image:linear-gradient(left, #00c700 0%,  #c7c700 50%,#c70000 100%);
+	background-image:-webkit-linear-gradient(left, #00c700 0%,  #c7c700 50%,#c70000 100%);
+	background-image:-o-linear-gradient(left, #00c700 0%,  #c7c700 50%,#c70000 100%);
+	background-image:-ms-linear-gradient(left, #00c700 0%,  #c7c700 50%,#c70000 100%);
+	background-image:-webkit-gradient(linear, left bottom, right bottom, color-stop(0%,#00c700), color-stop(50%, #c7c700),color-stop(100%,#c70000));
+}
+.legendbar {
+  	float: left;
+  	margin-top: 0.9em;
+  	margin-left: 0.9em;
+  	height: 2em;
+  	width: 62.8em;
+}
+.legendnumber {
+	color: #000000;
+	line-height: 2em;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.nav {
+	background-color: #E2E2E2;
+	border-bottom: 0px;
+}
+
+
+
+

@@ -19,7 +19,7 @@
 	<link href="<?php echo BASE_URL; ?>css/minerva.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/font-awesome.min.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/dataTables.responsive.css" rel="stylesheet" media="all" />
-	<link href="<?php echo BASE_URL; ?>css/styles.css" rel="stylesheet" media="all" />
+	<link href="<?php echo BASE_URL; ?>css/recallit.css" rel="stylesheet" media="all" />
 	
 	<?php /* Dependencies */ ?>
 	<script src="<?php echo BASE_URL; ?>js/jquery-2.1.3.min.js"></script>
@@ -50,197 +50,122 @@
 </head>
 <body ng-app="openFDAApp">
 
-<div class="wrapper">
-	<div class="wrapperouter">
-		<div class="wrapperinner">
-			
-			<?php /* No Script: Start */ ?>
-			<noscript>
-				<div class="noscriptnotice">
-					<div class="noscriptnotice_inner">
-						You must have JavaScript enabled in order to properly use this site.
-					</div>
+<?php /* Angular Controllers: Start */ ?>
+<div ng-controller="mainCtrl">
+	<div ng-controller="enforcementCtrl">
+		
+		<div class="wrapper container-fluid">
+			<div class="wrapperouter">
+				<div class="wrapperinner container">
 					
-					<div class="clear"></div>
-				</div>
-			</noscript>
-			<?php /* No Script: End */ ?>
-			
-			<?php /* Page Header: Start */ ?>
-			<header class="secpageheader">
-				
-				<?php /* Header Top: Start */ ?>
-				<div class="sectionwrapper pageheader">
-					
-					<div class="sectioninside container">
-						<div class="row">
-							<div class="col-md-12">
-						
-								<?php /* Header Logo: Start */ ?>
-								<div class="headerlogo">
-									<a href="<?php echo BASE_URL; ?>">
-										<img src="<?php echo BASE_URL; ?>images/logo_recallit.png" alt="RECALL.IT" />
-									</a>
+					<?php /* No Script: Start */ ?>
+					<noscript>
+						<div class="container noscriptnotice" aria-labelledby="javascript-required">
+							<div class="row noscriptnotice_inner">
+								<div class="col-sm-12">
+									You must have JavaScript enabled in order to properly use this site.
+									
+									<div class="clear"></div>
 								</div>
-								<?php /* Header Logo: End */ ?>
-								
-								<?php /* Header User Links: Start */ ?>
-								<nav class="prinavigation">
-									<ul class="headerlinkslist">
-										
-										<?php /*
-										<li <?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? 'class="active"' : ''); ?>>
-											<a href="<?php echo BASE_URL; ?>">Home</a>
-										</li>
-										*/ ?>
-										
-										<li class="bttndatasel bttnfoods">
+							</div>
+							
+							<div class="clear"></div>
+						</div>
+					</noscript>
+					<?php /* No Script: End */ ?>
+					
+					<?php /* Navigation: Start */ ?>
+					<nav class="sidebarnavigation sr-only-focusable" aria-controls="main-navigation">
+						<div class="container navsidebar">
+							<div class="row">
+								<div class="col-sm-12">
+									
+									<?php /* Mobile Handle: Start */ ?>
+									<div class="mobilehandle" aria-hidden="true">
+										<div class="mobilehandler_inner">
+											<span></span>
+											<span></span>
+											<span></span>
+										</div>
+									</div>
+									<?php /* Mobile Handle: End */ ?>
+									
+									<?php /* Primary Navigation List: Start */ ?>
+									<ul class="prinavlist">
+										<li class="navitem navfoods active">
 											<a ng-click="selectType('food')">
-												<img class="bttnicon" src="" alt="" />
-												<span class="bttnlbl">Foods</span>
+												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_fork_lg.png" alt="Open FDA Foods" />
+												<span>Foods</span>
 											</a>
 										</li>
-										<li class="bttndatasel bttndrugs">
+										<li class="navitem navdrugs">
 											<a ng-click="selectType('drug')">
-												<img class="bttnicon" src="" alt="" />
-												<span class="bttnlbl">Drugs</span>
+												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_pill_lg.png" alt="Open FDA Drugs" />
+												<span>Drugs</span>
 											</a>
 										</li>
-										<li class="bttndatasel bttndevices">
+										<li class="navitem navdevices">
 											<a ng-click="selectType('device')">
-												<img class="bttnicon" src="" alt="" />
-												<span class="bttnlbl">Devices</span>
+												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_device_lg.png" alt="Open FDA Devices" />
+												<span>Devices</span>
 											</a>
 										</li>
-										
-										<?php /* Login/Logout: Start */ ?>
-										<li class="loginlogout">
+										<li class="navitem navabout">
+											<a href="<?php echo BASE_URL; ?>about">
+												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_lexicon_lg.png" alt="About Open FDA" />
+												<span>About</span>
+											</a>
+										</li>
+										<li class="navitem navlogin loginlogout">
 											
 											<?php if (login_check($mysqli) == true) : ?>
 											
-											<a href="<?php echo BASE_URL; ?>inc/logout">Logout</a>
+											<a href="<?php echo BASE_URL; ?>inc/logout" class="logout">
+												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_login_lg.png" alt="Open FDA Log Out" />
+												<span>Log Out</span>
+											</a>
 											
 											<?php else : ?>
 											
-											<span class="loginparent">Login</span>
-											
-											<div class="logindropdown">
-
-												<h3>Login Form</h3>
-												
-												<?php
-													if (isset($_GET['error'])) {
-														echo '
-															<div class="notice error">
-																<div class="notice_inner">
-																	Error Logging In!
-																</div>
-															</div>';
-													}
-												?> 
-												
-												<?php /* Login Form: Start */ ?>
-												<div class="formholder">
-													<div class="formholder_inner">
-														
-														<form action="<?php echo BASE_URL; ?>inc/process_login" method="POST" name="login_form">
-															
-															<?php /* Username/Email: Start */ ?>
-															<div class="formrow">
-																<label for="email" class="hploginlbl">Email Address</label>
-																<div class="formfld icon email">
-																	<input type="text" name="email" id="email" class="text" value="" placeholder="Email Address" />
-																	
-																	<div class="clear"></div>
-																</div>
-																
-																<div class="clear"></div>
-															</div>
-															<?php /* Username/Email: End */ ?>
-															
-															<?php /* Password: Start */ ?>
-															<div class="formrow passwordrow">
-																<label for="Password" class="hploginlbl">Password</label>
-																<div class="formfld icon password">
-																	<input type="password" name="password" id="Password" class="text password" value="" placeholder="Enter your password" />
-																	
-																	<div class="clear"></div>
-																</div>
-																
-																<div class="clear"></div>
-															</div>
-															<?php /* Password: End */ ?>
-															
-															<?php /* Sign In: Start */ ?>
-															<div class="formrow buttonrow">
-																<div class="formfld">
-																	<button id="loginbutton" class="button" onclick="formhash(this.form, this.form.password);">
-																		<span>Log In</span>
-																	</button>
-																</div>
-																
-																<div class="clear"></div>
-															</div>
-															<?php /* Sign In: End */ ?>
-															
-														</form>
-														
-														<div class="clear"></div>
-													</div>
-													
-													<div class="clear"></div>
-												</div>
-												<?php /* Login Form: End */ ?>
-												
-											</div>
+											<a href="<?php echo BASE_URL; ?>login" class="login">
+												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_login_lg.png" alt="Open FDA Login" />
+												<span>Log In</span>
+											</a>
 											
 											<?php endif; ?>
 											
 										</li>
-										<?php /* Login/Logout: End */ ?>
-										
 									</ul>
-								</nav>
-								<?php /* Header User Links: End */ ?>
-								
-								<div class="clear"></div>
+									<?php /* Primary Navigation List: End */ ?>
+									
+									<div class="clear"></div>
+								</div>
 							</div>
-							
-							<div class="clear"></div>
 						</div>
-						
-						<div class="clear"></div>
-					</div>
+					</nav>
+					<?php /* Navigation: End */ ?>
 					
-					<div class="clear"></div>
-				</div>
-				<?php /* Header Top: End */ ?>
-				
-				<?php /* Header Bottom: Start */ ?>
-				<div class="sectionwrapper classselect">
-					
-					<div class="sectioninside container">
-						<div class="row">
-							<div class="col-md-12">
-								
-								<ul>
-									<li><a ng-click="selectClass('Class III')" class="button">Class III</a></li>
-									<li><a ng-click="selectClass('Class II')" class="button">Class II</a></li>
-									<li><a ng-click="selectClass('Class I')" class="button">Class I</a></li>
-								</ul>
-								
-								<div class="clear"></div>
+					<?php /* Header: Start */ ?>
+					<header class="headerregion" aria-labelledby="top-logo">
+						<div class="container headerlogo">
+							<div class="row">
+								<div class="col-sm-12">
+									
+									<?php /* Logo: Start */ ?>
+									<a href="<?php echo BASE_URL; ?>">
+										<img src="<?php echo BASE_URL; ?>images/logo_recallit.png" alt="RECALL.IT" />
+									</a>
+									<?php /* Logo: End */ ?>
+									
+									<?php /* Supported Header Text: Start */ ?>
+									<h5>Food, drug &amp device Recall information<br/>
+										for federal health inspectors</h5>
+									<?php /* Supported Header Text: End */ ?>
+									
+									<div class="clear"></div>
+								</div>
 							</div>
-							
-							<div class="clear"></div>
 						</div>
-						
-						<div class="clear"></div>
-					</div>
+					</header>
+					<?php /* Header: End */ ?>
 					
-					<div class="clear"></div>
-				</div>
-				<?php /* Header Bottom: End */ ?>
-				
-			</header>
-			<?php /* Page Header: Start */ ?>
