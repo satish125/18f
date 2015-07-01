@@ -14,7 +14,7 @@
 	<title><?php echo $pageTitle; ?></title>
 	
 	<link href="<?php echo BASE_URL; ?>favicon.ico" rel="shortcut icon" />
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,600italic' rel='stylesheet' />
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,600,700,800,100italic,200italic,300italic,600italic' rel='stylesheet' />
 	<link href="<?php echo BASE_URL; ?>css/bootstrap.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/minerva.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/font-awesome.min.css" rel="stylesheet" media="all" />
@@ -76,7 +76,7 @@
 					
 					<?php /* Navigation: Start */ ?>
 					<nav class="sidebarnavigation sr-only-focusable" aria-controls="main-navigation">
-						<div class="container navsidebar">
+						<div class="container-fluid navsidebar">
 							<div class="row">
 								<div class="col-sm-12">
 									
@@ -92,6 +92,9 @@
 									
 									<?php /* Primary Navigation List: Start */ ?>
 									<ul class="prinavlist">
+										
+										<?php if (basename($_SERVER['PHP_SELF'], '.php') == 'index' ) : ?>
+										<?php /* Show Food, Drugs, Devices on only Homepage */ ?>
 										<li class="navitem navfoods active">
 											<a ng-click="selectType('food')">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_fork_lg.png" alt="Open FDA Foods" />
@@ -110,6 +113,8 @@
 												<span>Devices</span>
 											</a>
 										</li>
+										<?php endif; ?>
+										
 										<li class="navitem navabout">
 											<a href="<?php echo BASE_URL; ?>about">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_lexicon_lg.png" alt="About Open FDA" />
@@ -140,32 +145,40 @@
 									
 									<div class="clear"></div>
 								</div>
+								
+								<div class="clear"></div>
 							</div>
+							
+							<div class="clear"></div>
 						</div>
+						
+						<div class="clear"></div>
 					</nav>
 					<?php /* Navigation: End */ ?>
 					
-					<?php /* Header: Start */ ?>
-					<header class="headerregion" aria-labelledby="top-logo">
-						<div class="container headerlogo">
-							<div class="row">
-								<div class="col-sm-12">
-									
-									<?php /* Logo: Start */ ?>
-									<a href="<?php echo BASE_URL; ?>">
-										<img src="<?php echo BASE_URL; ?>images/logo_recallit.png" alt="RECALL.IT" />
-									</a>
-									<?php /* Logo: End */ ?>
-									
-									<?php /* Supported Header Text: Start */ ?>
-									<h5>Food, drug &amp device Recall information<br/>
-										for federal health inspectors</h5>
-									<?php /* Supported Header Text: End */ ?>
-									
-									<div class="clear"></div>
+					<?php /* Content Region Wrapper: Start */ ?>
+					<div class="contentregionwrapper">
+						<div class="contentregionwrapper_inner">
+							
+							<?php /* Header: Start */ ?>
+							<header class="headerregion" aria-labelledby="top-logo">
+								<div class="headerlogo">
+									<div class="col-sm-12">
+										
+										<?php /* Logo: Start */ ?>
+										<a class="logo" href="<?php echo BASE_URL; ?>">
+											<img src="<?php echo BASE_URL; ?>images/logo_recallit.png" alt="RECALL.IT" />
+										</a>
+										<?php /* Logo: End */ ?>
+										
+										<?php /* Supported Header Text: Start */ ?>
+										<h5>Food, drug &amp device Recall information<br/>
+											for federal health inspectors</h5>
+										<?php /* Supported Header Text: End */ ?>
+										
+										<div class="clear"></div>
+									</div>
 								</div>
-							</div>
-						</div>
-					</header>
-					<?php /* Header: End */ ?>
+							</header>
+							<?php /* Header: End */ ?>
 					

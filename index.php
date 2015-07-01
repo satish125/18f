@@ -117,13 +117,13 @@ include_once 'inc/header.php';
 
 <?php /* Main Content: Start */ ?>
 <section class="contentregion" aria-labelledby="main-body">
-	<div class="container contentmain">
+	<div class="container-fluid contentmain">
 		<div class="row">
 			<div class="col-sm-12">
 				
 				<?php /* Top Info: Start */ ?>
 				<section class="topinforegion" aria-labelledby="main-content-top">
-					<div class="container dataregion_top">
+					<div class="container-fluid dataregion_top">
 						<div class="row">
 							
 							<?php /* Top 5 Info: Start */ ?>
@@ -150,7 +150,7 @@ include_once 'inc/header.php';
 				
 				<?php /* Main Info: Start */ ?>
 				<section class="maininforegion" aria-labelledby="main-content-data">
-					<div class="container dataregion_main">
+					<div class="container-fluid dataregion_main">
 						<div class="row">
 							<div class="col-sm-12">
 								
@@ -158,7 +158,7 @@ include_once 'inc/header.php';
 								
 								<?php /* Class Selection Navigation: Start */ ?>
 								<section class="classnavregion" aria-labelledby="class-select-navigation" aria-controls="class-navigation">
-									<div class="container classelection">
+									<div class="classelection">
 										<div class="row">
 											<div class="col-sm-12">
 												
@@ -188,8 +188,8 @@ include_once 'inc/header.php';
 								<?php /* Class Selection Navigation: End */ ?>
 								
 								<?php /* Data Information: Start */ ?>
-								<section class="" aria-labelledby="data-information">
-									<div class="container classelection">
+								<section class="datainfooutput" aria-labelledby="data-information">
+									<div class="classelection">
 										<div class="row">
 											<div class="col-sm-12">
 												

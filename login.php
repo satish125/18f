@@ -18,13 +18,13 @@ include_once 'inc/header.php';
 
 <?php /* Main Content: Start */ ?>
 <section class="contentregion" aria-labelledby="main-body">
-	<div class="container contentmain">
+	<div class="container-fluid contentmain">
 		<div class="row">
 			<div class="col-sm-12">
 				
 				<?php /* Main Info: Start */ ?>
 				<section class="maininforegion" aria-labelledby="main-content-data">
-					<div class="container dataregion_main">
+					<div class="container-fluid dataregion_main">
 						<div class="row">
 							<div class="col-sm-12">
 								
@@ -58,14 +58,24 @@ include_once 'inc/header.php';
 								
 								<div class="clear"></div>
 							</div>
+							
+							<div class="clear"></div>
 						</div>
+						
+						<div class="clear"></div>
 					</div>
+					
+					<div class="clear"></div>
 				</section>
 				<?php /* Main Info: End */ ?>
 				
 				<div class="clear"></div>
 			</div>
+			
+			<div class="clear"></div>
 		</div>
+		
+		<div class="clear"></div>
 	</div>
 </section>
 <?php /* Main Content: End */ ?>

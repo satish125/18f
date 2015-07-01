@@ -36,7 +36,7 @@
 @pri-font: 'Open Sans', Arial, Helvetica, sans-serif;
 @pri-font-size: 12px;
 @pri-font-color: #393939;
-@page-bkg: #2c2c2c;
+@page-bkg: #f8f8f8 url("../images/bkg_pattern.png");
 @page-content-maxwidth: 1100px;
 
 /* Mixins */
@@ -87,7 +87,7 @@ html, body {
 		font-weight: 400;
 		line-height: 1;
 		overflow-x: hidden;
-		background-color: @page-bkg;
+		background: @page-bkg;
 		}
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4,
@@ -283,15 +283,35 @@ small, .small {
 /* IV. Template ************************************************************************************** */
 /* *************************************************************************************************** */
 
-.wrapper {}
-	.wrapperouter {}
-		.wrapperinner {}
+.wrapper {
+	height: 100%;
+	}
+	.wrapperouter {
+		margin: 0 auto;
+		width: 100%;
+		max-width: @page-content-maxwidth;
+		height: 100%;
+		}
+		.wrapperinner {
+			height: 100%;
+			}
 			
 			/* NoScript */
 			.noscriptnotice {}
 			
 			/* Sidebar Navigation */
-			.sidebarnavigation {}
+			.sidebarnavigation {
+				position: relative;
+				z-index: 10;
+				float: left;
+				width: 225px;
+				height: 100%;
+				}
+				.sidebarnavigation.collapsed {
+					width: 65px;
+					overflow-x: hidden;
+					}
+				
 				.navsidebar {
 					
 					/* Handle */
@@ -306,73 +326,135 @@ small, .small {
 					
 					/* Primary Navigation List*/
 					ul.prinavlist {
-						marginn: 0;
-						padding: 0;
+						margin: 0;
+						padding: 235px 0 0;
 						
 						li {
 							display: block;
+							text-transform: uppercase;
+							overflow: hidden;
 							
 							&.navitem  {}
 							
 							a {
+								padding: 20px 0;
 								display: block;
+								color: #777;
+								font-size: 0.90em;
+								cursor: pointer;
 								
-								img {}
-								span {}
+								.transition(color 0.2s ease-in-out);
+								
+								img {
+									display: block;
+									float: left;
+									opacity: 0.50;
+									
+									.transition(opacity 0.2s ease-in-out);
+									}
+								span {
+									padding: 7px 0 0 15px;
+									display: block;
+									float: left;
+									}
 							}
 							
-							&:hover a {}
-							&.active a {}
+							&:hover a {
+								color: #fff;
+								text-decoration: none;
+								
+								img {
+									opacity: 1.00;
+									}
+							}
+							&.active a {
+								color: #fff;
+								
+								img {
+									opacity: 1.00;
+									}
+							}
 						}
 					}
 				
 				}
 			
-			/* Main Content Body Header */
-			.headerregion {}
-				.headerlogo {
-					
-					a {}
-					h5 {}
+			div.contentregionwrapper {
+				padding-left: 225px;
+				float: left:
+				width: 100%;
+				height: 100%;
+				background-color: #2e3236;
 				}
+				div.contentregionwrapper_inner {
+					border-left: 1px solid #d3d3d3;
+					background-color: #fff;
+					}
 			
-			/* Main Content Body Data Region */
-			.contentregion {}
-				.contentmain {}
-					
-					/* Top Info */
-					.topinforegion {}
-						.dataregion_top {}
+				/* Main Content Body Header */
+				.headerregion {
+					position: relative;
+					}
+					.headerlogo {
+						
+						a {
 							
-							/* Top 5 Info */
-							.top5info {}
-							
-							/* Twitter Feed */
-							.twitterfeed {}
-					
-					/* Main Info Region */
-					.maininforegion {}
-						.dataregion_main {
-							
-							h1 {
-								
+							&.logo {
+								position: absolute;
+								top: 8px;
+								right: 35px;
+								z-index: 5;
 								}
 						}
 						
-						/* Class Navigation */
-						.classnavregion {}
-							.classelection {}
-								ul.classselectlist {
-									li {
-										
-										&.classitem {}
-										
-										a {}
-										
-										&:hover a {}
-										&.active a {}
+						h5 {
+							padding: 35px 211px 0 0;
+							color: #ababab;
+							font-size: 0.80em;
+							font-style: italic;
+							font-weight: 300;
+							text-align: right;
+							text-transform: uppercase;
+							}
+					}
+				
+				/* Main Content Body Data Region */
+				.contentregion {}
+					.contentmain {}
+						
+						/* Top Info */
+						.topinforegion {}
+							.dataregion_top {}
+								
+								/* Top 5 Info */
+								.top5info {}
+								
+								/* Twitter Feed */
+								.twitterfeed {}
+						
+						/* Main Info Region */
+						.maininforegion {}
+							.dataregion_main {
+								
+								h1 {
+									
 									}
-								}
+							}
+							
+							/* Class Navigation */
+							.classnavregion {}
+								.classelection {}
+									ul.classselectlist {
+										li {
+											
+											&.classitem {}
+											
+											a {}
+											
+											&:hover a {}
+											&.active a {}
+										}
+									}
 
 
 
