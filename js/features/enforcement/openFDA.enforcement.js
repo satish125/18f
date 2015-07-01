@@ -78,6 +78,11 @@
          $scope.setDataTable($scope.class, '+AND+state:"'+ data.di +'"');
       });
 
+      //Issues a new query for the data table based on a state being clicked on the map
+      $scope.$on("hbarChart:click", function(event, data){
+         $scope.setDataTable($scope.class, '+AND+city:"'+ data.x +'"');
+      });
+
       //Global variables for the data table on the page
       var dataTable = undefined;
 
