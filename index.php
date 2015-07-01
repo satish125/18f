@@ -129,15 +129,6 @@ include_once 'inc/header.php';
 													<div class="col-md-12">
 														
 														<?php /* TODO: Remove inline style and place in style sheet*/ ?>
-														<style>
-															td.details-control {
-															    background: url('images/details_open.png') no-repeat center center;
-															    cursor: pointer;
-															}
-															tr.shown td.details-control {
-															    background: url('images/details_close.png') no-repeat center center;
-															}
-														</style>
 														<table id="datagridinfo" class="datagrid dataTable drugs state" cellspacing="0" width="100%">
 															<thead>
 																<tr>
