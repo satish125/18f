@@ -170,7 +170,7 @@
          chart: {
             margin: {
                left: 110,
-               right: 10,
+               right: 30,
                bottom: 50
             },
             type: 'hbar',
@@ -196,6 +196,9 @@
          },
          types: {
             bar: {
+               labels: {
+                  enabled: true
+               },
                stacked: true
             }
          }
@@ -208,9 +211,10 @@
          var tableData = data.results;
 
          //Clear the table if it has any records
-         if( dataTable.data().any() ){
+         if( dataTable.data().any() )
+         {
             dataTable.clear(); 
-         }
+         } 
 
          //add dashes to the dates
          angular.forEach(tableData, function(obj, inx){
