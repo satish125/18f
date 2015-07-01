@@ -51,12 +51,12 @@
 <body ng-app="openFDAApp">
 
 <?php /* Angular Controllers: Start */ ?>
-<div ng-controller="mainCtrl">
-	<div ng-controller="enforcementCtrl">
+<div ng-controller="mainCtrl" class="mainctrl">
+	<div ng-controller="enforcementCtrl" class="enforcementctrl">
 		
 		<div class="wrapper container-fluid">
 			<div class="wrapperouter">
-				<div class="wrapperinner container">
+				<div class="wrapperinner container-fluid">
 					
 					<?php /* No Script: Start */ ?>
 					<noscript>
@@ -75,13 +75,14 @@
 					<?php /* No Script: End */ ?>
 					
 					<?php /* Navigation: Start */ ?>
-					<nav class="sidebarnavigation sr-only-focusable" aria-controls="main-navigation">
+					<nav class="sidebarnavigation" aria-controls="main-navigation">
 						<div class="container-fluid navsidebar">
 							<div class="row">
 								<div class="col-sm-12">
 									
 									<?php /* Mobile Handle: Start */ ?>
 									<div class="mobilehandle" aria-hidden="true">
+										<div class="mobilehandlelbl">Menu</div>
 										<div class="mobilehandler_inner">
 											<span></span>
 											<span></span>
@@ -115,13 +116,13 @@
 										</li>
 										<?php endif; ?>
 										
-										<li class="navitem navabout">
+										<li class="navitem navabout<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'about' ) ? ' active' : ''); ?>">
 											<a href="<?php echo BASE_URL; ?>about">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_lexicon_lg.png" alt="About Open FDA" />
 												<span>About</span>
 											</a>
 										</li>
-										<li class="navitem navlogin loginlogout">
+										<li class="navitem navlogin loginlogout<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'login' ) ? ' active' : ''); ?>">
 											
 											<?php if (login_check($mysqli) == true) : ?>
 											
@@ -178,7 +179,11 @@
 										
 										<div class="clear"></div>
 									</div>
+									
+									<div class="clear"></div>
 								</div>
+								
+								<div class="clear"></div>
 							</header>
 							<?php /* Header: End */ ?>
 					
