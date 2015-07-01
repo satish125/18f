@@ -78,6 +78,11 @@
          $scope.setDataTable($scope.class, '+AND+state:"'+ data.di +'"');
       });
 
+      //Issues a new query for the data table based on a state being clicked on the map
+      $scope.$on("hbarChart:click", function(event, data){
+         $scope.setDataTable($scope.class, '+AND+city:"'+ data.x +'"');
+      });
+
       //Global variables for the data table on the page
       var dataTable = undefined;
 
@@ -88,18 +93,44 @@
 
          //Instantiate the jQuery DataTables
          $timeout(function(){
+
             dataTable = $('#datagridinfo').DataTable({
-               order: [[ 0, "desc" ]],
+               order: [[ 1, "desc" ]],
                columns: [
+                  {
+                     className:      'details-control',
+                     orderable:      false,
+                     data:           null,
+                     defaultContent: ''
+                  },
                   { data: 'recall_initiation_date' },
                   { data: 'city' },
                   { data: 'state' },
                   { data: 'recalling_firm'},
-                  { data: 'product_quantity'},
-                  { data: 'reason_for_recall'},
+                  { 
+                     data: 'product_quantity',
+                     defaultContent: 'Unknown'
+                  },
                   { data: 'status' }
                ],
                responsive: true
+            });
+
+            // Add event listener for opening and closing details
+            $('#datagridinfo tbody').on('click', 'td.details-control', function () {
+               var tr = $(this).closest('tr');
+               var row = dataTable.row( tr );
+
+               if ( row.child.isShown() ) {
+                  // This row is already open - close it
+                  row.child.hide();
+                  tr.removeClass('shown');
+               }
+               else {
+                  // Open this row
+                  row.child( format(row.data()) ).show();
+                  tr.addClass('shown');
+               }
             });
 
             //Wait until the table is initialized then call data
@@ -139,7 +170,7 @@
          chart: {
             margin: {
                left: 110,
-               right: 10,
+               right: 30,
                bottom: 50
             },
             type: 'hbar',
@@ -165,6 +196,9 @@
          },
          types: {
             bar: {
+               labels: {
+                  enabled: true
+               },
                stacked: true
             }
          }
@@ -177,9 +211,10 @@
          var tableData = data.results;
 
          //Clear the table if it has any records
-         if( dataTable.data().any() ){
+         if( dataTable.data().any() )
+         {
             dataTable.clear(); 
-         }
+         } 
 
          //add dashes to the dates
          angular.forEach(tableData, function(obj, inx){
@@ -190,6 +225,24 @@
 
          //Add rows to the table then redraw the table
          dataTable.rows.add(tableData).draw();
+      }
+
+
+      /*
+         Format for the show extra columns data
+      */
+      function format ( d ) {
+          // `d` is the original data object for the row
+          return '<table cellpadding="5" cellspacing="0" border="0" style="">'+
+              '<tr>'+
+                  '<td style="padding-left:35px;">Product Description:</td>'+
+                  '<td>'+d.product_description+'</td>'+
+              '</tr>'+
+              '<tr>'+
+                  '<td style="padding-left:35px;">Recall Reason:</td>'+
+                  '<td>'+d.reason_for_recall+'</td>'+
+              '</tr>'+
+          '</table>';
       }
 
       function toTitleCase(str)
