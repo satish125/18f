@@ -15,15 +15,33 @@ jQuery(document).ready(function($){
 	if ($fldIconsExist.length > 0){
 		fieldIcons();
 	}
-
-	// Mobile Login Click Event
-	$('ul.mobileheaderlinkslist span.loginparent').on('click', function(){
-		if(!$(this).closest('li.loginlogout').hasClass('active')) {
-			$(this).closest('li.loginlogout').addClass('active');
-			$(this).closest('li.loginlogout').find('div.logindropdown').slideDown();
-		} else {
-			$(this).closest('li.loginlogout').removeClass('active');
-			$(this).closest('li.loginlogout').find('div.logindropdown').slideUp();
+	
+	// Sidebar Click Event
+	$('.navitem.navfdd').on('click', function(e){
+		e.preventDefault();
+		$('.navitem').removeClass('active');
+		
+		if(!$(this).hasClass('active')){
+			$(this).addClass('active');
+		}
+	});
+	
+	// Class Click Event
+	$('.classitem').on('click', function(e){
+		e.preventDefault();
+		$('.classitem').removeClass('active');
+		
+		if(!$(this).hasClass('active')){
+			$(this).addClass('active');
+		}
+	});
+	
+	// Sidebar Expand/Collapse
+	$('.sidebarnavigation .mobilehandle').on('click', function(){
+		if($('.sidebarnavigation').closest('body').hasClass('collapsed')){
+			$('body').addClass('collapse');
+		}else{
+			$('body').removeClass('collapse');
 		}
 	});
 

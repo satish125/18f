@@ -96,19 +96,19 @@
 										
 										<?php if (basename($_SERVER['PHP_SELF'], '.php') == 'index' ) : ?>
 										<?php /* Show Food, Drugs, Devices on only Homepage */ ?>
-										<li class="navitem navfoods active">
+										<li class="navitem navfdd navfoods active">
 											<a ng-click="selectType('food')">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_fork_lg.png" alt="Open FDA Foods" />
 												<span>Foods</span>
 											</a>
 										</li>
-										<li class="navitem navdrugs">
+										<li class="navitem navfdd navdrugs">
 											<a ng-click="selectType('drug')">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_pill_lg.png" alt="Open FDA Drugs" />
 												<span>Drugs</span>
 											</a>
 										</li>
-										<li class="navitem navdevices">
+										<li class="navitem navfdd navdevices">
 											<a ng-click="selectType('device')">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_device_lg.png" alt="Open FDA Devices" />
 												<span>Devices</span>

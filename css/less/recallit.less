@@ -491,7 +491,9 @@ small, .small {
 										.twitterfeed {}
 								
 								/* Main Info Region */
-								.maininforegion {}
+								.maininforegion {
+									padding: 0 0 45px;
+									}
 									.dataregion_main {
 										
 										h1 {
@@ -549,13 +551,24 @@ small, .small {
 										.classelection {}
 											ul.classselectlist {
 												li {
+													margin-right: 18px;
+													display: block;
+													float: left;
 													
 													&.classitem {}
 													
-													a {}
+													a {
+														color: #2e3236;
+														background-color: #ababab;
+														
+														.transition(color 0.2s ease-in-out,background-color 0.2s ease-in-out);
+														}
 													
-													&:hover a {}
-													&.active a {}
+													&:hover a,
+													&.active a {
+														color: #fff;
+														background-color: #2e3236;
+														}
 												}
 											}
 
