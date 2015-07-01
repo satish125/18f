@@ -154,10 +154,10 @@ include_once 'inc/header.php';
 						<div class="row">
 							<div class="col-sm-12">
 								
-								<h1>2015 Food Recalls</h1>
+								<!--h1>2015 Food Recalls</h1-->
 								
 								<?php /* Class Selection Navigation: Start */ ?>
-								<section class="classnavregion" aria-labelledby="class-select-navigation" aria-controls="class-navigation">
+								<!--section class="classnavregion" aria-labelledby="class-select-navigation" aria-controls="class-navigation">
 									<div class="classelection">
 										<div class="row">
 											<div class="col-sm-12">
@@ -184,7 +184,7 @@ include_once 'inc/header.php';
 											</div>
 										</div>
 									</div>
-								</section>
+								</section-->
 								<?php /* Class Selection Navigation: End */ ?>
 								
 								<?php /* Data Information: Start */ ?>
@@ -227,10 +227,11 @@ include_once 'inc/header.php';
 																</tab>
 															</tabset>
 															
-															<div class="css3gradient legendbar">
+															<div class="legendbar">
 																<span class="legendnumber">0</span>
 																<span class="pull-right legendnumber">100</span>
 															</div>
+															<div class="css3gradient legendbar legendgradient"></div>
 														</mv-body>
 														
 														<div class="clear"></div>

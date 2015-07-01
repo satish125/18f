@@ -83,7 +83,7 @@
 
       //initialization function
       function init() {
-         $scope.type = 'drug';
+         $scope.type = 'food';
          $scope.class = 'Class I';
 
          //Instantiate the jQuery DataTables
