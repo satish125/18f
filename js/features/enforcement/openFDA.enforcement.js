@@ -89,13 +89,15 @@
          //Instantiate the jQuery DataTables
          $timeout(function(){
             dataTable = $('#datagridinfo').DataTable({
+               order: [[ 0, "desc" ]],
                columns: [
-                  { data: 'state' },
-                  { data: 'city' },
-                  { data: 'recalling_firm'},
                   { data: 'recall_initiation_date' },
-                  { data: 'product_type' },
-                  { data: 'product_description'}
+                  { data: 'city' },
+                  { data: 'state' },
+                  { data: 'recalling_firm'},
+                  { data: 'product_quantity'},
+                  { data: 'reason_for_recall'},
+                  { data: 'status' }
                ],
                responsive: true
             });
@@ -175,10 +177,9 @@
          var tableData = data.results;
 
          //Clear the table if it has any records
-         if( dataTable.data().any() )
-         {
+         if( dataTable.data().any() ){
             dataTable.clear(); 
-         } 
+         }
 
          //add dashes to the dates
          angular.forEach(tableData, function(obj, inx){
