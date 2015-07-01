@@ -5,7 +5,7 @@
 jQuery(document).ready(function($){
 	
 	// Viewport Width
-	viewportWidthHeight(false);
+	viewportWidthHeight(true);
 	
 	// Main Navigation Mobile
 	mobilePriNav('div.sectionwrapper.pageheader div.sectioninside','ul.headerlinkslist','ul.mobileheaderlinkslist','headerlinksnav','mobileheaderlinkslist');
