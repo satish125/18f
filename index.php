@@ -207,7 +207,7 @@ include_once 'inc/header.php';
 																<button type="button" class="btn btn-default" ng-click="selectClass('Class III')">Class III</button>
 															</div>
 															<mv-group mv-size="1x2"></mv-group>
-															<mv-any-num mv-size="1x2" mv-data="statusData" mv-style="{'font-size':'1.1em'}"></mv-any-num>
+															<mv-any-num mv-size="1x2" mv-data="statusData" mv-style="{'font-size':'1.1em'}" mv-id="statusNumbers"></mv-any-num>
 															
 															<!--
 															mv-id-box mv-size="1x3" mv-title="Classification Description" mv-body-id="infoBox">{{classInfo}}</mv-id-box>
@@ -216,12 +216,12 @@ include_once 'inc/header.php';
 															
 															<tabset>
 																<tab heading="US Map">
-																	<mv-id-box mv-size="3x4" mv-title="{{mapLabel}}">
+																	<mv-id-box mv-size="3x4" mv-title="{{mapLabel}}" mv-id="mapChart">
 																		<mv-chart mv-data="mapData" mv-options="mapOptions"></mv-chart>
 																	</mv-id-box>
 																</tab>
 																<tab heading="Bar Chart">
-																	<mv-id-box mv-size="3x4" mv-title="{{chartLabel}}">
+																	<mv-id-box mv-size="3x4" mv-title="{{chartLabel}}" mv-id="barChart">
 																		<mv-chart mv-data="chartData" mv-options="chartOptions"></mv-chart>
 																	</mv-id-box>
 																</tab>
