@@ -251,7 +251,7 @@ include_once 'inc/header.php';
 															<thead>
 																<tr>
 																	<th>Recall #</th>
-																	<th>Reason for Recall</th>
+																	<th>Reason for Recall Test</th>
 																	<th>Status</th>
 																	<th>Quantity</th>
 																	<th>Initiation Date</th>
