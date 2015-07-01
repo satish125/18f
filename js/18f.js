@@ -7,14 +7,26 @@ jQuery(document).ready(function($){
 	// Viewport Width
 	viewportWidthHeight(true);
 	
-	// Main Navigation Mobile
-	mobilePriNav('div.sectionwrapper.pageheader div.sectioninside','ul.headerlinkslist','ul.mobileheaderlinkslist','headerlinksnav','mobileheaderlinkslist');
-	
-	// Field Icons
-	var $fldIconsExist = $('div.formfld.icon');
-	if ($fldIconsExist.length > 0){
-		fieldIcons();
-	}
+	// Sidebar Expand/Collapse
+	$('.mobilehandle').click(function(){
+		if(!$('body').hasClass('collapsed')){
+			
+			// Add Class to body Tag
+			$('body').addClass('collapsed');
+			
+			$('.sidebarnavigation').animate({ width: '75px' }, 300);
+			$('.contentregionwrapper').animate({ paddingLeft: '75px' }, 300);
+			$('.navsidebar').animate({ paddingLeft: '0', paddingRight: '0' }, 300);
+		} else {
+			
+			// Remove Class from body Tag
+			$('body').removeClass('collapsed');
+			
+			$('.sidebarnavigation').animate({ width: '225px' }, 300);
+			$('.contentregionwrapper').animate({ paddingLeft: '225px' }, 300);
+			$('.navsidebar').animate({ paddingLeft: '15px', paddingRight: '15px' }, 300);
+		}
+	});
 	
 	// Sidebar Click Event
 	$('.navitem.navfdd').on('click', function(e){
@@ -36,15 +48,6 @@ jQuery(document).ready(function($){
 		}
 	});
 	
-	// Sidebar Expand/Collapse
-	$('.sidebarnavigation .mobilehandle').on('click', function(){
-		if($('.sidebarnavigation').closest('body').hasClass('collapsed')){
-			$('body').addClass('collapse');
-		}else{
-			$('body').removeClass('collapse');
-		}
-	});
-
 });
 
 

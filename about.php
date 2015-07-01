@@ -69,7 +69,7 @@ include_once 'inc/header.php';
 								<p><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a><br/>
 									Minerva: Minerva combines the best of <a  href="https://angularjs.org/" target="_blank">AngularJS</a> and <a href="http://d3js.org/" target="_blank">D3.js</a> to create simple and responsive dashboard components.</p>
 
-								<h3>Plugins</p>
+								<h3>Plugins</h3>
 								
 								<p><a href="https://www.datatables.net/" target="_blank">Datatables.net</a></p>
 								
