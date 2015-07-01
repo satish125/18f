@@ -15,43 +15,6 @@ jQuery(document).ready(function($){
 	if ($fldIconsExist.length > 0){
 		fieldIcons();
 	}
-	
-	// Load Data into Table
-	gridFdaData('drug','Class I','100');
-	
-	// Data Grid
-	/*
-	setTimeout(function(){
-		var dataGrid = $('#datagridinfo').DataTable({
-			responsive: true
-		});
-	}, 500);
-	
-	setTimeout(function(){
-		var tableTools = new $.fn.dataTable.TableTools(dataGrid, {
-			sRowSelect: 'single',
-			dom: 'T<"clear">lfrtip',
-			tableTools: {
-				"aButtons": [
-					{
-						"sExtends": "copy",
-						"sButtonText": "Copy"
-					},
-					{
-						"sExtends": "csv",
-						"sButtonText": "Save CSV"
-					},
-					{
-						"sExtends": "xls",
-						"oSelectorOpts": {
-							page: 'current'
-						}
-					}
-				]
-			}
-		});
-	}, 650);
-	*/
 
 	// Mobile Login Click Event
 	$('ul.mobileheaderlinkslist span.loginparent').on('click', function(){
@@ -195,56 +158,6 @@ function jsonFdaProcessing(jsonString,dataCounter){
 
 
 /**
-  * Open FDA API Data Function
-  */
-
-/*
-function gridFdaData(type,query,limit){
-	var request = $.ajax({
-		url: 'https://api.fda.gov/' + type + '/enforcement.json?search=' + query + '&limit=' + limit + '&api_key=mHWQoZTaPhujOVrDtzs8rCEvToN1n6xCDSIVdZbw',
-		method: 'GET',
-		dataType: 'json',
-		success: function(data){
-			gridFdaDataProcess(data);
-		}
-	});
-	
-	request.done(function(msg){
-		$('#log').html(msg);
-	});
-	
-	request.fail(function(jqXHR, textStatus) {
-		$('#log').html("Request failed: " + textStatus);
-	});
-}
-
-function gridFdaDataProcess(dataString){
-	var obj = dataString;
-	console.log(obj);
-	
-	var dataOutputBody = '';
-	
-	for(var i=0;i<100;i++){
-		
-		dataOutputBody += 
-			
-			'<tr>' + 
-				'<td>' + obj.results[i].state + '</td>' + 
-				'<td>' + obj.results[i].city + '</td>' + 
-				'<td>' + addDashes(obj.results[i].recall_initiation_date) + '</td>' + 
-				'<td>' + obj.results[i].product_type + '</td>' + 
-				'<td>' + obj.results[i].recalling_firm + '</td>' + 
-				'<td>' + obj.results[i].product_description + '</td>' + 
-			'</tr>';
-		
-	}
-	
-	$('table.datagrid.drugs.state tbody').html(dataOutputBody);
-}
-*/
-
-
-/**
   * To Capital Case
   */
 function toCapitalCase(str){
@@ -252,29 +165,6 @@ function toCapitalCase(str){
 		return text.charAt(0).toUpperCase() + text.substring(1).toLowerCase();
 	});
 }
-
-
-
-/**
-  * Add dashes to date with format yyyy-mm-dd
-  */
-function addDashes(num){
-	var numArr = num.toString().split('');
-	
-    var len = numArr.length;
-    var final = [];
-    for (var i = 0; i < len; i++){
-        final.push(numArr[i]);
-		if (i == 3) {
-			final.push("-")
-		} else if(i == 5) {
-			final.push("-")
-		}
-    }  
-	return final.join("");
-}
-
-
 
 /**
   * Mobile Navigation Function

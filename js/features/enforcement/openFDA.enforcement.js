@@ -33,8 +33,6 @@
             });
       };
 
-      //+AND+state:"TX"
-
       //REPLACE with real data
       $scope.recallInfo = 'Drug 1 \nDrug 2 \nDrug 3 \nDrug 4 \nDrug 5';
 
@@ -75,25 +73,37 @@
          return info;
       }
 
+      //Issues a new query for the data table based on a state being clicked on the map
       $scope.$on("mapChart:click", function(event, data){
-         //console.log(data);
-         //console.log(event);
-
          $scope.setDataTable($scope.class, '+AND+state:"'+ data.di +'"');
       });
+
+      //Global variables for the data table on the page
+      var dataTable = undefined;
 
       //initialization function
       function init() {
          $scope.type = 'drug';
          $scope.class = 'Class I';
-         $scope.selectType($scope.type);
 
          //Instantiate the jQuery DataTables
          $timeout(function(){
-            $scope.dataTable = $('#datagridinfo').DataTable({
+            dataTable = $('#datagridinfo').DataTable({
+               columns: [
+                  { data: 'state' },
+                  { data: 'city' },
+                  { data: 'recalling_firm'},
+                  { data: 'recall_initiation_date' },
+                  { data: 'product_type' },
+                  { data: 'product_description'}
+               ],
                responsive: true
             });
-         }, 500)
+
+            //Wait until the table is initialized then call data
+            $scope.selectType($scope.type);
+
+         }, 300);
       }
 
       init();
@@ -162,33 +172,47 @@
          Builds the data table rows based on some data that was passed in
       */
       function buildTable(data){
-         //Clear the data table
-         $('table.datagrid.drugs.state tbody').html('');
+         var tableData = data.results;
 
-         //Build the data table from the body
-         var obj = data;
-         var tableBody = '';
+         //Clear the table if it has any records
+         if( dataTable.data().any() )
+         {
+            dataTable.clear(); 
+         } 
 
-         for(var i=0; i<obj.results.length ;i++){
-            tableBody += 
-               
-               '<tr>' + 
-                  '<td>' + obj.results[i].state + '</td>' + 
-                  '<td>' + obj.results[i].city + '</td>' + 
-                  '<td>' + addDashes(obj.results[i].recall_initiation_date) + '</td>' + 
-                  '<td>' + obj.results[i].product_type + '</td>' + 
-                  '<td>' + obj.results[i].recalling_firm + '</td>' + 
-                  '<td>' + obj.results[i].product_description + '</td>' + 
-               '</tr>';
-         }
+         //add dashes to the dates
+         angular.forEach(tableData, function(obj, inx){
+            if(obj.recall_initiation_date){
+               obj.recall_initiation_date = addDashes(obj.recall_initiation_date);
+            }
+         });
 
-         //Append the new html to the data table element
-         $('table.datagrid.drugs.state tbody').html(tableBody);
+         //Add rows to the table then redraw the table
+         dataTable.rows.add(tableData).draw();
       }
 
       function toTitleCase(str)
       {
          return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+      }
+
+      /**
+        * Add dashes to date with format yyyy-mm-dd
+        */
+      function addDashes(num){
+         var numArr = num.toString().split('');
+         
+          var len = numArr.length;
+          var final = [];
+          for (var i = 0; i < len; i++){
+              final.push(numArr[i]);
+            if (i == 3) {
+               final.push("-")
+            } else if(i == 5) {
+               final.push("-")
+            }
+          }  
+         return final.join("");
       }
    };
 
