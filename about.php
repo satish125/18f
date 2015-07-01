@@ -79,7 +79,7 @@ include_once 'inc/header.php';
 								
 								<p>If you require assistance or wish to report an issue related to the accessibility of any content on this website, please email <a  href="mailto:section508@ntconcepts.com">section508@ntconcepts.com</a>, or call 703-752-8919. If applicable, please include the web address or URL and the specific problems you have encountered.</p>
 								
-								<h2>ABOUT NT CONCEPTS<h2>
+								<h2>ABOUT NT CONCEPTS</h2>
 								
 								<p>NT Concepts delivers data analytics, software engineering, geospatial, and business process operations solutions and services to enable their customers’ success. NT Concepts designs and builds comprehensive, scalable solutions on a diverse set of platforms and frameworks in enterprise, cloud, secured, and mobile environments. Founded in 1998, NT Concepts employs over 1000 professionals supporting intelligence, defense, and civilian government customers. For more information visit <a  href="http://www.ntconcepts.com" target="_blank">http://www.ntconcepts.com</a>.</p>
 								
