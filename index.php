@@ -111,7 +111,7 @@ include_once 'inc/header.php';
 																<span class="legendnumber">0</span>
 																<span class="pull-right legendnumber">100</span>
 															</div>
-															<div class="css3gradient legendbar legendgradient"></div>
+															<div class="css3gradient legendbar"></div>
 														</mv-body>
 														
 														<div class="clear"></div>
@@ -129,17 +129,25 @@ include_once 'inc/header.php';
 													<div class="col-md-12">
 														
 														<?php /* TODO: Remove inline style and place in style sheet*/ ?>
+														<style>
+															td.details-control {
+															    background: url('images/details_open.png') no-repeat center center;
+															    cursor: pointer;
+															}
+															tr.shown td.details-control {
+															    background: url('images/details_close.png') no-repeat center center;
+															}
+														</style>
 														<table id="datagridinfo" class="datagrid dataTable drugs state" cellspacing="0" width="100%">
 															<thead>
 																<tr>
+																	<th></th>
 																	<th>Recall Date</th>
 					                                    <th>City</th>
 																	<th>State</th>
 					                                    <th>Recalling Firm</th>
 					                                    <th># of Products Recalled</th>
 					                                    <th>Status</th>
-					                                    <th>Product Description</th>
-					                                    <th>Reason for Recall</th>
 																</tr>
 															</thead>
 														</table>
