@@ -1,5 +1,5 @@
 (function () {
-   var enforcementCtrl = function($scope, $timeout, $q, enforcementFactory)
+   var enforcementCtrl = function($scope, $timeout, $q, $window, enforcementFactory)
    {
       //retrieve the map data
       $scope.getMap = function(status, classification){
@@ -36,13 +36,10 @@
             });
       };
 
-      //REPLACE with real data
-      $scope.recallInfo = 'Drug 1 \nDrug 2 \nDrug 3 \nDrug 4 \nDrug 5';
-
       //sets the type to use for the queries
       $scope.selectType = function(type){
          $scope.type = type;
-         $scope.titleLabel = type.toUpperCase() + ' RECALLS';
+         $scope.titleLabel = toTitleCase(type) + ' Recalls';
          
          return $scope.selectClass($scope.class);
       };
@@ -89,6 +86,11 @@
       //Issues a new query for the data table based on a state being clicked on the map
       $scope.$on("hbarChart:click", function(event, data){
          $scope.setDataTable($scope.class, '+AND+city:"'+ data.x +'"');
+      });
+
+      //resize event for responsive chart design
+      angular.element($window).on('resize', function(){
+         $scope.$broadcast("event:windowResize")
       });
 
       //Global variables for the data table on the page
@@ -262,5 +264,5 @@
    };
 
    angular.module('openFDA.enforcement', ['openFDA.enforcement.factory'])
-      .controller('enforcementCtrl', ['$scope', '$timeout', '$q', 'enforcementFactory', enforcementCtrl]);
+      .controller('enforcementCtrl', ['$scope', '$timeout', '$q', '$window', 'enforcementFactory', enforcementCtrl]);
 }());
