@@ -134,7 +134,8 @@
                      { data: 'product_description'},
                      { data: 'reason_for_recall'}
                   ],
-                  responsive: true,
+                  pagingType: "simple",
+                  responsive: true
                });
 
                //Add the Table Tools export function
