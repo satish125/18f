@@ -127,9 +127,9 @@
          var queryLimit = '100';
 
          //Query all types
-         typeQueries.push(enforcementData.getEnforcementData('food','',queryLimit));
-         typeQueries.push(enforcementData.getEnforcementData('drug','',queryLimit));
-         typeQueries.push(enforcementData.getEnforcementData('device','',queryLimit));
+         typeQueries.push(enforcementData.getEnforcementData('food','country:"US"',queryLimit));
+         typeQueries.push(enforcementData.getEnforcementData('drug','country:"US"',queryLimit));
+         typeQueries.push(enforcementData.getEnforcementData('device','country:"US"',queryLimit));
 
          //Aggregate the types
          $q.all(typeQueries).then(function(typesData){

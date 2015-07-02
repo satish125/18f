@@ -21,7 +21,17 @@ include_once 'inc/header.php';
 <section class="contentregion" aria-labelledby="main-body">
 	<div class="container-fluid contentmain">
 		<div class="row">
-			<div class="col-sm-12">
+			
+			<?php /* Loading: Start */ ?>
+			<div class="col-sm-12 col-sm-offset-5" ng-show="pageState.isLoading">
+				<div style="font-size: 4em; padding-bottom: .5em; padding-top: 2em;">
+					<i class="fa fa-circle-o-notch fa-spin"></i>
+				</div>
+				<h1>Loading</h1>
+			</div>
+			<?php /* Loading: End */ ?>
+			
+			<div class="col-sm-12" ng-hide="pageState.isLoading">
 				
 				<?php /* Top Info: Start */ ?>
 				<section class="topinforegion" aria-labelledby="main-content-top">
