@@ -21,7 +21,17 @@ include_once 'inc/header.php';
 <section class="contentregion" aria-labelledby="main-body">
 	<div class="container-fluid contentmain">
 		<div class="row">
-			<div class="col-sm-12">
+			
+			<?php /* Loading: Start */ ?>
+			<div class="col-sm-12 col-sm-offset-5" ng-show="pageState.isLoading">
+				<div style="font-size: 4em; padding-bottom: .5em; padding-top: 2em;">
+					<i class="fa fa-circle-o-notch fa-spin"></i>
+				</div>
+				<h1>Loading</h1>
+			</div>
+			<?php /* Loading: End */ ?>
+			
+			<div class="col-sm-12" ng-hide="pageState.isLoading">
 				
 				<?php /* Top Info: Start */ ?>
 				<section class="topinforegion" aria-labelledby="main-content-top">
@@ -62,18 +72,18 @@ include_once 'inc/header.php';
 																<div class="classelection">
 																	
 																	<ul class="classselectlist">
-																		<li class="classitem active">
-																			<a href="#" class="btn btn-default" ng-click="selectClass('Class I')">
+																		<li class="classitem class1 active">
+																			<a href="#" class="btn btn-default" ng-click="selectClass('Class I')" title="Class I Data Filter" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '7' : ''); ?>">
 																				Class I
 																			</a>
 																		</li>
-																		<li class="classitem">
-																			<a href="#" class="btn btn-default" ng-click="selectClass('Class II')">
+																		<li class="classitem class2">
+																			<a href="#" class="btn btn-default" ng-click="selectClass('Class II')" title="Class II Data Filter" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '8' : ''); ?>">
 																				Class II
 																			</a>
 																		</li>
-																		<li class="classitem">
-																			<a href="#" class="btn btn-default" ng-click="selectClass('Class III')">
+																		<li class="classitem class3">
+																			<a href="#" class="btn btn-default" ng-click="selectClass('Class III')" title="Class III Data Filter" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '9' : ''); ?>">
 																				Class III
 																			</a>
 																		</li>
@@ -87,7 +97,7 @@ include_once 'inc/header.php';
 															<?php /* Class Selection Navigation: End */ ?>
 															
 															<mv-group mv-size="1x2"></mv-group>
-															<mv-any-num mv-size="1x2" mv-data="statusData" mv-style="{'font-size':'1.1em'}" mv-id="statusNumbers"></mv-any-num>
+															<mv-any-num mv-size="1x2" mv-data="statusData" mv-style="{'font-size':'1.3em'}" mv-id="statusNumbers"></mv-any-num>
 															
 															<!--
 															mv-id-box mv-size="1x3" mv-title="Classification Description" mv-body-id="infoBox">{{classInfo}}</mv-id-box>
@@ -111,7 +121,7 @@ include_once 'inc/header.php';
 																<span class="legendnumber">0</span>
 																<span class="pull-right legendnumber">100</span>
 															</div>
-															<div class="css3gradient legendbar legendgradient"></div>
+															<div class="css3gradient legendbar"></div>
 														</mv-body>
 														
 														<div class="clear"></div>
@@ -122,28 +132,30 @@ include_once 'inc/header.php';
 												<?php /* Dashboard: End */ ?>
 												
 												<!--/tab>	
-												<tab heading="Table">
+												<tab heading="Table">-->
 												
-												<?php /* Data Grid: Start */ ?>-->
+												<?php /* Data Grid: Start */ ?>
+												<style>
+													div.DTTT_container{
+														padding-right: 12px;
+													}
+												</style>
 												<div class="row datagridmain">
-													<div class="col-md-12">
-														
-														<?php /* TODO: Remove inline style and place in style sheet*/ ?>
-														<table id="datagridinfo" class="datagrid dataTable drugs state" cellspacing="0" width="100%">
+													<div class="col-md-12 datagridcol">
+														<table id="datagridinfo" class="datagrid dataTable drugs state table-striped" cellspacing="0" width="100%">
 															<thead>
 																<tr>
 																	<th>Recall Date</th>
-					                                    <th>City</th>
+																	<th>City</th>
 																	<th>State</th>
-					                                    <th>Recalling Firm</th>
-					                                    <th># of Products Recalled</th>
-					                                    <th>Status</th>
-					                                    <th>Product Description</th>
-					                                    <th>Reason for Recall</th>
+																	<th>Recalling Firm</th>
+																	<th># of Products Recalled</th>
+																	<th>Status</th>
+																	<th>Product Description</th>
+																	<th>Reason for Recall</th>
 																</tr>
 															</thead>
 														</table>
-
 													</div>
 												</div>
 												<?php /* Data Grid: End */ ?>

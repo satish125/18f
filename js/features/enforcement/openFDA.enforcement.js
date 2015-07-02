@@ -1,9 +1,9 @@
 (function () {
-   var enforcementCtrl = function($scope, $timeout, enforcementFactory)
+   var enforcementCtrl = function($scope, $timeout, $q, enforcementFactory)
    {
       //retrieve the map data
       $scope.getMap = function(status, classification){
-         enforcementFactory.getMapData($scope.type, 'status:"' + status + '"+AND+classification:"' + classification + '"').then(function(mapData){
+         return enforcementFactory.getMapData($scope.type, 'status:"' + status + '"+AND+classification:"' + classification + '"').then(function(mapData){
             $scope.mapData = mapData;
             $scope.mapLabel = 'Map - ' + classification + ' Ongoing ' + toTitleCase($scope.type) + ' Recalls';
          });
@@ -11,7 +11,7 @@
 
       //retrieve the status
       $scope.getChart = function(classification){
-         enforcementFactory.getChartData($scope.type, 'classification:"' + classification + '"').then(function(chartData){
+         return enforcementFactory.getChartData($scope.type, 'classification:"' + classification + '"').then(function(chartData){
             $scope.chartData = chartData;
             $scope.chartLabel = 'Top 10 Cities - ' + classification + ' ' + toTitleCase($scope.type) + ' Recalls';
          });
@@ -19,7 +19,7 @@
 
       //retrieve the status
       $scope.getStatus = function(classification){
-         enforcementFactory.getStatusData($scope.type, 'classification:"' + classification + '"').then(function(statusData){
+         return enforcementFactory.getStatusData($scope.type, 'classification:"' + classification + '"').then(function(statusData){
             $scope.statusData = statusData;
             $scope.statusLabel = 'Status - ' + classification + ' ' + toTitleCase($scope.type) + ' Recalls';
          });
@@ -27,30 +27,38 @@
 
       $scope.setDataTable = function(classification, stateQuery){
          var stateQueryString = stateQuery || '';
-         enforcementFactory.getAllEnforcementData($scope.type, 'classification:"' + classification + '"' + stateQueryString)
+         return enforcementFactory.getAllEnforcementData($scope.type, 'classification:"' + classification + '"' + stateQueryString)
             .then(function(data){
-               buildTable(data);
+               if(!$scope.pageState.isLoading){
+                  buildTable(data);
+               }
+               return data;
             });
       };
 
       //REPLACE with real data
       $scope.recallInfo = 'Drug 1 \nDrug 2 \nDrug 3 \nDrug 4 \nDrug 5';
 
-      //function to get the data for each drug classification
-      $scope.selectClass = function(classification){
-         $scope.class = classification;
-         $scope.getMap('ongoing', classification);
-         $scope.getChart(classification);
-         $scope.getStatus(classification);
-         $scope.classInfo = changeDescription(classification);
-         $scope.setDataTable(classification);
-      };
-
       //sets the type to use for the queries
       $scope.selectType = function(type){
          $scope.type = type;
-         $scope.selectClass($scope.class);
          $scope.titleLabel = type.toUpperCase() + ' RECALLS';
+         
+         return $scope.selectClass($scope.class);
+      };
+
+      //function to get the data for each drug classification
+      $scope.selectClass = function(classification){
+         $scope.class = classification;
+         $scope.classInfo = changeDescription(classification);
+         
+         //Return a promise when all of these operations are complete
+         return $q.all([
+            $scope.getMap('ongoing', classification),
+            $scope.getChart(classification),
+            $scope.getStatus(classification),
+            $scope.setDataTable(classification)
+         ]);
       };
 
       //function to change the description of the 
@@ -84,38 +92,60 @@
       });
 
       //Global variables for the data table on the page
-      var dataTable = undefined;
+      var myTable = undefined;
 
       //initialization function
       function init() {
+         $scope.pageState = { isLoading: true};
          $scope.type = 'food';
          $scope.class = 'Class I';
 
-         //Instantiate the jQuery DataTables
-         $timeout(function(){
+         //Store the promise result for the 5 latest recalls
+         var recentRecallsPromise = enforcementFactory.getFiveLatestRecalls().then(function(lastestRecalls){
+            $scope.lastestRecalls = lastestRecalls;
+         });
 
-            dataTable = $('#datagridinfo').DataTable({
-               order: [[ 0, "desc" ]],
-               columns: [
-                  { data: 'recall_initiation_date' },
-                  { data: 'city' },
-                  { data: 'state' },
-                  { data: 'recalling_firm'},
-                  { 
-                     data: 'product_quantity',
-                     defaultContent: 'Unknown'
-                  },
-                  { data: 'status' },
-                  { data: 'product_description'},
-                  { data: 'reason_for_recall'}
-               ],
-               responsive: true
-            });
+         $q.all([
+            $scope.selectType($scope.type),
+            recentRecallsPromise
+         ])
+         .then(function(results){
+            //Show content when all the data is done loading
+            $timeout(function(){ $scope.pageState.isLoading = false; }, 0)
+            return results[0][3]; 
+         })
+         .then(function(tableData){
+            $timeout(function(){
+               //Initialize the Data Table
+               myTable = $('#datagridinfo').DataTable({
+                  order: [[ 0, "desc" ]],
+                  columns: [
+                     { data: 'recall_initiation_date' },
+                     { data: 'city' },
+                     { data: 'state' },
+                     { data: 'recalling_firm'},
+                     { 
+                        data: 'product_quantity',
+                        defaultContent: 'Unknown'
+                     },
+                     { data: 'status' },
+                     { data: 'product_description'},
+                     { data: 'reason_for_recall'}
+                  ],
+                  responsive: true,
+               });
 
-            //Wait until the table is initialized then call data
-            $scope.selectType($scope.type);
+               //Add the Table Tools export function
+               var tt = new $.fn.dataTable.TableTools( myTable, {
+                    sRowSelect: 'single'
+               } );
+             
+               $( tt.fnContainer() ).insertBefore('div.datagridcol');  
 
-         }, 300);
+               //Set the data in the table
+               buildTable(tableData);
+            }, 300);
+         });        
       }
 
       init();
@@ -127,7 +157,7 @@
                top: 0,
                right: 35,
                bottom: 0,
-               left: 90
+               left: 35
             },
             type: 'map',
             colors: ['#2C82C0', '#4C89A7', '#6D918F', '#8D9976', '#AEA15E', '#CEA945', '#EFB12D', '#EA9D28', '#E58923', '#E0751E', '#DB6119', '#D64D14', '#D23A0F']
@@ -190,20 +220,20 @@
          var tableData = data.results;
 
          //Clear the table if it has any records
-         if( dataTable.data().any() )
+         if( myTable.data().any() )
          {
-            dataTable.clear(); 
+            myTable.clear(); 
          } 
 
          //add dashes to the dates
          angular.forEach(tableData, function(obj, inx){
             if(obj.recall_initiation_date){
-               obj.recall_initiation_date = addDashes(obj.recall_initiation_date);
+               obj.recall_initiation_date = $scope.addDashes(obj.recall_initiation_date);
             }
          });
 
          //Add rows to the table then redraw the table
-         dataTable.rows.add(tableData).draw();
+         myTable.rows.add(tableData).draw();
       }
 
       function toTitleCase(str)
@@ -214,7 +244,7 @@
       /**
         * Add dashes to date with format yyyy-mm-dd
         */
-      function addDashes(num){
+      $scope.addDashes = function(num){
          var numArr = num.toString().split('');
          
           var len = numArr.length;
@@ -232,5 +262,5 @@
    };
 
    angular.module('openFDA.enforcement', ['openFDA.enforcement.factory'])
-      .controller('enforcementCtrl', ['$scope', '$timeout', 'enforcementFactory', enforcementCtrl]);
+      .controller('enforcementCtrl', ['$scope', '$timeout', '$q', 'enforcementFactory', enforcementCtrl]);
 }());
