@@ -101,6 +101,7 @@
          $timeout(function(){
 
             dataTable = $('#datagridinfo').DataTable({
+               responsive: true,
                order: [[ 0, "desc" ]],
                columns: [
                   { data: 'recall_initiation_date' },
@@ -114,8 +115,7 @@
                   { data: 'status' },
                   { data: 'product_description'},
                   { data: 'reason_for_recall'}
-               ],
-               responsive: true
+               ]
             });
 
             //Store the promise result for the 5 latest recalls
@@ -129,12 +129,8 @@
                recentRecallsPromise
             ])
             .then(function(results){
-               console.log('Initial Data Loaded!');
-               
-               //Show content whn all the data is done loading
-               $timeout(function(){
-                  $scope.pageState.isLoading = false;
-               }, 0) 
+               //Show content when all the data is done loading
+               $timeout(function(){ $scope.pageState.isLoading = false; }, 0) 
             });
 
          }, 300);          
