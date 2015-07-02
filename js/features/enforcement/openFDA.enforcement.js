@@ -132,8 +132,15 @@
                      { data: 'product_description'},
                      { data: 'reason_for_recall'}
                   ],
-                  responsive: true
+                  responsive: true,
                });
+
+               //Add the Table Tools export function
+               var tt = new $.fn.dataTable.TableTools( myTable, {
+                    sRowSelect: 'single'
+               } );
+             
+               $( tt.fnContainer() ).insertBefore('div.datagridcol');  
 
                //Set the data in the table
                buildTable(tableData);

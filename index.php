@@ -135,8 +135,13 @@ include_once 'inc/header.php';
 												<tab heading="Table">
 												
 												<?php /* Data Grid: Start */ ?>-->
+												<style>
+													div.DTTT_container{
+														padding-right: 12px;
+													}
+												</style>
 												<div class="row datagridmain">
-													<div class="col-md-12">
+													<div class="col-md-12 datagridcol">
 														<table id="datagridinfo" class="datagrid dataTable drugs state" cellspacing="0" width="100%">
 															<thead>
 																<tr>
