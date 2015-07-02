@@ -83,6 +83,12 @@ jQuery(document).ready(function($){
 	
 	// Last Recalls and Twitter Region Click Event
 	$('.expandhandle').on('click', function(){
+		
+		var feedsHeightRecallTable = $('.top5info').innerHeight();
+		var feedsHeightTwitter  = $('.twitterfeed').innerHeight();
+		
+		console.log('RecallTable: ' + feedsHeightRecallTable + ' Twitter: ' + feedsHeightTwitter);
+		
 		if(!$('.topinforegion').hasClass('expanded')){
 			
 			// Add 'expanded' class
@@ -91,8 +97,15 @@ jQuery(document).ready(function($){
 			// Add text LESS
 			$(this).find('.expandhandlelbl').html('LESS');
 			
-			// Animate to X height
-			$('.dataregion_top').animate({ height: '275px' }, 250);
+			// Animate to Y height
+			// $('.dataregion_top').animate({ height: '275px' }, 250);
+			// Animate to Y height
+			if(feedsHeightRecallTable >= feedsHeightTwitter){
+				$('.dataregion_top').animate({ height: feedsHeightRecallTable }, 250);
+			} else if(feedsHeightTwitter >= feedsHeightRecallTable) {
+				$('.dataregion_top').animate({ height: feedsHeightTwitter }, 250);
+			}
+			
 		}else{
 			
 			// Remove 'expanded' class
