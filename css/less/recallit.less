@@ -540,7 +540,9 @@ div.contentregionwrapper {
 	.contentregion {
 		padding-top: 90px;
 		}
-		.contentmain {}
+		.contentmain {
+			min-height: 1000px;
+			}
 			
 			/* Main Info Region */
 			.maininforegion {
@@ -1179,10 +1181,8 @@ div.noticepopup {
 /* IX. Data Grids ************************************************************************************ */
 /* *************************************************************************************************** */
 div.dataTables_wrapper {
-	/*
 	position: relative;
-	padding: 50px 0 0;
-	*/
+	padding: 60px 0 0;
 	}
 
 /* Table Styling */
@@ -1193,7 +1193,11 @@ table.datagrid {
 	border: 0 none;
 
 	thead {}
-	tfoot {}
+	tfoot {
+		tr {
+			vertical-align: middle;
+			}
+	}
 	tbody {}
 	
 		tr {}
@@ -1204,9 +1208,7 @@ table.datagrid {
 				}
 				th {
 					position: relative;
-					/*
-					background-color: #eaeaea;
-					*/
+					background-color: #f1f1f1;
 					
 					.userselect(none);
 					
@@ -1232,7 +1234,7 @@ div.dataTables_length {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 45%;
+	width: 165px;
 	
 	label {
 		width: 100%;
@@ -1268,7 +1270,8 @@ div.dataTables_filter {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 45%;
+	padding: 0 0 0 185px;
+	width: 100%;
 	
 	label {
 		width: 100%;
