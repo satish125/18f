@@ -97,49 +97,58 @@
 										<?php if (basename($_SERVER['PHP_SELF'], '.php') == 'index' ) : ?>
 										<?php /* Show Food, Drugs, Devices on only Homepage */ ?>
 										<li class="navitem navfdd navfoods active">
-											<a ng-click="selectType('food')">
+											<a href="#" ng-click="selectType('food')" title="View Food Information">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_fork_lg.png" alt="Open FDA Foods" />
 												<span>Foods</span>
 											</a>
+											
+											<div class="clear"></div>
 										</li>
 										<li class="navitem navfdd navdrugs">
-											<a ng-click="selectType('drug')">
+											<a href="#" ng-click="selectType('drug')" title="View Drug Information">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_pill_lg.png" alt="Open FDA Drugs" />
 												<span>Drugs</span>
 											</a>
+											
+											<div class="clear"></div>
 										</li>
 										<li class="navitem navfdd navdevices">
-											<a ng-click="selectType('device')">
+											<a href="#" ng-click="selectType('device')" title="View Device Information">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_device_lg.png" alt="Open FDA Devices" />
 												<span>Devices</span>
 											</a>
+											
+											<div class="clear"></div>
 										</li>
 										<?php endif; ?>
 										
 										<li class="navitem navabout<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'about' ) ? ' active' : ''); ?>">
-											<a href="<?php echo BASE_URL; ?>about">
+											<a href="<?php echo BASE_URL; ?>about" title="View About Page">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_lexicon_lg.png" alt="About Open FDA" />
 												<span>About</span>
 											</a>
+											
+											<div class="clear"></div>
 										</li>
 										<li class="navitem navlogin loginlogout<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'login' ) ? ' active' : ''); ?>">
 											
 											<?php if (login_check($mysqli) == true) : ?>
 											
-											<a href="<?php echo BASE_URL; ?>inc/logout" class="logout">
+											<a href="<?php echo BASE_URL; ?>inc/logout" class="logout" title="Log out">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_login_lg.png" alt="Open FDA Log Out" />
 												<span>Log Out</span>
 											</a>
 											
 											<?php else : ?>
 											
-											<a href="<?php echo BASE_URL; ?>login" class="login">
+											<a href="<?php echo BASE_URL; ?>login" class="login" title="Log In">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_login_lg.png" alt="Open FDA Login" />
 												<span>Log In</span>
 											</a>
 											
 											<?php endif; ?>
 											
+											<div class="clear"></div>
 										</li>
 									</ul>
 									<?php /* Primary Navigation List: End */ ?>
@@ -167,7 +176,7 @@
 									<div class="col-sm-12">
 										
 										<?php /* Logo: Start */ ?>
-										<a class="logo" href="<?php echo BASE_URL; ?>">
+										<a class="logo" href="<?php echo BASE_URL; ?>" title="RECALL.IT Logo">
 											<img src="<?php echo BASE_URL; ?>images/logo_recallit.png" alt="RECALL.IT" />
 										</a>
 										<?php /* Logo: End */ ?>

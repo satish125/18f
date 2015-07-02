@@ -24,11 +24,11 @@ include_once 'inc/header.php';
 				
 				<?php /* Main Info: Start */ ?>
 				<section class="maininforegion" aria-labelledby="main-content-data">
-					<div class="container-fluid dataregion_main">
+					<div class="container-fluid dataregion_main pagecopy">
 						<div class="row">
 							<div class="col-sm-12">
 								
-								<h1>Log In to the RECALL.IT Dashboard</h1>
+								<h1>Log In to RECALL.IT</h1>
 								
 								<?php
 									if (isset($_GET['error'])) {

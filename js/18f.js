@@ -5,26 +5,51 @@
 jQuery(document).ready(function($){
 	
 	// Viewport Width
-	viewportWidthHeight(true);
+	viewportWidthHeight(false);
 	
 	// Sidebar Expand/Collapse
 	$('.mobilehandle').click(function(){
+		var animTiming = 250;
+		
 		if(!$('body').hasClass('collapsed')){
 			
 			// Add Class to body Tag
 			$('body').addClass('collapsed');
 			
-			$('.sidebarnavigation').animate({ width: '75px' }, 300);
-			$('.contentregionwrapper').animate({ paddingLeft: '75px' }, 300);
-			$('.navsidebar').animate({ paddingLeft: '0', paddingRight: '0' }, 300);
+			// Expand/Collapse Handle
+			$('.mobilehandle').animate({ left: '50%', marginLeft: '-15px' }, animTiming);
+			
+			// Sidebar
+			$('.sidebarnavigation').animate({ width: '75px' }, animTiming);
+			$('.navsidebar').animate({ paddingLeft: '0', paddingRight: '0' }, animTiming);
+			$('.navsidebar ul.prinavlist li img').animate({ paddingLeft: '7px' }, animTiming);
+			
+			// Content Region
+			$('.contentregionwrapper').animate({ paddingLeft: '75px' }, animTiming);
+			
+			// Add Caret to Each Nav Item
+			setTimeout(function(){
+				$('li.navitem a').append('<i class="fa fa-caret-right sidebarcarets"></i>');
+			}, 150);
+			
 		} else {
 			
 			// Remove Class from body Tag
 			$('body').removeClass('collapsed');
 			
-			$('.sidebarnavigation').animate({ width: '225px' }, 300);
-			$('.contentregionwrapper').animate({ paddingLeft: '225px' }, 300);
-			$('.navsidebar').animate({ paddingLeft: '15px', paddingRight: '15px' }, 300);
+			// Expand/Collapse Handle
+			$('.mobilehandle').animate({ left: '85%', marginLeft: '0' }, animTiming);
+			
+			// Sidebar
+			$('.sidebarnavigation').animate({ width: '225px' }, animTiming);
+			$('.navsidebar').animate({ paddingLeft: '15px', paddingRight: '15px' }, animTiming);
+			$('.navsidebar ul.prinavlist li img').animate({ paddingLeft: '0' }, animTiming);
+			
+			// Content Region
+			$('.contentregionwrapper').animate({ paddingLeft: '225px' }, animTiming);
+			
+			// Remove Caret from Each Nav Item
+			$('li.navitem i.sidebarcarets').remove();
 		}
 	});
 	
@@ -48,6 +73,37 @@ jQuery(document).ready(function($){
 		}
 	});
 	
+	// Latest Recalls and Twitter Region
+	$('.topinforegion').append(
+		'<div class="expandhandle">' + 
+			'<div class="expandhandlelbl">MORE</div>' + 
+			'<div class="expandhandlearrow"></div>' + 
+		'</div>');
+	
+	// Last Recalls and Twitter Region Click Event
+	$('.expandhandle').on('click', function(){
+		if(!$('.topinforegion').hasClass('expanded')){
+			
+			// Add 'expanded' class
+			$(this).closest('.topinforegion').addClass('expanded');
+			
+			// Add text LESS
+			$(this).find('.expandhandlelbl').html('LESS');
+			
+			// Animate to X height
+			$('.dataregion_top').animate({ height: '275px' }, 250);
+		}else{
+			
+			// Remove 'expanded' class
+			$(this).closest('.topinforegion').removeClass('expanded');
+			
+			// Add text MORE
+			$(this).find('.expandhandlelbl').html('MORE');
+			
+			// Animate back to resting state (105px) set in CSS
+			$('.dataregion_top').animate({ height: '105px' }, 250);
+		}
+	});
 });
 
 

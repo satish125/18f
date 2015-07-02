@@ -290,6 +290,8 @@ small, .small {
 		}
 
 		.wrapper {
+			padding-right: 0;
+			padding-left: 0;
 			height: 100%;
 			}
 			.wrapper.collapsed { background-color: #f00; }
@@ -335,8 +337,9 @@ small, .small {
 							div.mobilehandle {
 								position: absolute;
 								top: 15px;
-								right: 0;
+								left: 85%;
 								z-index: 10;
+								margin: 0;
 								width: 29px;
 								cursor: pointer;
 								
@@ -383,16 +386,19 @@ small, .small {
 								width: 100%;
 								
 								li {
+									position: relative;
 									display: block;
 									width: 100%;
 									text-transform: uppercase;
-									overflow: hidden;
+									/* overflow: hidden; */
 									
 									&.navitem  {}
 									
 									a {
-										padding: 20px 0;
+										position: relative;
+										padding: 0;
 										display: block;
+										width: 100%;
 										color: #777;
 										font-size: 0.90em;
 										cursor: pointer;
@@ -401,6 +407,9 @@ small, .small {
 										.userselect(none);
 										
 										img {
+											position: relative;
+											z-index: 10;
+											padding: 15px 0;
 											display: block;
 											float: left;
 											opacity: 0.50;
@@ -408,9 +417,21 @@ small, .small {
 											.transition(opacity 0.2s ease-in-out);
 											}
 										span {
-											padding: 7px 0 0 15px;
+											position: absolute;
+											top: 0;
+											left: 0;
+											margin: 15px 0;
+											padding-left: 45px;
 											display: block;
-											float: left;
+											height: 30px;
+											line-height: 2.05em;
+											}
+										
+										i.sidebarcarets {
+											position: absolute;
+											top: 22px;
+											right: -7px;
+											color: #555;
 											}
 									}
 									
@@ -433,10 +454,25 @@ small, .small {
 							}
 						
 						}
+						
+						/* Collapsed */
+						body.collapsed ul.prinavlist li.navitem span {
+							margin: 0;
+							padding: 15px 0 15px 75px;
+							display: none;
+							width: 150px;
+							height: 60px;
+							background-color: #2e3236;
+							
+							.borderradius(0 4px 4px 0);
+							}
+							body.collapsed ul.prinavlist li.navitem:hover span {
+								display: block;
+								}
 					
+					/* Content Region Wrapper */
 					div.contentregionwrapper {
 						padding-left: 225px;
-						float: left:
 						width: 100%;
 						height: 100%;
 						background-color: #2e3236;
@@ -484,8 +520,12 @@ small, .small {
 							.contentmain {}
 								
 								/* Top Info */
-								.topinforegion {}
+								.topinforegion {
+									position: relative;
+									margin: 0 0 15px;
+									}
 									.dataregion_top {
+										position: relative;
 										padding: 15px 15px 0;
 										height: 105px;
 										overflow: hidden;
@@ -507,6 +547,32 @@ small, .small {
 											text-transform: uppercase;
 											}
 									}
+									
+									/* Expand/Collapse Handle */
+									.expandhandle {
+										position: absolute;
+										bottom: -20px;
+										left: 0;
+										z-index: 15;
+										width: 100%;
+										font-size: 0.90em;
+										cursor: pointer;
+										
+										.expandhandlelbl {
+											text-align: center;
+											}
+										.expandhandlearrow:after {
+											display: block;
+											font-family: 'FontAwesome';
+											text-align: center;
+											content: '\f0d7';
+											}
+									}
+										.topinforegion.expanded .expandhandle {
+											.expandhandlearrow:after {
+												content: '\f0d8';
+												}
+										}
 										
 										/* Top 5 Info */
 										.top5info {}
@@ -526,7 +592,9 @@ small, .small {
 										
 										&.pagecopy {
 											h1 {
-												
+												padding: 10px 0 20px;
+												font-size: 1.95em;
+												line-height: 1.30em;
 												}
 											h2 {
 												padding: 5px 0 10px;
@@ -562,7 +630,7 @@ small, .small {
 											}
 												
 												li {
-													padding: 7px 0;
+													padding: 2px 0;
 													color: #393939;
 													font-size: 1.05em;
 													line-height: 1.35em;
