@@ -116,6 +116,11 @@
             $scope.selectType($scope.type);
 
          }, 300);
+
+         //Get the 5 most recent recalls
+         enforcementFactory.getFiveLatestRecalls().then(function(lastestRecalls){
+            $scope.lastestRecalls = lastestRecalls;
+         });  
       }
 
       init();
@@ -198,7 +203,7 @@
          //add dashes to the dates
          angular.forEach(tableData, function(obj, inx){
             if(obj.recall_initiation_date){
-               obj.recall_initiation_date = addDashes(obj.recall_initiation_date);
+               obj.recall_initiation_date = $scope.addDashes(obj.recall_initiation_date);
             }
          });
 
@@ -214,7 +219,7 @@
       /**
         * Add dashes to date with format yyyy-mm-dd
         */
-      function addDashes(num){
+      $scope.addDashes = function(num){
          var numArr = num.toString().split('');
          
           var len = numArr.length;

@@ -119,6 +119,33 @@
         return enforcementData.getEnforcementData(type, query, '100'); 
       }
 
+      self.getFiveLatestRecalls = function(){
+         var deferred = $q.defer();
+
+         var typeQueries = [];
+         var allTypeData = [];
+         var queryLimit = '100';
+
+         //Query all types
+         typeQueries.push(enforcementData.getEnforcementData('food','',queryLimit));
+         typeQueries.push(enforcementData.getEnforcementData('drug','',queryLimit));
+         typeQueries.push(enforcementData.getEnforcementData('device','',queryLimit));
+
+         //Aggregate the types
+         $q.all(typeQueries).then(function(typesData){
+            
+            allTypeData = typesData[0].results.concat(typesData[1].results, typesData[2].results);
+            allTypeData = _.sortBy(allTypeData, function(recall){ return recall.recall_initiation_date });
+            allTypeData = _.last(allTypeData, 5);
+            allTypeData.reverse();
+
+            deferred.resolve(allTypeData);
+         });
+
+         return deferred.promise;
+      }
+
+
       //map the acronym to the id
       function acronymToID(acronym) {
          var statesList = [

@@ -7,18 +7,18 @@
 	<table class="recalltable">
 		<thead>
 			<tr>
-				<td>City</td>
-				<td>State</td>
+				<td>Location</td>
 				<td>Recalling Firm</td>
+            <td>Type</td>
 				<td>Date</td>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>New Orleans</td>
-				<td>LA</td>
-				<td>CVS</td>
-				<td>2015-12-21</td>
+			<tr ng-repeat="recall in lastestRecalls">
+				<td>{{recall.city + ', ' + (recall.state ? recall.state : recall.country)}}</td>
+				<td>{{recall.recalling_firm}}</td>
+				<td>{{recall.product_type}}</td>
+				<td>{{addDashes(recall.recall_initiation_date)}}</td>
 			</tr>
 		</tbody>
 	</table>
