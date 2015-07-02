@@ -1437,4 +1437,8 @@ div.dashboardmain {
   font-weight: bold;
   line-height: 2em;
 }
+.layer rect,
+.us-states path {
+  cursor: pointer;
+}
 /*# sourceMappingURL=recallit.css.map */
