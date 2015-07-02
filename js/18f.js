@@ -106,6 +106,9 @@ jQuery(document).ready(function($){
 		}
 	});
 	
+	//  Get URL Query String Vars
+	getUrlVars();
+	
 	// Field Icons
 	var $fldIconsExist = $('div.formfld.icon');
 	if ($fldIconsExist.length > 0){
@@ -332,6 +335,22 @@ function mobilePriNav(appendSelector,itemClone,appendCloneTo,mobileNavClassSel,f
 		//console.log(usernameValue);
 		$('div.' + mobileNavClassSel).append('<div class="mobileheaderusername">' + usernameValue + '</div>');
 	}
+}
+
+
+/**
+  * Get URL Query Strings
+  * Description: Function used to grab all query string vars
+  */
+function getUrlVars(){
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
 }
 
 
