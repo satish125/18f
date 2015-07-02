@@ -19,6 +19,7 @@
 	<link href="<?php echo BASE_URL; ?>css/minerva.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/font-awesome.min.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/dataTables.responsive.css" rel="stylesheet" media="all" />
+	<link href="<?php echo BASE_URL; ?>css/dataTables.tableTools.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/recallit.css" rel="stylesheet" media="all" />
 	
 	<?php /* Dependencies */ ?>

@@ -29,7 +29,10 @@
          var stateQueryString = stateQuery || '';
          return enforcementFactory.getAllEnforcementData($scope.type, 'classification:"' + classification + '"' + stateQueryString)
             .then(function(data){
-               buildTable(data);
+               if(!$scope.pageState.isLoading){
+                  $scope.buildTable(data);
+               }
+               return data;
             });
       };
 
@@ -89,7 +92,7 @@
       });
 
       //Global variables for the data table on the page
-      var dataTable = undefined;
+      var myTable = undefined;
 
       //initialization function
       function init() {
@@ -97,43 +100,45 @@
          $scope.type = 'food';
          $scope.class = 'Class I';
 
-         //Instantiate the jQuery DataTables
-         $timeout(function(){
+         //Store the promise result for the 5 latest recalls
+         var recentRecallsPromise = enforcementFactory.getFiveLatestRecalls().then(function(lastestRecalls){
+            $scope.lastestRecalls = lastestRecalls;
+         });
 
-            dataTable = $('#datagridinfo').DataTable({
-               responsive: true,
-               order: [[ 0, "desc" ]],
-               columns: [
-                  { data: 'recall_initiation_date' },
-                  { data: 'city' },
-                  { data: 'state' },
-                  { data: 'recalling_firm'},
-                  { 
-                     data: 'product_quantity',
-                     defaultContent: 'Unknown'
-                  },
-                  { data: 'status' },
-                  { data: 'product_description'},
-                  { data: 'reason_for_recall'}
-               ]
-            });
+         $q.all([
+            $scope.selectType($scope.type),
+            recentRecallsPromise
+         ])
+         .then(function(results){
+            //Show content when all the data is done loading
+            $timeout(function(){ $scope.pageState.isLoading = false; }, 0)
+            return results[0][3]; 
+         })
+         .then(function(tableData){
+            $timeout(function(){
+               //Initialize the Data Table
+               myTable = $('#datagridinfo').DataTable({
+                  order: [[ 0, "desc" ]],
+                  columns: [
+                     { data: 'recall_initiation_date' },
+                     { data: 'city' },
+                     { data: 'state' },
+                     { data: 'recalling_firm'},
+                     { 
+                        data: 'product_quantity',
+                        defaultContent: 'Unknown'
+                     },
+                     { data: 'status' },
+                     { data: 'product_description'},
+                     { data: 'reason_for_recall'}
+                  ],
+                  responsive: true
+               });
 
-            //Store the promise result for the 5 latest recalls
-            var recentRecallsPromise = enforcementFactory.getFiveLatestRecalls().then(function(lastestRecalls){
-               $scope.lastestRecalls = lastestRecalls;
-            });
-
-            //When all of the data is loaded then hide the loading
-            $q.all([
-               $scope.selectType($scope.type),
-               recentRecallsPromise
-            ])
-            .then(function(results){
-               //Show content when all the data is done loading
-               $timeout(function(){ $scope.pageState.isLoading = false; }, 0) 
-            });
-
-         }, 300);          
+               //Set the data in the table
+               buildTable(tableData);
+            }, 300);
+         });        
       }
 
       init();
@@ -208,9 +213,9 @@
          var tableData = data.results;
 
          //Clear the table if it has any records
-         if( dataTable.data().any() )
+         if( myTable.data().any() )
          {
-            dataTable.clear(); 
+            myTable.clear(); 
          } 
 
          //add dashes to the dates
@@ -221,7 +226,7 @@
          });
 
          //Add rows to the table then redraw the table
-         dataTable.rows.add(tableData).draw();
+         myTable.rows.add(tableData).draw();
       }
 
       function toTitleCase(str)
