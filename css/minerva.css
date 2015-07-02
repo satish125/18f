@@ -22,57 +22,6 @@ html, body
    position: absolute;
    background-color: #C0C0C0;
 }
-@media screen and (min-width: 0px) {
-   .mv-container { font-size: 0.4em; }
-}
-@media screen and (min-width: 617px) {
-   .mv-container { font-size: 0.45em; }
-}
-@media screen and (min-width: 652px) {
-   .mv-container { font-size: 0.5em; }
-}
-@media screen and (min-width: 687px) {
-   .mv-container { font-size: 0.55em; }
-}
-@media screen and (min-width: 722px) {
-   .mv-container { font-size: 0.6em; }
-}
-@media screen and (min-width: 756px) {
-   .mv-container { font-size: 0.65em; }
-}
-@media screen and (min-width: 781px) {
-   .mv-container { font-size: 0.7em; }
-}
-@media screen and (min-width: 815px) {
-   .mv-container { font-size: 0.75em; }
-}
-@media screen and (min-width: 850px) {
-   .mv-container { font-size: 0.8em; }
-}
-@media screen and (min-width: 884px) {
-   .mv-container { font-size: 0.85em; }
-}
-@media screen and (min-width: 918px) {
-   .mv-container { font-size: 0.9em; }
-}
-@media screen and (min-width: 952px) {
-   .mv-container { font-size: 0.95em; }
-}
-@media screen and (min-width: 986px) {
-   .mv-container { font-size: 1em; }
-}
-@media screen and (min-width: 1020px) {
-   .mv-container { font-size: 1.05em; }
-}
-@media screen and (min-width: 1055px) {
-   .mv-container { font-size: 1.1em; }
-}
-@media screen and (min-width: 1090px) {
-   .mv-container { font-size: 1.15em; }
-}
-@media screen and (min-width: 1125px) {
-   .mv-container { font-size: 1.2em; }
-}
 .mv-header
 {
    background-color: #232325;
