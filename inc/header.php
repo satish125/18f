@@ -20,6 +20,7 @@
 	<link href="<?php echo BASE_URL; ?>css/font-awesome.min.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/dataTables.responsive.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/dataTables.tableTools.css" rel="stylesheet" media="all" />
+	<link href="<?php echo BASE_URL; ?>css/dataTables.keyTable.min.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/recallit.css" rel="stylesheet" media="all" />
 	
 	<?php /* Dependencies */ ?>
@@ -40,6 +41,7 @@
 	<script src="<?php echo BASE_URL; ?>js/jquery.dataTables.min.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/dataTables.responsive.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/dataTables.tableTools.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/dataTables.keyTable.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/18f.js"></script>
 	
 	<?php /* Application JS Files */ ?>

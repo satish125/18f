@@ -147,6 +147,9 @@
              
                $( tt.fnContainer() ).insertBefore('div.datagridcol');  
 
+               //Add the Key Tables Extension
+               //var kt = new $.fn.dataTable.KeyTable( myTable );
+
                //Set the data in the table
                buildTable(tableData);
             }, 300);
