@@ -117,11 +117,15 @@ include_once 'inc/header.php';
 																</tab>
 															</tabset>
 															
-															<div class="legendbar">
-																<span class="legendnumber">0</span>
-																<span class="pull-right legendnumber">100</span>
+															<div class="legendouter">
+																<div class="legendinner">
+																	<div class="legendtext">
+																		<span class="legendnumber">0</span>
+																		<span class="pull-right legendnumber">100</span>
+																	</div>
+																	<div class="css3gradient"></div>
+																</div>
 															</div>
-															<div class="css3gradient legendbar"></div>
 														</mv-body>
 														
 														<div class="clear"></div>
