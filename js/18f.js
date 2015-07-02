@@ -101,9 +101,9 @@ jQuery(document).ready(function($){
 			// $('.dataregion_top').animate({ height: '275px' }, 250);
 			// Animate to Y height
 			if(feedsHeightRecallTable >= feedsHeightTwitter){
-				$('.dataregion_top').animate({ height: feedsHeightRecallTable }, 250);
+				$('.dataregion_top').animate({ height: feedsHeightRecallTable + 150 }, 250);
 			} else if(feedsHeightTwitter >= feedsHeightRecallTable) {
-				$('.dataregion_top').animate({ height: feedsHeightTwitter }, 250);
+				$('.dataregion_top').animate({ height: feedsHeightTwitter + 150 }, 250);
 			}
 			
 		}else{
@@ -114,8 +114,8 @@ jQuery(document).ready(function($){
 			// Add text MORE
 			$(this).find('.expandhandlelbl').html('MORE');
 			
-			// Animate back to resting state (105px) set in CSS
-			$('.dataregion_top').animate({ height: '105px' }, 250);
+			// Animate back to resting state (135px) set in CSS
+			$('.dataregion_top').animate({ height: '135px' }, 250);
 		}
 	});
 	
