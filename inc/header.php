@@ -56,7 +56,7 @@
 		
 		<div class="wrapper container-fluid">
 			<div class="wrapperouter">
-				<div class="wrapperinner container-fluid">
+				<div class="wrapperinner container-fluid"<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'login' ) ? ' style="height: 100%;"' : ''); ?>>
 					
 					<?php /* No Script: Start */ ?>
 					<noscript>

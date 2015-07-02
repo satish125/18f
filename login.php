@@ -41,20 +41,34 @@ include_once 'inc/header.php';
 									}
 								?>
 								
-								<form action="<?php echo BASE_URL; ?>inc/process_login" method="POST" name="login_form">
-									<div class="form-group">
-										<label for="email" class="control-label hploginlbl">Email Address</label>
-										<input type="text" name="email" id="email" class="form-control text" value="" placeholder="Email Address" />
-									</div>
-									<div class="form-group">
-										<label for="Password" class="control-label hploginlbl">Password</label>
-										<input type="password" name="password" id="Password" class="form-control text password" value="" placeholder="Enter your password" />
+								<?php /* Login Form: Start */ ?>
+								<div class="loginform">
+									<div class="loginform_inner">
+										<form action="<?php echo BASE_URL; ?>inc/process_login" method="POST" name="login_form">
+											<div class="form-group">
+												<label for="email" class="control-label hploginlbl">Email Address</label>
+												<div class="formfld icon email">
+													<input type="text" name="email" id="email" class="form-control text" value="" placeholder="Email Address" />
+												</div>
+											</div>
+											<div class="form-group">
+												<label for="Password" class="control-label hploginlbl">Password</label>
+												<div class="formfld icon password">
+													<input type="password" name="password" id="Password" class="form-control text password" value="" placeholder="Enter your password" />
+												</div>
+											</div>
+											
+											<button id="loginbutton" class="btn btn-primary button" onclick="formhash(this.form, this.form.password);">
+												<span>Log In</span>
+											</button>
+										</form>
+										
+										<div class="clear"></div>
 									</div>
 									
-									<button id="loginbutton" class="btn btn-primary" onclick="formhash(this.form, this.form.password);">
-										<span>Log In</span>
-									</button>
-								</form>
+									<div class="clear"></div>
+								</div>
+								<?php /* Login Form: End */ ?>
 								
 								<div class="clear"></div>
 							</div>

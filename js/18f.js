@@ -5,7 +5,7 @@
 jQuery(document).ready(function($){
 	
 	// Viewport Width
-	viewportWidthHeight(false);
+	viewportWidthHeight(true);
 	
 	// Sidebar Expand/Collapse
 	$('.mobilehandle').click(function(){
@@ -50,6 +50,7 @@ jQuery(document).ready(function($){
 			
 			// Remove Caret from Each Nav Item
 			$('li.navitem i.sidebarcarets').remove();
+			
 		}
 	});
 	
@@ -104,23 +105,19 @@ jQuery(document).ready(function($){
 			$('.dataregion_top').animate({ height: '105px' }, 250);
 		}
 	});
-});
-
-
-
-/* **************************************************************** */
-/* Window Load **************************************************** */
-/* **************************************************************** */
-window.onload = function(){
-	// ajaxFdaLoad(10);
-}
-
-
-
-/* **************************************************************** */
-/* Window Scroll ************************************************** */
-/* **************************************************************** */
-jQuery(window).scroll(function($){
+	
+	// Field Icons
+	var $fldIconsExist = $('div.formfld.icon');
+	if ($fldIconsExist.length > 0){
+		fieldIcons();
+	}
+	
+	// Switch Sidebar based on Viewport
+	switchSidebar();
+	
+	$(window).on('resize', function(){
+		switchSidebar();
+	});
 	
 });
 
@@ -232,6 +229,63 @@ function jsonFdaProcessing(jsonString,dataCounter){
 	document.getElementById('fdabarchart').innerHTML = dataDisplay;
 }
 */
+
+
+/**
+  * Switch Sidebar Function
+  * Description: This function switches the sidebar to an expanded or
+  * collapsed state based on the viewport width.
+  */
+function switchSidebar(){
+	var vWidth = window.innerWidth;
+	var animTiming = 0;
+	
+	if(vWidth <= 800){
+		if(!$('body').hasClass('collapsed')){
+			
+			// Add Class to body Tag
+			$('body').addClass('collapsed');
+			
+			// Expand/Collapse Handle
+			$('.mobilehandle').animate({ left: '50%', marginLeft: '-15px' }, animTiming);
+			
+			// Sidebar
+			$('.sidebarnavigation').animate({ width: '75px' }, animTiming);
+			$('.navsidebar').animate({ paddingLeft: '0', paddingRight: '0' }, animTiming);
+			$('.navsidebar ul.prinavlist li img').animate({ paddingLeft: '7px' }, animTiming);
+			
+			// Content Region
+			$('.contentregionwrapper').animate({ paddingLeft: '75px' }, animTiming);
+			
+			// Add Caret to Each Nav Item
+			setTimeout(function(){
+				$('li.navitem a').append('<i class="fa fa-caret-right sidebarcarets"></i>');
+			}, 150);
+			
+		}
+	} else {
+		if($('body').hasClass('collapsed')){
+			
+			// Remove Class from body Tag
+			$('body').removeClass('collapsed');
+			
+			// Expand/Collapse Handle
+			$('.mobilehandle').animate({ left: '85%', marginLeft: '0' }, animTiming);
+			
+			// Sidebar
+			$('.sidebarnavigation').animate({ width: '225px' }, animTiming);
+			$('.navsidebar').animate({ paddingLeft: '15px', paddingRight: '15px' }, animTiming);
+			$('.navsidebar ul.prinavlist li img').animate({ paddingLeft: '0' }, animTiming);
+			
+			// Content Region
+			$('.contentregionwrapper').animate({ paddingLeft: '225px' }, animTiming);
+			
+			// Remove Caret from Each Nav Item
+			$('li.navitem i.sidebarcarets').remove();
+			
+		}
+	}
+}
 
 
 /**
