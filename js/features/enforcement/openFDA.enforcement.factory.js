@@ -80,8 +80,6 @@
                var city = result.term;
                var count = result.count;
 
-
-
                chartData.push({
                   key: city,
                   keyID: city,
@@ -101,7 +99,13 @@
 
                   if(cityData.length > 0)
                   {
-                     label += ', ' + cityData[0].state;
+                     var state = ', ' + cityData[0].state;
+                     if(state == null)
+                     {
+                        state = '';
+                     }
+
+                     label += state;
                   }
                   chartItem.key = label;
                });
