@@ -96,9 +96,17 @@ include_once 'inc/header.php';
 															</div>
 															<?php /* Class Selection Navigation: End */ ?>
 															
-															<mv-group mv-size="1x2"></mv-group>
-															<mv-any-num mv-size="1x2" mv-data="statusData" mv-style="{'font-size':'1.3em'}" mv-id="statusNumbers"></mv-any-num>
-															
+															<mv-any-num mv-size="1x2" mv-data="statusData" mv-style="{'font-size':'1.3em','color':'#2B292E'}" mv-id="statusNumbers"></mv-any-num>
+															<mv-group mv-size="1x2">
+																<div class="legendbar">
+																	<div class="legendtext">
+																		<span class="legendnumber">0</span>
+																		<span class="pull-right legendnumber">100</span>
+																		<div class="legendcenter">Legend</div>
+																	</div>
+																	<div class="css3gradient"></div>
+																</div>
+															</mv-group>
 															<!--
 															mv-id-box mv-size="1x3" mv-title="Classification Description" mv-body-id="infoBox">{{classInfo}}</mv-id-box>
 															<mv-id-box mv-size="1x1" mv-title="Today's Critical Recalls" mv-body-id="recallBox"><pre>{{recallInfo}}</pre></mv-id-box
@@ -116,16 +124,6 @@ include_once 'inc/header.php';
 																	</mv-id-box>
 																</tab>
 															</tabset>
-															
-															<div class="legendouter">
-																<div class="legendinner">
-																	<div class="legendtext">
-																		<span class="legendnumber">0</span>
-																		<span class="pull-right legendnumber">100</span>
-																	</div>
-																	<div class="css3gradient"></div>
-																</div>
-															</div>
 														</mv-body>
 														
 														<div class="clear"></div>

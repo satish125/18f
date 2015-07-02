@@ -1457,6 +1457,12 @@ div.dashboardmain {
 	line-height: 1.75em;
 	color: inherit;
 }
+#statusNumbers .lightbox-head {
+	height: 0em;
+}
+#statusNumbers .lightbox-body {
+	background-color: rgba(0,0,0,0);
+}
 .us-states {
 	fill: #a6a6a6;
 }
@@ -1484,14 +1490,7 @@ div.dashboardmain {
   	margin-top: 0.9em;
   	margin-left: 0.9em;
   	height: 1em;
-}
-.legendouter {
-	float: left;
-  	width: 40.5em;
-  	z-index: 1000;
-}
-.legendtext {
-	width: 100%;
+  	width: 100%;
 }
 .legendgradient {
 	margin-top: 0.9em;
@@ -1499,11 +1498,16 @@ div.dashboardmain {
 .legendnumber {
 	color: #000000;
 	line-height: 1.5em;
-	padding-right: 1.5em;
+	padding-right: 1em;
+	margin-left: -0.75em;
 }
-.legendinner {
-    width: 50%;
-    margin: 0 auto;
+.legendbar {
+   margin: 4em 0em 0em 10em;
+   width: 50%;
+}
+.legendcenter {
+	width: 50%;
+	margin: 0em auto;
 }
 .nav {
 	background-color: #FFFFFF;
