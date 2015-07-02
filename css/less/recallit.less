@@ -1382,7 +1382,9 @@ div.dashboardmain {
 	width: 100%;
 }
 .css3gradient {
-	width:300px;height:100px;
+	width:100%;
+	height: 1em;
+	margin-top: 0.9em;
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2c82c0+0,efb12d+50,d23a0f+100 */
 	background: #2c82c0; /* Old browsers */
 	background: -moz-linear-gradient(left,  #2c82c0 0%, #efb12d 50%, #d23a0f 100%); /* FF3.6+ */
@@ -1393,21 +1395,31 @@ div.dashboardmain {
 	background: linear-gradient(to right,  #2c82c0 0%,#efb12d 50%,#d23a0f 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c82c0', endColorstr='#d23a0f',GradientType=1 ); /* IE6-9 */
 }
-.legendbar {
+.legendtext {
   	float: left;
   	margin-top: 0.9em;
   	margin-left: 0.9em;
   	height: 1em;
+}
+.legendouter {
+	float: left;
   	width: 40.5em;
+  	z-index: 1000;
+}
+.legendtext {
+	width: 100%;
 }
 .legendgradient {
-	margin-top: 0em;
+	margin-top: 0.9em;
 }
 .legendnumber {
 	color: #000000;
-	line-height: 2em;
-	padding-left: 1em;
-	padding-right: 1em;
+	line-height: 1.5em;
+	padding-right: 1.5em;
+}
+.legendinner {
+    width: 50%;
+    margin: 0 auto;
 }
 .nav {
 	background-color: #FFFFFF;
