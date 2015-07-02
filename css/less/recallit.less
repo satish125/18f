@@ -755,6 +755,9 @@ div.contentregionwrapper {
 /* Twitter Feed ******************************************* */
 /* ******************************************************** */
 .twitterfeed {}
+	iframe.twitter-timeline {
+		height: 400px;
+		}
 
 
 
@@ -781,31 +784,35 @@ div.contentregionwrapper {
 /* i. General Form Styling ******************************** */
 /* ******************************************************** */
 
+/* Required Notice */
+div.requirednoticetxt {
+	padding: 0 0 10px;
+	color: #777;
+	font-size: 0.80em;
+	text-align: right;
+	}
+
 /* Form */
 div.loginform {}
 	div.loginform_inner {}
 		div.loginform_inner form {}
 			
 			/* Notice */
-			p.bg-danger.notice {
-				margin: 0 0 15px;
-				}
-				span.notice_inner {
-					padding: 10px 15px;
+			div.loginnotice {}
+				.bg-danger {
+					margin: 15px 0;
+					padding: 20px 15px !important;
 					display: block;
-					color: #fff;
-					font-size: 0.90em;
-					line-height: 1.05em;
+					color: #fff !important;
+					font-size: 0.90em !important;
+					line-height: 1.05em !important;
 					text-align: center;
 					
 					.borderradius(3px);
 					}
 					
 					/* Error */
-					div.notice.error span.notice_inner 		{ background-color: #c10000; }
-					
-					/* Warning */
-					div.notice.warning span.notice_inner 	{ background-color: #e2be3f; }
+					.bg-danger.notice 	{ background-color: #af2d20; }
 			
 			/* Required */
 			span.req {
@@ -1119,6 +1126,19 @@ div.noticepopup {
 						content: '\f071';
 						}
 				}
+
+
+
+/* ******************************************************** */
+/* Media Queries ****************************************** */
+/* ******************************************************** */
+
+/*500px*/
+@media screen and (min-width: 0) and (max-width: 500px){
+	div.requirednoticetxt {
+		text-align: center;
+		}
+}
 
 
 

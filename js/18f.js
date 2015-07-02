@@ -83,6 +83,12 @@ jQuery(document).ready(function($){
 	
 	// Last Recalls and Twitter Region Click Event
 	$('.expandhandle').on('click', function(){
+		
+		var feedsHeightRecallTable = $('.top5info').innerHeight();
+		var feedsHeightTwitter  = $('.twitterfeed').innerHeight();
+		
+		console.log('RecallTable: ' + feedsHeightRecallTable + ' Twitter: ' + feedsHeightTwitter);
+		
 		if(!$('.topinforegion').hasClass('expanded')){
 			
 			// Add 'expanded' class
@@ -91,8 +97,15 @@ jQuery(document).ready(function($){
 			// Add text LESS
 			$(this).find('.expandhandlelbl').html('LESS');
 			
-			// Animate to X height
-			$('.dataregion_top').animate({ height: '275px' }, 250);
+			// Animate to Y height
+			// $('.dataregion_top').animate({ height: '275px' }, 250);
+			// Animate to Y height
+			if(feedsHeightRecallTable >= feedsHeightTwitter){
+				$('.dataregion_top').animate({ height: feedsHeightRecallTable }, 250);
+			} else if(feedsHeightTwitter >= feedsHeightRecallTable) {
+				$('.dataregion_top').animate({ height: feedsHeightTwitter }, 250);
+			}
+			
 		}else{
 			
 			// Remove 'expanded' class
@@ -105,6 +118,9 @@ jQuery(document).ready(function($){
 			$('.dataregion_top').animate({ height: '105px' }, 250);
 		}
 	});
+	
+	//  Get URL Query String Vars
+	getUrlVars();
 	
 	// Field Icons
 	var $fldIconsExist = $('div.formfld.icon');
@@ -332,6 +348,22 @@ function mobilePriNav(appendSelector,itemClone,appendCloneTo,mobileNavClassSel,f
 		//console.log(usernameValue);
 		$('div.' + mobileNavClassSel).append('<div class="mobileheaderusername">' + usernameValue + '</div>');
 	}
+}
+
+
+/**
+  * Get URL Query Strings
+  * Description: Function used to grab all query string vars
+  */
+function getUrlVars(){
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
 }
 
 
