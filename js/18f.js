@@ -5,7 +5,7 @@
 jQuery(document).ready(function($){
 	
 	// Viewport Width
-	viewportWidthHeight(false);
+	viewportWidthHeight(true);
 	
 	// Sidebar Expand/Collapse
 	$('.mobilehandle').click(function(){
@@ -50,6 +50,7 @@ jQuery(document).ready(function($){
 			
 			// Remove Caret from Each Nav Item
 			$('li.navitem i.sidebarcarets').remove();
+			
 		}
 	});
 	
@@ -82,6 +83,12 @@ jQuery(document).ready(function($){
 	
 	// Last Recalls and Twitter Region Click Event
 	$('.expandhandle').on('click', function(){
+		
+		var feedsHeightRecallTable = $('.top5info').innerHeight();
+		var feedsHeightTwitter  = $('.twitterfeed').innerHeight();
+		
+		console.log('RecallTable: ' + feedsHeightRecallTable + ' Twitter: ' + feedsHeightTwitter);
+		
 		if(!$('.topinforegion').hasClass('expanded')){
 			
 			// Add 'expanded' class
@@ -90,8 +97,15 @@ jQuery(document).ready(function($){
 			// Add text LESS
 			$(this).find('.expandhandlelbl').html('LESS');
 			
-			// Animate to X height
-			$('.dataregion_top').animate({ height: '275px' }, 250);
+			// Animate to Y height
+			// $('.dataregion_top').animate({ height: '275px' }, 250);
+			// Animate to Y height
+			if(feedsHeightRecallTable >= feedsHeightTwitter){
+				$('.dataregion_top').animate({ height: feedsHeightRecallTable + 150 }, 250);
+			} else if(feedsHeightTwitter >= feedsHeightRecallTable) {
+				$('.dataregion_top').animate({ height: feedsHeightTwitter + 150 }, 250);
+			}
+			
 		}else{
 			
 			// Remove 'expanded' class
@@ -100,27 +114,26 @@ jQuery(document).ready(function($){
 			// Add text MORE
 			$(this).find('.expandhandlelbl').html('MORE');
 			
-			// Animate back to resting state (105px) set in CSS
-			$('.dataregion_top').animate({ height: '105px' }, 250);
+			// Animate back to resting state (135px) set in CSS
+			$('.dataregion_top').animate({ height: '135px' }, 250);
 		}
 	});
-});
-
-
-
-/* **************************************************************** */
-/* Window Load **************************************************** */
-/* **************************************************************** */
-window.onload = function(){
-	// ajaxFdaLoad(10);
-}
-
-
-
-/* **************************************************************** */
-/* Window Scroll ************************************************** */
-/* **************************************************************** */
-jQuery(window).scroll(function($){
+	
+	//  Get URL Query String Vars
+	getUrlVars();
+	
+	// Field Icons
+	var $fldIconsExist = $('div.formfld.icon');
+	if ($fldIconsExist.length > 0){
+		fieldIcons();
+	}
+	
+	// Switch Sidebar based on Viewport
+	switchSidebar();
+	
+	$(window).on('resize', function(){
+		switchSidebar();
+	});
 	
 });
 
@@ -235,6 +248,63 @@ function jsonFdaProcessing(jsonString,dataCounter){
 
 
 /**
+  * Switch Sidebar Function
+  * Description: This function switches the sidebar to an expanded or
+  * collapsed state based on the viewport width.
+  */
+function switchSidebar(){
+	var vWidth = window.innerWidth;
+	var animTiming = 0;
+	
+	if(vWidth <= 800){
+		if(!$('body').hasClass('collapsed')){
+			
+			// Add Class to body Tag
+			$('body').addClass('collapsed');
+			
+			// Expand/Collapse Handle
+			$('.mobilehandle').animate({ left: '50%', marginLeft: '-15px' }, animTiming);
+			
+			// Sidebar
+			$('.sidebarnavigation').animate({ width: '75px' }, animTiming);
+			$('.navsidebar').animate({ paddingLeft: '0', paddingRight: '0' }, animTiming);
+			$('.navsidebar ul.prinavlist li img').animate({ paddingLeft: '7px' }, animTiming);
+			
+			// Content Region
+			$('.contentregionwrapper').animate({ paddingLeft: '75px' }, animTiming);
+			
+			// Add Caret to Each Nav Item
+			setTimeout(function(){
+				$('li.navitem a').append('<i class="fa fa-caret-right sidebarcarets"></i>');
+			}, 150);
+			
+		}
+	} else {
+		if($('body').hasClass('collapsed')){
+			
+			// Remove Class from body Tag
+			$('body').removeClass('collapsed');
+			
+			// Expand/Collapse Handle
+			$('.mobilehandle').animate({ left: '85%', marginLeft: '0' }, animTiming);
+			
+			// Sidebar
+			$('.sidebarnavigation').animate({ width: '225px' }, animTiming);
+			$('.navsidebar').animate({ paddingLeft: '15px', paddingRight: '15px' }, animTiming);
+			$('.navsidebar ul.prinavlist li img').animate({ paddingLeft: '0' }, animTiming);
+			
+			// Content Region
+			$('.contentregionwrapper').animate({ paddingLeft: '225px' }, animTiming);
+			
+			// Remove Caret from Each Nav Item
+			$('li.navitem i.sidebarcarets').remove();
+			
+		}
+	}
+}
+
+
+/**
   * To Capital Case
   */
 function toCapitalCase(str){
@@ -278,6 +348,22 @@ function mobilePriNav(appendSelector,itemClone,appendCloneTo,mobileNavClassSel,f
 		//console.log(usernameValue);
 		$('div.' + mobileNavClassSel).append('<div class="mobileheaderusername">' + usernameValue + '</div>');
 	}
+}
+
+
+/**
+  * Get URL Query Strings
+  * Description: Function used to grab all query string vars
+  */
+function getUrlVars(){
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
 }
 
 

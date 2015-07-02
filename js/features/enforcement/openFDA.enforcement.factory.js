@@ -32,8 +32,8 @@
             var color = '#A6A6A6';
 
             angular.forEach(results, function(result) {
-               //chartData.push({ x: result.term, Ongoing: result.count });
 
+               //create the color gradient
                switch (true)
                {
                   case result.count <= 7:
@@ -77,17 +77,41 @@
                      break;
                }
 
+               var city = result.term;
+               var count = result.count;
+
                chartData.push({
-                  key: result.term,
-                  keyID: result.term,
+                  key: city,
+                  keyID: city,
                   label1: 'Ongoing', 
-                  value1: result.count, 
+                  value1: count, 
                   color1: color
                });
             });
 
             chartData = chartData.slice(0, 10); //slice to top 10
+/*
+            //loop through to add state to cities
+            angular.forEach(chartData, function(chartItem){
+               //query the resulting city to get the state
+               enforcementData.getEnforcementData(type, 'city:"' + chartItem.key + '"', 1).then(function(data){
+                  var cityData = data.results;
+                  var label = chartItem.key;
 
+                  if(cityData.length > 0)
+                  {
+                     var state = ', ' + cityData[0].state;
+                     if(state == null)
+                     {
+                        state = '';
+                     }
+
+                     label += state;
+                  }
+                  chartItem.key = label;
+               });
+            });
+*/
             deferred.resolve(chartData);
          });
          
@@ -118,6 +142,33 @@
       self.getAllEnforcementData = function(type, query){
         return enforcementData.getEnforcementData(type, query, '100'); 
       }
+
+      self.getFiveLatestRecalls = function(){
+         var deferred = $q.defer();
+
+         var typeQueries = [];
+         var allTypeData = [];
+         var queryLimit = '100';
+
+         //Query all types
+         typeQueries.push(enforcementData.getEnforcementData('food','country:"US"',queryLimit));
+         typeQueries.push(enforcementData.getEnforcementData('drug','country:"US"',queryLimit));
+         typeQueries.push(enforcementData.getEnforcementData('device','country:"US"',queryLimit));
+
+         //Aggregate the types
+         $q.all(typeQueries).then(function(typesData){
+            
+            allTypeData = typesData[0].results.concat(typesData[1].results, typesData[2].results);
+            allTypeData = _.sortBy(allTypeData, function(recall){ return recall.recall_initiation_date });
+            allTypeData = _.last(allTypeData, 5);
+            allTypeData.reverse();
+
+            deferred.resolve(allTypeData);
+         });
+
+         return deferred.promise;
+      }
+
 
       //map the acronym to the id
       function acronymToID(acronym) {
