@@ -121,7 +121,7 @@ include_once 'inc/header.php';
 																<span class="legendnumber">0</span>
 																<span class="pull-right legendnumber">100</span>
 															</div>
-															<div class="css3gradient legendbar legendgradient"></div>
+															<div class="css3gradient legendbar"></div>
 														</mv-body>
 														
 														<div class="clear"></div>
