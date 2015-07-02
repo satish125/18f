@@ -7,10 +7,10 @@
 	<table class="recalltable">
 		<thead>
 			<tr>
-				<td>Location</td>
-				<td>Recalling Firm</td>
-            <td>Type</td>
-				<td>Date</td>
+				<th>Location</th>
+				<th>Recalling Firm</th>
+				<th>Type</th>
+				<th>Date</th>
 			</tr>
 		</thead>
 		<tbody>
