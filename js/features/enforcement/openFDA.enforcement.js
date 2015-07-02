@@ -140,7 +140,9 @@
 
                //Add the Table Tools export function
                var tt = new $.fn.dataTable.TableTools( myTable, {
-                    sRowSelect: 'single'
+                    sRowSelect: 'single',
+                    sSwfPath: "swf/copy_csv_xls.swf",
+                    aButtons: [ "csv", "xls" ]
                } );
              
                $( tt.fnContainer() ).insertBefore('div.datagridcol');  
