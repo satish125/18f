@@ -90,7 +90,8 @@
             });
 
             chartData = chartData.slice(0, 10); //slice to top 10
-
+/*
+            //loop through to add state to cities
             angular.forEach(chartData, function(chartItem){
                //query the resulting city to get the state
                enforcementData.getEnforcementData(type, 'city:"' + chartItem.key + '"', 1).then(function(data){
@@ -110,7 +111,7 @@
                   chartItem.key = label;
                });
             });
-
+*/
             deferred.resolve(chartData);
          });
          
