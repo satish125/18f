@@ -665,8 +665,8 @@ div.contentregionwrapper {
 	}
 	.dataregion_top {
 		position: relative;
-		padding: 15px 15px 0;
-		height: 95px;
+		padding: 5px 15px 0;
+		height: 135px;
 		overflow: hidden;
 		border-bottom: 1px solid #dce1e6;
 		background-color: #f1f1f1;
@@ -724,6 +724,21 @@ div.contentregionwrapper {
 /* ******************************************************** */
 .top5info {}
 	
+	/* Recall Header */
+	div.recallheader  {
+		margin: 0 0 20px;
+		width: 100%;
+		height: 40px;
+		color: #c9c8c8;
+		font-size: 1.25em;
+		line-height: 2.0em;
+		text-align: center;
+		text-transform: uppercase;
+		background-color: #fff;
+		
+		.borderradius(4px);
+		}
+	
 	/* Latest Recalls Table */
 	table.recalltable {
 		width: 100%;
@@ -755,7 +770,25 @@ div.contentregionwrapper {
 /* Twitter Feed ******************************************* */
 /* ******************************************************** */
 .twitterfeed {}
+	
+	/* Twitter Header */
+	div.twitterheader  {
+		margin: 0 0 20px;
+		width: 100%;
+		height: 40px;
+		color: #c9c8c8;
+		font-size: 1.25em;
+		line-height: 2.0em;
+		text-align: center;
+		text-transform: uppercase;
+		background-color: #fff;
+		
+		.borderradius(4px);
+		}
+	
+	.twitter-timeline {}
 	iframe.twitter-timeline {
+		width: 100% !important;
 		height: 400px;
 		}
 
@@ -1146,8 +1179,10 @@ div.noticepopup {
 /* IX. Data Grids ************************************************************************************ */
 /* *************************************************************************************************** */
 div.dataTables_wrapper {
+	/*
 	position: relative;
 	padding: 50px 0 0;
+	*/
 	}
 
 /* Table Styling */
@@ -1169,7 +1204,9 @@ table.datagrid {
 				}
 				th {
 					position: relative;
+					/*
 					background-color: #eaeaea;
+					*/
 					
 					.userselect(none);
 					
@@ -1186,7 +1223,7 @@ table.datagrid {
 				}
 				td {
 					line-height: 1.25em;
-					border-bottom: 1px solid #eaeaea;
+					/*border-bottom: 1px solid #eaeaea;*/
 					}
 }
 
@@ -1347,6 +1384,50 @@ div.dataTables_paginate {
 			.borderradius(3px);
 			}
 
+}
+
+
+
+/* ******************************************************** */
+/* Media Queries ****************************************** */
+/* ******************************************************** */
+
+/*1100px*/
+@media screen and (min-width: 0) and (max-width: 1100px){
+	
+	/* Status */
+	div.dataTables_info,
+	
+	/* Pagination */
+	div.dataTables_paginate {
+		float: none !important;
+		}
+}
+
+/*925px*/
+@media screen and (min-width: 0) and (max-width: 925px){
+	
+	/* Pagination */
+	div.dataTables_paginate {
+		
+		a,
+		span.ellipsis {
+			padding: 0 10px;
+			}
+	}
+}
+
+/*580px*/
+@media screen and (min-width: 0) and (max-width: 580px){
+	
+	/* Pagination */
+	div.dataTables_paginate {
+		
+		a,
+		span.ellipsis {
+			margin: 0 5px 5px 0;
+			}
+	}
 }
 
 

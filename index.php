@@ -137,7 +137,7 @@ include_once 'inc/header.php';
 												<?php /* Data Grid: Start */ ?>-->
 												<div class="row datagridmain">
 													<div class="col-md-12">
-														<table id="datagridinfo" class="datagrid dataTable">
+														<table id="datagridinfo" class="datagrid dataTable table-striped">
 															<thead>
 																<tr>
 																	<th>Recall Date</th>

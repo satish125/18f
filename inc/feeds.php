@@ -3,6 +3,7 @@
 
 <?php /* Top 5 Info: Start */ ?>
 <div class="col-sm-6 top5info">
+	<div class="recallheader">Recall Data</div>
 	
 	<table class="recalltable">
 		<thead>
@@ -29,8 +30,20 @@
 
 <?php /* Twitter: Start */ ?>
 <div class="col-sm-6 twitterfeed">
-	<a class="twitter-timeline" href="https://twitter.com/FDArecalls" data-widget-id="616626947565690880">Tweets by @FDArecalls</a>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	<div class="twitterheader">Twitter</div>
+	
+	<a class="twitter-timeline" href="https://twitter.com/FDArecalls" data-widget-id="616626947565690880" data-chrome="noheader nofooter noborders noscrollbar transparent" data-show-replies="false" data-tweet-limit="5" data-aria-polite="assertive">Twitter</a>
+	
+	<script>
+	!function(d,s,id){
+		var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+		if(!d.getElementById(id)){
+			js=d.createElement(s);
+			js.id=id;js.src=p+"://platform.twitter.com/widgets.js";
+			fjs.parentNode.insertBefore(js,fjs);
+		}
+	}(document,"script","twitter-wjs");
+	</script>
 	
 	<div class="clear"></div>
 </div>
