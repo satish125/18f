@@ -149,7 +149,7 @@
                top: 0,
                right: 35,
                bottom: 0,
-               left: 90
+               left: 35
             },
             type: 'map',
             colors: ['#2C82C0', '#4C89A7', '#6D918F', '#8D9976', '#AEA15E', '#CEA945', '#EFB12D', '#EA9D28', '#E58923', '#E0751E', '#DB6119', '#D64D14', '#D23A0F']

@@ -97,7 +97,7 @@ include_once 'inc/header.php';
 															<?php /* Class Selection Navigation: End */ ?>
 															
 															<mv-group mv-size="1x2"></mv-group>
-															<mv-any-num mv-size="1x2" mv-data="statusData" mv-style="{'font-size':'1.1em'}" mv-id="statusNumbers"></mv-any-num>
+															<mv-any-num mv-size="1x2" mv-data="statusData" mv-style="{'font-size':'1.3em'}" mv-id="statusNumbers"></mv-any-num>
 															
 															<!--
 															mv-id-box mv-size="1x3" mv-title="Classification Description" mv-body-id="infoBox">{{classInfo}}</mv-id-box>
