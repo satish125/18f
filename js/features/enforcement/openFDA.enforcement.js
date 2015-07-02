@@ -30,7 +30,7 @@
          return enforcementFactory.getAllEnforcementData($scope.type, 'classification:"' + classification + '"' + stateQueryString)
             .then(function(data){
                if(!$scope.pageState.isLoading){
-                  $scope.buildTable(data);
+                  buildTable(data);
                }
                return data;
             });
