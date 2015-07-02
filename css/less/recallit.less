@@ -12,15 +12,19 @@
 			  iii. Font Size
 		       iv. Text Transform
 			    v. Floats
-			   vi. Screen Reader-only
 		   IV. Template
-		    V. Sidebar Navigation
-		   VI. Main Content Body
-		  VII. Top Info and Feeds
-		 VIII. Forms
-		   IX. Data Grids
-		    X. Bootstrap Overrides
-		   XI. Homepage FDA Dashboard
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+			X. Forms
+		   XI. Data Grids
+		  XII. Bootstrap Overrides
+		 XIII. Homepage FDA Dashboard
 
    *************************************************************************************************** */
 
@@ -275,22 +279,6 @@ small, .small {
 
 
 
-/* ******************************************************** */
-/* vi. Screen Reader-only ********************************* */
-/* ******************************************************** */
-.sr-only {
-	position: absolute;
-	margin: -1px;
-	padding: 0;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border: 0;
-	}
-
-
-
 /* *************************************************************************************************** */
 /* IV. Template ************************************************************************************** */
 /* *************************************************************************************************** */
@@ -302,12 +290,8 @@ small, .small {
 		}
 
 		.wrapper {
-			padding-right: 0;
-			padding-left: 0;
 			height: 100%;
 			}
-			.wrapper.collapsed { background-color: #f00; }
-			
 			.wrapperouter {
 				margin: 0 auto;
 				width: 100%;
@@ -324,475 +308,309 @@ small, .small {
 					
 					/* NoScript */
 					.noscriptnotice {}
-
-
-
-/* *************************************************************************************************** */
-/* V. Sidebar Navigation ***************************************************************************** */
-/* *************************************************************************************************** */
-.sidebarnavigation {
-	position: relative;
-	z-index: 10;
-	float: left;
-	width: 225px;
-	height: 100%;
-	}
-	.sidebarnavigation.collapsed {
-		width: 65px;
-		overflow-x: hidden;
-		}
-	
-	.navsidebar {
-		
-		> .row {
-			margin-right: 0;
-			margin-left: 0;
-			}
-		
-		/* Handle */
-		div.mobilehandle {
-			position: absolute;
-			top: 15px;
-			left: 85%;
-			z-index: 10;
-			margin: 0;
-			width: 29px;
-			cursor: pointer;
-			
-			div.mobilehandlelbl {
-				padding: 0 0 4px;
-				color: #fff;
-				font-size: 0.60em;
-				text-align: center;
-				text-transform: uppercase;
-				
-				.transition(color 0.2s ease-in-out);
-				}
-			div.mobilehandler_inner {
-			
-				span {
-					margin: 2px 0 0;
-					display: block;
-					width: 100%;
-					height: 4px;
-					background-color: #fff;
 					
-					.borderradius(3px);
-					.transition(background-color 0.2s ease-in-out);
-					
-					&:first-child {
-						margin-top: 0;
-						}
-				}
-			}
-			
-			&:hover div.mobilehandlelbl  {
-				color: #777;
-				}
-			&:hover div.mobilehandler_inner span  {
-				background-color: #777;
-				}
-		}
-		
-		/* Primary Navigation List*/
-		ul.prinavlist {
-			margin: 0;
-			padding: 235px 0 0;
-			display: block;
-			width: 100%;
-			
-			li {
-				position: relative;
-				display: block;
-				width: 100%;
-				text-transform: uppercase;
-				/* overflow: hidden; */
-				
-				&.navitem  {}
-				
-				a {
-					position: relative;
-					padding: 0;
-					display: block;
-					width: 100%;
-					color: #777;
-					font-size: 0.90em;
-					cursor: pointer;
-					
-					.transition(color 0.2s ease-in-out);
-					.userselect(none);
-					
-					img {
+					/* Sidebar Navigation */
+					.sidebarnavigation {
 						position: relative;
 						z-index: 10;
-						padding: 15px 0;
-						display: block;
 						float: left;
-						opacity: 0.50;
+						width: 225px;
+						height: 100%;
+						}
+						.sidebarnavigation.collapsed {
+							width: 65px;
+							overflow-x: hidden;
+							}
 						
-						.transition(opacity 0.2s ease-in-out);
-						}
-					span {
-						position: absolute;
-						top: 0;
-						left: 0;
-						margin: 15px 0;
-						padding-left: 45px;
-						display: block;
-						width: 150px;
-						height: 30px;
-						line-height: 2.05em;
-						}
-					
-					i.sidebarcarets {
-						position: absolute;
-						top: 22px;
-						right: -7px;
-						color: #555;
-						}
-				}
-				
-				&:hover a {
-					color: #fff;
-					text-decoration: none;
-					
-					img {
-						opacity: 1.00;
-						}
-				}
-				&.active a {
-					color: #fff;
-					
-					img {
-						opacity: 1.00;
-						}
-				}
-			}
-		}
-	
-	}
-	
-	/* Collapsed */
-	body.collapsed ul.prinavlist li.navitem span {
-		margin: 0;
-		padding: 15px 0 15px 75px;
-		display: none;
-		height: 60px;
-		background-color: #2e3236;
-		
-		.borderradius(0 4px 4px 0);
-		}
-		body.collapsed ul.prinavlist li.navitem:hover span {
-			display: block;
-			}
-
-
-
-/* *************************************************************************************************** */
-/* VI. Main Content Body ***************************************************************************** */
-/* *************************************************************************************************** */
-
-/* Content Region Wrapper */
-div.contentregionwrapper {
-	padding-left: 225px;
-	width: 100%;
-	height: 100%;
-	background-color: #2e3236;
-	}
-	div.contentregionwrapper_inner {
-		position: relative;
-		border-left: 1px solid #d3d3d3;
-		background-color: #fff;
-		}
-
-	/* Main Content Body Header */
-	.headerregion {
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 100%;
-		}
-		.headerlogo {
-			position: relative;
-			
-			a {
-				
-				&.logo {
-					position: absolute;
-					top: 8px;
-					right: 35px;
-					z-index: 5;
-					}
-			}
-			
-			h5 {
-				padding: 35px 211px 0 0;
-				color: #ababab;
-				font-size: 0.80em;
-				font-style: italic;
-				font-weight: 300;
-				text-align: right;
-				text-transform: uppercase;
-				}
-		}
-
-	/* Content Block */
-	.contentregion {
-		padding-top: 90px;
-		}
-		.contentmain {}
-			
-			/* Main Info Region */
-			.maininforegion {
-				padding: 0 0 45px;
-				}
-				.dataregion_main {
-					
-					h1 {
-						
-						}
-					
-					&.pagecopy {
-						h1 {
-							padding: 10px 0 20px;
-							font-size: 1.95em;
-							line-height: 1.30em;
-							}
-						h2 {
-							padding: 5px 0 10px;
-							font-size: 1.75em;
-							line-height: 1.35em;
-							}
-						h3 {
-							padding: 5px 0;
-							font-size: 1.55em;
-							line-height: 1.35em;
-							}
-						h4 {}
-						h5 {}
-						h6 {}
-						p {
-							padding: 7px 0;
-							color: #393939;
-							font-size: 1.05em;
-							line-height: 1.35em;
-							}
-						ol {}
-						ul {
-							padding: 10px 10px 10px 20px;
-							list-style-type: disc;
+						.navsidebar {
 							
-							ul {
-								list-style-type: oval;
+							> .row {
+								margin-right: 0;
+								margin-left: 0;
+								}
+							
+							/* Handle */
+							div.mobilehandle {
+								position: absolute;
+								top: 15px;
+								right: 0;
+								z-index: 10;
+								width: 29px;
+								cursor: pointer;
 								
-								ul {
-									list-style-type: square;
+								div.mobilehandlelbl {
+									padding: 0 0 4px;
+									color: #fff;
+									font-size: 0.60em;
+									text-align: center;
+									text-transform: uppercase;
+									
+									.transition(color 0.2s ease-in-out);
+									}
+								div.mobilehandler_inner {
+								
+									span {
+										margin: 2px 0 0;
+										display: block;
+										width: 100%;
+										height: 4px;
+										background-color: #fff;
+										
+										.borderradius(3px);
+										.transition(background-color 0.2s ease-in-out);
+										
+										&:first-child {
+											margin-top: 0;
+											}
+									}
+								}
+								
+								&:hover div.mobilehandlelbl  {
+									color: #777;
+									}
+								&:hover div.mobilehandler_inner span  {
+									background-color: #777;
 									}
 							}
-						}
 							
-							li {
-								padding: 2px 0;
-								color: #393939;
-								font-size: 1.05em;
-								line-height: 1.35em;
-								}
-					}
-				}
-				
-				/* Class Navigation */
-				.classnavregion {}
-					.classelection {}
-						ul.classselectlist {
-							li {
-								margin-right: 18px;
+							/* Primary Navigation List*/
+							ul.prinavlist {
+								margin: 0;
+								padding: 235px 0 0;
 								display: block;
-								float: left;
+								width: 100%;
 								
-								&.classitem {}
+								li {
+									display: block;
+									width: 100%;
+									text-transform: uppercase;
+									overflow: hidden;
+									
+									&.navitem  {}
+									
+									a {
+										padding: 20px 0;
+										display: block;
+										color: #777;
+										font-size: 0.90em;
+										cursor: pointer;
+										
+										.transition(color 0.2s ease-in-out);
+										
+										img {
+											display: block;
+											float: left;
+											opacity: 0.50;
+											
+											.transition(opacity 0.2s ease-in-out);
+											}
+										span {
+											padding: 7px 0 0 15px;
+											display: block;
+											float: left;
+											}
+									}
+									
+									&:hover a {
+										color: #fff;
+										text-decoration: none;
+										
+										img {
+											opacity: 1.00;
+											}
+									}
+									&.active a {
+										color: #fff;
+										
+										img {
+											opacity: 1.00;
+											}
+									}
+								}
+							}
+						
+						}
+					
+					div.contentregionwrapper {
+						padding-left: 225px;
+						float: left:
+						width: 100%;
+						height: 100%;
+						background-color: #2e3236;
+						}
+						div.contentregionwrapper_inner {
+							position: relative;
+							border-left: 1px solid #d3d3d3;
+							background-color: #fff;
+							}
+					
+						/* Main Content Body Header */
+						.headerregion {
+							position: absolute;
+							top: 0;
+							right: 0;
+							width: 100%;
+							}
+							.headerlogo {
 								
 								a {
-									color: #2e3236;
-									background-color: #ababab;
 									
-									.transition(color 0.2s ease-in-out,background-color 0.2s ease-in-out);
-									}
+									&.logo {
+										position: absolute;
+										top: 8px;
+										right: 35px;
+										z-index: 5;
+										}
+								}
 								
-								&:hover a,
-								&.active a {
-									color: #fff;
-									background-color: #2e3236;
+								h5 {
+									padding: 35px 211px 0 0;
+									color: #ababab;
+									font-size: 0.80em;
+									font-style: italic;
+									font-weight: 300;
+									text-align: right;
+									text-transform: uppercase;
 									}
 							}
-						}
+						
+						/* Main Content Body Data Region */
+						.contentregion {
+							padding-top: 90px;
+							}
+							.contentmain {}
+								
+								/* Top Info */
+								.topinforegion {}
+									.dataregion_top {}
+										
+										/* Top 5 Info */
+										.top5info {}
+										
+										/* Twitter Feed */
+										.twitterfeed {}
+								
+								/* Main Info Region */
+								.maininforegion {
+									padding: 0 0 45px;
+									}
+									.dataregion_main {
+										
+										h1 {
+											
+											}
+										
+										&.pagecopy {
+											h1 {
+												
+												}
+											h2 {
+												padding: 5px 0 10px;
+												font-size: 1.75em;
+												line-height: 1.35em;
+												}
+											h3 {
+												padding: 5px 0;
+												font-size: 1.55em;
+												line-height: 1.35em;
+												}
+											h4 {}
+											h5 {}
+											h6 {}
+											p {
+												padding: 7px 0;
+												color: #393939;
+												font-size: 1.05em;
+												line-height: 1.35em;
+												}
+											ol {}
+											ul {
+												padding: 10px 10px 10px 20px;
+												list-style-type: disc;
+												
+												ul {
+													list-style-type: oval;
+													
+													ul {
+														list-style-type: square;
+														}
+												}
+											}
+												
+												li {
+													padding: 7px 0;
+													color: #393939;
+													font-size: 1.05em;
+													line-height: 1.35em;
+													}
+										}
+									}
+									
+									/* Class Navigation */
+									.classnavregion {}
+										.classelection {}
+											ul.classselectlist {
+												li {
+													margin-right: 18px;
+													display: block;
+													float: left;
+													
+													&.classitem {}
+													
+													a {
+														color: #2e3236;
+														background-color: #ababab;
+														
+														.transition(color 0.2s ease-in-out,background-color 0.2s ease-in-out);
+														}
+													
+													&:hover a,
+													&.active a {
+														color: #fff;
+														background-color: #2e3236;
+														}
+												}
+											}
 
 
 
-/* ******************************************************** */
-/* Media Queries ****************************************** */
-/* ******************************************************** */
-
-/*750px*/
-@media screen and (min-width: 0) and (max-width: 750px){
-	
-	/* Header Logo and Text */
-	.headerlogo {
-		a.logo {
-			right: auto;
-			left: 50%;
-			margin-left: -78px;
-			}
-		h5 {
-			padding-top: 90px;
-			padding-right: 0;
-			text-align: center;
-			}
-	}
-	
-	.contentregion {
-		padding-top: 130px;
-		}
-}
 
 
 
-/* *************************************************************************************************** */
-/* VII. Top Info and Feeds *************************************************************************** */
-/* *************************************************************************************************** */
-.topinforegion {
-	position: relative;
-	margin: 0 0 15px;
-	}
-	.dataregion_top {
-		position: relative;
-		padding: 15px 15px 0;
-		height: 105px;
-		overflow: hidden;
-		border-bottom: 1px solid #dce1e6;
-		background-color: #f1f1f1;
-		
-		.borderradius(4px 4px 0 0);
-		
-		&.expanded {
-			
-			}
-		
-		h2 {
-			padding: 25px 0;
-			color: #2e3236;
-			font-size: 1.35em;
-			font-weight: 600;
-			text-align:  center;
-			text-transform: uppercase;
-			}
-	}
 
 
 
-/* ******************************************************** */
-/* Expand/Collapse Handle ********************************* */
-/* ******************************************************** */
-.expandhandle {
-	position: absolute;
-	bottom: -20px;
-	left: 0;
-	z-index: 15;
-	width: 100%;
-	font-size: 0.90em;
-	cursor: pointer;
-	
-	.expandhandlelbl {
-		text-align: center;
-		}
-	.expandhandlearrow:after {
-		display: block;
-		font-family: 'FontAwesome';
-		text-align: center;
-		content: '\f0d7';
-		}
-}
-	.topinforegion.expanded .expandhandle {
-		.expandhandlearrow:after {
-			content: '\f0d8';
-			}
-	}
 
 
 
-/* ******************************************************** */
-/* Top 5 Info ********************************************* */
-/* ******************************************************** */
-.top5info {}
-	
-	/* Latest Recalls Table */
-	table.recalltable {
-		width: 100%;
-		border-collapse: collapse;
-		border: 0 none;
-	
-		thead {}
-		tbody {}
-			
-			tr {
-				border: 0 none;
-				
-				th,
-				td {
-					padding: 10px 8px;
-					font-size: 0.95em;
-					border-bottom: 1px solid #e5e5e5;
-					}
-					
-				&:nth-child(2n+1) td {
-					background-color: #f7f7f7;
-					}
-			}
-	}
 
 
 
-/* ******************************************************** */
-/* Twitter Feed ******************************************* */
-/* ******************************************************** */
-.twitterfeed {}
 
 
-
-/* ******************************************************** */
-/* Media Queries ****************************************** */
-/* ******************************************************** */
-
-/*850px*/
-@media screen and (min-width: 0) and (max-width: 850px){
-	.top5info,
-	.twitterfeed {
-		float: none;
-		width: 100%;
-		}
-}
 
 
 
 /* *************************************************************************************************** */
-/* VIII. Forms *************************************************************************************** */
+/* X. Forms ****************************************************************************************** */
 /* *************************************************************************************************** */
+
 
 /* ******************************************************** */
 /* i. General Form Styling ******************************** */
 /* ******************************************************** */
 
 /* Form */
-div.loginform {}
-	div.loginform_inner {}
-		div.loginform_inner form {}
+div.formholder {}
+	div.formholder_inner {}
+		div.formholder_inner form {}
 			
 			/* Notice */
-			p.bg-danger.notice {
+			div.notice {
 				margin: 0 0 15px;
 				}
-				span.notice_inner {
+				div.notice_inner {
 					padding: 10px 15px;
-					display: block;
 					color: #fff;
 					font-size: 0.90em;
 					line-height: 1.05em;
@@ -802,10 +620,10 @@ div.loginform {}
 					}
 					
 					/* Error */
-					div.notice.error span.notice_inner 		{ background-color: #c10000; }
+					div.notice.error div.notice_inner 		{ background-color: #c10000; }
 					
 					/* Warning */
-					div.notice.warning span.notice_inner 	{ background-color: #e2be3f; }
+					div.notice.warning div.notice_inner 	{ background-color: #e2be3f; }
 			
 			/* Required */
 			span.req {
@@ -822,21 +640,98 @@ div.loginform {}
 					overflow: hidden;
 					}
 			
+			/* Form Title */
+			div.formholder_inner h3.formtitle {
+				margin: 0 0 15px;
+				padding: 15px 0;
+				font-size: 1.85em;
+				border-bottom: 1px solid #e0e0e0;
+				}
+			
+			/* Form Section Subtext */
+			div.formholder_inner div.formsectioninfo {
+				padding: 0 0 15px;
+				font-size: 0.80em;
+				}
+			
 			/* Form Row */
-			div.loginform_inner div.form-group {
+			div.formholder_inner div.formrow {
 				padding: 5px 0 15px;
 				}
-				div.loginform_inner div.form-group label {
+				div.formholder_inner div.formrow label {
 					padding: 0 0 8px;
 					display: block;
 					font-size: 0.95em;
 					cursor: pointer;
 					}
-				div.loginform_inner div.form-group div.formfld {}
+					
+					/* Secondary Field */
+					div.formholder_inner div.fieldsec label {
+						padding-top: 15px;
+						}
+				div.formholder_inner div.formrow div.formfld {}
+					
+					/* Row Columns (default is single column, which requires no class) */
+					div.formrow div.formcol {}
+						
+						div.formrow.twocol,
+						div.formrow.threecol,
+						div.formrow.fourcol {
+							margin: 0 -10px;
+							}
+							div.formrow.twocol {}
+							div.formrow.threecol {}
+							div.formrow.fourcol {}
+							
+							/* Two Column */
+							div.formrow.twocol div.formcol.colleft {
+								padding: 0 5px 0 10px;
+								float: left;
+								width: 50%;
+								}
+							div.formrow.twocol div.formcol.colright {
+								padding: 0 10px 0 5px;
+								float: right;
+								width: 50%;
+								}
+							
+							/* Three Column */
+							div.formrow.threecol div.formcol.colleft {
+								padding: 0 5px 0 10px;
+								float: left;
+								width: 33.3%;
+								}
+							div.formrow.threecol div.formcol.colcenter {
+								padding: 0 5px;
+								float: left;
+								width: 33.3%;
+								}
+							div.formrow.threecol div.formcol.colright {
+								padding: 0 10px 0 5px;
+								float: right;
+								width: 33.3%;
+								}
+							
+							/* Four Column */
+							div.formrow.fourcol div.formcol.colleft {
+								padding: 0 5px 0 10px;
+								float: left;
+								width: 25%;
+								}
+							div.formrow.fourcol div.formcol.colcenter {
+								padding: 0 5px;
+								float: left;
+								width: 25%;
+								}
+							div.formrow.fourcol div.formcol.colright {
+								padding: 0 10px 0 5px;
+								float: right;
+								width: 25%;
+								}
 					
 					/* Fields */
-					div.loginform input.text,
-					div.loginform select.select {
+					div.formholder input.text,
+					div.formholder select.select {
 						margin: 0;
 						padding: 5px 10px;
 						width: 100%;
@@ -850,58 +745,58 @@ div.loginform {}
 						}
 						
 						/* Read Only */
-						div.loginform input.text.readonly,
-						div.loginform select.select.readonly {
+						div.formholder input.text.readonly,
+						div.formholder select.select.readonly {
 							background-color: #ffebcd;
 							}
 						
 						/* Hover */
-						div.loginform input.text:hover,
-						div.loginform select.select:hover {
+						div.formholder input.text:hover,
+						div.formholder select.select:hover {
 							border-color: #cbcbcb;
 							}
 						
 						/* Focus */
-						div.loginform input.text:focus,
-						div.loginform select.select:focus {
+						div.formholder input.text:focus,
+						div.formholder select.select:focus {
 							border-color: #777;
 							
 							.boxshadow(0 0 3px rgba(0, 0, 0, 0.15) inset);
 							}
 						
 						/* Placeholder Text */
-					div.loginform input.text::-webkit-input-placeholder,
-					div.loginform select.select::-webkit-input-placeholder {
+					div.formholder input.text::-webkit-input-placeholder,
+					div.formholder select.select::-webkit-input-placeholder {
 						color: #999;
 						font-family: 'Georgia', 'Times New Roman', Serif;
 						}
 					
-					div.loginform input.text:-moz-placeholder,
-					div.loginform select.select:-moz-placeholder {
+					div.formholder input.text:-moz-placeholder,
+					div.formholder select.select:-moz-placeholder {
 						color: #999;
 						font-family: 'Georgia', 'Times New Roman', Serif;
 						}
 					
-					div.loginform input.text::-moz-placeholder,
-					div.loginform select.select::-moz-placeholder {
+					div.formholder input.text::-moz-placeholder,
+					div.formholder select.select::-moz-placeholder {
 						color: #999;
 						font-family: 'Georgia', 'Times New Roman', Serif;
 						}
 					
-					div.loginform input.text:-ms-input-placeholder,
-					div.loginform select.select:-ms-input-placeholder {
+					div.formholder input.text:-ms-input-placeholder,
+					div.formholder select.select:-ms-input-placeholder {
 						color: #999;
 						font-family: 'Georgia', 'Times New Roman', Serif;
 						line-height: 30px;
 						}
 
 			/* Button Row */
-			div.form-group.buttonrow {
+			div.formrow.buttonrow {
 				position: relative;
 				}
 			
 			/* Field Errors */
-			div.loginform input.text.error {
+			div.formholder input.text.error {
 				border-color: #ed0000;
 				background-color: #ffd9d9;
 				
@@ -946,7 +841,6 @@ div.formfld.icon {
 		background: linear-gradient(top, #f0f0f0 0%, #fafafa 100%);
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#fafafa',GradientType=1);
 		
-		.borderradius(0 4px 4px 0);
 		.transition(border-color 0.2s ease-in-out);
 		}
 		
@@ -965,7 +859,7 @@ div.formfld.icon {
 			.icon.password div.fldicon:after 	{ content: '\f023'; }
 		
 		/* Field Error */
-		div.icon.error {
+		div.fldicon.error {
 			border-color: #ed0000 !important;
 			}
 
@@ -974,6 +868,8 @@ div.formfld.icon {
 /* ******************************************************** */
 /* iii. General Button Styling **************************** */
 /* ******************************************************** */
+
+/* Button Styling */
 .button {
 	position: relative;
 	z-index: 1;
@@ -1123,8 +1019,9 @@ div.noticepopup {
 
 
 /* *************************************************************************************************** */
-/* IX. Data Grids ************************************************************************************ */
+/* XI. Data Grids ************************************************************************************ */
 /* *************************************************************************************************** */
+
 div.dataTables_wrapper {
 	position: relative;
 	padding: 50px 0 0;
@@ -1332,7 +1229,7 @@ div.dataTables_paginate {
 
 
 /* *************************************************************************************************** */
-/* X. Homepage FDA Dashboard ************************************************************************* */
+/* XIII. Homepage FDA Dashboard ********************************************************************** */
 /* *************************************************************************************************** */
 div.dashboardmain {
 	padding: 0 0 25px;
@@ -1377,8 +1274,8 @@ div.dashboardmain {
   	float: left;
   	margin-top: 0.9em;
   	margin-left: 0.9em;
-  	height: 2em;
-  	width: 43em;
+  	height: 1em;
+  	width: 40.5em;
 }
 .legendgradient {
 	margin-top: 0em;
