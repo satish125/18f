@@ -32,8 +32,8 @@
             var color = '#A6A6A6';
 
             angular.forEach(results, function(result) {
-               //chartData.push({ x: result.term, Ongoing: result.count });
 
+               //create the color gradient
                switch (true)
                {
                   case result.count <= 7:
@@ -77,16 +77,35 @@
                      break;
                }
 
+               var city = result.term;
+               var count = result.count;
+
+
+
                chartData.push({
-                  key: result.term,
-                  keyID: result.term,
+                  key: city,
+                  keyID: city,
                   label1: 'Ongoing', 
-                  value1: result.count, 
+                  value1: count, 
                   color1: color
                });
             });
 
             chartData = chartData.slice(0, 10); //slice to top 10
+
+            angular.forEach(chartData, function(chartItem){
+               //query the resulting city to get the state
+               enforcementData.getEnforcementData(type, 'city:"' + chartItem.key + '"', 1).then(function(data){
+                  var cityData = data.results;
+                  var label = chartItem.key;
+
+                  if(cityData.length > 0)
+                  {
+                     label += ', ' + cityData[0].state;
+                  }
+                  chartItem.key = label;
+               });
+            });
 
             deferred.resolve(chartData);
          });
