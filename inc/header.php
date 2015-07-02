@@ -97,25 +97,28 @@
 										<?php if (basename($_SERVER['PHP_SELF'], '.php') == 'index' ) : ?>
 										<?php /* Show Food, Drugs, Devices on only Homepage */ ?>
 										<li class="navitem navfdd navfoods active">
-											<a href="#" ng-click="selectType('food')" title="View Food Information">
+											<a href="#" ng-click="selectType('food')" title="View Food Information" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '2' : ''); ?>">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_fork_lg.png" alt="Open FDA Foods" />
 												<span>Foods</span>
+												<span class="sr-only">View food data</span>
 											</a>
 											
 											<div class="clear"></div>
 										</li>
 										<li class="navitem navfdd navdrugs">
-											<a href="#" ng-click="selectType('drug')" title="View Drug Information">
+											<a href="#" ng-click="selectType('drug')" title="View Drug Information" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '3' : ''); ?>">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_pill_lg.png" alt="Open FDA Drugs" />
 												<span>Drugs</span>
+												<span class="sr-only">View drug data</span>
 											</a>
 											
 											<div class="clear"></div>
 										</li>
 										<li class="navitem navfdd navdevices">
-											<a href="#" ng-click="selectType('device')" title="View Device Information">
+											<a href="#" ng-click="selectType('device')" title="View Device Information" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '4' : ''); ?>">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_device_lg.png" alt="Open FDA Devices" />
 												<span>Devices</span>
+												<span class="sr-only">View device data</span>
 											</a>
 											
 											<div class="clear"></div>
@@ -123,9 +126,10 @@
 										<?php endif; ?>
 										
 										<li class="navitem navabout<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'about' ) ? ' active' : ''); ?>">
-											<a href="<?php echo BASE_URL; ?>about" title="View About Page">
+											<a href="<?php echo BASE_URL; ?>about" title="View About Page" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '5' : '2'); ?>">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_lexicon_lg.png" alt="About Open FDA" />
 												<span>About</span>
+												<span class="sr-only">Navigation to about page</span>
 											</a>
 											
 											<div class="clear"></div>
@@ -134,16 +138,18 @@
 											
 											<?php if (login_check($mysqli) == true) : ?>
 											
-											<a href="<?php echo BASE_URL; ?>inc/logout" class="logout" title="Log out">
+											<a href="<?php echo BASE_URL; ?>inc/logout" class="logout" title="Log out" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '6' : '3'); ?>">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_login_lg.png" alt="Open FDA Log Out" />
 												<span>Log Out</span>
+												<span class="sr-only">Log out of application</span>
 											</a>
 											
 											<?php else : ?>
 											
-											<a href="<?php echo BASE_URL; ?>login" class="login" title="Log In">
+											<a href="<?php echo BASE_URL; ?>login" class="login" title="Log In" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '6' : '3'); ?>">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_login_lg.png" alt="Open FDA Login" />
 												<span>Log In</span>
+												<span class="sr-only">Log in to application</span>
 											</a>
 											
 											<?php endif; ?>
@@ -176,8 +182,9 @@
 									<div class="col-sm-12">
 										
 										<?php /* Logo: Start */ ?>
-										<a class="logo" href="<?php echo BASE_URL; ?>" title="RECALL.IT Logo">
+										<a class="logo" href="<?php echo BASE_URL; ?>" title="RECALL.IT Logo" tabindex="1">
 											<img src="<?php echo BASE_URL; ?>images/logo_recallit.png" alt="RECALL.IT" />
+											<span class="sr-only">Recall.it Logo</span>
 										</a>
 										<?php /* Logo: End */ ?>
 										

@@ -48,17 +48,17 @@ include_once 'inc/header.php';
 											<div class="form-group">
 												<label for="email" class="control-label hploginlbl">Email Address</label>
 												<div class="formfld icon email">
-													<input type="text" name="email" id="email" class="form-control text" value="" placeholder="Email Address" />
+													<input type="text" name="email" id="email" class="form-control text" value="" placeholder="Email Address" tabindex="4" />
 												</div>
 											</div>
 											<div class="form-group">
 												<label for="Password" class="control-label hploginlbl">Password</label>
 												<div class="formfld icon password">
-													<input type="password" name="password" id="Password" class="form-control text password" value="" placeholder="Enter your password" />
+													<input type="password" name="password" id="Password" class="form-control text password" value="" placeholder="Enter your password" tabindex="5" />
 												</div>
 											</div>
 											
-											<button id="loginbutton" class="btn btn-primary button" onclick="formhash(this.form, this.form.password);">
+											<button id="loginbutton" class="btn btn-primary button" onclick="formhash(this.form, this.form.password);" tabindex="6">
 												<span>Log In</span>
 											</button>
 										</form>

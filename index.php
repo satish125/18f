@@ -62,18 +62,18 @@ include_once 'inc/header.php';
 																<div class="classelection">
 																	
 																	<ul class="classselectlist">
-																		<li class="classitem active">
-																			<a href="#" class="btn btn-default" ng-click="selectClass('Class I')">
+																		<li class="classitem class1 active">
+																			<a href="#" class="btn btn-default" ng-click="selectClass('Class I')" title="Class I Data Filter" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '7' : ''); ?>">
 																				Class I
 																			</a>
 																		</li>
-																		<li class="classitem">
-																			<a href="#" class="btn btn-default" ng-click="selectClass('Class II')">
+																		<li class="classitem class2">
+																			<a href="#" class="btn btn-default" ng-click="selectClass('Class II')" title="Class II Data Filter" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '8' : ''); ?>">
 																				Class II
 																			</a>
 																		</li>
-																		<li class="classitem">
-																			<a href="#" class="btn btn-default" ng-click="selectClass('Class III')">
+																		<li class="classitem class3">
+																			<a href="#" class="btn btn-default" ng-click="selectClass('Class III')" title="Class III Data Filter" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '9' : ''); ?>">
 																				Class III
 																			</a>
 																		</li>
@@ -133,13 +133,13 @@ include_once 'inc/header.php';
 															<thead>
 																<tr>
 																	<th>Recall Date</th>
-					                                    <th>City</th>
+																	<th>City</th>
 																	<th>State</th>
-					                                    <th>Recalling Firm</th>
-					                                    <th># of Products Recalled</th>
-					                                    <th>Status</th>
-					                                    <th>Product Description</th>
-					                                    <th>Reason for Recall</th>
+																	<th>Recalling Firm</th>
+																	<th># of Products Recalled</th>
+																	<th>Status</th>
+																	<th>Product Description</th>
+																	<th>Reason for Recall</th>
 																</tr>
 															</thead>
 														</table>
