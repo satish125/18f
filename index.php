@@ -58,45 +58,47 @@ include_once 'inc/header.php';
 										<div class="row">
 											<div class="col-sm-12">
 												
-												<!--tabset>
-												<tab heading="Dashboard"-->
-												
 												<?php /* Dashboard: Start */ ?>
 												<div class="row dashboardmain">
-													<div class="col-md-12">
-														<mv-body mv-cols="4">
-															<div class="titleLabel">{{titleLabel}}</div>
-															
-															<?php /* Class Selection Navigation: Start */ ?>
-															<div class="classnavregion" aria-labelledby="class-select-navigation" aria-controls="class-navigation">
-																<div class="classelection">
-																	
-																	<ul class="classselectlist">
-																		<li class="classitem class1 active">
-																			<a href="#" class="btn btn-default" ng-click="selectClass('Class I')" title="Class I Data Filter" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '7' : ''); ?>">
-																				Class I
-																			</a>
-																		</li>
-																		<li class="classitem class2">
-																			<a href="#" class="btn btn-default" ng-click="selectClass('Class II')" title="Class II Data Filter" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '8' : ''); ?>">
-																				Class II
-																			</a>
-																		</li>
-																		<li class="classitem class3">
-																			<a href="#" class="btn btn-default" ng-click="selectClass('Class III')" title="Class III Data Filter" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '9' : ''); ?>">
-																				Class III
-																			</a>
-																		</li>
-																	</ul>
-																	
-																	<div class="clear"></div>
-																</div>
+													<mv-body mv-cols="4">
+														<div class="titleLabel">{{titleLabel}}</div>
+														
+														<?php /* Class Selection Navigation: Start */ ?>
+														<div class="classnavregion" aria-labelledby="class-select-navigation" aria-controls="class-navigation">
+															<div class="classelection">
+																
+																<ul class="classselectlist">
+																	<li class="classitem class1 active">
+																		<a href="#" class="btn btn-default" ng-click="selectClass('Class I')" title="Class I Data Filter" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '7' : ''); ?>">
+																			Class I
+																		</a>
+																	</li>
+																	<li class="classitem class2">
+																		<a href="#" class="btn btn-default" ng-click="selectClass('Class II')" title="Class II Data Filter" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '8' : ''); ?>">
+																			Class II
+																		</a>
+																	</li>
+																	<li class="classitem class3">
+																		<a href="#" class="btn btn-default" ng-click="selectClass('Class III')" title="Class III Data Filter" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '9' : ''); ?>">
+																			Class III
+																		</a>
+																	</li>
+																</ul>
 																
 																<div class="clear"></div>
 															</div>
-															<?php /* Class Selection Navigation: End */ ?>
 															
-															<mv-any-num mv-size="1x2" mv-data="statusData" mv-style="{'font-size':'1.3em','color':'#2B292E'}" mv-id="statusNumbers"></mv-any-num>
+															<div class="clear"></div>
+														</div>
+														<?php /* Class Selection Navigation: End */ ?>
+														
+														<?php /* Values and Legend: Start */ ?>
+														<div class="datavaluesandlegend">
+															<mv-any-num mv-size="1x2" 
+																mv-data="statusData" 
+																mv-style="{'font-size':'1.3em','color':'#2B292E'}" 
+																mv-id="statusNumbers"></mv-any-num>
+															
 															<mv-group mv-size="1x2">
 																<div class="legendbar">
 																	<div class="legendtext">
@@ -104,14 +106,22 @@ include_once 'inc/header.php';
 																		<span class="pull-right legendnumber">100</span>
 																		<div class="legendcenter">Legend</div>
 																	</div>
+																	
 																	<div class="css3gradient"></div>
 																</div>
 															</mv-group>
-															<!--
-															mv-id-box mv-size="1x3" mv-title="Classification Description" mv-body-id="infoBox">{{classInfo}}</mv-id-box>
-															<mv-id-box mv-size="1x1" mv-title="Today's Critical Recalls" mv-body-id="recallBox"><pre>{{recallInfo}}</pre></mv-id-box
-															-->
 															
+															<div class="clear"></div>
+														</div>
+														<?php /* Values and Legend: End */ ?>
+														
+														<!--
+														mv-id-box mv-size="1x3" mv-title="Classification Description" mv-body-id="infoBox">{{classInfo}}</mv-id-box>
+														<mv-id-box mv-size="1x1" mv-title="Today's Critical Recalls" mv-body-id="recallBox"><pre>{{recallInfo}}</pre></mv-id-box
+														-->
+														
+														<?php /* Data Tabs: Start */ ?>
+														<div class="fdadatatabs">
 															<tabset>
 																<tab heading="US Map">
 																	<mv-id-box mv-size="3x4" mv-title="{{mapLabel}}" mv-id="mapChart">
@@ -124,21 +134,20 @@ include_once 'inc/header.php';
 																	</mv-id-box>
 																</tab>
 															</tabset>
-														</mv-body>
+															
+															<div class="clear"></div>
+														</div>
+														<?php /* Data Tabs: End */ ?>
 														
-														<div class="clear"></div>
-													</div>
+													</mv-body>
 														
 													<div class="clear"></div>
 												</div>
 												<?php /* Dashboard: End */ ?>
 												
-												<!--/tab>	
-												<tab heading="Table">-->
-												
 												<?php /* Data Grid: Start */ ?>
 												<style>
-													div.DTTT_container{
+													div.DTTT_container {
 														padding-right: 12px;
 													}
 												</style>

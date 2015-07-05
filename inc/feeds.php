@@ -1,5 +1,5 @@
 
-<h2>Latest Recalls in the U.S.</h2>
+<h2>Latest Recalls</h2>
 
 <?php /* Top 5 Info: Start */ ?>
 <div class="col-sm-6 top5info">
@@ -30,7 +30,7 @@
 
 <?php /* Twitter: Start */ ?>
 <div class="col-sm-6 twitterfeed">
-	<div class="twitterheader">Twitter</div>
+	<div class="twitterheader">@FDArecalls</div>
 	
 	<a class="twitter-timeline" href="https://twitter.com/FDArecalls" data-widget-id="616626947565690880" data-chrome="noheader nofooter noborders noscrollbar transparent" data-show-replies="false" data-tweet-limit="5" data-aria-polite="assertive">Twitter</a>
 	

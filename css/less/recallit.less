@@ -343,6 +343,8 @@ small, .small {
 		}
 	
 	.navsidebar {
+		padding-right: 0;
+		padding-left: 0;
 		
 		> .row {
 			margin-right: 0;
@@ -353,7 +355,7 @@ small, .small {
 		div.mobilehandle {
 			position: absolute;
 			top: 15px;
-			left: 85%;
+			left: 23px;
 			z-index: 10;
 			margin: 0;
 			width: 29px;
@@ -425,7 +427,7 @@ small, .small {
 					img {
 						position: relative;
 						z-index: 10;
-						padding: 15px 0;
+						padding: 15px 0 15px 5px;
 						display: block;
 						float: left;
 						opacity: 0.50;
@@ -610,11 +612,13 @@ div.contentregionwrapper {
 								margin-right: 18px;
 								display: block;
 								float: left;
+								text-transform: uppercase;
 								
 								&.classitem {}
 								
 								a {
 									color: #2e3236;
+									border: 0 none;
 									background-color: #ababab;
 									
 									.transition(color 0.2s ease-in-out,background-color 0.2s ease-in-out);
@@ -1440,110 +1444,265 @@ div.dataTables_paginate {
 /* *************************************************************************************************** */
 div.dashboardmain {
 	padding: 0 0 25px;
+	
+	/* Info Box */
+	#infoBox {
+		padding: 3.5em 1em 1em;
+		}
+		#infoBox span {
+			font-size: 1.3em;
+			}
+	
+	/* Recall Box */
+	#recallBox {
+		padding: 2.5em 0.75em 0.75em;
+		
+		pre {
+			height: 100%;
+			color: inherit;
+			font: inherit;
+			line-height: 1.75em;
+			background-color: inherit;
+			}
+	}
+	
+	
+	
+	.us-states {
+		fill: #a6a6a6;
+		}
+	.classButtons {
+		padding-top: 0.9em;
+		padding-left: 1em;
+		width: 100%;
+		}
+	.nav {
+		border-bottom: 0;
+		background-color: #fff;
+		}
+	.lightbox-head {
+		background-color: #fff;
+		}
+	
+	
+	> .mv-body {
+		padding-right: 0;
+		background-color: #fff;
+		
+		> .mv-widget-container.g4r {
+			width: 100%;
+			}
+	}
+	
+	
+	/* Default Button Styling */
+	.btn-default {
+		color: #fff;
+		background-color: #C4C4C4;
+		}
+		.btn-default:active,
+		.btn-default:hover,
+		.btn-default:focus {
+			color: #fff;
+			outline: 0 none;
+			background-color: #000;
+			}
+	
+	/* Section Title Label */
+	.titleLabel {
+		padding: 15px 0 20px;
+		color: #2e3236;
+		font-size: 1.50em;
+		font-weight: bold;
+		font-weight: 700;
+		text-transform: uppercase;
+		}
+	
+	/* Data Values and Legend */
+	div.datavaluesandlegend {
+		position: relative;
+		margin: 15px 0 0;
+		padding: 20px 0 30px;
+		border-top: 1px solid #f1f1f1;
+		
+		/* Chart/Map Data Table */
+		#statusNumbers {
+			margin: 0;
+			padding: 0;
+			float: left;
+			width: 40%;
+			height: auto;
+			
+			.lightbox-head {
+				height: 0;
+				}
+			.lightbox-body {
+				background-color: rgba(0, 0, 0, 0.00);
+				}
+			
+			div.w-body {
+				margin: 0;
+				
+				div.w-any-num {
+					margin: 0;
+					padding: 0;
+					
+					table {
+						margin: 0;
+						padding: 0;
+						border: 0 none;
+						border-collapse: collapse;
+						
+						tbody {
+							th,td {
+								padding-right: 0;
+								padding-left: 0;
+								text-align: center;
+								}
+							
+							th {
+								padding: 0;
+								font-size: 0.80em;
+								font-weight: 600;
+								text-transform: uppercase;
+								}
+							td {
+								font-size: 1.75em;
+								font-weight: bold;
+								font-weight: 600;
+								}
+						}
+					}
+				}
+			}
+		}
+		
+		> .gr-1x2.break {
+			float: right;
+			width: 50%;
+			height: auto;
+			}
+		
+		/* Legend */
+		.legendbar {
+			position: relative;
+			margin: 0;
+			padding: 15px 0 0;
+			float: right;
+			width: 50%;
+		
+			.legendtext {
+				
+				margin-top: 0.9em;
+				margin-left: 0.9em;
+				float: left;
+				width: 100%;
+				height: 1em;
+				}
+				.legendnumber {
+					position: absolute;
+					top: 10px;
+					left: 0;
+					margin: 0;
+					padding: 0;
+					color: #2e3236;
+					font-size: 0.90em;
+					line-height: inherit;
+				
+					&.pull-right {
+						right: 0;
+						left: auto;
+						float: right !important;
+						}
+				}
+				.legendcenter {
+					position: absolute;
+					top: 0;
+					left: 0;
+					margin: 0;
+					width: 100%;
+					color: #2e3236;
+					font-size: 0.70em;
+					font-weight: 600;
+					text-align: center;
+					text-transform: uppercase;
+					}
+			
+			/* CSS3 Gradient */
+			.css3gradient {
+				margin-top: 0.9em;
+				width:100%;
+				height: 1em;
+				background: #2c82c0;
+				
+				background: -moz-linear-gradient(left, #2c82c0 0%, #efb12d 50%, #d23a0f 100%);
+				background: -webkit-gradient(linear, left top, right top, color-stop(0%,#2c82c0), color-stop(50%,#efb12d), color-stop(100%,#d23a0f));
+				background: -webkit-linear-gradient(left, #2c82c0 0%,#efb12d 50%,#d23a0f 100%);
+				background: -o-linear-gradient(left, #2c82c0 0%,#efb12d 50%,#d23a0f 100%);
+				background: -ms-linear-gradient(left, #2c82c0 0%,#efb12d 50%,#d23a0f 100%);
+				background: linear-gradient(to right, #2c82c0 0%,#efb12d 50%,#d23a0f 100%);
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c82c0', endColorstr='#d23a0f',GradientType=1 );
+				}
+		}
+		
+	}
+	
+	
+	/* US Map/Bar Chart Tabs Toggle */
+	div.fdadatatabs {}
+		.nav-tabs {
+			a {
+				margin: 0;
+				padding: 0 10px;
+				display: block;
+				height: 29px;
+				color: #000;
+				font-size: 0.75em;
+				line-height: 1.95em;
+				text-align: center;
+				text-transform: uppercase;
+				border: 0 none;
+				background-color: #f1f1f1;
+				
+				.borderradius(0 4px 4px 0);
+				
+				&:hover {
+					border: 0 none;
+					}
+			}
+			
+			li {
+				margin: 0;
+				padding: 0;
+				
+				&:first-child {
+					a {
+						.borderradius(4px 0 0 4px);
+						}
+				}
+				
+				&.active {
+					a,
+					a:hover,
+					a:focus {
+						border: 0 none;
+						background-color: #ababab;
+						}
+				}
+			}
+		}
+	
+	
+	
+	.layer rect,
+	.us-states path {
+		cursor: pointer;
+		}
 }
-#infoBox {
-	padding: 3.5em 1em 1em 1em;
-}
-#infoBox span {
-	font-size: 1.3em;
-}
-#recallBox {
-	padding: 2.5em 0.75em 0.75em 0.75em;
-}
-#recallBox pre {
-	font: inherit;
-	background-color: inherit;
-	height: 100%;
-	line-height: 1.75em;
-	color: inherit;
-}
-#statusNumbers .lightbox-head {
-	height: 0em;
-}
-#statusNumbers .lightbox-body {
-	background-color: rgba(0,0,0,0);
-}
-.us-states {
-	fill: #a6a6a6;
-}
-.classButtons {
-	padding-top: 0.9em;
-	padding-left: 1em;
-	width: 100%;
-}
-.css3gradient {
-	width:100%;
-	height: 1em;
-	margin-top: 0.9em;
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#2c82c0+0,efb12d+50,d23a0f+100 */
-	background: #2c82c0; /* Old browsers */
-	background: -moz-linear-gradient(left,  #2c82c0 0%, #efb12d 50%, #d23a0f 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#2c82c0), color-stop(50%,#efb12d), color-stop(100%,#d23a0f)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left,  #2c82c0 0%,#efb12d 50%,#d23a0f 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left,  #2c82c0 0%,#efb12d 50%,#d23a0f 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(left,  #2c82c0 0%,#efb12d 50%,#d23a0f 100%); /* IE10+ */
-	background: linear-gradient(to right,  #2c82c0 0%,#efb12d 50%,#d23a0f 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2c82c0', endColorstr='#d23a0f',GradientType=1 ); /* IE6-9 */
-}
-.legendtext {
-  	float: left;
-  	margin-top: 0.9em;
-  	margin-left: 0.9em;
-  	height: 1em;
-  	width: 100%;
-}
-.legendgradient {
-	margin-top: 0.9em;
-}
-.legendnumber {
-	color: #000000;
-	line-height: 1.5em;
-	padding-right: 1em;
-	margin-left: -0.75em;
-}
-.legendbar {
-   margin: 4em 0em 0em 10em;
-   width: 50%;
-}
-.legendcenter {
-	width: 50%;
-	margin: 0em auto;
-}
-.nav {
-	background-color: #FFFFFF;
-	border-bottom: 0px;
-}
-.lightbox-head {
-	background-color: #FFFFFF;
-}
-.mv-body {
-	background-color: #FFFFFF;
-}
-.w-any-num td {
-	font-size: 2.5em;
-	font-weight: bold;
-}
-.btn-default {
-	color: #ffffff;
-	background-color: #C4C4C4;
-}
-.btn-default:active, .btn-default:hover, .btn-default:focus {
-	color: #ffffff;
-	background-color: #000000;
-	outline: 0 none;
-}
-.nav-tabs a {
-	color: #000000 !important;
-}
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-	background-color: #C4C4C4;
-}
-.titleLabel {
-	color: #000000;
-	font-size: 1.5em;
-	font-weight: bold;
-	line-height: 2em;
-}
-.layer rect, .us-states path {
-	cursor: pointer;
-}
+
+
+
+
+
+
+

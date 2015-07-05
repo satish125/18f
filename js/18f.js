@@ -16,13 +16,8 @@ jQuery(document).ready(function($){
 			// Add Class to body Tag
 			$('body').addClass('collapsed');
 			
-			// Expand/Collapse Handle
-			$('.mobilehandle').animate({ left: '50%', marginLeft: '-15px' }, animTiming);
-			
 			// Sidebar
 			$('.sidebarnavigation').animate({ width: '75px' }, animTiming);
-			$('.navsidebar').animate({ paddingLeft: '0', paddingRight: '0' }, animTiming);
-			$('.navsidebar ul.prinavlist li img').animate({ paddingLeft: '7px' }, animTiming);
 			
 			// Content Region
 			$('.contentregionwrapper').animate({ paddingLeft: '75px' }, animTiming);
@@ -37,13 +32,8 @@ jQuery(document).ready(function($){
 			// Remove Class from body Tag
 			$('body').removeClass('collapsed');
 			
-			// Expand/Collapse Handle
-			$('.mobilehandle').animate({ left: '85%', marginLeft: '0' }, animTiming);
-			
 			// Sidebar
 			$('.sidebarnavigation').animate({ width: '225px' }, animTiming);
-			$('.navsidebar').animate({ paddingLeft: '15px', paddingRight: '15px' }, animTiming);
-			$('.navsidebar ul.prinavlist li img').animate({ paddingLeft: '0' }, animTiming);
 			
 			// Content Region
 			$('.contentregionwrapper').animate({ paddingLeft: '225px' }, animTiming);
@@ -82,10 +72,10 @@ jQuery(document).ready(function($){
 		'</div>');
 	
 	// Last Recalls and Twitter Region Click Event
-	$('.expandhandle').on('click', function(){
+	$('.expandhandle,.recallheader,.twitterheader').on('click', function(){
 		
-		var feedsHeightRecallTable = $('.top5info').innerHeight();
-		var feedsHeightTwitter  = $('.twitterfeed').innerHeight();
+		var feedsHeightRecallTable 	= $('.top5info').innerHeight();
+		var feedsHeightTwitter  	= $('.twitterfeed').innerHeight();
 		
 		console.log('RecallTable: ' + feedsHeightRecallTable + ' Twitter: ' + feedsHeightTwitter);
 		
@@ -101,9 +91,9 @@ jQuery(document).ready(function($){
 			// $('.dataregion_top').animate({ height: '275px' }, 250);
 			// Animate to Y height
 			if(feedsHeightRecallTable >= feedsHeightTwitter){
-				$('.dataregion_top').animate({ height: feedsHeightRecallTable + 150 }, 250);
+				$('.dataregion_top').animate({ height: feedsHeightRecallTable + 125 }, 250);
 			} else if(feedsHeightTwitter >= feedsHeightRecallTable) {
-				$('.dataregion_top').animate({ height: feedsHeightTwitter + 150 }, 250);
+				$('.dataregion_top').animate({ height: feedsHeightTwitter + 125 }, 250);
 			}
 			
 		}else{
