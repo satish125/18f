@@ -105,6 +105,11 @@ jQuery(document).ready(function($){
 		if(!$(this).hasClass('active')){
 			$(this).addClass('active');
 		}
+		
+		// Close flyout if open
+		setTimeout(function(){
+			$('body.collapsed').find('ul.prinavlist li.navitem span').css({ display: 'none' });
+		}, 150);
 	});
 	
 	

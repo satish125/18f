@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta content="width=device-width, initial-scale=1" name="viewport">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
 	<meta content="policyref=http://www.doi.gov/w3c/p3p.xml" http-equiv="P3P">
 	<meta content="no-cache" http-equiv="Cache-control">
 	<meta content="This is the page and site description that needs to be added. This is a generic description only." name="description">
@@ -55,6 +55,10 @@
 	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body ng-app="openFDAApp">
+
+<?php /* Skip Navigation: Start */ ?>
+<a href="#tocontent" class="skiptocontent" title="Skip Navigation">Skip to Content</a>
+<?php /* Skip Navigation: End */ ?>
 
 <?php /* Angular Controllers: Start */ ?>
 <div ng-controller="mainCtrl" class="mainctrl">
@@ -181,6 +185,8 @@
 					<?php /* Content Region Wrapper: Start */ ?>
 					<div class="contentregionwrapper">
 						<div class="contentregionwrapper_inner">
+							
+							<div id="tocontent">Start of Content</div>
 							
 							<?php /* Header: Start */ ?>
 							<header class="headerregion" aria-labelledby="top-logo">

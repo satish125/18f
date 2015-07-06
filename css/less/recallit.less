@@ -278,9 +278,35 @@ small, .small {
 /* ******************************************************** */
 /* vi. Screen Reader-only ********************************* */
 /* ******************************************************** */
+
+/* Skip Navigation */
+a.skiptocontent {
+	position: absolute;
+	top: 0;
+	left: -10000px;
+	display: block;
+	width: 1px;
+	height: 1px;
+	text-decoration: none;
+	overflow: hidden;
+	border: 0;
+	}
+
+#tocontent {
+	position: absolute;
+	top: 0;
+	left: -10000px;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+	}
+
+/* For links and other elements with supported text */
 .sr-only {
 	position: absolute;
-	margin: -1px;
+	top: 0;
+	left: -10000px;
+	margin: 0;
 	padding: 0;
 	width: 1px;
 	height: 1px;
