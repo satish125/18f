@@ -41,12 +41,12 @@
          $scope.type = type;
          $scope.titleLabel = toTitleCase(type) + ' Recalls';
          
-         return $scope.selectClass($scope.class);
+         return $scope.selectClass($scope.classif);
       };
 
       //function to get the data for each drug classification
       $scope.selectClass = function(classification){
-         $scope.class = classification;
+         $scope.classif = classification;
          $scope.classInfo = changeDescription(classification);
          
          //Return a promise when all of these operations are complete
@@ -80,12 +80,12 @@
 
       //Issues a new query for the data table based on a state being clicked on the map
       $scope.$on("mapChart:click", function(event, data){
-         $scope.setDataTable($scope.class, '+AND+state:"'+ data.di +'"');
+         $scope.setDataTable($scope.classif, '+AND+state:"'+ data.di +'"');
       });
 
       //Issues a new query for the data table based on a state being clicked on the map
       $scope.$on("hbarChart:click", function(event, data){
-         $scope.setDataTable($scope.class, '+AND+city:"'+ data.x +'"');
+         $scope.setDataTable($scope.classif, '+AND+city:"'+ data.x +'"');
       });
 
       //resize event for responsive chart design
@@ -106,7 +106,7 @@
       function init() {
          $scope.pageState = { isLoading: true};
          $scope.type = 'food';
-         $scope.class = 'Class I';
+         $scope.classif = 'Class I';
 
          //Store the promise result for the 5 latest recalls
          var recentRecallsPromise = enforcementFactory.getFiveLatestRecalls().then(function(lastestRecalls){
@@ -263,16 +263,16 @@
          var numArr = num.toString().split('');
          
           var len = numArr.length;
-          var final = [];
+          var finalArr = [];
           for (var i = 0; i < len; i++){
-              final.push(numArr[i]);
+              finalArr.push(numArr[i]);
             if (i == 3) {
-               final.push("-")
+               finalArr.push("-")
             } else if(i == 5) {
-               final.push("-")
+               finalArr.push("-")
             }
           }  
-         return final.join("");
+         return finalArr.join("");
       }
    };
 
