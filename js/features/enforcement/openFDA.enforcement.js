@@ -94,6 +94,11 @@
          resizeTable();
       });
 
+      //Scroll to the top of the chart when paging
+      $('#datagridinfo').on( 'page.dt', function(){
+         $('html,body').animate({scrollTop: $('.datagridcol').offset().top},'slow');
+      });
+
       //Global variables for the data table on the page
       var myTable = undefined;
 
