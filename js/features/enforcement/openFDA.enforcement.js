@@ -178,7 +178,7 @@
       $scope.chartOptions = {
          chart: {
             margin: {
-               left: 110,
+               left: 130,
                right: 30,
                bottom: 50
             },
