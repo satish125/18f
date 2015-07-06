@@ -15,12 +15,15 @@
 	
 	<link href="<?php echo BASE_URL; ?>favicon.ico" rel="shortcut icon" />
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,600,700,800,100italic,200italic,300italic,600italic' rel='stylesheet' />
+	
+	<?php /*
 	<link href="<?php echo BASE_URL; ?>css/bootstrap.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/minerva.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/font-awesome.min.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/dataTables.responsive.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/dataTables.tableTools.css" rel="stylesheet" media="all" />
 	<link href="<?php echo BASE_URL; ?>css/dataTables.keyTable.min.css" rel="stylesheet" media="all" />
+	*/ ?>
 	<link href="<?php echo BASE_URL; ?>css/recallit.css" rel="stylesheet" media="all" />
 	
 	<?php /* Dependencies */ ?>
