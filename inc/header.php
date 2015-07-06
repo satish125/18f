@@ -41,8 +41,6 @@
 	<script src="<?php echo BASE_URL; ?>js/jquery.dataTables.min.js"></script>
 	
 	<script src="<?php echo BASE_URL; ?>js/dataTables.responsive.js"></script>
-	<?php /* <script src="<?php echo BASE_URL; ?>js/dataTables.tableTools.js"></script> */ ?>
-	<script src="<?php echo BASE_URL; ?>js/dataTables.keyTable.js"></script>
 	
 	<script src="<?php echo BASE_URL; ?>js/18f.js"></script>
 	

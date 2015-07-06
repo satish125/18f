@@ -90,7 +90,8 @@
 
       //resize event for responsive chart design
       angular.element($window).on('resize', function(){
-         $scope.$broadcast("event:windowResize")
+         $scope.$broadcast("event:windowResize");
+         resizeTable();
       });
 
       //Global variables for the data table on the page
@@ -118,6 +119,7 @@
          })
          .then(function(tableData){
             $timeout(function(){
+
                //Initialize the Data Table
                myTable = $('#datagridinfo').DataTable({
                   order: [[ 0, "desc" ]],
@@ -125,32 +127,18 @@
                      { data: 'recall_initiation_date' },
                      { data: 'city' },
                      { data: 'state' },
-                     //{ data: 'recalling_firm'},
-					 { 
+                     { data: 'recalling_firm'},
+					      { 
                         data: 'product_quantity',
                         defaultContent: 'Unknown'
                      },
                      { data: 'status' },
-                     //{ data: 'product_description'},
-                     //{ data: 'reason_for_recall'}
+                     { data: 'product_description'},
+                     { data: 'reason_for_recall'}
                   ],
                   pagingType: "simple",
                   responsive: true
                });
-
-               //Add the Table Tools export function
-			   /*
-               var tt = new $.fn.dataTable.TableTools( myTable, {
-                    sRowSelect: 'single',
-                    sSwfPath: "swf/copy_csv_xls.swf",
-                    aButtons: [ "csv", "xls" ]
-               } );
-             
-               $( tt.fnContainer() ).insertBefore('div.datagridcol');
-			   */
-
-               //Add the Key Tables Extension
-               //var kt = new $.fn.dataTable.KeyTable( myTable );
 
                //Set the data in the table
                buildTable(tableData);
@@ -245,6 +233,15 @@
 
          //Add rows to the table then redraw the table
          myTable.rows.add(tableData).draw();
+         resizeTable();
+      }
+
+      //Ensures that the Data Table does not overflow it's parent container
+      function resizeTable(){
+         var containingWidth = $('.datagridcol').width();
+         $('.datagrid').width(containingWidth);
+         myTable.responsive.rebuild();
+         myTable.responsive.recalc();
       }
 
       function toTitleCase(str)

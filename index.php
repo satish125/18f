@@ -145,28 +145,20 @@ include_once 'inc/header.php';
 												</div>
 												<?php /* Dashboard: End */ ?>
 												
-												<?php /* Data Grid: Start */ ?>
-												<style>
-													div.DTTT_container {
-														padding-right: 12px;
-													}
-												</style>
-												
+												<?php /* Data Grid: Start */ ?>								
 												<div class="row datagridmain">
 													<div class="datagridcol">
-														<table id="datagridinfo" class="datagrid dataTable drugs state table-striped" cellspacing="0" width="100%">
+														<table id="datagridinfo" class="datagrid dataTable drugs state table-striped">
 															<thead>
 																<tr>
 																	<th class="recalldate">Recall Date</th>
 																	<th class="recallcity">City</th>
 																	<th class="recallstate">State</th>
-																	<?php /* <th class="recallcity">Recalling Firm</th> */ ?>
+																	<th class="recallcity">Recalling Firm</th>
 																	<th class="recallnum"># of Products Recalled</th>
 																	<th class="recallstatus">Status</th>
-																	<?php /*
 																	<th class="recalldesc">Product Description</th>
 																	<th class="recallreason">Reason for Recall</th>
-																	*/ ?>
 																</tr>
 															</thead>
 														</table>
