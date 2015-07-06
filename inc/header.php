@@ -16,14 +16,6 @@
 	<link href="<?php echo BASE_URL; ?>favicon.ico" rel="shortcut icon" />
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,600,700,800,100italic,200italic,300italic,600italic' rel='stylesheet' />
 	
-	<?php /*
-	<link href="<?php echo BASE_URL; ?>css/bootstrap.css" rel="stylesheet" media="all" />
-	<link href="<?php echo BASE_URL; ?>css/minerva.css" rel="stylesheet" media="all" />
-	<link href="<?php echo BASE_URL; ?>css/font-awesome.min.css" rel="stylesheet" media="all" />
-	<link href="<?php echo BASE_URL; ?>css/dataTables.responsive.css" rel="stylesheet" media="all" />
-	<link href="<?php echo BASE_URL; ?>css/dataTables.tableTools.css" rel="stylesheet" media="all" />
-	<link href="<?php echo BASE_URL; ?>css/dataTables.keyTable.min.css" rel="stylesheet" media="all" />
-	*/ ?>
 	<link href="<?php echo BASE_URL; ?>css/recallit.css" rel="stylesheet" media="all" />
 	
 	<?php /* Dependencies */ ?>
@@ -136,8 +128,22 @@
 										</li>
 										<?php endif; ?>
 										
+										<?php /* If Not On Homepage: Start */ ?>
+										<?php if (basename($_SERVER['PHP_SELF'], '.php') != 'index' ) : ?>
+										<li class="navitem navdashboard">
+											<a href="<?php echo BASE_URL; ?>" title="View the Dashboard" tabindex="2">
+												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_dashboard_lg.png" alt="Dashboard" />
+												<span>Dashboard</span>
+												<span class="sr-only">Return to Homepage</span>
+											</a>
+											
+											<div class="clear"></div>
+										</li>
+										<?php endif; ?>
+										<?php /* If Not On Homepage: End */ ?>
+										
 										<li class="navitem navabout<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'about' ) ? ' active' : ''); ?>">
-											<a href="<?php echo BASE_URL; ?>about" title="View About Page" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '5' : '2'); ?>">
+											<a href="<?php echo BASE_URL; ?>about" title="View About Page" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '5' : '3'); ?>">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_lexicon_lg.png" alt="About Open FDA" />
 												<span>About</span>
 												<span class="sr-only">Navigation to about page</span>
@@ -149,7 +155,7 @@
 											
 											<?php if (login_check($mysqli) == true) : ?>
 											
-											<a href="<?php echo BASE_URL; ?>inc/logout" class="logout" title="Log out" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '6' : '3'); ?>">
+											<a href="<?php echo BASE_URL; ?>inc/logout" class="logout" title="Log out" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '6' : '4'); ?>">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_login_lg.png" alt="Open FDA Log Out" />
 												<span>Log Out</span>
 												<span class="sr-only">Log out of application</span>
@@ -157,7 +163,7 @@
 											
 											<?php else : ?>
 											
-											<a href="<?php echo BASE_URL; ?>login" class="login" title="Log In" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '6' : '3'); ?>">
+											<a href="<?php echo BASE_URL; ?>login" class="login" title="Log In" tabindex="<?php echo ((basename($_SERVER['PHP_SELF'], '.php') == 'index' ) ? '6' : '4'); ?>">
 												<img class="bttnicon" src="<?php echo BASE_URL; ?>images/icon_nav_login_lg.png" alt="Open FDA Login" />
 												<span>Log In</span>
 												<span class="sr-only">Log in to application</span>
