@@ -2,7 +2,7 @@
 
 The prototype was developed using PHP and MySQL, which works natively in a LAMP environment. 
 
-###Requirements
+###Installation Instructions
 
 Since the prototype was developed using PHP, the site can be ran using LAMP, WAMP or MAMP, all of which uses Apache, MySQL and PHP. The urls for the application are accessed using rewritten urls. To support this code, found in .htaccess, mod_rewrite should be enabled through Apache.
 
