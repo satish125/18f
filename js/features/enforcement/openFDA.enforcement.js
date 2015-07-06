@@ -158,6 +158,7 @@
                left: 35
             },
             type: 'map',
+            backgroundColor: 'transparent',
             colors: ['#2C82C0', '#4C89A7', '#6D918F', '#8D9976', '#AEA15E', '#CEA945', '#EFB12D', '#EA9D28', '#E58923', '#E0751E', '#DB6119', '#D64D14', '#D23A0F']
          },
          tooltip: {
@@ -182,6 +183,7 @@
                bottom: 50
             },
             type: 'hbar',
+            backgroundColor: 'transparent',
             colors: ['#A6A6A6']
          },
          tooltip: {
