@@ -179,7 +179,7 @@
          chart: {
             margin: {
                left: 130,
-               right: 30,
+               right: 50,
                bottom: 50
             },
             type: 'hbar',
