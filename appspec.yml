@@ -37,13 +37,9 @@ files:
      destination: C:\temp\Agile18F
    - source: .\login.php
      destination: C:\temp\Agile18F
-   - source: .\minerva_license.md
-     destination: C:\temp\Agile18F
    - source: .\README.md
      destination: C:\temp\Agile18F
    - source: .\appspec.yml
      destination: C:\temp\Agile18F
    - source: .\openfda.sql
      destination: C:\temp\Agile18F
-
-
