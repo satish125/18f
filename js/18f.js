@@ -29,7 +29,8 @@ jQuery(document).ready(function($){
 	} else {
 		switchSidebar();
 	}
-		
+	
+	
 	/* ************************************************* */
 	/* Sidebar Expand/Collapse ************************* */
 	/* ************************************************* */
@@ -88,10 +89,15 @@ jQuery(document).ready(function($){
 			$(this).addClass('active');
 		}
 		
+		// Add class 'hover' to clicked sidebar item
+		if($('body').hasClass('collapsed')){
+			$(this).addClass('hover');
+		}
+		
 		// Close flyout if open
 		setTimeout(function(){
-			$('body.collapsed').find('ul.prinavlist li.navitem a').unbind('click');
-		}, 150);
+			$('body.collapsed').find('ul.prinavlist li.navitem').removeClass('hover');
+		}, 100);
 	});
 	
 	
