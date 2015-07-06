@@ -125,6 +125,7 @@ include_once 'inc/header.php';
 															<tabset>
 																<tab heading="US Map">
 																	<mv-id-box mv-size="3x4" mv-title="{{mapLabel}}" mv-id="mapChart">
+																		<div style="margin-top:3em">Hover over a state to view its recall data totals. Click the state to filter recall details on the table below.</div>
 																		<mv-chart mv-data="mapData" mv-options="mapOptions"></mv-chart>
 																	</mv-id-box>
 																</tab>
