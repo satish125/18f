@@ -23,12 +23,11 @@ include_once 'inc/header.php';
 		<div class="row">
 			
 			<?php /* Loading: Start */ ?>
-			<div class="col-sm-12 col-sm-offset-5" ng-show="pageState.isLoading" style="height: 1000px;">
-				<div style="font-size: 4em; padding-bottom: .5em; padding-top: 2em; text-align: center;">
+			<div class="col-sm-12 col-sm-offset-5 stateloader" ng-show="pageState.isLoading">
+				<div class="stateloader_inner">
 					<i class="fa fa-circle-o-notch fa-spin"></i>
+					<div class="stateloader_txt">Loading</div>
 				</div>
-				
-				<h1>Loading</h1>
 			</div>
 			<?php /* Loading: End */ ?>
 			

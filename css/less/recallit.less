@@ -13,6 +13,7 @@
 		       iv. Text Transform
 			    v. Floats
 			   vi. Screen Reader-only
+			  vii. Page State Loader
 		   IV. Template
 		    V. Sidebar Navigation
 		   VI. Main Content Body
@@ -313,6 +314,32 @@ a.skiptocontent {
 	overflow: hidden;
 	clip: rect(0, 0, 0, 0);
 	border: 0;
+	}
+
+
+
+/* ******************************************************** */
+/* vii. Page State Loader ********************************* */
+/* ******************************************************** */
+div.stateloader {
+	margin-left: 0;
+	height: 1000px;
+	}
+	div.stateloader_inner {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		margin: -30px 0 0 -30px;
+		padding: 0;
+		width: auto;
+		font-size: 4em;
+		text-align: center;
+		
+		div.stateloader_txt {
+			padding-top: 15px;
+			font-size: 0.20em;
+			text-align: center;
+			}
 	}
 
 
