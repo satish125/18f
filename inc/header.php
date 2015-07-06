@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+	<meta content="width=device-width, initial-scale=1" name="viewport">
 	<meta content="policyref=http://www.doi.gov/w3c/p3p.xml" http-equiv="P3P">
 	<meta content="no-cache" http-equiv="Cache-control">
 	<meta content="This is the page and site description that needs to be added. This is a generic description only." name="description">

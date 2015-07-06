@@ -446,6 +446,7 @@ a.skiptocontent {
 					color: #777;
 					font-size: 0.90em;
 					cursor: pointer;
+					outline: none;
 					
 					.transition(color 0.2s ease-in-out);
 					.userselect(none);
@@ -478,6 +479,10 @@ a.skiptocontent {
 						right: -7px;
 						color: #555;
 						}
+					
+					&:focus {
+						outline: none;
+						}
 				}
 				
 				&:hover a {
@@ -495,6 +500,7 @@ a.skiptocontent {
 						opacity: 1.00;
 						}
 				}
+				
 			}
 		}
 	
@@ -842,7 +848,7 @@ div.contentregionwrapper {
 	.twitter-timeline {}
 	iframe.twitter-timeline {
 		width: 100% !important;
-		height: 400px;
+		height: 430px;
 		}
 
 

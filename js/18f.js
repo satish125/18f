@@ -7,44 +7,25 @@ jQuery(document).ready(function($){
 	/* ************************************************* */
 	/* Viewport Width ********************************** */
 	/* ************************************************* */
-	viewportWidthHeight(true);
+	viewportWidthHeight(false);
 	
 	
 	/* ************************************************* */
 	/* Check for Cookies Globally ********************** */
 	/* ************************************************* */
-	
-	// Active Cookies
-	if (readCookie("sidebar-expanded")) {
-		$('body').removeClass('collapsed');
-		$('.sidebarnavigation').css({ width: '225px' });
-		$('.contentregionwrapper').css({ paddingLeft: '225px' });
-		$('li.navitem i.sidebarcarets').remove();
-		console.log('reading cookie sidebar-expanded');
-	}
 	if (readCookie("sidebar-collapsed")) {
 		$('body').addClass('collapsed');
 		$('.sidebarnavigation').css({ width: '75px' });
 		$('.contentregionwrapper').css({ paddingLeft: '75px' });
 		$('li.navitem a').append('<i class="fa fa-caret-right sidebarcarets"></i>');
 		console.log('reading cookie sidebar-collapsed');
-	}
-	
-	// Expired Cookies
-    if (!readCookie("sidebar-expanded")) {
+	} else {
 		$('body').removeClass('collapsed');
 		$('.sidebarnavigation').css({ width: '225px' });
 		$('.contentregionwrapper').css({ paddingLeft: '225px' });
 		$('li.navitem i.sidebarcarets').remove();
 		console.log('deleted cookie sidebar-expanded');
-    }
-    if (!readCookie("sidebar-collapsed")) {
-		$('body').removeClass('collapsed');
-		$('.sidebarnavigation').css({ width: '225px' });
-		$('.contentregionwrapper').css({ paddingLeft: '225px' });
-		$('li.navitem i.sidebarcarets').remove();
-		console.log('deleted cookie sidebar-collapsed');
-    }
+	}
 	
 	
 	/* ************************************************* */
@@ -108,8 +89,13 @@ jQuery(document).ready(function($){
 		
 		// Close flyout if open
 		setTimeout(function(){
-			$('body.collapsed').find('ul.prinavlist li.navitem span').css({ display: 'none' });
+			$('body.collapsed').find('ul.prinavlist li.navitem a').off('focusout');
 		}, 150);
+		
+		// Remove 'display: none' from closed flyout
+		//setTimeout(function(){
+			//$('body.collapsed').find('ul.prinavlist li.navitem span').removeAttr('style');
+		//}, 200);
 	});
 	
 	
@@ -171,7 +157,7 @@ jQuery(document).ready(function($){
 			
 			// Less than or equal to 850 pixels
 			}else if(vWidth <= 850){
-			
+				
 				// Add 'expanded' class
 				$(this).closest('.topinforegion').addClass('expanded');
 				
@@ -217,10 +203,10 @@ jQuery(document).ready(function($){
 	/* ************************************************* */
 	/* Switch Sidebar based on Viewport **************** */
 	/* ************************************************* */
-	switchSidebar();
+	//switchSidebar();
 	
 	$(window).on('resize', function(){
-		switchSidebar();
+		//switchSidebar();
 	});
 	
 });
