@@ -97,7 +97,7 @@ jQuery(document).ready(function($){
 		// Close flyout if open
 		setTimeout(function(){
 			$('body.collapsed').find('ul.prinavlist li.navitem').removeClass('hover');
-		}, 100);
+		}, 450);
 	});
 	
 	
