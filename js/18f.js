@@ -13,21 +13,23 @@ jQuery(document).ready(function($){
 	/* ************************************************* */
 	/* Check for Cookies Globally ********************** */
 	/* ************************************************* */
-	if (readCookie("sidebar-collapsed")) {
+	var collapsing = readCookie("sidebar-state");
+	if (collapsing == "collapsed") {
 		$('body').addClass('collapsed');
 		$('.sidebarnavigation').css({ width: '75px' });
 		$('.contentregionwrapper').css({ paddingLeft: '75px' });
 		$('li.navitem a').append('<i class="fa fa-caret-right sidebarcarets"></i>');
 		console.log('reading cookie sidebar-collapsed');
-	} else {
+	} else if (collapsing == "expanded") {
 		$('body').removeClass('collapsed');
 		$('.sidebarnavigation').css({ width: '225px' });
 		$('.contentregionwrapper').css({ paddingLeft: '225px' });
 		$('li.navitem i.sidebarcarets').remove();
 		console.log('deleted cookie sidebar-expanded');
+	} else {
+		switchSidebar();
 	}
-	
-	
+		
 	/* ************************************************* */
 	/* Sidebar Expand/Collapse ************************* */
 	/* ************************************************* */
@@ -37,8 +39,7 @@ jQuery(document).ready(function($){
 		if(!$('body').hasClass('collapsed')){
 			
 			// Cookie
-			eraseCookie('sidebar-expanded');
-			createCookie('sidebar-collapsed', 1, {expires: 30});
+			createCookie('sidebar-state', "collapsed", {expires: 30});
 			
 			// Add Class to body Tag
 			$('body').addClass('collapsed');
@@ -57,8 +58,8 @@ jQuery(document).ready(function($){
 		} else {
 			
 			// Cookie
-			eraseCookie('sidebar-collapsed');
-			createCookie('sidebar-expanded', 1, {expires: 30});
+			eraseCookie('sidebar-state');
+			createCookie('sidebar-state', "expanded", {expires: 30});
 			
 			// Remove Class from body Tag
 			$('body').removeClass('collapsed');
@@ -89,13 +90,8 @@ jQuery(document).ready(function($){
 		
 		// Close flyout if open
 		setTimeout(function(){
-			$('body.collapsed').find('ul.prinavlist li.navitem a').off('focusout');
+			$('body.collapsed').find('ul.prinavlist li.navitem a').unbind('click');
 		}, 150);
-		
-		// Remove 'display: none' from closed flyout
-		//setTimeout(function(){
-			//$('body.collapsed').find('ul.prinavlist li.navitem span').removeAttr('style');
-		//}, 200);
 	});
 	
 	
@@ -203,7 +199,6 @@ jQuery(document).ready(function($){
 	/* ************************************************* */
 	/* Switch Sidebar based on Viewport **************** */
 	/* ************************************************* */
-	//switchSidebar();
 	
 	$(window).on('resize', function(){
 		//switchSidebar();

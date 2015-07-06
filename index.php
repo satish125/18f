@@ -23,7 +23,7 @@ include_once 'inc/header.php';
 		<div class="row">
 			
 			<?php /* Loading: Start */ ?>
-			<div class="col-sm-12 col-sm-offset-5" ng-show="pageState.isLoading" style="width: 100%; height: 1000px;">
+			<div class="col-sm-12 col-sm-offset-5" ng-show="pageState.isLoading" style="height: 1000px;">
 				<div style="font-size: 4em; padding-bottom: .5em; padding-top: 2em; text-align: center;">
 					<i class="fa fa-circle-o-notch fa-spin"></i>
 				</div>
