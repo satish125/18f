@@ -125,27 +125,29 @@
                      { data: 'recall_initiation_date' },
                      { data: 'city' },
                      { data: 'state' },
-                     { data: 'recalling_firm'},
-                     { 
+                     //{ data: 'recalling_firm'},
+					 { 
                         data: 'product_quantity',
                         defaultContent: 'Unknown'
                      },
                      { data: 'status' },
-                     { data: 'product_description'},
-                     { data: 'reason_for_recall'}
+                     //{ data: 'product_description'},
+                     //{ data: 'reason_for_recall'}
                   ],
                   pagingType: "simple",
                   responsive: true
                });
 
                //Add the Table Tools export function
+			   /*
                var tt = new $.fn.dataTable.TableTools( myTable, {
                     sRowSelect: 'single',
                     sSwfPath: "swf/copy_csv_xls.swf",
                     aButtons: [ "csv", "xls" ]
                } );
              
-               $( tt.fnContainer() ).insertBefore('div.datagridcol');  
+               $( tt.fnContainer() ).insertBefore('div.datagridcol');
+			   */
 
                //Add the Key Tables Extension
                //var kt = new $.fn.dataTable.KeyTable( myTable );

@@ -660,6 +660,23 @@ div.contentregionwrapper {
 		}
 }
 
+/*675px*/
+@media screen and (min-width: 0) and (max-width: 675px){
+	
+	/* Class Navigation Buttons */
+	.classnavregion {}
+		.classelection {}
+			ul.classselectlist {
+				text-align: center;
+				
+				li {
+					margin: 0 5px;
+					display: inline-block;
+					float: none;
+					}
+			}
+}
+
 
 
 /* *************************************************************************************************** */
@@ -671,8 +688,8 @@ div.contentregionwrapper {
 	}
 	.dataregion_top {
 		position: relative;
-		padding: 5px 15px 0;
-		height: 135px;
+		padding: 15px 15px 0;
+		height: 70px;
 		overflow: hidden;
 		border-bottom: 1px solid #dce1e6;
 		background-color: #f1f1f1;
@@ -740,9 +757,11 @@ div.contentregionwrapper {
 		line-height: 2.0em;
 		text-align: center;
 		text-transform: uppercase;
+		cursor: pointer;
 		background-color: #fff;
 		
 		.borderradius(4px);
+		.userselect(none);
 		}
 	
 	/* Latest Recalls Table */
@@ -787,9 +806,11 @@ div.contentregionwrapper {
 		line-height: 2.0em;
 		text-align: center;
 		text-transform: uppercase;
+		cursor: pointer;
 		background-color: #fff;
 		
 		.borderradius(4px);
+		.userselect(none);
 		}
 	
 	.twitter-timeline {}
@@ -810,6 +831,12 @@ div.contentregionwrapper {
 	.twitterfeed {
 		float: none;
 		width: 100%;
+		}
+		
+		.twitterfeed {
+			.twitterheader {
+				margin: 20px 0;
+				}
 		}
 }
 
@@ -966,7 +993,6 @@ div.loginform {}
 /* ******************************************************** */
 div.formfld.icon {
 	position: relative;
-
 	}
 	.icon.email div.fldicon,
 	.icon.password div.fldicon {
@@ -1195,7 +1221,7 @@ table.datagrid {
 	font-size: 0.90em;
 	border-collapse: collapse;
 	border: 0 none;
-
+	
 	thead {}
 	tfoot {
 		tr {
@@ -1226,11 +1252,40 @@ table.datagrid {
 						font-family: 'FontAwesome';
 						content: '\f0d8';
 						}
+					
+					&:first-child {
+						.borderradius(4px 0 0);
+						}
+					
+					&:last-child {
+						.borderradius(0 4px 0 0);
+						}
+					
+					&:nth-child(1) {}
+					&::nth-child(2) {}
+					&::nth-child(3) {}
+					&::nth-child(4) {}
+					&::nth-child(5) {}
+					&::nth-child(6) {}
+					&::nth-child(7) {}
+					&::nth-child(8) {}
+					&::nth-child(9) {}
 				}
+				
 				td {
 					line-height: 1.25em;
-					/*border-bottom: 1px solid #eaeaea;*/
-					}
+					border-bottom: 1px solid #f0f0f0;
+					
+					&:nth-child(1) {}
+					&:nth-child(2) {}
+					&:nth-child(3) {}
+					&:nth-child(4) {}
+					&:nth-child(5) {}
+					&:nth-child(6) {}
+					&:nth-child(7) {}
+					&:nth-child(8) {}
+					&:nth-child(9) {}
+				}
 }
 
 /* Limiter */
@@ -1238,6 +1293,7 @@ div.dataTables_length {
 	position: absolute;
 	top: 0;
 	left: 0;
+	z-index: 21;
 	width: 165px;
 	
 	label {
@@ -1424,6 +1480,61 @@ div.dataTables_paginate {
 	}
 }
 
+/*825px*/
+@media screen and (min-width: 0) and (max-width: 825px){
+	
+	#datagridinfo_wrapper {
+		padding-top: 0;
+		}
+	
+	/* Limiter */
+	div.dataTables_length {
+		position: static;
+		top: auto;
+		left: auto;
+		padding: 0 0 15px;
+		
+		label {
+			font-size: 0.90em;
+			}
+	}
+
+	/* Search */
+	div.dataTables_filter {
+		position: relative;
+		top: auto;
+		right: auto;
+		margin: 0 0 15px;
+		padding: 0;
+		width: 100%;
+		
+		label {
+			font-size: 0.90em;
+			
+			&:before {
+				position: absolute;
+				top: 0;
+				right: 15px;
+				z-index: 30;
+				font-family: 'FontAwesome';
+				font-size: 1.00em;
+				content: '\f002';
+				}
+			
+			input {
+				position: absolute;
+				top: 0;
+				left: 0;
+				margin: 0;
+				padding: 5px 10px;
+				float: none;
+				width: 100%;
+				max-width: 100%;
+				}
+		}
+	}
+}
+
 /*580px*/
 @media screen and (min-width: 0) and (max-width: 580px){
 	
@@ -1476,14 +1587,9 @@ div.dashboardmain {
 		padding-left: 1em;
 		width: 100%;
 		}
-	.nav {
-		border-bottom: 0;
-		background-color: #fff;
-		}
-	.lightbox-head {
-		background-color: #fff;
-		}
 	
+	.lightbox-head {}
+	.lightbox-body { background-color: transparent; }
 	
 	> .mv-body {
 		padding-right: 0;
@@ -1592,9 +1698,7 @@ div.dashboardmain {
 			width: 50%;
 		
 			.legendtext {
-				
-				margin-top: 0.9em;
-				margin-left: 0.9em;
+				margin: 0;
 				float: left;
 				width: 100%;
 				height: 1em;
@@ -1631,8 +1735,8 @@ div.dashboardmain {
 			/* CSS3 Gradient */
 			.css3gradient {
 				margin-top: 0.9em;
-				width:100%;
-				height: 1em;
+				width: 100%;
+				height: 14px;
 				background: #2c82c0;
 				
 				background: -moz-linear-gradient(left, #2c82c0 0%, #efb12d 50%, #d23a0f 100%);
@@ -1647,22 +1751,32 @@ div.dashboardmain {
 		
 	}
 	
-	
 	/* US Map/Bar Chart Tabs Toggle */
-	div.fdadatatabs {}
+	div.fdadatatabs {
+		position: relative;
+		padding: 18px;
+		background-color: #f1f1f1;
+		
+		.borderradius(4px);
+		
+		/* Navigation Tabs */
 		.nav-tabs {
+			border-bottom: 0;
+			
 			a {
+				position: relative;
+				z-index: 5;
 				margin: 0;
 				padding: 0 10px;
 				display: block;
-				height: 29px;
+				height: auto;
 				color: #000;
 				font-size: 0.75em;
 				line-height: 1.95em;
 				text-align: center;
 				text-transform: uppercase;
 				border: 0 none;
-				background-color: #f1f1f1;
+				background-color: #fff;
 				
 				.borderradius(0 4px 4px 0);
 				
@@ -1691,7 +1805,57 @@ div.dashboardmain {
 				}
 			}
 		}
-	
+		
+		/* Tab Content (US Map and Bar Chart) */
+		div.tab-content {
+			
+			/* Map */
+			#mapChart {
+				position: static;
+				margin: 0 auto;
+				padding: 0;
+				float: none;
+				
+				> .lightbox-head {
+					position: absolute;
+					top: 10px;
+					right: 15px;
+					z-index: 2;
+					padding: 15px 0;
+					height: auto;
+					color: #2e3236;
+					font-size: 0.70em;
+					text-align: right;
+					text-indent: 0;
+					background-color: transparent;
+					}
+			}
+			
+			/* Bar Graph */
+			#barChart {
+				position: static;
+				margin: 0 auto;
+				padding: 0;
+				float: none;
+				
+				> .lightbox-head {
+					position: absolute;
+					top: 10px;
+					right: 15px;
+					z-index: 2;
+					padding: 15px 0;
+					height: auto;
+					color: #2e3236;
+					font-size: 0.70em;
+					text-align: right;
+					text-indent: 0;
+					background-color: transparent;
+					}
+			}
+			
+		}
+		
+	}
 	
 	
 	.layer rect,
@@ -1702,7 +1866,354 @@ div.dashboardmain {
 
 
 
+/* ******************************************************** */
+/* Media Queries ****************************************** */
+/* ******************************************************** */
 
+/*1050px*/
+@media screen and (min-width: 0) and (max-width: 1050px){
+	
+	/* Data Values and Legend */
+	div.datavaluesandlegend {
+		
+		/* Chart/Map Data Table */
+		#statusNumbers {
+			
+			div.w-body {
+				
+				div.w-any-num {
+					
+					table {
+						
+						tbody {
+							
+							th {
+								padding-bottom: 5px !important;
+								font-size: 0.90em !important;
+								}
+							td {
+								font-size: 1.95em !important;
+								}
+						}
+					}
+				}
+			}
+		}
+		
+		/* Legend */
+		.legendbar {
+			
+			.legendcenter {
+				font-size: 0.80em !important;
+				}
+		}
+		
+	}
+	
+	/* Tab Navigation */
+	div.fdadatatabs {
+		
+		/* Navigation Tabs */
+		.nav-tabs {
+			
+			a {
+				font-size: 0.90em !important;
+				line-height: 2.15em !important;
+				}
+		}
+	}
+}
+
+/*950px*/
+@media screen and (min-width: 0) and (max-width: 950px){
+	div.dashboardmain div.fdadatatabs div.tab-content #mapChart > .lightbox-head,
+	div.dashboardmain div.fdadatatabs div.tab-content #barChart > .lightbox-head {
+		font-size: 1.00em !important;
+		}
+}
+
+/*900px*/
+@media screen and (min-width: 0) and (max-width: 900px){
+	
+	/* Data Values and Legend */
+	div.datavaluesandlegend {
+		
+		/* Chart/Map Data Table */
+		#statusNumbers {
+			
+			div.w-body {
+				
+				div.w-any-num {
+					
+					table {
+						
+						tbody {
+							
+							th {
+								font-size: 1.00em !important;
+								}
+							td {
+								font-size: 2.25em !important;
+								}
+						}
+					}
+				}
+			}
+		}
+		
+		/* Legend */
+		.legendbar {
+			
+			.legendcenter {
+				font-size: 0.90em !important;
+				}
+		}
+		
+	}
+	
+	/* Tab Navigation */
+	div.fdadatatabs {
+		
+		/* Navigation Tabs */
+		.nav-tabs {
+			
+			a {
+				font-size: 1.10em !important;
+				line-height: 2.25em !important;
+				}
+		}
+	}
+}
+
+/*800px*/
+@media screen and (min-width: 0) and (max-width: 800px){
+	
+	div.dashboardmain .titleLabel {
+		font-size: 1.90em;
+		}
+	
+	/* Data Values and Legend */
+	div.datavaluesandlegend {
+		
+		/* Chart/Map Data Table */
+		#statusNumbers {
+			
+			div.w-body {
+				
+				div.w-any-num {
+					
+					table {
+						
+						tbody {
+							
+							th {
+								font-size: 1.20em !important;
+								}
+							td {
+								font-size: 2.55em !important;
+								}
+						}
+					}
+				}
+			}
+		}
+		
+		/* Legend */
+		.legendbar {
+			width: 70% !important;
+			
+			.legendnumber {
+				font-size: 1.25em !important;
+				}
+			.legendcenter {
+				font-size: 1.00em !important;
+				}
+		}
+		
+	}
+	
+	/* Tab Navigation */
+	div.fdadatatabs {
+		
+		/* Navigation Tabs */
+		.nav-tabs {
+			
+			a {
+				font-size: 1.30em !important;
+				line-height: 2.45em !important;
+				}
+		}
+	}
+	
+	div.dashboardmain div.fdadatatabs div.tab-content #mapChart > .lightbox-head,
+	div.dashboardmain div.fdadatatabs div.tab-content #barChart > .lightbox-head {
+		font-size: 1.25em !important;
+		}
+}
+
+/*675px*/
+@media screen and (min-width: 0) and (max-width: 675px){
+	
+	div.dashboardmain .titleLabel {
+		font-size: 2.25em;
+		text-align: center;
+		}
+	
+	/* Data Values and Legend */
+	div.datavaluesandlegend {
+		
+		/* Chart/Map Data Table */
+		#statusNumbers {
+			margin: 0 0 20px !important;
+			float: none !important;
+			width: 100% !important;
+			
+			div.w-body {
+				
+				div.w-any-num {
+					
+					table {
+						
+						tbody {
+							
+							th {
+								padding-right: 5px !important;
+								padding-left: 5px !important;
+								font-size: 1.50em !important;
+								}
+							td {
+								padding-right: 5px !important;
+								padding-left: 5px !important;
+								font-size: 2.85em !important;
+								}
+						}
+					}
+				}
+			}
+		}
+		
+		> .gr-1x2.break {
+			float: none !important;
+			width: 100% !important;
+			}
+		
+		/* Legend */
+		.legendbar {
+			margin: 15px 0 0 !important;
+			padding: 35px 0 0 !important;
+			float: none !important;
+			width: 100% !important;
+			border-top: 1px solid #f1f1f1;
+			
+			.legendnumber {
+				top: 25px !important;
+				font-size: 1.55em !important;
+				}
+			.legendcenter {
+				top: 20px !important;
+				font-size: 1.40em !important;
+				}
+		}
+		
+	}
+	
+	/* Tab Navigation */
+	div.fdadatatabs {
+		
+		/* Navigation Tabs */
+		.nav-tabs {
+			text-align: center;
+			
+			li {
+				display: inline-block;
+				float: none;
+				
+				a {
+					font-size: 1.50em !important;
+					line-height: 2.65em !important;
+					}
+				}
+		}
+	}
+	
+	div.dashboardmain div.fdadatatabs div.tab-content #mapChart > .lightbox-head,
+	div.dashboardmain div.fdadatatabs div.tab-content #barChart > .lightbox-head {
+		position: relative !important;
+		top: auto !important;
+		padding-bottom: 0 !important;
+		font-size: 1.65em !important;
+		text-align: center !important;
+		}
+}
+
+/*575px*/
+@media screen and (min-width: 0) and (max-width: 575px){
+	
+	div.dashboardmain .titleLabel {
+		font-size: 2.55em;
+		text-align: center;
+		}
+	
+	/* Data Values and Legend */
+	div.datavaluesandlegend {
+		
+		/* Chart/Map Data Table */
+		#statusNumbers {
+			
+			div.w-body {
+				
+				div.w-any-num {
+					
+					table {
+						
+						tbody {
+							
+							th {
+								font-size: 1.95em !important;
+								}
+							td {
+								font-size: 4.55em !important;
+								}
+						}
+					}
+				}
+			}
+		}
+		
+		/* Legend */
+		.legendbar {
+			
+			.legendnumber {
+				font-size: 1.95em !important;
+				}
+			.legendcenter {
+				font-size: 1.85em !important;
+				}
+		}
+		
+	}
+	
+	/* Tab Navigation */
+	div.fdadatatabs {
+		
+		/* Navigation Tabs */
+		.nav-tabs {
+			
+			li {
+				
+				a {
+					font-size: 2.05em !important;
+					line-height: 3.00em !important;
+					}
+				}
+		}
+	}
+	
+	div.dashboardmain div.fdadatatabs div.tab-content #mapChart > .lightbox-head,
+	div.dashboardmain div.fdadatatabs div.tab-content #barChart > .lightbox-head {
+		font-size: 2.25em !important;
+		}
+}
 
 
 

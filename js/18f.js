@@ -4,14 +4,60 @@
 /* **************************************************************** */
 jQuery(document).ready(function($){
 	
-	// Viewport Width
+	/* ************************************************* */
+	/* Viewport Width ********************************** */
+	/* ************************************************* */
 	viewportWidthHeight(true);
 	
-	// Sidebar Expand/Collapse
+	
+	/* ************************************************* */
+	/* Check for Cookies Globally ********************** */
+	/* ************************************************* */
+	
+	// Active Cookies
+	if (readCookie("sidebar-expanded")) {
+		$('body').removeClass('collapsed');
+		$('.sidebarnavigation').css({ width: '225px' });
+		$('.contentregionwrapper').css({ paddingLeft: '225px' });
+		$('li.navitem i.sidebarcarets').remove();
+		console.log('reading cookie sidebar-expanded');
+	}
+	if (readCookie("sidebar-collapsed")) {
+		$('body').addClass('collapsed');
+		$('.sidebarnavigation').css({ width: '75px' });
+		$('.contentregionwrapper').css({ paddingLeft: '75px' });
+		$('li.navitem a').append('<i class="fa fa-caret-right sidebarcarets"></i>');
+		console.log('reading cookie sidebar-collapsed');
+	}
+	
+	// Expired Cookies
+    if (!readCookie("sidebar-expanded")) {
+		$('body').removeClass('collapsed');
+		$('.sidebarnavigation').css({ width: '225px' });
+		$('.contentregionwrapper').css({ paddingLeft: '225px' });
+		$('li.navitem i.sidebarcarets').remove();
+		console.log('deleted cookie sidebar-expanded');
+    }
+    if (!readCookie("sidebar-collapsed")) {
+		$('body').removeClass('collapsed');
+		$('.sidebarnavigation').css({ width: '225px' });
+		$('.contentregionwrapper').css({ paddingLeft: '225px' });
+		$('li.navitem i.sidebarcarets').remove();
+		console.log('deleted cookie sidebar-collapsed');
+    }
+	
+	
+	/* ************************************************* */
+	/* Sidebar Expand/Collapse ************************* */
+	/* ************************************************* */
 	$('.mobilehandle').click(function(){
 		var animTiming = 250;
 		
 		if(!$('body').hasClass('collapsed')){
+			
+			// Cookie
+			eraseCookie('sidebar-expanded');
+			createCookie('sidebar-collapsed', 1, {expires: 30});
 			
 			// Add Class to body Tag
 			$('body').addClass('collapsed');
@@ -29,6 +75,10 @@ jQuery(document).ready(function($){
 			
 		} else {
 			
+			// Cookie
+			eraseCookie('sidebar-collapsed');
+			createCookie('sidebar-expanded', 1, {expires: 30});
+			
 			// Remove Class from body Tag
 			$('body').removeClass('collapsed');
 			
@@ -44,7 +94,10 @@ jQuery(document).ready(function($){
 		}
 	});
 	
-	// Sidebar Click Event
+	
+	/* ************************************************* */
+	/* Sidebar Click Event ***************************** */
+	/* ************************************************* */
 	$('.navitem.navfdd').on('click', function(e){
 		e.preventDefault();
 		$('.navitem').removeClass('active');
@@ -54,7 +107,10 @@ jQuery(document).ready(function($){
 		}
 	});
 	
-	// Class Click Event
+	
+	/* ************************************************* */
+	/* Class Click Event ******************************* */
+	/* ************************************************* */
 	$('.classitem').on('click', function(e){
 		e.preventDefault();
 		$('.classitem').removeClass('active');
@@ -64,16 +120,27 @@ jQuery(document).ready(function($){
 		}
 	});
 	
-	// Latest Recalls and Twitter Region
+	
+	/* ************************************************* */
+	/* Latest Recalls and Twitter Region *************** */
+	/* ************************************************* */
 	$('.topinforegion').append(
 		'<div class="expandhandle">' + 
 			'<div class="expandhandlelbl">MORE</div>' + 
 			'<div class="expandhandlearrow"></div>' + 
 		'</div>');
 	
-	// Last Recalls and Twitter Region Click Event
+	
+	
+	/* ************************************************* */
+	/* Last Recalls and Twitter Region Click Event ***** */
+	/* ************************************************* */
 	$('.expandhandle,.recallheader,.twitterheader').on('click', function(){
 		
+		// Viewport Width
+		var vWidth = window.innerWidth;
+		
+		// Column Heights
 		var feedsHeightRecallTable 	= $('.top5info').innerHeight();
 		var feedsHeightTwitter  	= $('.twitterfeed').innerHeight();
 		
@@ -81,19 +148,34 @@ jQuery(document).ready(function($){
 		
 		if(!$('.topinforegion').hasClass('expanded')){
 			
-			// Add 'expanded' class
-			$(this).closest('.topinforegion').addClass('expanded');
+			// Greater than 850 pixels
+			if(vWidth > 850){
 			
-			// Add text LESS
-			$(this).find('.expandhandlelbl').html('LESS');
+				// Add 'expanded' class
+				$(this).closest('.topinforegion').addClass('expanded');
+				
+				// Add text LESS
+				$(this).find('.expandhandlelbl').html('LESS');
+				
+				// Animate to Y height
+				if(feedsHeightRecallTable >= feedsHeightTwitter){
+					$('.dataregion_top').animate({ height: feedsHeightRecallTable + 55 }, 250);
+				} else if(feedsHeightTwitter >= feedsHeightRecallTable) {
+					$('.dataregion_top').animate({ height: feedsHeightTwitter + 55 }, 250);
+				}
 			
-			// Animate to Y height
-			// $('.dataregion_top').animate({ height: '275px' }, 250);
-			// Animate to Y height
-			if(feedsHeightRecallTable >= feedsHeightTwitter){
-				$('.dataregion_top').animate({ height: feedsHeightRecallTable + 125 }, 250);
-			} else if(feedsHeightTwitter >= feedsHeightRecallTable) {
-				$('.dataregion_top').animate({ height: feedsHeightTwitter + 125 }, 250);
+			// Less than or equal to 850 pixels
+			}else if(vWidth <= 850){
+			
+				// Add 'expanded' class
+				$(this).closest('.topinforegion').addClass('expanded');
+				
+				// Add text LESS
+				$(this).find('.expandhandlelbl').html('LESS');
+				
+				// Animate to Y height
+				$('.dataregion_top').animate({ height: feedsHeightRecallTable + feedsHeightTwitter + 95 }, 250);
+				
 			}
 			
 		}else{
@@ -104,21 +186,32 @@ jQuery(document).ready(function($){
 			// Add text MORE
 			$(this).find('.expandhandlelbl').html('MORE');
 			
-			// Animate back to resting state (135px) set in CSS
-			$('.dataregion_top').animate({ height: '135px' }, 250);
+			// Animate back to resting state (70px) set in CSS
+			$('.dataregion_top').animate({ height: '70px' }, 250);
+			
 		}
+		
 	});
 	
-	//  Get URL Query String Vars
+	
+	/* ************************************************* */
+	/* Get URL Query String Vars *********************** */
+	/* ************************************************* */
 	getUrlVars();
 	
-	// Field Icons
+	
+	/* ************************************************* */
+	/* Field Icons ************************************* */
+	/* ************************************************* */
 	var $fldIconsExist = $('div.formfld.icon');
 	if ($fldIconsExist.length > 0){
 		fieldIcons();
 	}
 	
-	// Switch Sidebar based on Viewport
+	
+	/* ************************************************* */
+	/* Switch Sidebar based on Viewport **************** */
+	/* ************************************************* */
 	switchSidebar();
 	
 	$(window).on('resize', function(){
@@ -163,79 +256,6 @@ function viewportWidthHeight(val){
 	}
 }
 
-/*
-// AJAX FDA Load
-function ajaxFdaLoad(infoCounter){
-	var ajaxhttp = '';
-	
-	if(window.XMLHttpRequest){
-		ajaxhttp = new XMLHttpRequest();
-	} else {
-		ajaxhttp = new ActiveXObject("Microsoft.XMLHTTP");
-	}
-	
-	// onreadystatechange
-	ajaxhttp.onreadystatechange = function(){
-		if(ajaxhttp.readyState == 4 && ajaxhttp.status == 200) {
-			jsonFdaProcessing(ajaxhttp.responseText,infoCounter);
-		}
-		if(ajaxhttp.status == 400){ console.log('Status: Bad Request') }
-		if(ajaxhttp.status == 403){ console.log('Status: Forbidden') }
-		if(ajaxhttp.status == 404){ console.log('Status: Not Found') }
-		if(ajaxhttp.status == 500){ console.log('Status: Internal Error') }
-	}
-	
-	ajaxhttp.open('get','https://api.fda.gov/drug/event.json?api_key=Q3VHEzlFWJ5eYIkLMtxLhNfpC775FyKR4HU5fFs4&search=patient.drug.openfda.pharm_class_epc:"nonsteroidal+anti-inflammatory+drug"&count=patient.reaction.reactionmeddrapt.exact',true);
-	ajaxhttp.send();
-}
-
-// JSON Data Processing
-function jsonFdaProcessing(jsonString,dataCounter){
-	var obj = JSON.parse(jsonString);
-	
-	// console.log(obj);
-	
-	var dataDisplay = '';
-	
-	// Graph Data Output
-	dataDisplay += '<div class="fdareactiongraph">';
-		
-		dataDisplay += '<div class="fdareactiongraph_inner">';
-			
-			dataDisplay += '<h3>Top ' + dataCounter + ' most frequently reported patient reactions for nonsteroidal anti-inflammatory drugs</h3>';
-			
-			// Loop Through Data
-			// for(var i=0;i<obj.results.length;i++){ / * Grab all 100 records from API * /
-			for(var i=0;i<dataCounter;i++){ / * Grab top X results from API * /
-				dataDisplay += 
-					'<div class="patientdrugrow patientdrug_' + i + '">' + 
-						'<div class="patientdrug_lbl">' + 
-							toCapitalCase(obj.results[i].term) + 
-							
-							'<div class="clear"></div>' + 
-						'</div>' + 
-						
-						'<div class="patientdrug_data" style="width: ' + ((obj.results[i].count)/350) + '%">' + 
-							'<div class="patientdrug_counter">' + 
-								obj.results[i].count + 
-							'</div>' + 
-							
-							'<div class="clear"></div>' + 
-						'</div>' + 
-						
-						'<div class="clear"></div>' + 
-					'</div>';
-			}
-			dataDisplay += '<div class="clear"></div>';
-		dataDisplay += '</div>';
-		
-		dataDisplay += '<div class="clear"></div>';
-	dataDisplay += '</div>';
-	
-	document.getElementById('fdabarchart').innerHTML = dataDisplay;
-}
-*/
-
 
 /**
   * Switch Sidebar Function
@@ -244,53 +264,64 @@ function jsonFdaProcessing(jsonString,dataCounter){
   */
 function switchSidebar(){
 	var vWidth = window.innerWidth;
-	var animTiming = 0;
 	
-	if(vWidth <= 800){
+	// Greater than 850
+	if(vWidth > 850){
+		
+		/*
+		if($('body').hasClass('collapsed')){
+			
+			// Do nothing
+			
+		} else {
+		*/
+		
+			// Remove Class from body Tag
+			$('body').removeClass('collapsed');
+			
+			// Sidebar
+			$('.sidebarnavigation').animate({ width: '225px' }, 150);
+			
+			// Content Region
+			$('.contentregionwrapper').animate({ paddingLeft: '225px' }, 150);
+			
+			// Remove Caret from Each Nav Item
+			$('li.navitem i.sidebarcarets').remove();
+		
+		/*
+		}
+		*/
+	
+	// Less than or equal to 850
+	}else if(vWidth <= 850){
+		
+		/*
 		if(!$('body').hasClass('collapsed')){
+			
+			// Do nothing
+			
+		} else {
+		*/
 			
 			// Add Class to body Tag
 			$('body').addClass('collapsed');
 			
-			// Expand/Collapse Handle
-			$('.mobilehandle').animate({ left: '50%', marginLeft: '-15px' }, animTiming);
-			
 			// Sidebar
-			$('.sidebarnavigation').animate({ width: '75px' }, animTiming);
-			$('.navsidebar').animate({ paddingLeft: '0', paddingRight: '0' }, animTiming);
-			$('.navsidebar ul.prinavlist li img').animate({ paddingLeft: '7px' }, animTiming);
+			$('.sidebarnavigation').animate({ width: '75px' }, 150);
 			
 			// Content Region
-			$('.contentregionwrapper').animate({ paddingLeft: '75px' }, animTiming);
+			$('.contentregionwrapper').animate({ paddingLeft: '75px' }, 150);
 			
 			// Add Caret to Each Nav Item
 			setTimeout(function(){
 				$('li.navitem a').append('<i class="fa fa-caret-right sidebarcarets"></i>');
 			}, 150);
-			
+		
+		/*
 		}
-	} else {
-		if($('body').hasClass('collapsed')){
-			
-			// Remove Class from body Tag
-			$('body').removeClass('collapsed');
-			
-			// Expand/Collapse Handle
-			$('.mobilehandle').animate({ left: '85%', marginLeft: '0' }, animTiming);
-			
-			// Sidebar
-			$('.sidebarnavigation').animate({ width: '225px' }, animTiming);
-			$('.navsidebar').animate({ paddingLeft: '15px', paddingRight: '15px' }, animTiming);
-			$('.navsidebar ul.prinavlist li img').animate({ paddingLeft: '0' }, animTiming);
-			
-			// Content Region
-			$('.contentregionwrapper').animate({ paddingLeft: '225px' }, animTiming);
-			
-			// Remove Caret from Each Nav Item
-			$('li.navitem i.sidebarcarets').remove();
-			
-		}
+		*/
 	}
+	
 }
 
 
@@ -302,6 +333,7 @@ function toCapitalCase(str){
 		return text.charAt(0).toUpperCase() + text.substring(1).toLowerCase();
 	});
 }
+
 
 /**
   * Mobile Navigation Function
@@ -451,7 +483,45 @@ function popupWidthHeight(){
 }
 
 
+/**
+  * Create Cookie Function
+  */
+function createCookie(name, value, days) {
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        var expires = "; expires=" + date.toGMTString();
+    }
+    else
+        var expires = "";
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
 
+
+/**
+  * Read Cookie Function
+  */
+function readCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+	
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ')
+            c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0)
+            return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+
+/**
+  * Erase Cookie Function
+  */
+function eraseCookie(name) {
+    createCookie(name, "", -1);
+}
 
 
 

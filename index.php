@@ -27,6 +27,7 @@ include_once 'inc/header.php';
 				<div style="font-size: 4em; padding-bottom: .5em; padding-top: 2em;">
 					<i class="fa fa-circle-o-notch fa-spin"></i>
 				</div>
+				
 				<h1>Loading</h1>
 			</div>
 			<?php /* Loading: End */ ?>
@@ -151,19 +152,22 @@ include_once 'inc/header.php';
 														padding-right: 12px;
 													}
 												</style>
+												
 												<div class="row datagridmain">
-													<div class="col-md-12 datagridcol">
+													<div class="datagridcol">
 														<table id="datagridinfo" class="datagrid dataTable drugs state table-striped" cellspacing="0" width="100%">
 															<thead>
 																<tr>
-																	<th>Recall Date</th>
-																	<th>City</th>
-																	<th>State</th>
-																	<th>Recalling Firm</th>
-																	<th># of Products Recalled</th>
-																	<th>Status</th>
-																	<th>Product Description</th>
-																	<th>Reason for Recall</th>
+																	<th class="recalldate">Recall Date</th>
+																	<th class="recallcity">City</th>
+																	<th class="recallstate">State</th>
+																	<?php /* <th class="recallcity">Recalling Firm</th> */ ?>
+																	<th class="recallnum"># of Products Recalled</th>
+																	<th class="recallstatus">Status</th>
+																	<?php /*
+																	<th class="recalldesc">Product Description</th>
+																	<th class="recallreason">Reason for Recall</th>
+																	*/ ?>
 																</tr>
 															</thead>
 														</table>

@@ -1,6 +1,4 @@
 
-<h2>Latest Recalls</h2>
-
 <?php /* Top 5 Info: Start */ ?>
 <div class="col-sm-6 top5info">
 	<div class="recallheader">Recall Data</div>
