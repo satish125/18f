@@ -7,7 +7,7 @@ Next Tier Concepts, Inc. (NT Concepts) created the RECALL.IT prototype in respon
 
 RECALL.IT is an open source dashboard app primarily for federal health inspector use that displays FDA recall data (circa 2004-2015) for foods, drugs, and devices. Users can view recall data statistics, filter the data by geographic area (city/state), and view specific details about the data in a sortable, filterable, table format. The app’s purpose is to give the federal health inspector a daily snapshot of current events, as well as provide historical insight to past recalls.
 
-Letters a through q below describe, demonstrate, and provide evidence that NT Concepts successfully followed the U.S. Digital Services Playbook to create the RECALL.IT prototype. Criteria fulfillment [screenshots](https://github.com/NTConcepts/18f/tree/master/ASSETS) are found as embedded links to our GitHub repository to exemplify the text.
+Letters A through Q below describe, demonstrate, and provide evidence as required by Attachment E that NT Concepts successfully followed the U.S. Digital Services Playbook to create the RECALL.IT prototype. Criteria fulfillment [screenshots](https://github.com/NTConcepts/18f/tree/master/ASSETS) are found as embedded links to our GitHub repository to exemplify the text.
 
 #####CRITERIA A:
 
