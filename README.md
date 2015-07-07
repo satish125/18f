@@ -36,7 +36,7 @@ For the RECALL.IT prototype, we researched likely users, and wrote user stories 
 
 #####d. Used at least three “human-centered design” techniques or tools
 
-NT Concepts employed various human-centered/MVP design techniques to determine a) what users (federal health inspectors) wanted in the application, b) how we could technically answer those questions, and c) what would make the most business sense within the given timeline. We conducted short field research with “users”, and worked in a dedicated space as a team to translate the input into a rapid prototype. We started with [simple sketches and wireframes](https://github.com/NTConcepts/18f/blob/master/ASSETS/PROTOTYPE/OpenFDA_sketch.jpg), and quickly stood up a [clickable prototype](https://github.com/NTConcepts/18f/tree/master/ASSETS/HCD). We held daily demo meetings for feedback on the UI/UX, tested often, and leveraged this iterative process to continuously inform the app interface and functionality.
+NT Concepts employed various human-centered/MVP design techniques to determine a) what users (federal health inspectors) wanted in the application, b) how we could technically answer those questions, and c) what would make the most business sense within the given timeline. We conducted short field research with “users”, and worked in a dedicated space as a team to translate the input into a rapid prototype. We started with [simple sketches and wireframes](https://github.com/NTConcepts/18f/blob/master/ASSETS/PROTOTYPE/OpenFDA_sketch.jpg), and quickly stood up a [clickable prototype](https://github.com/NTConcepts/18f/tree/master/ASSETS/HCD). We held daily [demo meetings](https://github.com/NTConcepts/18f/tree/master/ASSETS/HCD) for feedback on the UI/UX, [tested often](https://github.com/NTConcepts/18f/tree/master/ASSETS/AGILE%20REPORTS/TEST%20SESSIONS), and leveraged this iterative process to continuously inform the app interface and functionality.
 
 #####e. Created or used a design style guide and/or a pattern library
 
@@ -44,35 +44,34 @@ We created a simple [style guide](https://github.com/NTConcepts/18f/tree/master/
 
 #####f. Performed usability tests with people
 
-The NT Concepts team performed both usability testing and user acceptance testing. Test criteria were derived from acceptance criteria specified in user stories, and managed in JIRA with the Capture module for direct team feedback. Extensive accessibility testing was also performed to ensure 508 compliance. Exploratory UAT was conducted with a sample user group outside of the development team to drive any UI or functional modifications.
+The NT Concepts team performed both usability testing and user acceptance testing. Test criteria were derived from acceptance criteria specified in user stories, and managed in JIRA with the Capture module for [direct team feedback](https://github.com/NTConcepts/18f/tree/master/ASSETS/AGILE%20REPORTS/TEST%20SESSIONS). Extensive accessibility testing was also performed to ensure 508 compliance. Exploratory UAT was conducted with a sample user group outside of the development team to drive any UI or functional modifications.
 
 #####g. used an iterative approach, where feedback informed subsequent work or versions of the prototype
 
-Daily demo sessions were held during the sprint and feedback on both usability and scope of the prototype application and resulted in the creation of new user stories and/or tasks assigned to user stories as evidenced through screenshots of our Jira sprint and scrum boards.
+Daily demo sessions were held during the sprint and feedback on both usability and scope of the prototype application and resulted in the creation of new user stories and/or tasks assigned to user stories as evidenced through screenshots of our [JIRA sprint and scrum boards](https://github.com/NTConcepts/18f/tree/master/ASSETS/AGILE%20REPORTS/).
 
 #####h. created a prototype that works on multiple devices, and presents a responsive design
 
-The RECALL.IT framework was built using the AngularJS framework, which allowed our team to work with a flexible, extensible environment that supports a multitude of open source technologies. The app is designed “mobile first”, and utilizes Bootstrap for Angular and Bootstrap CSS to ensure a responsive experience regardless of device, browser, or platform. A custom open source JavaScript (Minerva) was used to handle the advanced, responsive dashboard interface within the AngularJS framework. A full listing of technologies utilized is located in licensing.md in the repository.
+The RECALL.IT framework was built using the AngularJS framework, which allowed our team to work with a flexible, extensible environment that supports a multitude of open source technologies. The app is designed “mobile first”, and utilizes Bootstrap for Angular and Bootstrap CSS to ensure a responsive experience regardless of device, browser, or platform. A custom open source JavaScript (Minerva) was used to handle the advanced, responsive dashboard interface within the AngularJS framework. A full listing of technologies utilized is located in [licensing.md](https://github.com/NTConcepts/18f/blob/master/licensing.md) in the repository.
 
-i. used at least five modern and open-source technologies, regardless of architectural layer (frontend, backend, etc)
+#####i. used at least five modern and open-source technologies, regardless of architectural layer (frontend, backend, etc)
 
-NT Concepts utilized modern, open-source technologies to develop RECALL.IT,  including AngularJS, LESS, D3, Bootstrap, php, and JQuery, as evidenced by the code and commit history in the repository. 
+NT Concepts utilized modern, open-source technologies to develop RECALL.IT,  including AngularJS, LESS, D3, Bootstrap, php, and JQuery, as evidenced by the [code](https://github.com/NTConcepts/18f/tree/master/js) and commit history in the repository. 
 
 #####j. deployed the prototype on an Infrastructure as a Service (Iaas) or Platform as Service (Paas) provider, and indicated which provider they used.
 
-NT Concepts deployed the RECALL.IT app on IaaS provider Amazon Web Services (AWS), specifically the Amazon Elastic Compute Cloud (Amazon EC2) web service. 
+NT Concepts deployed the RECALL.IT app on IaaS provider [Amazon Web Services (AWS)](https://github.com/NTConcepts/18f/tree/master/ASSETS/AWS), specifically the Amazon Elastic Compute Cloud (Amazon EC2) web service. 
 
 #####k. wrote unit tests for their code
 
-NT Concepts utilized Jasmine, a behavior-driven development framework, for testing JavaScript code. Automated unit tests were written to cover all major JavaScript modules. Examples include testing external web service calls and the application bootstrapping process. Evidence can be run from XXX and viewed in the following folder in the GitHub repo. Cloud-based BrowserStack was utilized for desktop and mobile browser simulation testing, as well as actual physical device testing and reporting.
+NT Concepts utilized Jasmine, a behavior-driven development framework, for testing JavaScript code. Automated unit tests were written to cover all major JavaScript modules. Examples include testing external web service calls and the application bootstrapping process. Evidence can be run from XXX and viewed in the following folder in the GitHub repo. Cloud-based BrowserStack was utilized for [desktop and mobile browser simulation testing](https://github.com/NTConcepts/18f/blob/master/ASSETS/AGILE%20REPORTS/TEST%20SESSIONS/), as well as actual physical device testing and reporting.
 
 #####l. setup or used a continuous integration system to automate the running of tests and continuously deployed their code to their IaaS or PaaS provider.
 
-NT Concepts used a Github webhook (screenshot of Github webhook for AWS) to continuously deploy our code to Amazon EC2. We also started to set up testing via AWS shell scripts to run after deployment completion.
-
+NT Concepts used a [Github webhook](https://github.com/NTConcepts/18f/settings/hooks) [(screenshot of Github webhook for AWS)](https://github.com/NTConcepts/18f/tree/master/ASSETS/AWS) to continuously deploy our code to Amazon EC2. We also started to set up testing via AWS shell scripts to run after deployment completion.
 
 #####m. setup or used configuration management
-GitHub was used as a central repository for source code and platform for other collaborative needs. Branches were created to separate and assign individual tasks, and merged frequently to avoid major commit conflicts. An install.md was created to aid in initial project setup.
+GitHub was used as a central repository for source code and platform for other collaborative needs. Branches were created to separate and assign individual tasks, and merged frequently to avoid major commit conflicts. An [install.md](https://github.com/NTConcepts/18f/blob/master/Install.md) was created to aid in initial project setup.
 
 #####n. setup or used continuous monitoring
 Various methods of continuous monitoring were set up for the RECALL.IT project: JIRA was used to report bug/issue assignments and updates via email; GitHub a) alerted team members of code commits through repository subscription emails, and b) kicked off AWS autodeployment calls.
@@ -82,10 +81,10 @@ RECALL.IT is deployed in Amazon EC2 Container Service which is runs faster and h
 
 #####p. provided sufficient documentation to install and run their prototype on another machine
 
-Simple instructions for installing on a php-based web server can be found in the install.md located on GitHub.
+Simple instructions for installing on a php-based web server can be found in the [install.md](https://github.com/NTConcepts/18f/blob/master/Install.md) located on GitHub.
 
 #####q. prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge
 
-For RECALL.IT, we committed to collaborate in the open and publish our prototype publicly, and offer users a mechanism to report bugs and issues, and be responsive to these reports. RECALL.IT is publically accessible on the internet. Our GitHub repository (code, components) is publically accessible. The underlying platforms, libraries, and plugins are openly licensed and free of charge. Full licensing information is attributed in our repository.
+For RECALL.IT, we committed to collaborate in the open and publish our prototype publicly, and offer users a mechanism to report bugs and issues, and be responsive to these reports. RECALL.IT is publically accessible on the internet. Our GitHub repository (code, components) is publically accessible. The underlying platforms, libraries, and plugins are openly licensed and free of charge. Full [licensing information](https://github.com/NTConcepts/18f/blob/master/licensing.md) is attributed in our repository.
 
 

@@ -33,8 +33,6 @@ files:
      destination: C:\inetpub\wwwroot\Agile18F
    - source: .\app.js
      destination: C:\inetpub\wwwroot\Agile18F
-   - source: .\index.html
-     destination: C:\inetpub\wwwroot\Agile18F
    - source: .\index.php
      destination: C:\inetpub\wwwroot\Agile18F
    - source: .\login.php
