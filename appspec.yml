@@ -11,6 +11,8 @@ files:
      destination: C:\inetpub\wwwroot\Agile18F\js
    - source: .\maps
      destination: C:\inetpub\wwwroot\Agile18F\maps
+   - source: .\libs
+     destination: C:\inetpub\wwwroot\Agile18F\libs
    - source: .\inc\config.php
      destination: C:\inetpub\wwwroot\Agile18F\inc
    - source: .\inc\db_connect.php
