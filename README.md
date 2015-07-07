@@ -3,7 +3,7 @@
 ##[Public URL](http://demo.ntconcepts.com/recallit): http://demo.ntconcepts.com/recallit
 
 ###Approach to Developing the  RECALL.IT Prototype
-Next Tier Concepts, Inc. (NT Concepts) created the RECALL.IT prototype in response to GSA RFQ 4QTFHS150004 using Agile development methods, tools, and staff based on our organizational process assets and successful experiences on other Agile efforts. RECALL.IT is a working development and design prototype (Pool Three Full Stack) using datasets from <a href="http://open.fda.gov" target="_blank">openFDA</a>. Our approach to create the RECALL.IT prototype followed our established Agile practices, the U.S. Digital Services Playbook, and the requirements set forth in the RFQ.
+Next Tier Concepts, Inc. (NT Concepts) created the RECALL.IT prototype in response to GSA RFQ 4QTFHS150004 using Agile development methods, tools, and staff based on our organizational process assets and successful experiences on other Agile efforts. RECALL.IT is a working development and design prototype (Pool Three Full Stack) using datasets from [openFDA](http://open.fda.gov). Our approach to create the RECALL.IT prototype followed our established Agile practices, the U.S. Digital Services Playbook, and the requirements set forth in the RFQ.
 
 RECALL.IT is an open source dashboard app primarily for federal health inspector use that displays FDA recall data (circa 2004-2015) for foods, drugs, and devices. Users can view recall data statistics, filter the data by geographic area (city/state), and view specific details about the data in a sortable, filterable, table format. The app’s purpose is to give the federal health inspector a daily snapshot of current events, as well as provide historical insight to past recalls.
 
@@ -76,7 +76,7 @@ GitHub was used as a central repository for source code and platform for other c
 Various methods of continuous monitoring were set up for the RECALL.IT project: JIRA was used to report bug/issue assignments and updates via email; GitHub a) alerted team members of code commits through repository subscription emails, and b) kicked off AWS autodeployment calls.
 
 #####CRITERIA O:
-RECALL.IT is deployed in Amazon EC2 Container Service which is runs faster and highly scalable and easy to manage Docker containers. The software for RECALL.IT is deployed in AWS WIndows EC2 Instance and is Code Deploy is setup and configured to auto deploy code when a commit is made to the master branch of the repository in GitHub.
+RECALL.IT is deployed in Amazon EC2 Container Service which is runs faster and highly scalable and easy to manage Docker containers. The software for RECALL.IT is deployed in AWS Windows EC2 Instance and is Code Deploy is setup and configured to auto deploy code when a commit is made to the master branch of the repository in GitHub.
 
 #####CRITERIA P:
 Simple instructions for installing on a php-based web server can be found in the [install.md](https://github.com/NTConcepts/18f/blob/master/Install.md) located on GitHub.
