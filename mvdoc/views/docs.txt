@@ -19,16 +19,6 @@
       			   <div ui-view="chartOptions"></div>
       			<a ng-click="clickDocs('mvFooter')">mv-footer</a><br>
    			</div>
-            <span class="sectionSubHeader">Gathering Dashboard Data (JS)</span>
-   			<div class="side-nav-tabbed">
-   			   <a ng-click="clickImage('processImage')">Chart Data Gathering Process</a><br>
-      			<a ng-click="clickStep('stepOne')">Step 1: Creating the Module</a><br>
-               <a ng-click="clickStep('stepTwo')">Step 2: Making the Factory</a><br>
-               <a ng-click="clickStep('stepThree')">Step 3: Querying SharePoint</a><br>
-               <a ng-click="clickStep('stepFour')">Step 4: Formatting the Data</a><br>
-               <a ng-click="clickStep('stepFourB')">&emsp;&emsp;&emsp;Dashboard Data Formats</a><br>
-      			<a ng-click="clickStep('stepFive')">Step 5: Setting up the Controller</a><br>
-   		   </div>
             <br>
          </div>
          <span class="sectionHeader">References</span>
