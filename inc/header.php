@@ -13,7 +13,7 @@
 	
 	<title><?php echo $pageTitle; ?></title>
 	
-	<link href="<?php echo BASE_URL; ?>favicon.ico" rel="shortcut icon" />
+	<link href="<?php echo BASE_URL; ?>images/logo_recallit_K8y_icon.ico" rel="shortcut icon" />
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,600,700,800,100italic,200italic,300italic,600italic' rel='stylesheet' />
 	
 	<link href="<?php echo BASE_URL; ?>css/recallit.css" rel="stylesheet" media="all" />
