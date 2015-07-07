@@ -53,6 +53,8 @@ include_once 'inc/header.php';
 										}
 									}
 								?>
+
+								<p>We're continually making improvements to make your experience better! If you would like to receive updates on future enhancements, please enter your information below. (Note: This login is for demonstration purposes only, and represents backend technology (php/mySQL) integration.)</p>
 								
 								<?php /* Login Form: Start */ ?>
 								<div class="loginform">
@@ -92,6 +94,10 @@ include_once 'inc/header.php';
 									<div class="clear"></div>
 								</div>
 								<?php /* Login Form: End */ ?>
+								
+								<p><strong><u>Login Details</u></strong>:<br/>
+									<strong>Email Address</strong>: test1@ntconcepts.com<br/>
+									<strong>Password</strong>: 6ZaxN2Vzm9NUJT2y</p>
 								
 								<div class="clear"></div>
 							</div>
