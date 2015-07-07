@@ -36,6 +36,8 @@ include_once 'inc/header.php';
 
 								<p><strong>For more information about this tool, please contact us at <a href="mailto:sales@ntconcepts.com" title="Email us at sales@ntconcepts.com">sales@ntconcepts.com</a>.</strong></p>
 								
+								<hr>
+
 								<h2>Understanding General Recall Classifications</h2>
 								
 								<p>These guidelines from <a href="http://www.fda.gov/ForConsumers/ConsumerUpdates/ucm049070.htm#RecallClassifications" target="_blank" title="FDA Recall Classifications Guidelines">FDA 101: Product Recalls <span class="sr-only">Opens in new window</span></a> categorize all recalls into one of three classes, according to the level of hazard involved:</p>
@@ -46,41 +48,41 @@ include_once 'inc/header.php';
 									<li><strong>Class III</strong>: Products that are unlikely to cause any adverse health reaction, but that violate FDA labeling or manufacturing laws. Examples include: a minor container defect and lack of English labeling in a retail food.</li>
 								</ul>
 								
+								<hr>
+
 								<h2>VIEW SOURCE</h2>
 								
 								<p><a href="https://github.com/NTConcepts/18f" target="_blank" title="Fork on GitHub" class="btn btn-primary button" style="margin: 0 0 20px; float: left;">Fork us on Github <span class="sr-only">Opens in new window</span></a></p>
 								
 								<div class="clear"></div>
+								<hr>
 
-								<h3>Data</h3>
+								<h2>Data</h2>
 								
 								<p>RECALL.IT consumes and displays open source APIs on food, drugs, and devices from <a href="http://open.fda.gov" target="_blank" title="Open FDA">http://open.fda.gov <span class="sr-only">Opens in new window</span></a>. The datasets and data include:</p>
 								
 								<ul>
-									<li>Food enforcement reports</li>
-									<li>Drug enforcement reports</li>
-									<li>Device enforcement reports</li>
+									<li><a href="https://open.fda.gov/food/enforcement/" target="_blank" title="Food enforcement reports">Food enforcement reports</a></li>
+									<li><a href="https://open.fda.gov/drug/enforcement/" target="_blank" title="Drug enforcement reports">Drug enforcement reports</a></li>
+									<li><a href="https://open.fda.gov/device/enforcement/" target="_blank" title="Device enforcement reports">Device enforcement reports</a></li>
 								</ul>
 
-								<h3>Libraries</h3>
-								
-								<p><a href="https://jquery.com/" target="_blank">Jquery <span class="sr-only">Opens in new window</span></a></p>
+								<hr>
 
-								<h3>Frameworks</h3>
-								
-								<p><a href="http://getbootstrap.com/" target="_blank" title="Bootstrap">Bootstrap <span class="sr-only">Opens in new window</span></a><br/>
-									Minerva: Minerva combines the best of <a  href="https://angularjs.org/" target="_blank" title="AngularJS">AngularJS <span class="sr-only">Opens in new window</span></a> and <a href="http://d3js.org/" target="_blank" title="D3">D3.js <span class="sr-only">Opens in new window</span></a> to create simple and responsive dashboard components.</p>
+								<h2>Technologies and Platforms</h2>
 
-								<h3>Plugins</h3>
+								<p>A full listing of the open source technologies and platforms can be found in the <a href="https://github.com/NTConcepts/18f/blob/master/licensing.md" target="_blank" title="licensing.md">licensing.md</a> file in our GitHub repository.</p>
 								
-								<p><a href="https://www.datatables.net/" target="_blank" title="jQuery DataTables">Datatables.net <span class="sr-only">Opens in new window</span></a></p>
-								
+								<hr>
+
 								<h2>ACCESSIBILITY STATEMENT</h2>
 								
 								<p>NT Concepts is committed to making our electronic and information technologies accessible to individuals with disabilities by meeting or exceeding the requirements of Section 508 of the Rehabilitation Act (29 U.S.C. 794d), as amended in 1998. Section 508 is a federal law that requires agencies to provide individuals with disabilities equal access to electronic information and data comparable to those who do not have disabilities, unless an undue burden would be imposed on the agency. The Section 508 standards are the technical requirements and criteria that are used to measure conformance within this law. More information on Section 508 and the technical standards can be found at <a href="http://www.section508.gov" target="_blank" title="Section 508 Compliance">www.section508.gov <span class="sr-only">Opens in new window</span></a>.</p>
 								
 								<p>If you require assistance or wish to report an issue related to the accessibility of any content on this website, please email <a  href="mailto:section508@ntconcepts.com" title="Email us at section508@ntconcepts.com">section508@ntconcepts.com</a>, or call 703-752-8919. If applicable, please include the web address or URL and the specific problems you have encountered.</p>
 								
+								<hr>
+
 								<h2>ABOUT NT CONCEPTS</h2>
 								
 								<p>NT Concepts delivers data analytics, software engineering, geospatial, and business process operations solutions and services to enable their customers’ success. NT Concepts designs and builds comprehensive, scalable solutions on a diverse set of platforms and frameworks in enterprise, cloud, secured, and mobile environments. Founded in 1998, NT Concepts employs over 1000 professionals supporting intelligence, defense, and civilian government customers. For more information visit <a href="http://www.ntconcepts.com" target="_blank" title="Visit NT Concepts">http://www.ntconcepts.com <span class="sr-only">Opens in new window</span></a>.</p>
