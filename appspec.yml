@@ -23,8 +23,6 @@ files:
      destination: C:\inetpub\wwwroot\Agile18F\inc
    - source: .\inc\header.php
      destination: C:\inetpub\wwwroot\Agile18F\inc
-   - source: .\inc\index.html
-     destination: C:\inetpub\wwwroot\Agile18F\inc
    - source: .\inc\logout.php
      destination: C:\inetpub\wwwroot\Agile18F\inc
    - source: .\inc\process_login.php
