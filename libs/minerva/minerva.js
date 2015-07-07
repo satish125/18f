@@ -1,5 +1,7 @@
 /*
-   version 150102.1133
+ Minerva version 150102.1133
+ (c) 2015 Next Tier Concepts, Inc. 
+ License: MIT
 */
 (function () {
 
