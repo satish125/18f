@@ -26,9 +26,9 @@ Javascript visualization library
 <br />LICENSE: https://github.com/Caged/d3-tip/blob/master/LICENSE
 
 ####Minerva (minerva.min)
-Description: Utility script for d3 and angular
-<br />https://github.com/NTConcepts/18f/blob/master/not%20for%20public/minerva.js
-<br />LICENSE: https://github.com/NTConcepts/18f/blob/master/not%20for%20public/minerva_license.md
+Description: JavaScript Dashboarding Library
+<br />https:https://github.com/NTConcepts/18f/blob/master/libs/minerva/minerva.js
+<br />LICENSE: https://github.com/NTConcepts/18f/blob/master/libs/minerva/minerva_license.md
 
 ####Topojson (topojson.v1.min)
 GeoJSON extension
