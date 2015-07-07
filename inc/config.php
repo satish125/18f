@@ -1,7 +1,7 @@
 <?php
 
 // Database Login Details
-define("HOST", "localhost");
+define("HOST", "demo.ntconcepts.com");
 define("USER", "root");
 define("PASSWORD", "");
 define("DATABASE", "openfda");
@@ -13,7 +13,7 @@ define("DEFAULT_ROLE", "member");
 define("SECURE", false);
 
 // Site path without protocol. Protocol determined by SECURE
-define("BASE_URL_PATH", "//localhost/18f/");
+define("BASE_URL_PATH", "//demo.ntconcepts.com/18f/");
 
 // Condition to specify BASE_URL constant
 if(SECURE == true){
