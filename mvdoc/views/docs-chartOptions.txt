@@ -1,0 +1,14 @@
+﻿<div class="side-nav-tabbed">
+   <a ng-click="clickChartOptions('chart')">chart</a><br>
+      <div ui-view="chartSub"></div>
+   <a ng-click="clickChartOptions('legend')">legend</a><br>
+      <div ui-view="legendSub"></div>
+   <a ng-click="clickChartOptions('tooltip')">tooltip</a><br>
+      <div ui-view="tooltipSub"></div>
+   <a ng-click="clickChartOptions('xAxis')">xAxis</a><br>
+      <div ui-view="xAxisSub"></div>
+   <a ng-click="clickChartOptions('yAxis')">yAxis</a><br>
+      <div ui-view="yAxisSub"></div>
+   <a ng-click="clickChartOptions('types')">types</a><br>
+      <div ui-view="typesSub"></div>
+</div>

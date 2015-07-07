@@ -1,0 +1,18 @@
+<h1>{{title}}</h1>
+<p>{{about}}</p>
+<tabset justified="true">
+   <tab heading="This Step">
+   <mv-id-box mv-size="3x4" mv-title="Code">
+      <div class="exampleCodeLarge">
+         <pre><code data-language="javascript">{{results}}</code></pre>
+      </div>
+   </mv-id-box>
+   </tab>
+   <tab heading="Cumulative">
+   <mv-id-box mv-size="3x4" mv-title="Code">
+      <div class="exampleCodeLarge">
+         <pre><code data-language="javascript">{{example}}</code></pre>
+      </div>
+   </mv-id-box>
+   </tab>
+</tabset>

@@ -1,0 +1,23 @@
+﻿<mv-row>  
+   <mv-group mv-size="3x2"></mv-group>
+   <mv-group mv-size="3x2">
+      <div style="height:100%">
+      <br/><br/>
+      <div class="minervaTitle">Minerva</div>
+      <img src="../images/minerva.png">
+      </div>
+   </mv-group>
+   <mv-group mv-size="3x2"></mv-group>
+</mv-row>
+<mv-row>
+   <mv-group mv-size="1x1"></mv-group>
+   <mv-group mv-size="1x4">
+      <div class="hometext">Minerva is a Javascript framework for creating visually appealing dashboards. 
+      Minerva combines the best of <a href="https://angularjs.org/">AngularJS</a> and <a href="http://d3js.org/">D3.js</a>
+      to create simple reuseable dashboard components.</div>
+      <div class="links">
+         &emsp;&emsp;&emsp;&emsp;<a href="#/docs">Learn</a>
+      </div>
+   </mv-group>
+   <mv-group mv-size="1x1"></mv-group>
+</mv-row>

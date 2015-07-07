@@ -1,0 +1,26 @@
+﻿<mv-row>
+   <mv-group mv-size="4x4">
+      <mv-any-num mv-size="1x4" mv-data="violentDistricts" mv-title="Enemy Initiated Attacks - Last Month"></mv-any-num>
+      <mv-group mv-size="2x1">
+         <mv-id-box mv-size="1x1" mv-title="IED Attacks Last Month">
+            <mv-chart mv-data="iedData" mv-options="afgattacks"></mv-chart>
+         </mv-id-box>
+         <mv-any-num mv-size="1x1" mv-data="iedChange" mv-title="IED Attacks Comparison"  mv-style="{'position':'absolute'}">
+            <mv-chart mv-data="iedCompareData" mv-options="afgiedcomp"></mv-chart>
+         </mv-any-num>
+      </mv-group>
+      <mv-table mv-size="2x3" mv-title="Recent Coalition Fatalities" mv-data="dataRecentFatalities"></mv-table>
+      <mv-any-num mv-size="1x2" mv-data="deployed" mv-title="Deployed Troops"></mv-any-num>
+      <mv-id-box mv-size="1x2" mv-title="Opium Cultivation vs Eradication">
+         <mv-chart mv-data="opiumData" mv-options="afgopium"></mv-chart>
+      </mv-id-box>
+   </mv-group>
+   <mv-id-box mv-size="2x2" mv-title="Coalition Military Fatalities by Month - 2014">
+      <mv-chart mv-data="fatalitiesData" mv-options="afgfatalities"></mv-chart>
+   </mv-id-box>
+</mv-row>
+<mv-row>
+   <mv-id-box mv-size="2x2" mv-title="Attacks by Province - Last Week">
+         <mv-chart mv-data="afgsecurity" mv-options="afgmap"></mv-chart>
+   </mv-id-box>
+</mv-row>

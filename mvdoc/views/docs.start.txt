@@ -1,0 +1,11 @@
+﻿<h1>Getting Started</h1>
+<p>To make a new Dashboard the following steps need to occur using Microsoft SharePoint Designer:</p>
+<ul class="gettingStartedList">
+   <li>If not familiar with JavaScript or AngularJS, please take the Code School classes found in the Reference section of this guide.</li>
+   <li>Create a new folder for the dashboard in the desired SharePoint location.</li>
+   <li>Navigate to the new folder and create the following files by clicking on the <i>File</i> button in the ribbon toolbar, selecting the following file types, and completing the steps:
+
+</ul>
+
+<br /><span style="color: #890000; font-size: .8em">NOTE: The JavaScript file must define the module and controller (as seen in the Minerva Starter Template in the 'Code - JavaScript' tab) before the dashboard can be displayed.</span>
+<br /><span style="color: #890000; font-size: 0.8em">NOTE: Add the libraries (as seen in the Minerva Starter Template in the 'Code - HTML' tab) to the index.html file.</span>

@@ -1,0 +1,8 @@
+<mv-row>
+	<mv-any-num mv-size="1x5" mv-data="datanumbers" mv-title="Successful IED Attacks by Type"></mv-any-num>
+	<mv-any-num mv-size="1x1" mv-data="datanumber" mv-title="Successful IED Attacks"></mv-any-num>
+</mv-row>
+<mv-row>
+	<mv-table-list mv-size="3x2" mv-data="datalist" mv-title="Successful IED Attacks by Day"></mv-table-list>
+	<mv-table mv-size="3x4" mv-data="datatable" mv-title="Most Recent IED Events" mv-style="{'color':'#424242'}"></mv-table>
+</mv-row>

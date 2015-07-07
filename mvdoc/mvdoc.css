@@ -1,0 +1,179 @@
+﻿.mv-container 
+{
+   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+   font-size: 1em;
+   height: 100%;
+   width: 100%;
+   position: absolute;
+   background-color: #C0C0C0; 
+}
+.nav-item
+{
+	margin-right: 0.6em;
+	float: right;
+}
+.nav-item a
+{
+	color: white;
+	text-decoration: none;
+}
+.minervaTitle
+{
+   font-size: 3em;
+   text-align: center;
+   width: 8.5em;
+}
+.hometext
+{
+   padding: 1em 8em 1.5em 13em;
+}
+.hometext a
+{
+   color: #A3A3A3;
+}
+.hometext a:hover
+{
+   color: #828282;
+}
+
+.links
+{
+   width:100%;
+   font-size:2em;
+   padding: 0 0 0 7em;
+}
+.links a
+{
+   color: #A3A3A3;
+   text-decoration: none;
+}
+.links a:hover
+{
+   color: #828282;
+}
+.left
+{
+   float: left;
+}
+.right
+{
+   float: right;
+}
+.w-any-num th
+{
+   font-size: 1.2em;
+}
+.w-table
+{
+   padding: 2.5em 0 0 0.5em;
+}
+.active a
+{
+   color: #A3A3A3;
+   cursor: default;
+}
+
+/*chart header pointer*/
+
+#chart .w-head {
+   cursor: pointer;
+}
+
+/*colors*/
+.w-c0 {
+   background-color: #62B6C2;
+}
+.w-c1 {
+   background-color: #5BD6A8;
+}
+.w-c2 {
+   background-color: #FFD465;
+}
+.w-c3 {
+   background-color: #FFA242;
+}
+.w-c4 {
+   background-color: #DB7275;
+}
+
+/*legend colors*/
+
+#legend .w-c0 {
+   background-color: #18830F;
+}
+#legend .w-c1 {
+   background-color: #A1BD06;
+}
+#legend .w-c2 {
+   background-color: #FDE500;
+}
+#legend .w-c3 {
+   background-color: #F38901;
+}
+#legend .w-c4 {
+   background-color: #E40004;
+}
+
+/* docs page */
+#side-nav .lightbox-head {
+   background-color: #DCDCDC;
+   color: #999999;
+} 
+#side-nav .lightbox-body {
+   background-color: #DCDCDC;
+   width: 126%;
+}
+.side-nav-container {
+	padding: 2.5em 0 0 0.5em;
+}
+.side-nav-container a {
+   color: #7F7F7F;
+   cursor: pointer;
+   text-decoration: none;
+}
+.side-nav-container a:hover {
+   color: #0B0B0B;
+}
+.side-nav-tabbed {
+   padding: 0 0 0 1em;
+}
+.sectionHeader {
+   color: #5D8091;
+}
+.sectionSubHeader {
+   color: #7EADC4;
+}
+h1, h3 {
+   margin-bottom: 0.5em;
+}
+ul.attr {
+   margin: 0.25em;
+}
+.attr li {
+   list-style: square;
+}
+.templateLink {
+   line-height: 2.5em;
+}
+.learningContent {
+   margin-top: 2em;
+   margin-left: 5em;
+   margin-right: -5em;
+}
+.exampleCode {
+   padding: 1.5em 0.75em;
+   height: 23.2em;
+   overflow-y: auto;
+}
+.exampleCodeLarge{
+   padding: 1.5em 0.75em;
+   height: 36.8em;
+   overflow-y: auto;
+}
+.us-states {
+   fill: #A6A6A6;
+}
+.gettingStartedList li {
+   list-style:square inside none;
+   padding: 0.25em;
+}
