@@ -3,7 +3,7 @@
 ##[Public URL](http://demo.ntconcepts.com/recallit): http://demo.ntconcepts.com/recallit
 
 ###Approach to Developing the  RECALL.IT Prototype
-Next Tier Concepts, Inc. (NT Concepts) created the RECALL.IT prototype in response to GSA RFQ 4QTFHS150004 using Agile development methods, tools, and staff based on our organizational process assets and successful experiences on other Agile efforts. RECALL.IT is a working development and design prototype (Pool Three Full Stack) using datasets from [openFDA](http://open.fda.gov). Our approach to create the RECALL.IT prototype followed our established Agile practices, the U.S. Digital Services Playbook, and the requirements set forth in the RFQ.
+Next Tier Concepts, Inc. (NT Concepts) created the RECALL.IT prototype in response to GSA RFQ 4QTFHS150004 using Agile development methods, tools, and staff based on our organizational process assets and successful experiences on other Agile efforts. RECALL.IT is a working development and design prototype (Pool Three Full Stack) using datasets from <a href="http://open.fda.gov" target="_blank">openFDA</a>. Our approach to create the RECALL.IT prototype followed our established Agile practices, the U.S. Digital Services Playbook, and the requirements set forth in the RFQ.
 
 RECALL.IT is an open source dashboard app primarily for federal health inspector use that displays FDA recall data (circa 2004-2015) for foods, drugs, and devices. Users can view recall data statistics, filter the data by geographic area (city/state), and view specific details about the data in a sortable, filterable, table format. The app’s purpose is to give the federal health inspector a daily snapshot of current events, as well as provide historical insight to past recalls.
 
