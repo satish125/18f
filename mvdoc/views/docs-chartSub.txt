@@ -1,0 +1,3 @@
+﻿<div class="side-nav-tabbed" ng-repeat="attribute in attributes">
+   <a ng-click="clickSubOptions(parentTitle,attribute.state)">{{attribute.name}}</a><br>
+</div>

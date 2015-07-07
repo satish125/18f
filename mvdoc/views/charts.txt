@@ -1,0 +1,27 @@
+<mv-row>
+   <mv-id-box mv-size="2x2" mv-title="IED Attacks by Type - 4 Month Trend" mv-id="chart" mv-click="clickChart('barGrouped')">
+      <mv-chart mv-data="dataMV" mv-options="grouped"></mv-chart>
+   </mv-id-box>
+   <mv-id-box mv-size="2x2" mv-title="IED Attacks by Type - 4 Month Trend" mv-id="chart" mv-click="clickChart('barStacked')">
+      <mv-chart mv-data="dataMV" mv-options="stacked"></mv-chart>
+   </mv-id-box>
+   <mv-id-box mv-size="2x2" mv-title="IED Attacks by Type - 4 Month Trend" mv-id="chart" mv-click="clickChart('barStackedPercent')">
+      <mv-chart mv-data="dataMV" mv-options="stackedpercent"></mv-chart>
+   </mv-id-box>
+</mv-row>
+<mv-row>  
+   <mv-id-box mv-size="2x2" mv-title="IED Attacks by Type - 4 Month Trend" mv-id="chart" mv-click="clickChart('line')">
+   	<mv-chart mv-data="dataMV" mv-options="line"></mv-chart>
+   </mv-id-box>
+   <mv-id-box mv-size="2x3" mv-title="IED Attacks by Day - Type and Casualties" mv-id="chart" mv-click="clickChart('bubble')">
+      <mv-chart mv-data="dataBubble" mv-options="bubble"></mv-chart>
+   </mv-id-box>
+   <mv-group mv-size="2x1">
+      <mv-id-box mv-size="1x1" mv-title="IED Attacks by Type - Oct 14" mv-id="chart" mv-click="clickChart('pie')">
+         <mv-chart mv-data="data" mv-options="pie"></mv-chart>
+      </mv-id-box>
+      <mv-id-box mv-size="1x1" mv-title="IED Attacks by Type - Oct 14" mv-id="chart" mv-click="clickChart('burst')">
+         <mv-chart mv-data="data" mv-options="burst"></mv-chart>                  
+      </mv-id-box>
+   </mv-group>
+</mv-row> 

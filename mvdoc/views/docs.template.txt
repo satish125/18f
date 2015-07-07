@@ -1,0 +1,32 @@
+﻿<h1>{{title}}</h1>
+<p>{{about}}</p>
+<tabset justified="true">
+   <tab heading="Dashboard View">
+      <div demo-compile="results"></div>
+   </tab>
+   <tab heading="Code - HTML">
+      <mv-id-box mv-size="2x4" mv-title="index.html">
+         <div class="exampleCode">
+            <pre><code data-language="{{language}}">{{example}}</code></pre>
+         </div>
+      </mv-id-box>
+   </tab>
+   <tab heading="Code - JavaScript">
+      <mv-id-box mv-size="2x4" mv-title="app.js">
+         <div class="exampleCode">
+            <pre>
+               <code data-language="javascript">(
+   function () {
+      var app = angular.module('minervaDemoApp', ['mvMinerva'])
+      .controller('mainCtrl', ['$scope', function($scope)
+      {
+         
+      }]);
+   }()
+);
+               </code>
+            </pre>
+         </div>
+      </mv-id-box>
+   </tab>
+</tabset>

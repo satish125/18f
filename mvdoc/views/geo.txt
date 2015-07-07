@@ -1,0 +1,15 @@
+﻿<mv-row>
+   <mv-group mv-size="5x1"></mv-group>
+   <mv-id-box mv-size="3x4" mv-title="ISIS Activity">
+      <mv-chart mv-data="dataISIS" mv-options="map"></mv-chart>
+   </mv-id-box>
+</mv-row>
+<mv-row>
+   <mv-id-box mv-size="2x2" mv-title="Attacks by Province">
+      <mv-chart mv-data="afgsecurity" mv-options="afgmap"></mv-chart>
+   </mv-id-box>
+   <mv-id-box mv-size="2x2" mv-title="GDP Per Capita">
+      <mv-chart mv-data="dataGDPPC" mv-options="globe"></mv-chart>
+   </mv-id-box>
+   <mv-table-list mv-size="1x1" mv-data="datalegend" mv-title="Legend - GDP Per Capita" mv-id="legend"></mv-table-list>
+</mv-row>

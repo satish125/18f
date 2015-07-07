@@ -1,0 +1,56 @@
+<!-- Side Navigation Bar -->
+<mv-group mv-size="5x1">
+	<mv-id-box mv-size="5x1" mv-title="Navigation" mv-id="side-nav">
+		<div class="side-nav-container">
+		   <a href="#/docs">Learn</a><br><br>
+         <span class="sectionHeader">Customizing the Dashboard</span>
+		   <div class="side-nav-tabbed">
+   		   <span class="sectionSubHeader">Directives (HTML)</span>
+   		   <div class="side-nav-tabbed">
+      			<a ng-click="clickDocs('mvHeader')">mv-header</a><br>
+      			<a ng-click="clickDocs('mvBody')">mv-body</a><br>
+      			<a ng-click="clickDocs('mvIdBox')">mv-id-box</a><br>
+      			<a ng-click="clickDocs('mvRow')">mv-row</a><br>
+      			<a ng-click="clickDocs('mvGroup')">mv-group</a><br>
+      			<a ng-click="clickDocs('mvAnyNum')">mv-any-num</a><br>
+      			<a ng-click="clickDocs('mvTable')">mv-table</a><br>
+      			<a ng-click="clickDocs('mvTableList')">mv-table-list</a><br>
+      			<a ng-click="clickChart('mvChart')">mv-chart</a><br>
+      			   <div ui-view="chartOptions"></div>
+      			<a ng-click="clickDocs('mvFooter')">mv-footer</a><br>
+   			</div>
+            <span class="sectionSubHeader">Gathering Dashboard Data (JS)</span>
+   			<div class="side-nav-tabbed">
+   			   <a ng-click="clickImage('processImage')">Chart Data Gathering Process</a><br>
+      			<a ng-click="clickStep('stepOne')">Step 1: Creating the Module</a><br>
+               <a ng-click="clickStep('stepTwo')">Step 2: Making the Factory</a><br>
+               <a ng-click="clickStep('stepThree')">Step 3: Querying SharePoint</a><br>
+               <a ng-click="clickStep('stepFour')">Step 4: Formatting the Data</a><br>
+               <a ng-click="clickStep('stepFourB')">&emsp;&emsp;&emsp;Dashboard Data Formats</a><br>
+      			<a ng-click="clickStep('stepFive')">Step 5: Setting up the Controller</a><br>
+   		   </div>
+            <br>
+         </div>
+         <span class="sectionHeader">References</span>
+         <div class="side-nav-tabbed">
+            <a ng-click="clickTemplate('minervaTemplate')">Minerva Starter Template</a><br>
+   			<a href="http://d3js.org/" target=blank>D3 Examples</a><br>
+            <a href="https://docs.angularjs.org/api" target=blank>AngularJS Guide</a><br>
+            <a href="https://spservices.codeplex.com/wikipage?title=$().SPServices.SPGetListItemsJson" target=blank>SPServices Guide</a><br>
+            <a href="http://www.w3schools.com/cssref/default.asp" target=blank>W3Schools CSS Guide</a><br>
+            <a href="https://github.com/mbostock/d3/wiki/Formatting" target=blank>D3 Number Formatting</a><br>
+            <a href="https://www.codeschool.com/paths/javascript" target=blank>Code School - JavaScript</a><br>
+            <a href="https://www.codeschool.com/courses/shaping-up-with-angular-js" target=blank>Code School - AngularJS</a><br>
+		   </div>
+		</div>
+	</mv-id-box>
+</mv-group>
+
+<!-- Main Learning Page Content -->
+<mv-group mv-size="5x4" mv-style="">
+	<div class="learningContent" ui-view>
+		<h1>Minerva</h1>
+		<p>Minerva is a tool used for producing various dashboards. This tool primarily uses a feature of AngularJS called <i>Directives</i> which define a set of easy to use custom HTML tags.</p>
+      <p>This Learning Guide provides the information and resources needed to create a new custom dashboard and has been broken down into the following sections:</p>
+	</div>
+</mv-group>

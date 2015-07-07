@@ -1,0 +1,11 @@
+﻿<mv-row>
+   <mv-group mv-size="4x4">
+      <mv-id-box mv-size="1x4" mv-title="HTML" mv-id="html"><div style="padding:1em 1em; overflow-y:auto; height:92%; margin: 0;"><pre><code data-language="html">{{strHTML}}</code></pre></div></mv-id-box>
+      <mv-id-box mv-size="2x2" mv-title="Code - Options" mv-id="options"><div style="padding:1em 1em; overflow-y:auto; height:92%; margin: 0;"><pre><code data-language="javascript">{{options | json}}</code></pre></div></mv-id-box>
+      <mv-id-box mv-size="2x2" mv-title="Code - Data" mv-id="data"><div style="padding:1em 1em; overflow-y:auto; height:92%; margin: 0;"><pre><code data-language="javascript">{{data | json}}</code></pre></div></mv-id-box>
+   </mv-group>
+   <mv-id-box mv-size="2x2" mv-title="Results">
+      <mv-chart mv-options="options" mv-data="data"></mv-chart>
+   </mv-id-box>
+   <mv-group mv-size="2x2"></mv-group>
+</mv-row>
