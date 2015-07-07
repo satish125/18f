@@ -224,18 +224,37 @@ ul.scroll-menu {
 .sg-brand-danger .sg-color-swatch {
   background: #d9831f;
 }
+
+
+.sg-color1-lighter  { background: #ffffff; }
+.sg-color2-lighter  { background: #393939; }
+.sg-color3-lighter  { background: #777; }
+.sg-color4-lighter  { background: #ababab; }
+.sg-color5-lighter  { background: #c9c8c8; }
+.sg-color6-lighter  { background: #2e3236; }
+.sg-color7-lighter  { background: #a6a6a6; }
+
+.sg-color8-lighter  { background: #2e3236; }
+.sg-color9-lighter  { background: #ffffff; }
+.sg-color10-lighter  { background: #777; }
+.sg-color11-lighter  { background: #f1f1f1; }
+.sg-color12-lighter  { background: #ababab; }
+
+
+
 /* Fonts
 ---------------------------------------------------------------------------- */
 .sg-font {
   font-size: 1.8em;
   padding: 0 0 .2em 0;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
-.sg-font-primary {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-.sg-font-secondary {
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
+
+.sg-font-weight-100 { font-weight: 100; }
+.sg-font-weight-400 { font-weight: 400; }
+.sg-font-weight-500 { font-weight: 600; }
+.sg-font-weight-600 { font-weight: 700; }
+
 /* Grid
 ---------------------------------------------------------------------------- */
 .show-grid {

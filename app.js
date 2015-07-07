@@ -152,10 +152,10 @@
             if(vWidth > 850){
             
                // Add 'expanded' class
-               $(this).closest('.topinforegion').addClass('expanded');
+               $('.topinforegion').addClass('expanded');
                
                // Add text LESS
-               $(this).find('.expandhandlelbl').html('LESS');
+               $('.topinforegion .expandhandlelbl').html('LESS');
                
                // Animate to Y height
                if(feedsHeightRecallTable >= feedsHeightTwitter){
@@ -168,10 +168,10 @@
             }else if(vWidth <= 850){
                
                // Add 'expanded' class
-               $(this).closest('.topinforegion').addClass('expanded');
+               $('.topinforegion').addClass('expanded');
                
                // Add text LESS
-               $(this).find('.expandhandlelbl').html('LESS');
+               $('.topinforegion .expandhandlelbl').html('LESS');
                
                // Animate to Y height
                $('.dataregion_top').animate({ height: feedsHeightRecallTable + feedsHeightTwitter + 95 }, 250);
@@ -181,10 +181,10 @@
          }else{
             
             // Remove 'expanded' class
-            $(this).closest('.topinforegion').removeClass('expanded');
+            $('.topinforegion').removeClass('expanded');
             
             // Add text MORE
-            $(this).find('.expandhandlelbl').html('MORE');
+            $('.topinforegion .expandhandlelbl').html('MORE');
             
             // Animate back to resting state (70px) set in CSS
             $('.dataregion_top').animate({ height: '70px' }, 250);
