@@ -37,8 +37,6 @@
 	
 	<script src="<?php echo BASE_URL; ?>js/dataTables.responsive.js"></script>
 	
-	<script src="<?php echo BASE_URL; ?>js/18f.js"></script>
-	
 	<?php /* Application JS Files */ ?>
 	<script src="<?php echo BASE_URL; ?>app.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/services/openFDA.factory.js"></script>
