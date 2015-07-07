@@ -45,3 +45,5 @@ files:
      destination: C:\inetpub\wwwroot\Agile18F
    - source: .\openfda.sql
      destination: C:\inetpub\wwwroot\Agile18F
+   - source: .\favicon.ico
+     destination: C:\inetpub\wwwroot\Agile18F
