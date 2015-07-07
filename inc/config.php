@@ -13,7 +13,7 @@ define("DEFAULT_ROLE", "member");
 define("SECURE", false);
 
 // Site path without protocol. Protocol determined by SECURE
-define("BASE_URL_PATH", "//demo.ntconcepts.com/18f/");
+define("BASE_URL_PATH", "//demo.ntconcepts.com/recallit/");
 
 // Condition to specify BASE_URL constant
 if(SECURE == true){
