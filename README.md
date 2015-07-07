@@ -60,7 +60,7 @@ NT Concepts utilized modern, open-source technologies to develop RECALL.IT,  inc
 
 #####j. deployed the prototype on an Infrastructure as a Service (Iaas) or Platform as Service (Paas) provider, and indicated which provider they used.
 
-NT Concepts deployed the RECALL.IT app on IaaS provider Amazon Web Services (AWS), specifically the Amazon Elastic Compute Cloud (Amazon EC2) web service. 
+NT Concepts deployed the RECALL.IT app on IaaS provider [Amazon Web Services (AWS)](https://github.com/NTConcepts/18f/tree/master/ASSETS/AWS), specifically the Amazon Elastic Compute Cloud (Amazon EC2) web service. 
 
 #####k. wrote unit tests for their code
 
