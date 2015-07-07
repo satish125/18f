@@ -3,7 +3,7 @@
 // Database Login Details
 define("HOST", "demo.ntconcepts.com");
 define("USER", "root");
-define("PASSWORD", "");
+define("PASSWORD", "r00t");
 define("DATABASE", "openfda");
 
 define("CAN_REGISTER", "any");
