@@ -76,7 +76,7 @@ GitHub was used as a central repository for source code and platform for other c
 Various methods of continuous monitoring were set up for the RECALL.IT project: JIRA was used to report bug/issue assignments and updates via email; GitHub a) alerted team members of code commits through repository subscription emails, and b) kicked off AWS autodeployment calls.
 
 #####CRITERIA O:
-RECALL.IT is deployed in Amazon EC2 Container Service which is runs faster and highly scalable and easy to manage Docker containers. The software for RECALL.IT is deployed in AWS Windows EC2 Instance and is Code Deploy is setup and configured to auto deploy code when a commit is made to the master branch of the repository in GitHub.
+RECALL.IT is deployed in Amazon EC2 Container Service which runs faster, is highly scalable and easy to manage Docker containers. The software for RECALL.IT is deployed in AWS Windows EC2 Instance and Code Deploy is setup and configured to auto deploy code when a commit is made to the master branch of the repository in GitHub.
 
 #####CRITERIA P:
 Simple instructions for installing on a php-based web server can be found in the [install.md](https://github.com/NTConcepts/18f/blob/master/Install.md) located on GitHub.
