@@ -28,13 +28,11 @@
          $('.sidebarnavigation').css({ width: '75px' });
          $('.contentregionwrapper').css({ paddingLeft: '75px' });
          $('li.navitem a').append('<i class="fa fa-caret-right sidebarcarets"></i>');
-         console.log('reading cookie sidebar-collapsed');
       } else if (collapsing == "expanded") {
          $('body').removeClass('collapsed');
          $('.sidebarnavigation').css({ width: '225px' });
          $('.contentregionwrapper').css({ paddingLeft: '225px' });
          $('li.navitem i.sidebarcarets').remove();
-         console.log('deleted cookie sidebar-expanded');
       } else {
          switchSidebar();
       }

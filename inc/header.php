@@ -18,30 +18,30 @@
 	
 	<link href="<?php echo BASE_URL; ?>css/recallit.css" rel="stylesheet" media="all" />
 	
-	<?php /* Dependencies */ ?>
-	<script src="<?php echo BASE_URL; ?>js/jquery-2.1.3.min.js"></script>
-	<script src="<?php echo BASE_URL; ?>js/angular.min.js"></script>
-	<script src="<?php echo BASE_URL; ?>js/minerva.min.js"></script>
-	<script src="<?php echo BASE_URL; ?>js/d3.min.js"></script>
-	<script src="<?php echo BASE_URL; ?>js/d3.tip.v0.6.3.js"></script>
-	<script src="<?php echo BASE_URL; ?>js/ui-bootstrap-tpls-0.13.0.min.js"></script>
-	<script src="<?php echo BASE_URL; ?>js/underscore-min.js"></script>
-	<script src="<?php echo BASE_URL; ?>js/topojson.v1.min.js"></script>
-	
-	<?php if (login_check($mysqli) == false) : ?>
-	<script src="<?php echo BASE_URL; ?>js/form.js"></script>
-	<script src="<?php echo BASE_URL; ?>js/sha512.js"></script>
-	<?php endif; ?>
-	
-	<script src="<?php echo BASE_URL; ?>js/jquery.dataTables.min.js"></script>
-	
-	<script src="<?php echo BASE_URL; ?>js/dataTables.responsive.js"></script>
-	
+	<?php /* Load JS Frameworks First */ ?>
+	<script src="<?php echo BASE_URL; ?>libs/angular/angular.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>libs/jQuery/jquery-2.1.3.min.js"></script>
+
 	<?php /* Application JS Files */ ?>
 	<script src="<?php echo BASE_URL; ?>app.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/services/openFDA.factory.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/features/enforcement/openFDA.enforcement.js"></script>
 	<script src="<?php echo BASE_URL; ?>js/features/enforcement/openFDA.enforcement.factory.js"></script>
+
+	<?php /* Dependencies */ ?>
+	<script src="<?php echo BASE_URL; ?>libs/minerva/minerva.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>libs/d3/d3.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>libs/d3/d3.tip.v0.6.3.js"></script>
+	<script src="<?php echo BASE_URL; ?>libs/d3/topojson.v1.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>libs/bootstrap/ui-bootstrap-tpls-0.13.0.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>libs/underscore/underscore-min.js"></script>
+	<script src="<?php echo BASE_URL; ?>libs/jQuery.DataTables/jquery.dataTables.min.js"></script>
+	<script src="<?php echo BASE_URL; ?>libs/jQuery.DataTables/dataTables.responsive.js"></script>
+	
+	<?php if (login_check($mysqli) == false) : ?>
+	<script src="<?php echo BASE_URL; ?>js/form.js"></script>
+	<script src="<?php echo BASE_URL; ?>js/sha512.js"></script>
+	<?php endif; ?>
 	
 	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
